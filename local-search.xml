@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Hexo博客文章发布</title>
+    <link href="/2021/10/01/article/"/>
+    <url>/2021/10/01/article/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>搭建博客</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Hexo</tag>
+      
+      <tag>Markdown</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Hello World</title>
     <link href="/2021/09/25/hello-world/"/>
     <url>/2021/09/25/hello-world/</url>
