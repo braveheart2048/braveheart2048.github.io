@@ -4,6 +4,83 @@
   
   
   <entry>
+    <title>Maven介绍</title>
+    <link href="/2022/05/14/Maven%E4%BB%8B%E7%BB%8D/"/>
+    <url>/2022/05/14/Maven%E4%BB%8B%E7%BB%8D/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Maven基础"><a href="#Maven基础" class="headerlink" title="Maven基础"></a>Maven基础</h1><p>Maven是一个Java项目管理和构建工具，它可以定义项目结构、项目依赖，并使用统一的方式进行自动化构建，是Java项目不可缺少的工具。</p><hr><h2 id="Maven介绍"><a href="#Maven介绍" class="headerlink" title="Maven介绍"></a>Maven介绍</h2><ol><li><p>一个使用Maven管理的普通的Java项目，它的目录结构默认如下：</p><p><img src="/.com//Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220419165550723.png"></p></li></ol><p>存放Java源码的目录是<code>src/main/java</code>，存放资源文件的目录是<code>src/main/resources</code>，存放测试源码的目录是<code>src/test/java</code>，存放测试资源的目录是<code>src/test/resources</code>，最后，所有编译、打包生成的文件都放在<code>target</code>目录里。</p><h2 id="依赖管理"><a href="#依赖管理" class="headerlink" title="依赖管理"></a>依赖管理</h2><ol><li><p>Maven解决了依赖管理问题。例如，我们的项目依赖<code>abc</code>这个jar包，而<code>abc</code>又依赖<code>xyz</code>这个jar包：</p><p><img src="/.com//Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220419170045724.png"></p><p>​    当我们声明了<code>abc</code>的依赖时，Maven自动把<code>abc</code>和<code>xyz</code>都加入了我们的项目依赖，不需要我们自己去研究<code>abc</code>是否需要依赖<code>xyz</code>。</p></li><li><p>依赖关系</p><p>Maven定义了几种依赖关系，分别是<code>compile</code>、<code>test</code>、<code>runtime</code>和<code>provided</code>：</p><table><thead><tr><th align="left">scope</th><th align="left">说明</th><th align="left">示例</th></tr></thead><tbody><tr><td align="left">compile</td><td align="left">编译时需要用到该jar包（默认）</td><td align="left">commons-logging</td></tr><tr><td align="left">test</td><td align="left">编译Test时需要用到该jar包</td><td align="left">junit</td></tr><tr><td align="left">runtime</td><td align="left">编译时不需要，但运行时需要用到</td><td align="left">mysql</td></tr><tr><td align="left">provided</td><td align="left">编译时需要用到，但运行时由JDK或某个服务器提供</td><td align="left">servlet-api</td></tr></tbody></table></li><li><p>唯一ID</p><p>对于某个依赖，Maven只需要3个变量即可唯一确定某个jar包：</p><ul><li>groupId：属于组织的名称，类似Java的包名；</li><li>artifactId：该jar包自身的名称，类似Java的类名；</li><li>version：该jar包的版本。</li></ul></li><li><p>Maven镜像</p><p>中国区用户可以使用阿里云提供的Maven镜像仓库。使用Maven镜像仓库需要一个配置，在用户主目录下进入<code>.m2</code>目录，创建一个<code>settings.xml</code>配置文件，内容如下：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">settings</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">mirrors</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">mirror</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>aliyun<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>aliyun<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">mirrorOf</span>&gt;</span>central<span class="hljs-tag">&lt;/<span class="hljs-name">mirrorOf</span>&gt;</span><br>            <span class="hljs-comment">&lt;!-- 国内推荐阿里云的Maven镜像 --&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>https://maven.aliyun.com/repository/central<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">mirror</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">mirrors</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">settings</span>&gt;</span><br></code></pre></td></tr></table></figure></li><li><p>搜索第三方组件</p><p>最后一个问题：如果我们要引用一个第三方组件，比如<code>okhttp</code>，如何确切地获得它的<code>groupId</code>、<code>artifactId</code>和<code>version</code>？方法是通过<a href="https://search.maven.org/">search.maven.org</a>搜索关键字，找到对应的组件后，直接复制</p></li></ol><p><strong>小结</strong></p><p>Maven通过解析依赖关系确定项目所需的jar包，常用的4种<code>scope</code>有：<code>compile</code>（默认），<code>test</code>，<code>runtime</code>和<code>provided</code>；</p><p>Maven从中央仓库下载所需的jar包并缓存在本地；</p><p>可以通过镜像仓库加速下载。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>大二生涯</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>maven</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title></title>
+    <link href="/2022/05/13/UML%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B/"/>
+    <url>/2022/05/13/UML%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B/</url>
+    
+    <content type="html"><![CDATA[<p>title: <strong>快速学习时序图：时序图简介、画法及实例</strong> # 标题<br>date: 2022/5/14 19:53:04 # 时间<br>categories: # 分类</p><ul><li>大二生涯<br>tags: # 标签</li><li>UML</li></ul><h1 id="快速学习时序图：时序图简介、画法及实例"><a href="#快速学习时序图：时序图简介、画法及实例" class="headerlink" title="快速学习时序图：时序图简介、画法及实例"></a><strong>快速学习时序图：时序图简介、画法及实例</strong></h1><h2 id="组成元素有哪些？"><a href="#组成元素有哪些？" class="headerlink" title="组成元素有哪些？"></a><strong>组成元素有哪些？</strong></h2><ol><li><p>角色（Actor）</p></li><li><p>对象（Object）</p></li><li><p>生命线（Lifeline）</p></li><li><p>控制焦点（Focus of Control）</p></li><li><p>消息（Message）</p></li><li><p>自关联消息</p></li><li><p>组合片段</p><p>组合片段用来解决交互执行的条件和方式，它允许在序列图中直接表示逻辑组件，用于通过指定条件或子进程的应用区域，为任何生命线的任何部分定义特殊条件和子进程。组合片段共有13种，名称及含义如下：</p><p><img src="http://www.uml.org.cn/oobject/images/2019092021.png"></p><p>常用组合片段举例：</p><ol><li><p>抉择（Alt）</p><p>抉择在任何场合下只发生一个序列。</p><p><img src="http://www.uml.org.cn/oobject/images/2019092022.png"></p></li><li><p>选项（Opt）</p><p>包含一个可能发生或不发生的序列；</p><p><img src="http://www.uml.org.cn/oobject/images/2019092023.png"></p></li><li><p>循环（Loop）</p><p>片段重复一定次数，可以在临界中指示片段重复的条件。</p><p><img src="http://www.uml.org.cn/oobject/images/2019092024.png"></p></li><li><p>并行（Par）</p><p><img src="http://www.uml.org.cn/oobject/images/2019092025.png"></p></li></ol></li></ol><h2 id="时序图的画法及实例"><a href="#时序图的画法及实例" class="headerlink" title="时序图的画法及实例"></a><strong>时序图的画法及实例</strong></h2><ol><li><p>划清边界，识别交互的语境</p><p>所谓划清边界，就是要界定好自己所要画的时序图的范围，“学生在教务系统中查询其课程的成绩”就是所要绘制的时序图的交互内容，不用往上延伸到用户登录，也不要往下延伸到下载成绩单。</p><p>识别交互的语境，即是读懂所要画的时序图的前提和背景。比如本例中，既然学生可以查询成绩，那么该学生肯定已经注册并认证过其身份，并可选择其所考试的课程查询相应成绩。</p></li><li><p>梳理角色和对象</p><p>在本例中，角色有学生，对象有教务系统、课程、成绩。</p><p>对象的梳理是一个相对主观的过程，比如本例中，课程以及成绩分别作为了对象存在，也可以合并为数据库这一个对象。</p><p>请注意：角色以及对象，都为名词，动词不可作为角色和对象，如“成绩查询”不可作为对象。</p><img src="http://www.uml.org.cn/oobject/images/2019092026.png" style="zoom:50%;"></li><li><p>添加消息</p><p>学生的登录验证作为本时序图的前置行为，可直接引用到本时序图中，也可忽略不画；学生进入成绩查询页面后，页面会加载本学生的成绩查询课程列表，并显示出课程对应的成绩；</p><img src="http://www.uml.org.cn/oobject/images/2019092027.png" style="zoom:50%;"></li></ol>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title></title>
+    <link href="/2022/05/13/%E7%94%A8%E4%BE%8B%E5%9B%BE%E6%80%8E%E4%B9%88%E7%94%BB%EF%BC%9F%E9%99%844%E5%A4%A7%E5%85%B3%E7%B3%BB%E8%AF%A6%E8%A7%A3/"/>
+    <url>/2022/05/13/%E7%94%A8%E4%BE%8B%E5%9B%BE%E6%80%8E%E4%B9%88%E7%94%BB%EF%BC%9F%E9%99%844%E5%A4%A7%E5%85%B3%E7%B3%BB%E8%AF%A6%E8%A7%A3/</url>
+    
+    <content type="html"><![CDATA[<h1 id="用例图的定义及组成要素"><a href="#用例图的定义及组成要素" class="headerlink" title="用例图的定义及组成要素"></a>用例图的定义及组成要素</h1><p>它主要由三部分组成：<strong>参与者</strong>、<strong>用例</strong>、<strong>参与者与用例之间的关系。</strong></p><p><strong>参与者：</strong>不是特指人，是指系统以外的，在使用系统或与系统交互中所扮演的角色。</p><p><strong>用例：</strong>是对包括变量在内的一组动作序列的描述，系统执行这些动作，并产生传递特定参与者的价值的可观察结果。</p><p><strong>关系：</strong>参与者与用例之间的关系主要包括关联、归纳（泛化）、包含、拓展和依赖。</p><h1 id="参与者与用例的4种关系"><a href="#参与者与用例的4种关系" class="headerlink" title="参与者与用例的4种关系"></a>参与者与用例的4种关系</h1><ol><li><h2 id="关联关系"><a href="#关联关系" class="headerlink" title="关联关系"></a><strong>关联关系</strong></h2><p><strong>举例说明：</strong>用户登录系统</p><p><img src="https://pic3.zhimg.com/80/v2-830ec9e117f74c4d1a9dc1776bead9b2_720w.jpg"></p></li><li><h2 id="归纳（泛化）关系"><a href="#归纳（泛化）关系" class="headerlink" title="归纳（泛化）关系"></a><strong>归纳（泛化）关系</strong></h2><p><strong>举例说明：</strong>VIP会员和普通用户，归纳为用户；账号登录与微信登录，也可归纳为登录系统。</p><p><img src="https://pic4.zhimg.com/80/v2-27fcca6ef7b16bdcf2cdf676d9adf7a3_720w.jpg"></p></li><li><h2 id="包含关系"><a href="#包含关系" class="headerlink" title="包含关系"></a><strong>包含关系</strong></h2><p><strong>举例说明：</strong>用户在账号登录过程中，包括输入账号、输入密码、确认登录等操作</p><p><img src="https://pic3.zhimg.com/80/v2-d5d0914418cbeb28d987f7f2673febd2_720w.jpg"></p></li><li><h2 id="拓展关系"><a href="#拓展关系" class="headerlink" title="拓展关系"></a><strong>拓展关系</strong></h2><p>举例说明：用户在登录过程中忘记了密码</p><p><img src="https://pic4.zhimg.com/80/v2-e05e2ae3afe5ffea1836352c547f3c13_720w.jpg"></p></li></ol>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title></title>
+    <link href="/2022/05/05/Windows%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/"/>
+    <url>/2022/05/05/Windows%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[<p>title: <strong>如何方便的在任意目录下运行Windows命令行</strong> # 标题<br>date: 2022/5/14 19:53:04 # 时间<br>categories: # 分类</p><ul><li>大二生涯<br>tags: # 标签</li><li>windows</li></ul><h1 id="如何方便的在任意目录下运行Windows命令行"><a href="#如何方便的在任意目录下运行Windows命令行" class="headerlink" title="如何方便的在任意目录下运行Windows命令行"></a>如何方便的在任意目录下运行Windows命令行</h1><p>打开想去的目录，空白处，按住shift+鼠标右键，就可以选择在此处打开命令行了。</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title></title>
+    <link href="/2022/05/05/SpringAOP%E5%AD%A6%E4%B9%A0%E6%95%B4%E7%90%86/"/>
+    <url>/2022/05/05/SpringAOP%E5%AD%A6%E4%B9%A0%E6%95%B4%E7%90%86/</url>
+    
+    <content type="html"><![CDATA[<p>title: SpringAOP学习整理 # 标题<br>date: 2022/5/14 19:53:04 # 时间<br>categories: # 分类</p><ul><li>大二生涯<br>tags: # 标签</li><li>spring</li><li>AOP</li></ul><h1 id="对AOP的初印象"><a href="#对AOP的初印象" class="headerlink" title="对AOP的初印象"></a>对AOP的初印象</h1><p><img src="https://img-blog.csdn.net/20180530172528617?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3E5ODIxNTE3NTY=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p><h1 id="AOP中的相关概念"><a href="#AOP中的相关概念" class="headerlink" title="AOP中的相关概念"></a>AOP中的相关概念</h1><ul><li><p>Aspect（切面）： Aspect 声明类似于 Java 中的类声明，在 Aspect 中会包含着一些 Pointcut 以及相应的 Advice。</p></li><li><p>Joint point（连接点）：表示在程序中明确定义的点，典型的包括方法调用，对类成员的访问以及异常处理程序块的执行等等，它自身还可以嵌套其它 joint point。</p></li><li><p>Pointcut（切点）：表示一组 joint point，这些 joint point 或是通过逻辑关系组合起来，或是通过通配、正则表达式等方式集中起来，它定义了相应的 Advice 将要发生的地方。</p></li><li><p>Advice（增强）：Advice 定义了在 Pointcut 里面定义的程序点具体要做的操作，它通过 before、after 和 around 来区别是在每个 joint point 之前、之后还是代替执行的代码。</p></li><li><p>Target（目标对象）：织入 Advice 的目标对象.。</p></li><li><p>Weaving（织入）：将 Aspect 和其他对象连接起来, 并创建 Adviced object 的过程</p><img src="https://img-blog.csdn.net/20180530175605692?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3E5ODIxNTE3NTY=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" style="zoom: 67%;"></li></ul><h1 id="Advice-的类型"><a href="#Advice-的类型" class="headerlink" title="Advice 的类型"></a>Advice 的类型</h1><ul><li>before advice, 在 join point 前被执行的 advice. 虽然 before advice 是在 join point 前被执行, 但是它并不能够阻止 join point 的执行, 除非发生了异常(即我们在 before advice 代码中, 不能人为地决定是否继续执行 join point 中的代码)</li><li>after return advice, 在一个 join point 正常返回后执行的 advice</li><li>after throwing advice, 当一个 join point 抛出异常后执行的 advice</li><li>after(final) advice, 无论一个 join point 是正常退出还是发生了异常, 都会被执行的 advice.</li><li>around advice, 在 join point 前和 joint point 退出后都执行的 advice. 这个是最常用的 advice.</li><li>introduction，introduction可以为原有的对象增加新的属性和方法。</li></ul><h1 id="在Java平台上，对于AOP的织入，有3种方式："><a href="#在Java平台上，对于AOP的织入，有3种方式：" class="headerlink" title="在Java平台上，对于AOP的织入，有3种方式："></a>在Java平台上，对于AOP的织入，有3种方式：</h1><ol><li>编译期：在编译时，由编译器把切面调用编译进字节码，这种方式需要定义新的关键字并扩展编译器，AspectJ就扩展了Java编译器，使用关键字aspect来实现织入；</li><li>类加载器：在目标类被装载到JVM时，通过一个特殊的类加载器，对目标类的字节码重新“增强”；</li><li>运行期：目标对象和切面都是普通Java类，通过JVM的动态代理功能或者第三方库实现运行期动态织入。</li></ol>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>lanTingXu</title>
     <link href="/2021/10/10/lanTingXu/"/>
     <url>/2021/10/10/lanTingXu/</url>
