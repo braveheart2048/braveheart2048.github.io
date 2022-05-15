@@ -16,22 +16,24 @@
   <meta name="description" content="选择有时候比努力更重要">
   <meta name="author" content="枫叶">
   <meta name="keywords" content="">
-  <meta name="description" content="title: SpringAOP学习整理 # 标题date: 2022&#x2F;5&#x2F;14 19:53:04 # 时间categories: # 分类  大二生涯tags: # 标签 spring AOP  对AOP的初印象 AOP中的相关概念 Aspect（切面）： Aspect 声明类似于 Java 中的类声明，在 Aspect 中会包含着一些 Pointcut 以及相应的 Advice。  Joint">
+  <meta name="description" content="# 对AOP的初印象   AOP中的相关概念 Aspect（切面）： Aspect 声明类似于 Java 中的类声明，在 Aspect 中会包含着一些 Pointcut 以及相应的 Advice。  Joint point（连接点）：表示在程序中明确定义的点，典型的包括方法调用，对类成员的访问以及异常处理程序块的执行等等，它自身还可以嵌套其它 joint point。  Pointcut（切点）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="枫叶苑">
-<meta property="og:url" content="http://example.com/2022/05/05/SpringAOP%E5%AD%A6%E4%B9%A0%E6%95%B4%E7%90%86/index.html">
+<meta property="og:title" content="SpringAOP学习整理">
+<meta property="og:url" content="http://example.com/2022/05/14/SpringAOP%E5%AD%A6%E4%B9%A0%E6%95%B4%E7%90%86/index.html">
 <meta property="og:site_name" content="枫叶苑">
-<meta property="og:description" content="title: SpringAOP学习整理 # 标题date: 2022&#x2F;5&#x2F;14 19:53:04 # 时间categories: # 分类  大二生涯tags: # 标签 spring AOP  对AOP的初印象 AOP中的相关概念 Aspect（切面）： Aspect 声明类似于 Java 中的类声明，在 Aspect 中会包含着一些 Pointcut 以及相应的 Advice。  Joint">
+<meta property="og:description" content="# 对AOP的初印象   AOP中的相关概念 Aspect（切面）： Aspect 声明类似于 Java 中的类声明，在 Aspect 中会包含着一些 Pointcut 以及相应的 Advice。  Joint point（连接点）：表示在程序中明确定义的点，典型的包括方法调用，对类成员的访问以及异常处理程序块的执行等等，它自身还可以嵌套其它 joint point。  Pointcut（切点）">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img-blog.csdn.net/20180530172528617?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3E5ODIxNTE3NTY=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 <meta property="og:image" content="https://img-blog.csdn.net/20180530175605692?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3E5ODIxNTE3NTY=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="article:published_time" content="2022-05-05T09:15:58.178Z">
-<meta property="article:modified_time" content="2022-05-14T12:00:34.081Z">
+<meta property="article:published_time" content="2022-05-14T11:53:04.000Z">
+<meta property="article:modified_time" content="2022-05-15T11:34:46.531Z">
 <meta property="article:author" content="枫叶">
+<meta property="article:tag" content="spring">
+<meta property="article:tag" content="AOP">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://img-blog.csdn.net/20180530172528617?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3E5ODIxNTE3NTY=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
   
-  <title>枫叶苑</title>
+  <title>SpringAOP学习整理 - 枫叶苑</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -177,7 +179,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="">
+            <span class="h2" id="subtitle" title="SpringAOP学习整理">
               
             </span>
 
@@ -187,8 +189,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-05-05 17:15" pubdate>
-        2022年5月5日 下午
+      <time datetime="2022-05-14 19:53" pubdate>
+        2022年5月14日 晚上
       </time>
     </span>
   
@@ -198,7 +200,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.1k 字
+      1k 字
     </span>
   
 
@@ -207,7 +209,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4 分钟
+      3 分钟
     </span>
   
 
@@ -236,16 +238,13 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none"></h1>
+            <h1 style="display: none">SpringAOP学习整理</h1>
             
             <div class="markdown-body">
-              <p>title: SpringAOP学习整理 # 标题<br>date: 2022/5/14 19:53:04 # 时间<br>categories: # 分类</p>
-<ul>
-<li>大二生涯<br>tags: # 标签</li>
-<li>spring</li>
-<li>AOP</li>
-</ul>
-<h1 id="对AOP的初印象"><a href="#对AOP的初印象" class="headerlink" title="对AOP的初印象"></a>对AOP的初印象</h1><p><img src="https://img-blog.csdn.net/20180530172528617?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3E5ODIxNTE3NTY=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" srcset="/img/loading.gif" lazyload></p>
+              <meta name="referrer" content="no-referrer">
+# 对AOP的初印象
+
+<p><img src="https://img-blog.csdn.net/20180530172528617?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3E5ODIxNTE3NTY=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" srcset="/img/loading.gif" lazyload></p>
 <h1 id="AOP中的相关概念"><a href="#AOP中的相关概念" class="headerlink" title="AOP中的相关概念"></a>AOP中的相关概念</h1><ul>
 <li><p>Aspect（切面）： Aspect 声明类似于 Java 中的类声明，在 Aspect 中会包含着一些 Pointcut 以及相应的 Advice。</p>
 </li>
@@ -279,6 +278,22 @@
             <div>
               <div class="post-metas mb-3">
                 
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%A4%A7%E4%BA%8C%E7%94%9F%E6%B6%AF/">大二生涯</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/spring/">spring</a>
+                    
+                      <a class="hover-with-bg" href="/tags/AOP/">AOP</a>
+                    
+                  </div>
                 
               </div>
               
@@ -293,18 +308,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/05/05/Windows%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/10/10/lanTingXu/">
-                        <span class="hidden-mobile">lanTingXu</span>
+                      <a href="/2022/05/14/Maven%E4%BB%8B%E7%BB%8D/">
+                        <span class="hidden-mobile">Maven介绍</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
