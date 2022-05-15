@@ -23,11 +23,14 @@
 <meta property="og:site_name" content="枫叶苑">
 <meta property="og:description" content="发布文章 进入博客所在目录，右键打开 Git Bash Here，创建博文： 1hexo new &quot;My New Post&quot;  写完后运行下面代码将文章渲染并部署到 GitHub Pages 上完成发布。 12hexo g   # 生成页面hexo d   # 部署发布 也可以不使用命令自己创建 .md 文件，只需在文件开头手动加入如下格式 Front-matter 即可，写完">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/05/15/RVk4TQdihegAE1P.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/15/xcG4Zt5qgjm72oW.png">
 <meta property="article:published_time" content="2022-05-14T11:53:04.000Z">
-<meta property="article:modified_time" content="2022-05-15T11:42:03.470Z">
+<meta property="article:modified_time" content="2022-05-15T14:08:10.765Z">
 <meta property="article:author" content="枫叶">
 <meta property="article:tag" content="博客建设">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://s2.loli.net/2022/05/15/RVk4TQdihegAE1P.png">
   
   <title>个人博客相关问题 - 枫叶苑</title>
 
@@ -196,7 +199,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      313 字
+      616 字
     </span>
   
 
@@ -205,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1 分钟
+      2 分钟
     </span>
   
 
@@ -247,6 +250,21 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash">---<br>title: Hello World <span class="hljs-comment"># 标题</span><br>date: 2019/3/26 hh:mm:ss <span class="hljs-comment"># 时间</span><br>categories: <span class="hljs-comment"># 分类</span><br>- Diary<br>tags: <span class="hljs-comment"># 标签</span><br>- PS3<br>- Games<br>---<br><br>摘要<br>&lt;!--more--&gt;<br>正文<br></code></pre></td></tr></table></figure></li>
 </ol>
 <hr>
+<h1 id="typora图床设置"><a href="#typora图床设置" class="headerlink" title="typora图床设置"></a>typora图床设置</h1><p>在配置typora图床并设置自动上传时，遇到了如下问题</p>
+<ol>
+<li><p>typora图片上传验证按钮报错</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">chcp<span class="hljs-string">&#x27; is not recognized as an internal or external command, operable program or batch file</span><br></code></pre></td></tr></table></figure>
+
+<p>解决办法：</p>
+<p>需要在环境变量的系统变量的path后面加;C:\Windows\System32</p>
+<p><img src="https://s2.loli.net/2022/05/15/RVk4TQdihegAE1P.png" srcset="/img/loading.gif" lazyload></p>
+<p><em>要根据电脑上的system32文件夹的具体路径填入地址，区分大小写。</em></p>
+</li>
+<li><p>typora图片上传验证按钮报错etimedout，如下图</p>
+<p><img src="https://s2.loli.net/2022/05/15/xcG4Zt5qgjm72oW.png" srcset="/img/loading.gif" lazyload alt="image-20220515220547181"></p>
+<p>根据网上的教程，说是上传图片和已有图片名字重复了，但是我的图库里是空的，这个问题并没有解决，但是上传网络上的图片成功了。</p>
+</li>
+</ol>
 
             </div>
             <hr>
@@ -291,8 +309,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/10/10/lanTingXu/">
-                        <span class="hidden-mobile">lanTingXu</span>
+                      <a href="/2022/05/14/%E7%94%A8%E4%BE%8B%E5%9B%BE%E6%80%8E%E4%B9%88%E7%94%BB%EF%BC%9F%E9%99%844%E5%A4%A7%E5%85%B3%E7%B3%BB%E8%AF%A6%E8%A7%A3/">
+                        <span class="hidden-mobile">用例图怎么画？附4大关系详解</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
