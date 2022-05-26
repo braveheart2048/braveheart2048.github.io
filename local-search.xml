@@ -72,9 +72,9 @@
     
     <tags>
       
-      <tag>chrome</tag>
-      
       <tag>快捷键</tag>
+      
+      <tag>chrome</tag>
       
     </tags>
     
@@ -99,9 +99,9 @@
     
     <tags>
       
-      <tag>快捷键</tag>
-      
       <tag>idea</tag>
+      
+      <tag>快捷键</tag>
       
     </tags>
     
@@ -187,33 +187,6 @@
   
   
   <entry>
-    <title>SpringAOP学习整理</title>
-    <link href="/2022/05/14/SpringAOP%E5%AD%A6%E4%B9%A0%E6%95%B4%E7%90%86/"/>
-    <url>/2022/05/14/SpringAOP%E5%AD%A6%E4%B9%A0%E6%95%B4%E7%90%86/</url>
-    
-    <content type="html"><![CDATA[<meta name="referrer" content="no-referrer"># 对AOP的初印象<p><img src="https://img-blog.csdn.net/20180530172528617?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3E5ODIxNTE3NTY=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p><h1 id="AOP中的相关概念"><a href="#AOP中的相关概念" class="headerlink" title="AOP中的相关概念"></a>AOP中的相关概念</h1><ul><li><p>Aspect（切面）： Aspect 声明类似于 Java 中的类声明，在 Aspect 中会包含着一些 Pointcut 以及相应的 Advice。</p></li><li><p>Joint point（连接点）：表示在程序中明确定义的点，典型的包括方法调用，对类成员的访问以及异常处理程序块的执行等等，它自身还可以嵌套其它 joint point。</p></li><li><p>Pointcut（切点）：表示一组 joint point，这些 joint point 或是通过逻辑关系组合起来，或是通过通配、正则表达式等方式集中起来，它定义了相应的 Advice 将要发生的地方。</p></li><li><p>Advice（增强）：Advice 定义了在 Pointcut 里面定义的程序点具体要做的操作，它通过 before、after 和 around 来区别是在每个 joint point 之前、之后还是代替执行的代码。</p></li><li><p>Target（目标对象）：织入 Advice 的目标对象.。</p></li><li><p>Weaving（织入）：将 Aspect 和其他对象连接起来, 并创建 Adviced object 的过程</p><img src="https://img-blog.csdn.net/20180530175605692?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3E5ODIxNTE3NTY=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" style="zoom: 67%;"></li></ul><h1 id="Advice-的类型"><a href="#Advice-的类型" class="headerlink" title="Advice 的类型"></a>Advice 的类型</h1><ul><li>before advice, 在 join point 前被执行的 advice. 虽然 before advice 是在 join point 前被执行, 但是它并不能够阻止 join point 的执行, 除非发生了异常(即我们在 before advice 代码中, 不能人为地决定是否继续执行 join point 中的代码)</li><li>after return advice, 在一个 join point 正常返回后执行的 advice</li><li>after throwing advice, 当一个 join point 抛出异常后执行的 advice</li><li>after(final) advice, 无论一个 join point 是正常退出还是发生了异常, 都会被执行的 advice.</li><li>around advice, 在 join point 前和 joint point 退出后都执行的 advice. 这个是最常用的 advice.</li><li>introduction，introduction可以为原有的对象增加新的属性和方法。</li></ul><h1 id="在Java平台上，对于AOP的织入，有3种方式："><a href="#在Java平台上，对于AOP的织入，有3种方式：" class="headerlink" title="在Java平台上，对于AOP的织入，有3种方式："></a>在Java平台上，对于AOP的织入，有3种方式：</h1><ol><li>编译期：在编译时，由编译器把切面调用编译进字节码，这种方式需要定义新的关键字并扩展编译器，AspectJ就扩展了Java编译器，使用关键字aspect来实现织入；</li><li>类加载器：在目标类被装载到JVM时，通过一个特殊的类加载器，对目标类的字节码重新“增强”；</li><li>运行期：目标对象和切面都是普通Java类，通过JVM的动态代理功能或者第三方库实现运行期动态织入。</li></ol>]]></content>
-    
-    
-    <categories>
-      
-      <category>大二生涯</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>spring</tag>
-      
-      <tag>AOP</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>SpringMVC:文件上传和下载功能</title>
     <link href="/2022/05/14/SpringMVC%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%92%8C%E4%B8%8B%E8%BD%BD%E5%8A%9F%E8%83%BD%20-%20%E5%89%AF%E6%9C%AC/"/>
     <url>/2022/05/14/SpringMVC%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%92%8C%E4%B8%8B%E8%BD%BD%E5%8A%9F%E8%83%BD%20-%20%E5%89%AF%E6%9C%AC/</url>
@@ -233,6 +206,33 @@
       <tag>spring</tag>
       
       <tag>spring MVC</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SpringAOP学习整理</title>
+    <link href="/2022/05/14/SpringAOP%E5%AD%A6%E4%B9%A0%E6%95%B4%E7%90%86/"/>
+    <url>/2022/05/14/SpringAOP%E5%AD%A6%E4%B9%A0%E6%95%B4%E7%90%86/</url>
+    
+    <content type="html"><![CDATA[<meta name="referrer" content="no-referrer"># 对AOP的初印象<p><img src="https://img-blog.csdn.net/20180530172528617?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3E5ODIxNTE3NTY=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p><h1 id="AOP中的相关概念"><a href="#AOP中的相关概念" class="headerlink" title="AOP中的相关概念"></a>AOP中的相关概念</h1><ul><li><p>Aspect（切面）： Aspect 声明类似于 Java 中的类声明，在 Aspect 中会包含着一些 Pointcut 以及相应的 Advice。</p></li><li><p>Joint point（连接点）：表示在程序中明确定义的点，典型的包括方法调用，对类成员的访问以及异常处理程序块的执行等等，它自身还可以嵌套其它 joint point。</p></li><li><p>Pointcut（切点）：表示一组 joint point，这些 joint point 或是通过逻辑关系组合起来，或是通过通配、正则表达式等方式集中起来，它定义了相应的 Advice 将要发生的地方。</p></li><li><p>Advice（增强）：Advice 定义了在 Pointcut 里面定义的程序点具体要做的操作，它通过 before、after 和 around 来区别是在每个 joint point 之前、之后还是代替执行的代码。</p></li><li><p>Target（目标对象）：织入 Advice 的目标对象.。</p></li><li><p>Weaving（织入）：将 Aspect 和其他对象连接起来, 并创建 Adviced object 的过程</p><img src="https://img-blog.csdn.net/20180530175605692?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3E5ODIxNTE3NTY=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" style="zoom: 67%;"></li></ul><h1 id="Advice-的类型"><a href="#Advice-的类型" class="headerlink" title="Advice 的类型"></a>Advice 的类型</h1><ul><li>before advice, 在 join point 前被执行的 advice. 虽然 before advice 是在 join point 前被执行, 但是它并不能够阻止 join point 的执行, 除非发生了异常(即我们在 before advice 代码中, 不能人为地决定是否继续执行 join point 中的代码)</li><li>after return advice, 在一个 join point 正常返回后执行的 advice</li><li>after throwing advice, 当一个 join point 抛出异常后执行的 advice</li><li>after(final) advice, 无论一个 join point 是正常退出还是发生了异常, 都会被执行的 advice.</li><li>around advice, 在 join point 前和 joint point 退出后都执行的 advice. 这个是最常用的 advice.</li><li>introduction，introduction可以为原有的对象增加新的属性和方法。</li></ul><h1 id="在Java平台上，对于AOP的织入，有3种方式："><a href="#在Java平台上，对于AOP的织入，有3种方式：" class="headerlink" title="在Java平台上，对于AOP的织入，有3种方式："></a>在Java平台上，对于AOP的织入，有3种方式：</h1><ol><li>编译期：在编译时，由编译器把切面调用编译进字节码，这种方式需要定义新的关键字并扩展编译器，AspectJ就扩展了Java编译器，使用关键字aspect来实现织入；</li><li>类加载器：在目标类被装载到JVM时，通过一个特殊的类加载器，对目标类的字节码重新“增强”；</li><li>运行期：目标对象和切面都是普通Java类，通过JVM的动态代理功能或者第三方库实现运行期动态织入。</li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>大二生涯</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>spring</tag>
+      
+      <tag>AOP</tag>
       
     </tags>
     
