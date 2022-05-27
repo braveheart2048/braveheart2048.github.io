@@ -16,25 +16,21 @@
   <meta name="description" content="选择有时候比努力更重要">
   <meta name="author" content="枫叶">
   <meta name="keywords" content="">
-  <meta name="description" content="用例图的定义及组成要素它主要由三部分组成：参与者、用例、参与者与用例之间的关系。 参与者：不是特指人，是指系统以外的，在使用系统或与系统交互中所扮演的角色。 用例：是对包括变量在内的一组动作序列的描述，系统执行这些动作，并产生传递特定参与者的价值的可观察结果。 关系：参与者与用例之间的关系主要包括关联、归纳（泛化）、包含、拓展和依赖。 参与者与用例的4种关系 关联关系举例说明：用户登录系统   归">
+  <meta name="description" content="el即Expression Language，用来在jsp页面上显示内容，jstl是JSP Standard Tag Library的缩写，包含多种标签，el和jstl结合使用，页面渲染更方便。  EL内置对象   内置对象 说明    pageScope 获取 page 范围的变量   requestScope 获取 request 范围的变量   sessionScope 获取 session">
 <meta property="og:type" content="article">
-<meta property="og:title" content="用例图怎么画？附4大关系详解">
-<meta property="og:url" content="http://example.com/2022/05/14/%E7%94%A8%E4%BE%8B%E5%9B%BE%E6%80%8E%E4%B9%88%E7%94%BB%EF%BC%9F%E9%99%844%E5%A4%A7%E5%85%B3%E7%B3%BB%E8%AF%A6%E8%A7%A3/index.html">
+<meta property="og:title" content="el和jstl表达式">
+<meta property="og:url" content="http://example.com/2022/05/27/el%E5%92%8Cjstl%E8%A1%A8%E8%BE%BE%E5%BC%8F/index.html">
 <meta property="og:site_name" content="枫叶苑">
-<meta property="og:description" content="用例图的定义及组成要素它主要由三部分组成：参与者、用例、参与者与用例之间的关系。 参与者：不是特指人，是指系统以外的，在使用系统或与系统交互中所扮演的角色。 用例：是对包括变量在内的一组动作序列的描述，系统执行这些动作，并产生传递特定参与者的价值的可观察结果。 关系：参与者与用例之间的关系主要包括关联、归纳（泛化）、包含、拓展和依赖。 参与者与用例的4种关系 关联关系举例说明：用户登录系统   归">
+<meta property="og:description" content="el即Expression Language，用来在jsp页面上显示内容，jstl是JSP Standard Tag Library的缩写，包含多种标签，el和jstl结合使用，页面渲染更方便。  EL内置对象   内置对象 说明    pageScope 获取 page 范围的变量   requestScope 获取 request 范围的变量   sessionScope 获取 session">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://pic3.zhimg.com/80/v2-830ec9e117f74c4d1a9dc1776bead9b2_720w.jpg">
-<meta property="og:image" content="https://pic4.zhimg.com/80/v2-27fcca6ef7b16bdcf2cdf676d9adf7a3_720w.jpg">
-<meta property="og:image" content="https://pic3.zhimg.com/80/v2-d5d0914418cbeb28d987f7f2673febd2_720w.jpg">
-<meta property="og:image" content="https://pic4.zhimg.com/80/v2-e05e2ae3afe5ffea1836352c547f3c13_720w.jpg">
-<meta property="article:published_time" content="2022-05-14T11:53:04.000Z">
-<meta property="article:modified_time" content="2022-05-15T13:58:03.582Z">
+<meta property="article:published_time" content="2022-05-27T07:53:04.000Z">
+<meta property="article:modified_time" content="2022-05-27T08:38:24.902Z">
 <meta property="article:author" content="枫叶">
-<meta property="article:tag" content="UML">
+<meta property="article:tag" content="el表达式">
+<meta property="article:tag" content="jstl表达式">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://pic3.zhimg.com/80/v2-830ec9e117f74c4d1a9dc1776bead9b2_720w.jpg">
   
-  <title>用例图怎么画？附4大关系详解 - 枫叶苑</title>
+  <title>el和jstl表达式 - 枫叶苑</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -180,7 +176,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="用例图怎么画？附4大关系详解">
+            <span class="h2" id="subtitle" title="el和jstl表达式">
               
             </span>
 
@@ -190,8 +186,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-05-14 19:53" pubdate>
-        2022年5月14日 晚上
+      <time datetime="2022-05-27 15:53" pubdate>
+        2022年5月27日 下午
       </time>
     </span>
   
@@ -201,7 +197,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      302 字
+      1.6k 字
     </span>
   
 
@@ -210,7 +206,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1 分钟
+      5 分钟
     </span>
   
 
@@ -239,27 +235,72 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">用例图怎么画？附4大关系详解</h1>
+            <h1 style="display: none">el和jstl表达式</h1>
             
             <div class="markdown-body">
-              <h1 id="用例图的定义及组成要素"><a href="#用例图的定义及组成要素" class="headerlink" title="用例图的定义及组成要素"></a>用例图的定义及组成要素</h1><p>它主要由三部分组成：<strong>参与者</strong>、<strong>用例</strong>、<strong>参与者与用例之间的关系。</strong></p>
-<p><strong>参与者：</strong>不是特指人，是指系统以外的，在使用系统或与系统交互中所扮演的角色。</p>
-<p><strong>用例：</strong>是对包括变量在内的一组动作序列的描述，系统执行这些动作，并产生传递特定参与者的价值的可观察结果。</p>
-<p><strong>关系：</strong>参与者与用例之间的关系主要包括关联、归纳（泛化）、包含、拓展和依赖。</p>
-<h1 id="参与者与用例的4种关系"><a href="#参与者与用例的4种关系" class="headerlink" title="参与者与用例的4种关系"></a>参与者与用例的4种关系</h1><ol>
-<li><h2 id="关联关系"><a href="#关联关系" class="headerlink" title="关联关系"></a><strong>关联关系</strong></h2><p><strong>举例说明：</strong>用户登录系统</p>
-<p><img src="https://pic3.zhimg.com/80/v2-830ec9e117f74c4d1a9dc1776bead9b2_720w.jpg" srcset="/img/loading.gif" lazyload></p>
-</li>
-<li><h2 id="归纳（泛化）关系"><a href="#归纳（泛化）关系" class="headerlink" title="归纳（泛化）关系"></a><strong>归纳（泛化）关系</strong></h2><p><strong>举例说明：</strong>VIP会员和普通用户，归纳为用户；账号登录与微信登录，也可归纳为登录系统。</p>
-<p><img src="https://pic4.zhimg.com/80/v2-27fcca6ef7b16bdcf2cdf676d9adf7a3_720w.jpg" srcset="/img/loading.gif" lazyload></p>
-</li>
-<li><h2 id="包含关系"><a href="#包含关系" class="headerlink" title="包含关系"></a><strong>包含关系</strong></h2><p><strong>举例说明：</strong>用户在账号登录过程中，包括输入账号、输入密码、确认登录等操作</p>
-<p><img src="https://pic3.zhimg.com/80/v2-d5d0914418cbeb28d987f7f2673febd2_720w.jpg" srcset="/img/loading.gif" lazyload></p>
-</li>
-<li><h2 id="拓展关系"><a href="#拓展关系" class="headerlink" title="拓展关系"></a><strong>拓展关系</strong></h2><p>举例说明：用户在登录过程中忘记了密码</p>
-<p><img src="https://pic4.zhimg.com/80/v2-e05e2ae3afe5ffea1836352c547f3c13_720w.jpg" srcset="/img/loading.gif" lazyload></p>
-</li>
-</ol>
+              <p>el即Expression Language，用来在jsp页面上显示内容，jstl是JSP Standard Tag Library的缩写，包含多种标签，el和jstl结合使用，页面渲染更方便。</p>
+<hr>
+<h2 id="EL内置对象"><a href="#EL内置对象" class="headerlink" title="EL内置对象"></a>EL内置对象</h2><table>
+<thead>
+<tr>
+<th align="left">内置对象</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">pageScope</td>
+<td align="left">获取 page 范围的变量</td>
+</tr>
+<tr>
+<td align="left">requestScope</td>
+<td align="left">获取 request 范围的变量</td>
+</tr>
+<tr>
+<td align="left">sessionScope</td>
+<td align="left">获取 session 范围的变量</td>
+</tr>
+<tr>
+<td align="left">applicationScope</td>
+<td align="left">获取 application 范围的变量</td>
+</tr>
+<tr>
+<td align="left">param</td>
+<td align="left">相当于 request.getParameter(String name)，获取单个参数的值</td>
+</tr>
+<tr>
+<td align="left">paramValues</td>
+<td align="left">相当于 request.getParameterValues(String name)，获取参数集合中的变量值</td>
+</tr>
+<tr>
+<td align="left">header</td>
+<td align="left">相当于 request.getHeader(String name)，获取 HTTP 请求头信息</td>
+</tr>
+<tr>
+<td align="left">headerValues</td>
+<td align="left">相当于 request.getHeaders(String name)，获取 HTTP 请求头数组信息</td>
+</tr>
+<tr>
+<td align="left">initParam</td>
+<td align="left">相当于 application.getInitParameter(String name)，获取 web.xml 文件中的参数值</td>
+</tr>
+<tr>
+<td align="left">cookie</td>
+<td align="left">相当于 request.getCookies()，获取 cookie 中的值</td>
+</tr>
+<tr>
+<td align="left">pageContext</td>
+<td align="left">表示当前 JSP 页面的 pageContext 对象</td>
+</tr>
+</tbody></table>
+<p>EL 表达式获取 4 种不同范围的属性，代码如下：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs jsp">&lt;%@ page language=<span class="hljs-string">&quot;java&quot;</span> contentType=<span class="hljs-string">&quot;text/html; charset=UTF-8&quot;</span><br>    pageEncoding=<span class="hljs-string">&quot;UTF-8&quot;</span>%&gt;<br>&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;title&gt;编程帮(www.biancheng.net)&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;%<br>        pageContext.setAttribute(<span class="hljs-string">&quot;info&quot;</span>, <span class="hljs-string">&quot;page属性范围&quot;</span>);<br>        request.setAttribute(<span class="hljs-string">&quot;info&quot;</span>, <span class="hljs-string">&quot;request属性范围&quot;</span>);<br>        session.setAttribute(<span class="hljs-string">&quot;info&quot;</span>, <span class="hljs-string">&quot;session属性范围&quot;</span>);<br>        application.setAttribute(<span class="hljs-string">&quot;info&quot;</span>, <span class="hljs-string">&quot;application属性范围&quot;</span>);<br>    %&gt;<br>    &lt;h2&gt;不同属性范围的值&lt;/h2&gt;<br>    &lt;hr /&gt;<br>    不指定范围：$&#123;info&#125;<br>    &lt;br&gt; page 属性内容：$&#123;pageScope.info&#125;<br>    &lt;br&gt; request 属性内容：$&#123;requestScope.info&#125;<br>    &lt;br&gt;session 属性内容：$&#123;sessionScope.info&#125;<br>    &lt;br&gt;application 属性内容：$&#123;applicationScope.info&#125;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="jstl标签很多，笔记一下我常用到的标签"><a href="#jstl标签很多，笔记一下我常用到的标签" class="headerlink" title="jstl标签很多，笔记一下我常用到的标签"></a>jstl标签很多，笔记一下我常用到的标签</h2><p><strong>if</strong></p>
+<p>语法：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs jsp">&lt;c:<span class="hljs-keyword">if</span> test=<span class="hljs-string">&quot;$&#123;one.name eq &#x27;nick&#x27;&#125;&quot;</span>&gt;<br>                &lt;tr&gt;<br>                    &lt;td&gt;nick&lt;/td&gt;<br>                &lt;/tr&gt;<br>&lt;/c:<span class="hljs-keyword">if</span>&gt;<br></code></pre></td></tr></table></figure>
+
+<hr>
 
             </div>
             <hr>
@@ -277,7 +318,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/UML/">UML</a>
+                      <a class="hover-with-bg" href="/tags/el%E8%A1%A8%E8%BE%BE%E5%BC%8F/">el表达式</a>
+                    
+                      <a class="hover-with-bg" href="/tags/jstl%E8%A1%A8%E8%BE%BE%E5%BC%8F/">jstl表达式</a>
                     
                   </div>
                 
@@ -294,18 +337,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/05/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">个人博客相关问题</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/04/26/crm%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">
-                        <span class="hidden-mobile">crm项目相关问题</span>
+                      <a href="/2022/05/27/springboot%E5%AD%A6%E4%B9%A0%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">
+                        <span class="hidden-mobile">springboot学习时遇到的问题</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
