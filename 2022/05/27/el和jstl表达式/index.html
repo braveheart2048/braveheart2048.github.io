@@ -24,7 +24,7 @@
 <meta property="og:description" content="el即Expression Language，用来在jsp页面上显示内容，jstl是JSP Standard Tag Library的缩写，包含多种标签，el和jstl结合使用，页面渲染更方便。  EL内置对象   内置对象 说明    pageScope 获取 page 范围的变量   requestScope 获取 request 范围的变量   sessionScope 获取 session">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-05-27T07:53:04.000Z">
-<meta property="article:modified_time" content="2022-05-28T01:55:44.888Z">
+<meta property="article:modified_time" content="2022-05-31T03:53:16.600Z">
 <meta property="article:author" content="枫叶">
 <meta property="article:tag" content="el表达式">
 <meta property="article:tag" content="jstl表达式">
@@ -197,7 +197,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.9k 字
+      2k 字
     </span>
   
 
@@ -240,7 +240,7 @@
             <div class="markdown-body">
               <p>el即Expression Language，用来在jsp页面上显示内容，jstl是JSP Standard Tag Library的缩写，包含多种标签，el和jstl结合使用，页面渲染更方便。</p>
 <hr>
-<h2 id="EL内置对象"><a href="#EL内置对象" class="headerlink" title="EL内置对象"></a>EL内置对象</h2><table>
+<h1 id="EL内置对象"><a href="#EL内置对象" class="headerlink" title="EL内置对象"></a>EL内置对象</h1><table>
 <thead>
 <tr>
 <th align="left">内置对象</th>
@@ -296,7 +296,7 @@
 <figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs jsp">&lt;%@ page language=<span class="hljs-string">&quot;java&quot;</span> contentType=<span class="hljs-string">&quot;text/html; charset=UTF-8&quot;</span><br>    pageEncoding=<span class="hljs-string">&quot;UTF-8&quot;</span>%&gt;<br>&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;title&gt;编程帮(www.biancheng.net)&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;%<br>        pageContext.setAttribute(<span class="hljs-string">&quot;info&quot;</span>, <span class="hljs-string">&quot;page属性范围&quot;</span>);<br>        request.setAttribute(<span class="hljs-string">&quot;info&quot;</span>, <span class="hljs-string">&quot;request属性范围&quot;</span>);<br>        session.setAttribute(<span class="hljs-string">&quot;info&quot;</span>, <span class="hljs-string">&quot;session属性范围&quot;</span>);<br>        application.setAttribute(<span class="hljs-string">&quot;info&quot;</span>, <span class="hljs-string">&quot;application属性范围&quot;</span>);<br>    %&gt;<br>    &lt;h2&gt;不同属性范围的值&lt;/h2&gt;<br>    &lt;hr /&gt;<br>    不指定范围：$&#123;info&#125;<br>    &lt;br&gt; page 属性内容：$&#123;pageScope.info&#125;<br>    &lt;br&gt; request 属性内容：$&#123;requestScope.info&#125;<br>    &lt;br&gt;session 属性内容：$&#123;sessionScope.info&#125;<br>    &lt;br&gt;application 属性内容：$&#123;applicationScope.info&#125;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></code></pre></td></tr></table></figure>
 
 <hr>
-<h2 id="jstl标签很多，笔记一下我常用到的标签"><a href="#jstl标签很多，笔记一下我常用到的标签" class="headerlink" title="jstl标签很多，笔记一下我常用到的标签"></a>jstl标签很多，笔记一下我常用到的标签</h2><p><strong>if</strong></p>
+<h1 id="jstl标签很多，笔记一下我常用到的标签"><a href="#jstl标签很多，笔记一下我常用到的标签" class="headerlink" title="jstl标签很多，笔记一下我常用到的标签"></a>jstl标签很多，笔记一下我常用到的标签</h1><p><strong>if</strong></p>
 <p>语法：</p>
 <figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs jsp">&lt;c:<span class="hljs-keyword">if</span> test=<span class="hljs-string">&quot;$&#123;one.name eq &#x27;nick&#x27;&#125;&quot;</span>&gt;<br>                &lt;tr&gt;<br>                    &lt;td&gt;nick&lt;/td&gt;<br>                &lt;/tr&gt;<br>&lt;/c:<span class="hljs-keyword">if</span>&gt;<br></code></pre></td></tr></table></figure>
 
@@ -309,6 +309,9 @@
 <li><em><strong>items：要被循环的信息，可以是数组、Java 集合等；</strong></em></li>
 <li><em><strong>var：可选项，指定迭代之的别名；</strong></em></li>
 </ul>
+<h1 id="核心标签是最常用的-JSTL标签。引用核心标签库的语法如下："><a href="#核心标签是最常用的-JSTL标签。引用核心标签库的语法如下：" class="headerlink" title="核心标签是最常用的 JSTL标签。引用核心标签库的语法如下："></a>核心标签是最常用的 JSTL标签。引用核心标签库的语法如下：</h1><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jsp">&lt;%@ taglib prefix=<span class="hljs-string">&quot;c&quot;</span> uri=<span class="hljs-string">&quot;http://java.sun.com/jsp/jstl/core&quot;</span> %&gt;<br></code></pre></td></tr></table></figure>
+
+<hr>
 
             </div>
             <hr>
