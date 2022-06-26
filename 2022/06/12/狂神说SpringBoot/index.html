@@ -1,0 +1,620 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="选择有时候比努力更重要">
+  <meta name="author" content="枫叶">
+  <meta name="keywords" content="">
+  <meta name="description" content="什么是SpringBootSpring是如何简化Java开发的为了降低Java开发的复杂性，Spring采用了以下4种关键策略：  基于POJO的轻量级和最小侵入性编程，所有东西都是bean； 通过IOC，依赖注入（DI）和面向接口实现松耦合； 基于切面（AOP）和惯例进行声明式编程； 通过切面和模版减少样式代码，RedisTemplate，xxxTemplate；  什么是微服务架构微服务是一种">
+<meta property="og:type" content="article">
+<meta property="og:title" content="狂神说SpringBoot">
+<meta property="og:url" content="http://example.com/2022/06/12/%E7%8B%82%E7%A5%9E%E8%AF%B4SpringBoot/index.html">
+<meta property="og:site_name" content="枫叶苑">
+<meta property="og:description" content="什么是SpringBootSpring是如何简化Java开发的为了降低Java开发的复杂性，Spring采用了以下4种关键策略：  基于POJO的轻量级和最小侵入性编程，所有东西都是bean； 通过IOC，依赖注入（DI）和面向接口实现松耦合； 基于切面（AOP）和惯例进行声明式编程； 通过切面和模版减少样式代码，RedisTemplate，xxxTemplate；  什么是微服务架构微服务是一种">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/06/16/oSZ3lERsCAth1zN.jpg">
+<meta property="og:image" content="https://s2.loli.net/2022/06/16/qHiCskUGyTcmhjw.jpg">
+<meta property="og:image" content="https://s2.loli.net/2022/06/16/CU5p1VgzWJcG8TS.jpg">
+<meta property="og:image" content="https://s2.loli.net/2022/06/16/3461cJOqaPsKIV5.jpg">
+<meta property="og:image" content="https://s2.loli.net/2022/06/16/CdWsBDZiQ1hKtUl.png">
+<meta property="og:image" content="https://s2.loli.net/2022/06/16/zer6kfdCOHEcNZK.png">
+<meta property="og:image" content="https://s2.loli.net/2022/06/16/hkS72lqcTG3eNIC.png">
+<meta property="og:image" content="http://example.com/2022/06/12/%E7%8B%82%E7%A5%9E%E8%AF%B4SpringBoot/Users/cheng/AppData/Roaming/Typora/typora-user-images/image-20220616163128903.png">
+<meta property="og:image" content="http://example.com/2022/06/12/%E7%8B%82%E7%A5%9E%E8%AF%B4SpringBoot/Users/cheng/AppData/Roaming/Typora/typora-user-images/image-20220616164040129.png">
+<meta property="og:image" content="http://example.com/2022/06/12/%E7%8B%82%E7%A5%9E%E8%AF%B4SpringBoot/Users/cheng/AppData/Roaming/Typora/typora-user-images/image-20220616170632224.png">
+<meta property="og:image" content="http://example.com/2022/06/12/%E7%8B%82%E7%A5%9E%E8%AF%B4SpringBoot/Users/cheng/AppData/Roaming/Typora/typora-user-images/image-20220617182246153.png">
+<meta property="article:published_time" content="2022-06-12T06:55:54.000Z">
+<meta property="article:modified_time" content="2022-06-19T07:53:20.512Z">
+<meta property="article:author" content="枫叶">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="SpringBoot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://s2.loli.net/2022/06/16/oSZ3lERsCAth1zN.jpg">
+  
+  <title>狂神说SpringBoot - 枫叶苑</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>浮生一梦</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="狂神说SpringBoot">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-06-12 14:55" pubdate>
+        2022年6月12日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      9k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      28 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">狂神说SpringBoot</h1>
+            
+            <div class="markdown-body">
+              <h1 id="什么是SpringBoot"><a href="#什么是SpringBoot" class="headerlink" title="什么是SpringBoot"></a>什么是SpringBoot</h1><h2 id="Spring是如何简化Java开发的"><a href="#Spring是如何简化Java开发的" class="headerlink" title="Spring是如何简化Java开发的"></a>Spring是如何简化Java开发的</h2><p>为了降低Java开发的复杂性，Spring采用了以下4种关键策略：</p>
+<ol>
+<li>基于POJO的轻量级和最小侵入性编程，所有东西都是bean；</li>
+<li>通过IOC，依赖注入（DI）和面向接口实现松耦合；</li>
+<li>基于切面（AOP）和惯例进行声明式编程；</li>
+<li>通过切面和模版减少样式代码，RedisTemplate，xxxTemplate；</li>
+</ol>
+<h1 id="什么是微服务架构"><a href="#什么是微服务架构" class="headerlink" title="什么是微服务架构"></a>什么是微服务架构</h1><p><strong>微服务</strong>是一种架构风格。一个大型的复杂软件应用，由一个或多个微服务组成。</p>
+<h1 id="Hello，World"><a href="#Hello，World" class="headerlink" title="Hello，World"></a>Hello，World</h1><h2 id="项目创建方式一：使用Spring-Initializr-的-Web页面创建项目"><a href="#项目创建方式一：使用Spring-Initializr-的-Web页面创建项目" class="headerlink" title="项目创建方式一：使用Spring Initializr 的 Web页面创建项目"></a>项目创建方式一：使用Spring Initializr 的 Web页面创建项目</h2><ol>
+<li>打开 <a target="_blank" rel="noopener" href="https://start.spring.io/">https://start.spring.io/</a></li>
+<li>填写项目信息</li>
+<li>点击”Generate Project“按钮生成项目；下载此项目</li>
+<li>解压项目包，并用IDEA以Maven项目导入，一路下一步即可，直到项目导入完毕。</li>
+<li>如果是第一次使用，可能速度会比较慢，包比较多、需要耐心等待一切就绪。</li>
+</ol>
+<h2 id="项目创建方式二：使用-IDEA-直接创建项目"><a href="#项目创建方式二：使用-IDEA-直接创建项目" class="headerlink" title="项目创建方式二：使用 IDEA 直接创建项目"></a>项目创建方式二：使用 IDEA 直接创建项目</h2><ol>
+<li>创建一个新项目</li>
+<li>选择spring initalizr ， 可以看到默认就是去官网的快速构建工具那里实现</li>
+<li>填写项目信息</li>
+<li>选择初始化的组件（初学勾选 Web 即可）</li>
+<li>填写项目路径</li>
+<li>等待项目构建成功</li>
+</ol>
+<h1 id="SpringBoot自动装配原理"><a href="#SpringBoot自动装配原理" class="headerlink" title="SpringBoot自动装配原理"></a>SpringBoot自动装配原理</h1><h2 id="启动器-spring-boot-starter"><a href="#启动器-spring-boot-starter" class="headerlink" title="启动器 spring-boot-starter"></a>启动器 spring-boot-starter</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>springboot-boot-starter-xxx</strong>：就是spring-boot的场景启动器</p>
+<p><strong>spring-boot-starter-web</strong>：帮我们导入了web模块正常运行所依赖的组件；</p>
+<p>SpringBoot将所有的功能场景都抽取出来，做成一个个的starter （启动器），只需要在项目中引入这些starter即可，所有相关的依赖都会导入进来 ， 我们要用什么功能就导入什么样的场景启动器即可 ；我们未来也可以自己自定义 starter；</p>
+<h2 id="主启动类"><a href="#主启动类" class="headerlink" title="主启动类"></a><strong>主启动类</strong></h2><p>默认的主启动类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//@SpringBootApplication 来标注一个主程序类</span><br><span class="hljs-comment">//说明这是一个Spring Boot应用</span><br><span class="hljs-meta">@SpringBootApplication</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SpringbootApplication</span> </span>&#123;<br><br>   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>     <span class="hljs-comment">//以为是启动了一个方法，没想到启动了一个服务</span><br>      SpringApplication.run(SpringbootApplication.class, args);<br>   &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>但是<strong>一个简单的启动类并不简单！</strong>我们来分析一下这些注解都干了什么</p>
+<h3 id="SpringBootApplication"><a href="#SpringBootApplication" class="headerlink" title="@SpringBootApplication"></a>@SpringBootApplication</h3><p>作用：标注在某个类上说明这个类是SpringBoot的主配置类 ， SpringBoot就应该运行这个类的main方法来启动SpringBoot应用；</p>
+<p>进入这个注解：可以看到上面还有很多其他注解！</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@SpringBootConfiguration</span><br><span class="hljs-meta">@EnableAutoConfiguration</span><br><span class="hljs-meta">@ComponentScan(</span><br><span class="hljs-meta">    excludeFilters = &#123;@Filter(</span><br><span class="hljs-meta">    type = FilterType.CUSTOM,</span><br><span class="hljs-meta">    classes = &#123;TypeExcludeFilter.class&#125;</span><br><span class="hljs-meta">), @Filter(</span><br><span class="hljs-meta">    type = FilterType.CUSTOM,</span><br><span class="hljs-meta">    classes = &#123;AutoConfigurationExcludeFilter.class&#125;</span><br><span class="hljs-meta">)&#125;</span><br><span class="hljs-meta">)</span><br><span class="hljs-keyword">public</span> <span class="hljs-meta">@interface</span> SpringBootApplication &#123;<br>    <span class="hljs-comment">// ......</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="ComponentScan"><a href="#ComponentScan" class="headerlink" title="@ComponentScan"></a>@ComponentScan</h4><p>这个注解在Spring中很重要 ,它对应XML配置中的元素。</p>
+<p>作用：自动扫描并加载符合条件的组件或者bean ， 将这个bean定义加载到IOC容器中</p>
+<h4 id="SpringBootConfiguration"><a href="#SpringBootConfiguration" class="headerlink" title="@SpringBootConfiguration"></a>@SpringBootConfiguration</h4><p>作用：SpringBoot的配置类 ，标注在某个类上 ， 表示这是一个SpringBoot的配置类；</p>
+<p>我们继续进去这个注解查看</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 点进去得到下面的 @Component</span><br><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-meta">@interface</span> SpringBootConfiguration &#123;&#125;<br><br><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-meta">@interface</span> Configuration &#123;&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这里的 @Configuration，说明这是一个配置类 ，配置类就是对应Spring的xml 配置文件；</p>
+<p>里面的 @Component 这就说明，启动类本身也是Spring中的一个组件而已，负责启动应用！</p>
+<p>我们回到 SpringBootApplication 注解中继续看。</p>
+<h4 id="EnableAutoConfiguration"><a href="#EnableAutoConfiguration" class="headerlink" title="@EnableAutoConfiguration"></a>@EnableAutoConfiguration</h4><p><strong>@EnableAutoConfiguration ：开启自动配置功能</strong></p>
+<p>以前我们需要自己配置的东西，而现在SpringBoot可以自动帮我们配置 ；@EnableAutoConfiguration告诉SpringBoot开启自动配置功能，这样自动配置才能生效；</p>
+<p>点进注解接续查看：</p>
+<p><strong>@AutoConfigurationPackage ：自动配置包</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Import(&#123;Registrar.class&#125;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-meta">@interface</span> AutoConfigurationPackage &#123;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>@import</strong> ：Spring底层注解@import ， 给容器中导入一个组件</p>
+<p>Registrar.class 作用：将主启动类的所在包及包下面所有子包里面的所有组件扫描到Spring容器 ；</p>
+<p>这个分析完了，退到上一步，继续看</p>
+<p><strong>@Import({AutoConfigurationImportSelector.class}) ：给容器导入组件 ；</strong></p>
+<p>AutoConfigurationImportSelector ：自动配置导入选择器，那么它会导入哪些组件的选择器呢？我们点击去这个类看源码：</p>
+<p>1、这个类中有一个这样的方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><br><span class="hljs-comment">// 获得候选的配置</span><br><span class="hljs-function"><span class="hljs-keyword">protected</span> List&lt;String&gt; <span class="hljs-title">getCandidateConfigurations</span><span class="hljs-params">(AnnotationMetadata metadata, AnnotationAttributes attributes)</span> </span>&#123;<br>    <span class="hljs-comment">//这里的getSpringFactoriesLoaderFactoryClass（）方法</span><br>    <span class="hljs-comment">//返回的就是我们最开始看的启动自动导入配置文件的注解类；EnableAutoConfiguration</span><br>    List&lt;String&gt; configurations = SpringFactoriesLoader.loadFactoryNames(<span class="hljs-keyword">this</span>.getSpringFactoriesLoaderFactoryClass(), <span class="hljs-keyword">this</span>.getBeanClassLoader());<br>    Assert.notEmpty(configurations, <span class="hljs-string">&quot;No auto configuration classes found in META-INF/spring.factories. If you are using a custom packaging, make sure that file is correct.&quot;</span>);<br>    <span class="hljs-keyword">return</span> configurations;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>2、这个方法又调用了  SpringFactoriesLoader 类的静态方法！我们进入SpringFactoriesLoader类loadFactoryNames() 方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> List&lt;String&gt; <span class="hljs-title">loadFactoryNames</span><span class="hljs-params">(Class&lt;?&gt; factoryClass, <span class="hljs-meta">@Nullable</span> ClassLoader classLoader)</span> </span>&#123;<br>    String factoryClassName = factoryClass.getName();<br>    <span class="hljs-comment">//这里它又调用了 loadSpringFactories 方法</span><br>    <span class="hljs-keyword">return</span> (List)loadSpringFactories(classLoader).getOrDefault(factoryClassName, Collections.emptyList());<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>3、我们继续点击查看 loadSpringFactories 方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Map&lt;String, List&lt;String&gt;&gt; loadSpringFactories(<span class="hljs-meta">@Nullable</span> ClassLoader classLoader) &#123;<br>    <span class="hljs-comment">//获得classLoader ， 我们返回可以看到这里得到的就是EnableAutoConfiguration标注的类本身</span><br>    MultiValueMap&lt;String, String&gt; result = (MultiValueMap)cache.get(classLoader);<br>    <span class="hljs-keyword">if</span> (result != <span class="hljs-keyword">null</span>) &#123;<br>        <span class="hljs-keyword">return</span> result;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-comment">//去获取一个资源 &quot;META-INF/spring.factories&quot;</span><br>            Enumeration&lt;URL&gt; urls = classLoader != <span class="hljs-keyword">null</span> ? classLoader.getResources(<span class="hljs-string">&quot;META-INF/spring.factories&quot;</span>) : ClassLoader.getSystemResources(<span class="hljs-string">&quot;META-INF/spring.factories&quot;</span>);<br>            LinkedMultiValueMap result = <span class="hljs-keyword">new</span> LinkedMultiValueMap();<br><br>            <span class="hljs-comment">//将读取到的资源遍历，封装成为一个Properties</span><br>            <span class="hljs-keyword">while</span>(urls.hasMoreElements()) &#123;<br>                URL url = (URL)urls.nextElement();<br>                UrlResource resource = <span class="hljs-keyword">new</span> UrlResource(url);<br>                Properties properties = PropertiesLoaderUtils.loadProperties(resource);<br>                Iterator var6 = properties.entrySet().iterator();<br><br>                <span class="hljs-keyword">while</span>(var6.hasNext()) &#123;<br>                    Entry&lt;?, ?&gt; entry = (Entry)var6.next();<br>                    String factoryClassName = ((String)entry.getKey()).trim();<br>                    String[] var9 = StringUtils.commaDelimitedListToStringArray((String)entry.getValue());<br>                    <span class="hljs-keyword">int</span> var10 = var9.length;<br><br>                    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> var11 = <span class="hljs-number">0</span>; var11 &lt; var10; ++var11) &#123;<br>                        String factoryName = var9[var11];<br>                        result.add(factoryClassName, factoryName.trim());<br>                    &#125;<br>                &#125;<br>            &#125;<br><br>            cache.put(classLoader, result);<br>            <span class="hljs-keyword">return</span> result;<br>        &#125; <span class="hljs-keyword">catch</span> (IOException var13) &#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalArgumentException(<span class="hljs-string">&quot;Unable to load factories from location [META-INF/spring.factories]&quot;</span>, var13);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>4、发现一个多次出现的文件：spring.factories，全局搜索它</p>
+<h2 id="spring-factories"><a href="#spring-factories" class="headerlink" title="spring.factories"></a>spring.factories</h2><p>我们根据源头打开spring.factories ， 看到了很多自动配置的文件；这就是自动配置根源所在！</p>
+<p><img src="https://s2.loli.net/2022/06/16/oSZ3lERsCAth1zN.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="WebMvcAutoConfiguration"><a href="#WebMvcAutoConfiguration" class="headerlink" title="WebMvcAutoConfiguration"></a><strong>WebMvcAutoConfiguration</strong></h3><p>我们在上面的自动配置类随便找一个打开看看，比如 ：WebMvcAutoConfiguration</p>
+<p><img src="https://s2.loli.net/2022/06/16/qHiCskUGyTcmhjw.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>可以看到这些一个个的都是JavaConfig配置类，而且都注入了一些Bean，可以找一些自己认识的类，看着熟悉一下！</p>
+<p>所以，自动配置真正实现是从classpath中搜寻所有的META-INF/spring.factories配置文件 ，并将其中对应的 org.springframework.boot.autoconfigure. 包下的配置项，通过反射实例化为对应标注了 @Configuration的JavaConfig形式的IOC容器配置类 ， 然后将这些都汇总成为一个实例并加载到IOC容器中。</p>
+<h2 id="SpringApplication-run分析"><a href="#SpringApplication-run分析" class="headerlink" title="SpringApplication.run分析"></a><strong>SpringApplication.run分析</strong></h2><p>分析该方法主要分两部分，一部分是SpringApplication的实例化，二是run方法的执行；</p>
+<h3 id="SpringApplication"><a href="#SpringApplication" class="headerlink" title="SpringApplication"></a>SpringApplication</h3><p><strong>这个类主要做了以下四件事情：</strong></p>
+<ol>
+<li>推断应用的类型是普通的项目还是Web项目</li>
+<li>查找并加载所有可用初始化器 ， 设置到initializers属性中</li>
+<li>找出所有的应用程序监听器，设置到listeners属性中</li>
+<li>推断并设置main方法的定义类，找到运行的主类</li>
+</ol>
+<h2 id="run方法流程分析"><a href="#run方法流程分析" class="headerlink" title="run方法流程分析"></a>run方法流程分析</h2><p><img src="https://s2.loli.net/2022/06/16/CU5p1VgzWJcG8TS.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h1 id="yaml语法详解"><a href="#yaml语法详解" class="headerlink" title="yaml语法详解"></a>yaml语法详解</h1><h2 id="yaml概述"><a href="#yaml概述" class="headerlink" title="yaml概述"></a>yaml概述</h2><p>YAML是 “YAML Ain’t a Markup Language” （YAML不是一种标记语言）的递归缩写。在开发的这种语言时，YAML 的意思其实是：”Yet Another Markup Language”（仍是一种标记语言）</p>
+<h2 id="yaml基础语法"><a href="#yaml基础语法" class="headerlink" title="yaml基础语法"></a>yaml基础语法</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">person:</span><br>  <span class="hljs-attr">name:</span> <span class="hljs-string">qinjiang</span><br>  <span class="hljs-attr">age:</span> <span class="hljs-number">3</span><br>  <span class="hljs-attr">happy:</span> <span class="hljs-literal">yes</span><br>  <span class="hljs-attr">birth:</span> <span class="hljs-number">1000</span><span class="hljs-string">/2/1</span><br>  <span class="hljs-attr">maps:</span> &#123;<span class="hljs-attr">k1:</span> <span class="hljs-string">v1</span>,<span class="hljs-attr">k2:</span> <span class="hljs-string">v2</span>&#125;<br>  <span class="hljs-attr">list:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">code</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">sing</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">dance</span><br>  <span class="hljs-attr">dog:</span><br>      <span class="hljs-attr">name:</span> <span class="hljs-string">旺财</span><br>      <span class="hljs-attr">age:</span> <span class="hljs-number">3</span><br></code></pre></td></tr></table></figure>
+
+<p>IDEA 提示，springboot配置注解处理器没有找到，让我们看文档，我们可以查看文档，找到一个依赖！</p>
+<p><img src="https://s2.loli.net/2022/06/16/3461cJOqaPsKIV5.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- 导入配置文件处理器，配置文件进行绑定就会有提示，需要重启 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-configuration-processor<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">optional</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">optional</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>yaml配置注入到实体类完全OK！</strong></p>
+<h2 id="配置用properties"><a href="#配置用properties" class="headerlink" title="配置用properties"></a>配置用properties</h2><p>配置文件除了yml还有我们之前常用的properties ， 我们没有讲，我们来唠唠！</p>
+<p>【注意】properties配置文件在写中文的时候，会有乱码 ， 我们需要去IDEA中设置编码格式为UTF-8；</p>
+<p>settings–&gt;FileEncodings 中配置；</p>
+<p><img src="https://s2.loli.net/2022/06/16/CdWsBDZiQ1hKtUl.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><strong>测试步骤：</strong></p>
+<ol>
+<li><p>新建一个实体类User</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span> <span class="hljs-comment">//注册bean</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> String name;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> age;<br>    <span class="hljs-keyword">private</span> String sex;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li><p>编辑配置文件 user.properties</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-meta">user1.name</span>=<span class="hljs-string">kuangshen</span><br><span class="hljs-meta">user1.age</span>=<span class="hljs-string">18</span><br><span class="hljs-meta">user1.sex</span>=<span class="hljs-string">男</span><br></code></pre></td></tr></table></figure></li>
+<li><p>我们在User类上使用@Value来进行注入！</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span> <span class="hljs-comment">//注册bean</span><br><span class="hljs-meta">@PropertySource(value = &quot;classpath:user.properties&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span> </span>&#123;<br>    <span class="hljs-comment">//直接使用@value</span><br>    <span class="hljs-meta">@Value(&quot;$&#123;user.name&#125;&quot;)</span> <span class="hljs-comment">//从配置文件中取值</span><br>    <span class="hljs-keyword">private</span> String name;<br>    <span class="hljs-meta">@Value(&quot;#&#123;9*2&#125;&quot;)</span>  <span class="hljs-comment">// #&#123;SPEL&#125; Spring表达式</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> age;<br>    <span class="hljs-meta">@Value(&quot;男&quot;)</span>  <span class="hljs-comment">// 字面量</span><br>    <span class="hljs-keyword">private</span> String sex;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="JSR303校验"><a href="#JSR303校验" class="headerlink" title="JSR303校验"></a>JSR303校验</h1><blockquote>
+<h2 id="先看看如何使用"><a href="#先看看如何使用" class="headerlink" title="先看看如何使用"></a>先看看如何使用</h2></blockquote>
+<p>Springboot中可以用@validated来校验数据，如果数据异常则会统一抛出异常，方便异常中心统一处理。我们这里来写个注解让我们的name只能支持Email格式；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span> <span class="hljs-comment">//注册bean</span><br><span class="hljs-meta">@ConfigurationProperties(prefix = &quot;person&quot;)</span><br><span class="hljs-meta">@Validated</span>  <span class="hljs-comment">//数据校验</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>&#123;<br><br>    <span class="hljs-meta">@Email(message=&quot;邮箱格式错误&quot;)</span> <span class="hljs-comment">//name必须是邮箱格式</span><br>    <span class="hljs-keyword">private</span> String name;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>运行结果 ：default message [不是一个合法的电子邮件地址];</p>
+<p><img src="https://s2.loli.net/2022/06/16/zer6kfdCOHEcNZK.png" srcset="/img/loading.gif" lazyload alt="image-20220615170432933"></p>
+<h1 id="多环境切换"><a href="#多环境切换" class="headerlink" title="多环境切换"></a>多环境切换</h1><h2 id="yaml的多文档块"><a href="#yaml的多文档块" class="headerlink" title="yaml的多文档块"></a>yaml的多文档块</h2><p>和properties配置文件中一样，但是使用yml去实现不需要创建多个配置文件，更加方便了 !</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">server:</span><br>  <span class="hljs-attr">port:</span> <span class="hljs-number">8081</span><br><span class="hljs-comment">#选择要激活那个环境块</span><br><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">profiles:</span><br>    <span class="hljs-attr">active:</span> <span class="hljs-string">prod</span><br><br><span class="hljs-meta">---</span><br><span class="hljs-attr">server:</span><br>  <span class="hljs-attr">port:</span> <span class="hljs-number">8083</span><br><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">profiles:</span> <span class="hljs-string">dev</span> <span class="hljs-comment">#配置环境的名称</span><br><br><br><span class="hljs-meta">---</span><br><span class="hljs-meta"></span><br><span class="hljs-attr">server:</span><br>  <span class="hljs-attr">port:</span> <span class="hljs-number">8084</span><br><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">profiles:</span> <span class="hljs-string">prod</span>  <span class="hljs-comment">#配置环境的名称</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="自动配置原理再理解"><a href="#自动配置原理再理解" class="headerlink" title="自动配置原理再理解"></a>自动配置原理再理解</h1><p><img src="https://s2.loli.net/2022/06/16/hkS72lqcTG3eNIC.png" srcset="/img/loading.gif" lazyload alt="image-20220615174911684"></p>
+<p><em><strong>根据视频内容找到spring.factories,但是发现其中只有寥寥几个配置项，跟视频中不一样</strong></em></p>
+<blockquote>
+<p>精髓</p>
+</blockquote>
+<ol>
+<li>SpringBoot启动会加载大量的自动配置类</li>
+<li>我们看我们需要的功能有没有在SpringBoot默认写好的自动配置类当中；</li>
+<li>我们再来看这个自动配置类中到底配置了哪些组件；（只要我们要用的组件存在在其中，我们就不需要再手动配置了）</li>
+<li>给容器中自动配置类添加组件的时候，会从properties类中获取某些属性。我们只需要在配置文件中指定这些属性的值即可；</li>
+</ol>
+<h1 id="web开发探究"><a href="#web开发探究" class="headerlink" title="web开发探究"></a>web开发探究</h1><h2 id="导入静态资源"><a href="#导入静态资源" class="headerlink" title="导入静态资源"></a>导入静态资源</h2><ol>
+<li><p>webjars导入静态资源,映射到localhost:8080/webjars/</p>
+<p><img src="/2022/06/12/%E7%8B%82%E7%A5%9E%E8%AF%B4SpringBoot/Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220616163128903.png" srcset="/img/loading.gif" lazyload alt="image-20220616163128903"></p>
+</li>
+<li><p>静态资源文件夹放静态资源，特定名称源码写死,映射到localhost:8080/</p>
+<p><img src="/2022/06/12/%E7%8B%82%E7%A5%9E%E8%AF%B4SpringBoot/Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220616164040129.png" srcset="/img/loading.gif" lazyload alt="image-20220616164040129"></p>
+</li>
+</ol>
+<h1 id="首页和图标定制"><a href="#首页和图标定制" class="headerlink" title="首页和图标定制"></a>首页和图标定制</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 在templates目录下所有页面只能通过controller跳转！</span><br>    <span class="hljs-comment">// 这个需要模板引擎支持 thymleaf</span><br><span class="hljs-meta">@Controller</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IndexController</span> </span>&#123;<br>    <span class="hljs-meta">@RequestMapping(&quot;/index&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">index</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;index&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="/2022/06/12/%E7%8B%82%E7%A5%9E%E8%AF%B4SpringBoot/Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220616170632224.png" srcset="/img/loading.gif" lazyload alt="image-20220616170632224"></p>
+<h1 id="thymleaf模板引擎"><a href="#thymleaf模板引擎" class="headerlink" title="thymleaf模板引擎"></a>thymleaf模板引擎</h1><ol>
+<li><p>需要使用thymeleaf，需要导入对应的依赖</p>
+</li>
+<li><p>导入头文件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">xmlns:th</span>=<span class="hljs-string">&quot;http://www.thymeleaf.org&quot;</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="thymeleaf语法"><a href="#thymeleaf语法" class="headerlink" title="thymeleaf语法"></a>thymeleaf语法</h1><p><img src="/2022/06/12/%E7%8B%82%E7%A5%9E%E8%AF%B4SpringBoot/Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220617182246153.png" srcset="/img/loading.gif" lazyload alt="image-20220617182246153"></p>
+<h1 id="MVC配置原理"><a href="#MVC配置原理" class="headerlink" title="MVC配置原理"></a>MVC配置原理</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 扩展springMVC</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@ClassName</span> MyMVCConfig</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Author</span> Alfa</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Data</span> 2022/6/17 18:26</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Version</span> 1.0</span><br><span class="hljs-comment"> **/</span><br><span class="hljs-comment">// 如果你想diy一些定制化的的功能，只要写这个组件，然后将它交给springboot，springboot就会将我们自动装配！</span><br><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyMVCConfig</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">WebMvcConfigurer</span> </span>&#123;<br><span class="hljs-comment">//    public interface ViewResolver &#123; 实现了视图解析器的类就可以看作视图解析器</span><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> ViewResolver <span class="hljs-title">myViewResolver</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> MyViewResolver();<br>    &#125;<br>    <span class="hljs-comment">// 自定义了一个视图解析器</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyViewResolver</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">ViewResolver</span></span>&#123;<br>        <span class="hljs-meta">@Override</span><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> View <span class="hljs-title">resolveViewName</span><span class="hljs-params">(String viewName, Locale locale)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="扩展SpringMVC"><a href="#扩展SpringMVC" class="headerlink" title="扩展SpringMVC"></a>扩展SpringMVC</h1><p>在spring boot中有非常多的xxx Configuration 帮助我们进行扩展配置，只要看见了这个东西，我们就要注意了！</p>
+<h1 id="员工管理系统"><a href="#员工管理系统" class="headerlink" title="员工管理系统"></a>员工管理系统</h1><ol>
+<li><p>首页配置：注意点，所有页面的静态资源都需要使用thymeleaf接管；</p>
+<ol>
+<li>url:@{}</li>
+</ol>
+</li>
+<li><p>页面国际化：注意点</p>
+<ol>
+<li>我们需要配置i18n文件</li>
+<li>我们如果需要在项目中进行按钮自动切换，我们需要自定义一个组件<code>LocaleResolver</code></li>
+<li>记得将自己写的组件配置到spring容器<code>@Bean</code></li>
+<li>#{}</li>
+</ol>
+</li>
+</ol>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%A4%A7%E4%BA%8C%E7%94%9F%E6%B6%AF/">大二生涯</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
+                    
+                      <a class="hover-with-bg" href="/tags/SpringBoot/">SpringBoot</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/06/19/%E6%B3%9B%E5%8D%8E%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/06/11/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E5%AD%A6%E4%B9%A0%E6%95%B4%E7%90%86/">
+                        <span class="hidden-mobile">Java面试题学习整理</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

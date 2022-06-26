@@ -16,20 +16,22 @@
   <meta name="description" content="选择有时候比努力更重要">
   <meta name="author" content="枫叶">
   <meta name="keywords" content="">
-  <meta name="description" content="Redis 简介 一个高性能的 key-value 数据库。 原子 – Redis的所有操作都是原子性的，意思就是要么成功执行要么失败完全不执行。  Redis 数据类型 String（字符串） 实例 1234redis 127.0.0.1:6379&gt; SET runoob &quot;菜鸟教程&quot;OKredis 127.0.0.1:6379&gt; GET runoob&quot;">
+  <meta name="description" content="打开redis   这时候另启一个 cmd 窗口，原来的不要关闭，不然就无法访问服务端了。      我们可以通过以下命令查看是否设置了密码验证123127.0.0.1:6379&gt; CONFIG get requirepass1) &quot;requirepass&quot;2) &quot;&quot;  默认情况下 requirepass 参数是空的，这就意味着你无需通过密码验证就可以">
 <meta property="og:type" content="article">
-<meta property="og:title" content="redis学习整理">
+<meta property="og:title" content="枫叶苑">
 <meta property="og:url" content="http://example.com/2022/05/15/Redis%20%E5%AD%A6%E4%B9%A0%E6%95%B4%E7%90%86/index.html">
 <meta property="og:site_name" content="枫叶苑">
-<meta property="og:description" content="Redis 简介 一个高性能的 key-value 数据库。 原子 – Redis的所有操作都是原子性的，意思就是要么成功执行要么失败完全不执行。  Redis 数据类型 String（字符串） 实例 1234redis 127.0.0.1:6379&gt; SET runoob &quot;菜鸟教程&quot;OKredis 127.0.0.1:6379&gt; GET runoob&quot;">
+<meta property="og:description" content="打开redis   这时候另启一个 cmd 窗口，原来的不要关闭，不然就无法访问服务端了。      我们可以通过以下命令查看是否设置了密码验证123127.0.0.1:6379&gt; CONFIG get requirepass1) &quot;requirepass&quot;2) &quot;&quot;  默认情况下 requirepass 参数是空的，这就意味着你无需通过密码验证就可以">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-05-15T14:20:04.000Z">
-<meta property="article:modified_time" content="2022-05-15T14:20:32.475Z">
+<meta property="og:image" content="http://example.com/2022/05/15/Redis%20%E5%AD%A6%E4%B9%A0%E6%95%B4%E7%90%86/Users/cheng/AppData/Roaming/Typora/typora-user-images/image-20220620110123304.png">
+<meta property="og:image" content="http://example.com/2022/05/15/Redis%20%E5%AD%A6%E4%B9%A0%E6%95%B4%E7%90%86/Users/cheng/AppData/Roaming/Typora/typora-user-images/image-20220620110253220.png">
+<meta property="article:published_time" content="2022-05-15T14:09:06.071Z">
+<meta property="article:modified_time" content="2022-06-20T03:04:50.475Z">
 <meta property="article:author" content="枫叶">
-<meta property="article:tag" content="redis">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2022/05/15/Redis%20%E5%AD%A6%E4%B9%A0%E6%95%B4%E7%90%86/Users/cheng/AppData/Roaming/Typora/typora-user-images/image-20220620110123304.png">
   
-  <title>redis学习整理 - 枫叶苑</title>
+  <title>枫叶苑</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -175,7 +177,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="redis学习整理">
+            <span class="h2" id="subtitle" title="">
               
             </span>
 
@@ -185,7 +187,7 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-05-15 22:20" pubdate>
+      <time datetime="2022-05-15 22:09" pubdate>
         2022年5月15日 晚上
       </time>
     </span>
@@ -196,7 +198,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      5.5k 字
+      191 字
     </span>
   
 
@@ -205,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      17 分钟
+      1 分钟
     </span>
   
 
@@ -234,238 +236,27 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">redis学习整理</h1>
+            <h1 style="display: none"></h1>
             
             <div class="markdown-body">
-              <h1 id="Redis-简介"><a href="#Redis-简介" class="headerlink" title="Redis 简介"></a>Redis 简介</h1><ol>
-<li>一个高性能的 key-value 数据库。</li>
-<li>原子 – Redis的所有操作都是原子性的，意思就是要么成功执行要么失败完全不执行。</li>
+              <h1 id="打开redis"><a href="#打开redis" class="headerlink" title="打开redis"></a>打开redis</h1><ol>
+<li><p><img src="/2022/05/15/Redis%20%E5%AD%A6%E4%B9%A0%E6%95%B4%E7%90%86/Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220620110123304.png" srcset="/img/loading.gif" lazyload alt="image-20220620110123304"></p>
+<blockquote>
+<p>这时候另启一个 cmd 窗口，原来的不要关闭，不然就无法访问服务端了。</p>
+</blockquote>
+</li>
+<li><p><img src="/2022/05/15/Redis%20%E5%AD%A6%E4%B9%A0%E6%95%B4%E7%90%86/Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220620110253220.png" srcset="/img/loading.gif" lazyload alt="image-20220620110253220"></p>
+</li>
 </ol>
-<h1 id="Redis-数据类型"><a href="#Redis-数据类型" class="headerlink" title="Redis 数据类型"></a>Redis 数据类型</h1><ol>
-<li><p><strong>String（字符串）</strong></p>
-<p>实例</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">redis 127.0.0.1:6379&gt; SET runoob <span class="hljs-string">&quot;菜鸟教程&quot;</span><br>OK<br>redis 127.0.0.1:6379&gt; GET runoob<br><span class="hljs-string">&quot;菜鸟教程&quot;</span><br></code></pre></td></tr></table></figure></li>
-<li><p><strong>Hash（哈希）</strong></p>
-<p>实例</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">redis 127.0.0.1:6379&gt; HMSET runoob field1 <span class="hljs-string">&quot;Hello&quot;</span> field2 <span class="hljs-string">&quot;World&quot;</span><br><span class="hljs-string">&quot;OK&quot;</span><br>redis 127.0.0.1:6379&gt; HGET runoob field1<br><span class="hljs-string">&quot;Hello&quot;</span><br>redis 127.0.0.1:6379&gt; HGET runoob field2<br><span class="hljs-string">&quot;World&quot;</span><br></code></pre></td></tr></table></figure></li>
-<li><p><strong>List（列表）</strong></p>
-<p>实例</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">redis 127.0.0.1:6379&gt; lpush runoob redis<br>(<span class="hljs-built_in">integer</span>) 1<br>redis 127.0.0.1:6379&gt; lpush runoob mongodb<br>(<span class="hljs-built_in">integer</span>) 2<br>redis 127.0.0.1:6379&gt; lpush runoob rabbitmq<br>(<span class="hljs-built_in">integer</span>) 3<br>redis 127.0.0.1:6379&gt; lrange runoob 0 10<br>1) <span class="hljs-string">&quot;rabbitmq&quot;</span><br>2) <span class="hljs-string">&quot;mongodb&quot;</span><br>3) <span class="hljs-string">&quot;redis&quot;</span><br></code></pre></td></tr></table></figure></li>
-<li><p><strong>Set（集合）</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">redis 127.0.0.1:6379&gt; sadd runoob redis<br>(<span class="hljs-built_in">integer</span>) 1<br>redis 127.0.0.1:6379&gt; sadd runoob mongodb<br>(<span class="hljs-built_in">integer</span>) 1<br>redis 127.0.0.1:6379&gt; sadd runoob rabbitmq<br>(<span class="hljs-built_in">integer</span>) 1<br>redis 127.0.0.1:6379&gt; sadd runoob rabbitmq<br>(<span class="hljs-built_in">integer</span>) 0<br>redis 127.0.0.1:6379&gt; smembers runoob<br></code></pre></td></tr></table></figure>
+<h1 id="我们可以通过以下命令查看是否设置了密码验证"><a href="#我们可以通过以下命令查看是否设置了密码验证" class="headerlink" title="我们可以通过以下命令查看是否设置了密码验证"></a>我们可以通过以下命令查看是否设置了密码验证</h1><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">127</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">1</span>:<span class="hljs-number">6379</span>&gt; CONFIG get requirepass<br><span class="hljs-attribute">1</span>) <span class="hljs-string">&quot;requirepass&quot;</span><br><span class="hljs-attribute">2</span>) <span class="hljs-string">&quot;&quot;</span><br></code></pre></td></tr></table></figure>
 
-<p><em>注意：以上实例中 rabbitmq 添加了两次，但根据集合内元素的唯一性，第二次插入的元素将被忽略。</em></p>
-</li>
-<li><p><strong>zset(sorted set：有序集合)</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash">redis 127.0.0.1:6379&gt; zadd runoob 0 redis<br>(<span class="hljs-built_in">integer</span>) 1<br>redis 127.0.0.1:6379&gt; zadd runoob 0 mongodb<br>(<span class="hljs-built_in">integer</span>) 1<br>redis 127.0.0.1:6379&gt; zadd runoob 0 rabbitmq<br>(<span class="hljs-built_in">integer</span>) 1<br>redis 127.0.0.1:6379&gt; zadd runoob 0 rabbitmq<br>(<span class="hljs-built_in">integer</span>) 0<br>redis 127.0.0.1:6379&gt; ZRANGEBYSCORE runoob 0 1000<br>1) <span class="hljs-string">&quot;mongodb&quot;</span><br>2) <span class="hljs-string">&quot;rabbitmq&quot;</span><br>3) <span class="hljs-string">&quot;redis&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p><em>redis正是通过分数来为集合中的成员进行从小到大的排序。zset的成员是唯一的,但分数(score)却可以重复。</em></p>
-</li>
-</ol>
-<hr>
-<h1 id="Redis-键-key"><a href="#Redis-键-key" class="headerlink" title="Redis 键(key)"></a>Redis 键(key)</h1><p><strong>语法</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs basg">redis 127.0.0.1:6379&gt; COMMAND KEY_NAME<br></code></pre></td></tr></table></figure>
-
-<p> Redis 键相关的基本命令：</p>
-<ol>
-<li><p>DEL key<br>该命令用于在 key 存在时删除 key。</p>
-</li>
-<li><p>EXISTS key<br>检查给定 key 是否存在。</p>
-</li>
-<li><p>EXPIRE key seconds </p>
-<p>为给定 key 设置过期时间，以秒计。</p>
-</li>
-<li><p>TTL key<br>以秒为单位，返回给定 key 的剩余生存时间(TTL, time to live)。</p>
-</li>
-<li><p>RENAME key newkey<br>修改 key 的名称</p>
-</li>
-<li><p>TYPE key<br>返回 key 所储存的值的类型。</p>
-</li>
-</ol>
-<h1 id="Redis-字符串-String"><a href="#Redis-字符串-String" class="headerlink" title="Redis 字符串(String)"></a>Redis 字符串(String)</h1><p><strong>语法</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">redis 127.0.0.1:6379&gt; COMMAND KEY_NAME<br></code></pre></td></tr></table></figure>
-
-<p>Redis 字符串命令</p>
-<ol>
-<li><p>SET key value<br>设置指定 key 的值。</p>
-</li>
-<li><p>GET key<br>获取指定 key 的值。</p>
-</li>
-<li><p>MSET key value [key value …]<br>同时设置一个或多个 key-value 对。</p>
-</li>
-<li><p>MGET key1 [key2..]<br>获取所有(一个或多个)给定 key 的值。</p>
-</li>
-<li><p> STRLEN key </p>
-</li>
-</ol>
-<p>   返回 key 所储存的字符串值的长度。</p>
-<ol start="6">
-<li> APPEND key value </li>
-</ol>
-<p>   如果 key 已经存在并且是一个字符串， APPEND 命令将指定的 value 追加到该 key 原来值（value）的末尾。</p>
-<h1 id="Redis-哈希-Hash"><a href="#Redis-哈希-Hash" class="headerlink" title="Redis 哈希(Hash)"></a>Redis 哈希(Hash)</h1><p><strong>实例</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">127.0.0.1:6379&gt;  HMSET runoobkey name <span class="hljs-string">&quot;redis tutorial&quot;</span> description <span class="hljs-string">&quot;redis basic commands for caching&quot;</span> likes 20 visitors 23000<br>OK<br>127.0.0.1:6379&gt;  HGETALL runoobkey<br>1) <span class="hljs-string">&quot;name&quot;</span><br>2) <span class="hljs-string">&quot;redis tutorial&quot;</span><br>3) <span class="hljs-string">&quot;description&quot;</span><br>4) <span class="hljs-string">&quot;redis basic commands for caching&quot;</span><br>5) <span class="hljs-string">&quot;likes&quot;</span><br>6) <span class="hljs-string">&quot;20&quot;</span><br>7) <span class="hljs-string">&quot;visitors&quot;</span><br>8) <span class="hljs-string">&quot;23000&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>redis hash 基本的相关命令：</p>
-<ol>
-<li> HSET key field value </li>
-</ol>
-<p>   将哈希表 key 中的字段 field 的值设为 value 。</p>
-<ol start="2">
-<li><p>HDEL key field1 [field2]<br>删除一个或多个哈希表字段</p>
-</li>
-<li><p>HGET key field<br>获取存储在哈希表中指定字段的值。</p>
-</li>
-<li><p> HGETALL key </p>
-</li>
-</ol>
-<p>   获取在哈希表中指定 key 的所有字段和值</p>
-<ol start="5">
-<li><p>HDEL key field1 [field2]<br>删除一个或多个哈希表字段</p>
-</li>
-<li><p> HSCAN key cursor [MATCH pattern] [COUNT count] </p>
-</li>
-</ol>
-<p>   迭代哈希表中的键值对。</p>
-<h1 id="Redis-列表-List"><a href="#Redis-列表-List" class="headerlink" title="Redis 列表(List)"></a>Redis 列表(List)</h1><p><strong>实例</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">redis 127.0.0.1:6379&gt; LPUSH runoobkey redis<br>(<span class="hljs-built_in">integer</span>) 1<br>redis 127.0.0.1:6379&gt; LPUSH runoobkey mongodb<br>(<span class="hljs-built_in">integer</span>) 2<br>redis 127.0.0.1:6379&gt; LPUSH runoobkey mysql<br>(<span class="hljs-built_in">integer</span>) 3<br>redis 127.0.0.1:6379&gt; LRANGE runoobkey 0 10<br><br>1) <span class="hljs-string">&quot;mysql&quot;</span><br>2) <span class="hljs-string">&quot;mongodb&quot;</span><br>3) <span class="hljs-string">&quot;redis&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>列表相关的基本命令：</p>
-<ol>
-<li><p>RPUSH key value1 [value2]<br>在列表中添加一个或多个值</p>
-</li>
-<li><p>LPUSH key value1 [value2]</p>
-<p>将一个或多个值插入到列表头部</p>
-</li>
-<li><p>LINSERT key BEFORE|AFTER pivot value<br>在列表的元素前或者后插入元素</p>
-</li>
-<li><p>LINDEX key index<br>通过索引获取列表中的元素</p>
-</li>
-<li><p>LRANGE key start stop<br>获取列表指定范围内的元素</p>
-</li>
-<li><p>LREM key count value<br>移除列表元素</p>
-</li>
-</ol>
-<h1 id="Redis-集合-Set"><a href="#Redis-集合-Set" class="headerlink" title="Redis 集合(Set)"></a>Redis 集合(Set)</h1><p><strong>实例</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash">redis 127.0.0.1:6379&gt; SADD runoobkey redis<br>(<span class="hljs-built_in">integer</span>) 1<br>redis 127.0.0.1:6379&gt; SADD runoobkey mongodb<br>(<span class="hljs-built_in">integer</span>) 1<br>redis 127.0.0.1:6379&gt; SADD runoobkey mysql<br>(<span class="hljs-built_in">integer</span>) 1<br>redis 127.0.0.1:6379&gt; SADD runoobkey mysql<br>(<span class="hljs-built_in">integer</span>) 0<br>redis 127.0.0.1:6379&gt; SMEMBERS runoobkey<br><br>1) <span class="hljs-string">&quot;mysql&quot;</span><br>2) <span class="hljs-string">&quot;mongodb&quot;</span><br>3) <span class="hljs-string">&quot;redis&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>Redis 集合基本命令：</p>
-<ol>
-<li><p>SADD key member1 [member2]</p>
-<p>向集合添加一个或多个成员</p>
-</li>
-<li><p> SMEMBERS key </p>
-</li>
-</ol>
-<p>   返回集合中的所有成员</p>
-<ol start="3">
-<li><p>SINTER key1 [key2]</p>
-<p>返回给定所有集合的交集</p>
-</li>
-<li><p>SDIFF key1 [key2]<br>返回第一个集合与其他集合之间的差异。</p>
-</li>
-<li><p> SCARD key </p>
-</li>
-</ol>
-<p>   获取集合的成员数</p>
-<ol start="6">
-<li>SSCAN key cursor [MATCH pattern] [COUNT count]<br>迭代集合中的元素</li>
-</ol>
-<h1 id="Redis-有序集合-sorted-set"><a href="#Redis-有序集合-sorted-set" class="headerlink" title="Redis 有序集合(sorted set)"></a>Redis 有序集合(sorted set)</h1><p><em>每个元素都会关联一个 double 类型的分数。redis 正是通过分数来为集合中的成员进行从小到大的排序。</em></p>
-<p><em>有序集合的成员是唯一的,但分数(score)却可以重复。</em></p>
-<p><strong>实例</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs bash">redis 127.0.0.1:6379&gt; ZADD runoobkey 1 redis<br>(<span class="hljs-built_in">integer</span>) 1<br>redis 127.0.0.1:6379&gt; ZADD runoobkey 2 mongodb<br>(<span class="hljs-built_in">integer</span>) 1<br>redis 127.0.0.1:6379&gt; ZADD runoobkey 3 mysql<br>(<span class="hljs-built_in">integer</span>) 1<br>redis 127.0.0.1:6379&gt; ZADD runoobkey 3 mysql<br>(<span class="hljs-built_in">integer</span>) 0<br>redis 127.0.0.1:6379&gt; ZADD runoobkey 4 mysql<br>(<span class="hljs-built_in">integer</span>) 0<br>redis 127.0.0.1:6379&gt; ZRANGE runoobkey 0 10 WITHSCORES<br><br>1) <span class="hljs-string">&quot;redis&quot;</span><br>2) <span class="hljs-string">&quot;1&quot;</span><br>3) <span class="hljs-string">&quot;mongodb&quot;</span><br>4) <span class="hljs-string">&quot;2&quot;</span><br>5) <span class="hljs-string">&quot;mysql&quot;</span><br>6) <span class="hljs-string">&quot;4&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>redis 有序集合的基本命令:</p>
-<ol>
-<li><p>ZADD key score1 member1 [score2 member2]<br>向有序集合添加一个或多个成员，或者更新已存在成员的分数</p>
-</li>
-<li><p>ZINCRBY key increment member<br>有序集合中对指定成员的分数加上增量 increment</p>
-</li>
-<li><p>ZCARD key<br>获取有序集合的成员数</p>
-</li>
-<li><p>ZRANGE key start stop [WITHSCORES]<br>通过索引区间返回有序集合指定区间内的成员</p>
-</li>
-<li><p> ZRANGEBYSCORE key min max [WITHSCORES] [LIMIT]</p>
-</li>
-</ol>
-<p>   通过分数返回有序集合指定区间内的成员</p>
-<ol start="6">
-<li>ZREM key member [member …]<br>移除有序集合中的一个或多个成员</li>
-</ol>
-<h1 id="Redis-事务"><a href="#Redis-事务" class="headerlink" title="Redis 事务"></a>Redis 事务</h1><p><strong>实例</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs bash">redis 127.0.0.1:6379&gt; MULTI<br>OK<br><br>redis 127.0.0.1:6379&gt; SET book-name <span class="hljs-string">&quot;Mastering C++ in 21 days&quot;</span><br>QUEUED<br><br>redis 127.0.0.1:6379&gt; GET book-name<br>QUEUED<br><br>redis 127.0.0.1:6379&gt; SADD tag <span class="hljs-string">&quot;C++&quot;</span> <span class="hljs-string">&quot;Programming&quot;</span> <span class="hljs-string">&quot;Mastering Series&quot;</span><br>QUEUED<br><br>redis 127.0.0.1:6379&gt; SMEMBERS tag<br>QUEUED<br><br>redis 127.0.0.1:6379&gt; EXEC<br>1) OK<br>2) <span class="hljs-string">&quot;Mastering C++ in 21 days&quot;</span><br>3) (<span class="hljs-built_in">integer</span>) 3<br>4) 1) <span class="hljs-string">&quot;Mastering Series&quot;</span><br>   2) <span class="hljs-string">&quot;C++&quot;</span><br>   3) <span class="hljs-string">&quot;Programming&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p><em><strong>这是官网上的说明 From redis docs on <a target="_blank" rel="noopener" href="http://redis.io/topics/transactions">transactions</a>:</strong></em></p>
-<p><em>It’s important to note that even when a command fails, all the other commands in the queue are processed – Redis will not stop the processing of commands.</em></p>
-<p> redis 事务的相关命令：</p>
-<ol>
-<li> DISCARD </li>
-</ol>
-<p>   取消事务，放弃执行事务块内的所有命令。</p>
-<ol start="2">
-<li> EXEC </li>
-</ol>
-<p>   执行所有事务块内的命令。</p>
-<ol start="3">
-<li> MULTI </li>
-</ol>
-<p>   标记一个事务块的开始。</p>
-<h1 id="Redis-连接"><a href="#Redis-连接" class="headerlink" title="Redis 连接"></a>Redis 连接</h1><p>redis 连接的基本命令：</p>
-<ol>
-<li> AUTH password </li>
-</ol>
-<p>   验证密码是否正确</p>
-<ol start="2">
-<li><p>PING<br>查看服务是否运行</p>
-</li>
-<li><p>QUIT<br>关闭当前连接</p>
-</li>
-</ol>
-<h1 id="Redis-数据备份与恢复"><a href="#Redis-数据备份与恢复" class="headerlink" title="Redis 数据备份与恢复"></a>Redis 数据备份与恢复</h1><ol>
-<li><p>备份</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">redis 127.0.0.1:6379&gt; SAVE <br>OK<br></code></pre></td></tr></table></figure>
-
-<p><em>该命令将在 redis 安装目录中创建dump.rdb文件。</em></p>
-</li>
-<li><p>恢复</p>
-</li>
-</ol>
-<h1 id="Redis-安全"><a href="#Redis-安全" class="headerlink" title="Redis 安全"></a>Redis 安全</h1><p>通过以下命令查看是否设置了密码验证：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">127.0.0.1:6379&gt; CONFIG get requirepass<br>1) <span class="hljs-string">&quot;requirepass&quot;</span><br>2) <span class="hljs-string">&quot;&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>通过以下命令来设置密码:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">127.0.0.1:6379&gt; CONFIG <span class="hljs-built_in">set</span> requirepass <span class="hljs-string">&quot;runoob&quot;</span><br>OK<br></code></pre></td></tr></table></figure>
-
-<p>密码验证命令语法格式如下:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">127.0.0.1:6379&gt; AUTH <span class="hljs-string">&quot;runoob&quot;</span><br>OK<br></code></pre></td></tr></table></figure>
-
-
-
-<h1 id="Redis相关问题"><a href="#Redis相关问题" class="headerlink" title="Redis相关问题"></a>Redis相关问题</h1><h2 id="redis中hash的命令如hmset和hmget是什么意思（解析单词缩写，帮助记忆）"><a href="#redis中hash的命令如hmset和hmget是什么意思（解析单词缩写，帮助记忆）" class="headerlink" title="redis中hash的命令如hmset和hmget是什么意思（解析单词缩写，帮助记忆）"></a>redis中hash的命令如hmset和hmget是什么意思（解析单词缩写，帮助记忆）</h2><ol>
-<li>h表示hash的缩写；</li>
-<li>m表示multi的缩写；</li>
-</ol>
+<p>默认情况下 requirepass 参数是空的，这就意味着你无需通过密码验证就可以连接到 redis 服务。</p>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/%E5%A4%A7%E4%BA%8C%E7%94%9F%E6%B6%AF/">大二生涯</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/redis/">redis</a>
-                    
-                  </div>
                 
               </div>
               
@@ -490,8 +281,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/05/14/Maven%E4%BB%8B%E7%BB%8D/">
-                        <span class="hidden-mobile">Maven介绍</span>
+                      <a href="/2022/05/14/Spring%20MVC%E4%BC%81%E4%B8%9A%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                        <span class="hidden-mobile">Spring MVC企业面试题</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
