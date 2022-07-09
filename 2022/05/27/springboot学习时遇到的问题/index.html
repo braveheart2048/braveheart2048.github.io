@@ -26,8 +26,11 @@
 <meta property="og:image" content="https://s2.loli.net/2022/05/30/Cyv4Y3HZrsSbFQe.png">
 <meta property="og:image" content="https://s2.loli.net/2022/05/27/3VM5HAjuWw4zXvg.png">
 <meta property="og:image" content="https://s2.loli.net/2022/05/27/gYOQfCuxW25Sjri.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181114144338606.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01yX1poYW5nQWRk,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://s2.loli.net/2022/07/06/FYXe2cZbu1IlRWU.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/09/e6Aq2w5dnMGDJaX.png">
 <meta property="article:published_time" content="2022-05-27T02:22:48.000Z">
-<meta property="article:modified_time" content="2022-05-31T03:50:44.603Z">
+<meta property="article:modified_time" content="2022-07-09T12:41:01.936Z">
 <meta property="article:author" content="枫叶">
 <meta property="article:tag" content="springboot">
 <meta name="twitter:card" content="summary_large_image">
@@ -200,7 +203,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.1k 字
+      7.6k 字
     </span>
   
 
@@ -209,7 +212,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10 分钟
+      24 分钟
     </span>
   
 
@@ -267,6 +270,58 @@
 <li><p>修改文件后缀名： 修改后缀名为<code>.jsp</code>，Ok即可。</p>
 </li>
 </ol>
+<h1 id="Springboot-Thymeleaf配置与使用"><a href="#Springboot-Thymeleaf配置与使用" class="headerlink" title="Springboot+Thymeleaf配置与使用"></a>Springboot+Thymeleaf配置与使用</h1><ol>
+<li><p>在application.properties文件中增加Thymeleaf模板的配置。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml">spring.thymeleaf.cache=false<br></code></pre></td></tr></table></figure>
+
+<p>在开发时建议将spring.thymeleaf.cache设置为false，否则会有缓存，导致页面没法及时看到更新后的效果。<br>比如你修改了一个文件，已经update到tomcat，但刷新页面还是之前的页面，就是因为缓存引起的。</p>
+</li>
+<li><p>在pom.xml中添加thymeleaf的依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-thymeleaf<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
+<li><p>```html</p>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs dts"><br><span class="hljs-meta"># driver-class-name: com.mysql.cj.jdbc.Driver 报错的几种解决办法</span><br><br>`pom.xml`文件中<br><br>```xml<br><span class="hljs-params">&lt;dependency&gt;</span><br>    <span class="hljs-params">&lt;groupId&gt;</span>mysql<span class="hljs-params">&lt;/groupId&gt;</span><br>    <span class="hljs-params">&lt;artifactId&gt;</span>mysql-connector-java<span class="hljs-params">&lt;/artifactId&gt;</span><br><span class="hljs-params">&lt;/dependency&gt;</span><br></code></pre></td></tr></table></figure></html></li>
+</ol>
+<h1 id="mybatis——mapper文件详解"><a href="#mybatis——mapper文件详解" class="headerlink" title="mybatis——mapper文件详解"></a>mybatis——mapper文件详解</h1><blockquote>
+<p>mapper文件样例</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">mapper</span> <span class="hljs-meta-keyword">PUBLIC</span> <span class="hljs-meta-string">&quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span> <span class="hljs-meta-string">&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;</span>&gt;</span><br><span class="hljs-comment">&lt;!--</span><br><span class="hljs-comment">  namespace绑定了与之对应的接口,值是该接口的全限定名;这个参数有且只有一个</span><br><span class="hljs-comment">--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">mapper</span> <span class="hljs-attr">namespace</span>=<span class="hljs-string">&quot;com.ruanyuan.dao.AuthorDao&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">mapper</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="MyBatis一对一关联查询"><a href="#MyBatis一对一关联查询" class="headerlink" title="MyBatis一对一关联查询"></a>MyBatis一对一关联查询</h2><h3 id="单步查询"><a href="#单步查询" class="headerlink" title="单步查询"></a>单步查询</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">resultMap</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;BookWithAuthorAndCategoryAndPublisher&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;com.ruanyuan.pojo.Book&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">id</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;bookCode&quot;</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;bookCode&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;bookName&quot;</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;bookName&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;unitPrice&quot;</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;unitPrice&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;picture&quot;</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;picture&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;description&quot;</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;bookdesc&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;quantity&quot;</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;quantity&quot;</span>/&gt;</span><br>    <span class="hljs-comment">&lt;!-- 一对一级联查询 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">association</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;author&quot;</span> <span class="hljs-attr">javaType</span>=<span class="hljs-string">&quot;com.ruanyuan.pojo.Author&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">id</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;authorId&quot;</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;authorId&quot;</span>/&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;authorName&quot;</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;authorName&quot;</span>/&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;sex&quot;</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;sex&quot;</span>/&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;birthday&quot;</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;birthday&quot;</span>/&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;email&quot;</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;email&quot;</span>/&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;telPhone&quot;</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;authortel&quot;</span>/&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;city&quot;</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;city&quot;</span>/&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;description&quot;</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;authordesc&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">association</span>&gt;</span><br>    <span class="hljs-comment">&lt;!-- 一对一级联查询 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">association</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;category&quot;</span> <span class="hljs-attr">javaType</span>=<span class="hljs-string">&quot;com.ruanyuan.pojo.Category&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">id</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;categoryId&quot;</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;categoryId&quot;</span>/&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;categoryName&quot;</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;categoryName&quot;</span>/&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;description&quot;</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;categorydesc&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">association</span>&gt;</span><br>    <span class="hljs-comment">&lt;!-- 一对一级联查询 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">association</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;publisher&quot;</span> <span class="hljs-attr">javaType</span>=<span class="hljs-string">&quot;com.ruanyuan.pojo.Publisher&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">id</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;publisherId&quot;</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;publisherId&quot;</span>/&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;publisherName&quot;</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;publisherName&quot;</span>/&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;address&quot;</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;address&quot;</span>/&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;telPhone&quot;</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;publishertel&quot;</span>/&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;fax&quot;</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;fax&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">association</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">resultMap</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;getAllBook&quot;</span> <span class="hljs-attr">resultMap</span>=<span class="hljs-string">&quot;BookWithAuthorAndCategoryAndPublisher&quot;</span>&gt;</span><br>    select bookcode, bookname, unitprice, picture, books.description as bookdesc, quantity, a.authorid, authorname, sex, birthday, email, a.telphone as authortel, city, a.description as authordesc, c.categoryid, categoryname, c.descripition as categorydesc, p.publisherid, publishername, address, p.telphone as publishertel, fax from books<br>    join authors a on books.AuthorID = a.AuthorID<br>    join categorys c on books.CategoryID = c.CategoryID<br>    join publisher p on books.PublisherID = p.PublisherID<br><span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="MyBatis-select标签"><a href="#MyBatis-select标签" class="headerlink" title="MyBatis select标签"></a>MyBatis select标签</h2><p>select 示例语句如下。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;selectAllWebsite&quot;</span> <span class="hljs-attr">resultType</span>=<span class="hljs-string">&quot;net.biancheng.po.Website&quot;</span> <span class="hljs-attr">parameterType</span>=<span class="hljs-string">&quot;string&quot;</span>&gt;</span><br>    SELECT id,NAME,url FROM website WHERE NAME LIKE CONCAT (&#x27;%&#x27;,#&#123;name&#125;,&#x27;%&#x27;)<br><span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>下面介绍 select 标签中常用的属性。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>属性名称</th>
+<th>描 述</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>resultType</td>
+<td>SQL 语句执行后返回的类型（全限定名或者别名）。如果是集合类型，返回的是集合元素的类型，返回时可以使用 resultType 或 resultMap 之一</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="SQL-DELETE-语句"><a href="#SQL-DELETE-语句" class="headerlink" title="SQL DELETE 语句"></a>SQL DELETE 语句</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">FROM</span> 表名称 <span class="hljs-keyword">WHERE</span> 列名称 <span class="hljs-operator">=</span> 值<br></code></pre></td></tr></table></figure>
+
+<h1 id="thymeleaf模板中，html如何获取前台的session中的值（干货）"><a href="#thymeleaf模板中，html如何获取前台的session中的值（干货）" class="headerlink" title="thymeleaf模板中，html如何获取前台的session中的值（干货）"></a>thymeleaf模板中，html如何获取前台的session中的值（干货）</h1><blockquote>
+<p>前端代码</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20181114144338606.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01yX1poYW5nQWRk,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h1 id="拦截器配置不生效"><a href="#拦截器配置不生效" class="headerlink" title="拦截器配置不生效"></a>拦截器配置不生效</h1><blockquote>
+<p>检查是否添加了@Configuration注解</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2022/07/06/FYXe2cZbu1IlRWU.png" srcset="/img/loading.gif" lazyload alt="image-20220706120007266"></p>
+<h1 id="SpringBoot连接数据库报错：Access-denied-for-user-‘root‘-‘localhost‘-using-password-YES"><a href="#SpringBoot连接数据库报错：Access-denied-for-user-‘root‘-‘localhost‘-using-password-YES" class="headerlink" title="SpringBoot连接数据库报错：Access denied for user ‘root‘@‘localhost‘ (using password: YES)"></a>SpringBoot连接数据库报错：Access denied for user ‘root‘@‘localhost‘ (using password: YES)</h1><p>SpringBoot连接数据库报错：Access denied for user ‘***’@‘localhost’ (using password: YES)<br>它报三个***，这个就很恶心了！找了很久，大多数都说是权限问题，刚开始我也以为是权限，后面弄得数据库都连接不上了！！！后面才发现和那些没有一点关系！<br>原因是因为我们在创建springboot的时候它自动给我们在properties中创建了连接对象！</p>
+<p><img src="https://s2.loli.net/2022/07/09/e6Aq2w5dnMGDJaX.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
+<p>这个时候只需要选择一个配置就OK了！！！</p>
 
             </div>
             <hr>
@@ -311,8 +366,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/05/26/sql%E7%BB%8F%E5%85%B8%E4%BA%94%E5%8D%81%E9%A2%98%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">
-                        <span class="hidden-mobile">sql经典五十题相关问题</span>
+                      <a href="/2022/05/26/mabatis-plus/">
+                        <span class="hidden-mobile">mabatis-plus</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
