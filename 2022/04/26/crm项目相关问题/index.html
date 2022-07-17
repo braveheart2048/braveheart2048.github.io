@@ -216,6 +216,14 @@
 
   
   
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
 </div>
 
             
@@ -345,15 +353,15 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs mybatis">&lt;select id=&quot;getEmployeeAndDeptStep&quot; resultMap=&quot;myEmpAndDeptStep&quot;&gt;<br>		 select id, last_name, email,gender,d_id  from tbl_employee where id =#&#123;id&#125;<br>&lt;/select&gt;<br>	<br>&lt;resultMap type=&quot;com.atguigu.mybatis.beans.Employee&quot; id=&quot;myEmpAndDeptStep&quot;&gt;<br>		&lt;id column=&quot;id&quot;  property=&quot;id&quot; /&gt;<br>		&lt;result column=&quot;last_name&quot; property=&quot;lastName&quot;/&gt;<br>		&lt;result column=&quot;email&quot; property=&quot;email&quot;/&gt;<br>		&lt;result column=&quot;gender&quot; property=&quot;gender&quot;/&gt;<br>		&lt;association property=&quot;dept&quot; 			select=&quot;com.atguigu.mybatis.dao.DepartmentMapper.getDeptById&quot; <br>				column=&quot;d_id&quot;&gt;<br>		&lt;/association&gt;<br>&lt;/resultMap&gt;<br></code></pre></td></tr></table></figure></li>
 </ol>
 <hr>
-<h2 id="mybatis在xml文件中处理大于号小于号的方法"><a href="#mybatis在xml文件中处理大于号小于号的方法" class="headerlink" title="mybatis在xml文件中处理大于号小于号的方法"></a>mybatis在xml文件中处理大于号小于号的方法</h2><p>因为这个是xml格式的，所以不允许出现类似“&gt;”这样的字符，但是都可以使用<!--[CDATA[ ]]-->符号进行说明，将此类符号不进行解析<br>你的可以写成这个： </p>
+<h2 id="mybatis在xml文件中处理大于号小于号的方法"><a href="#mybatis在xml文件中处理大于号小于号的方法" class="headerlink" title="mybatis在xml文件中处理大于号小于号的方法"></a>mybatis在xml文件中处理大于号小于号的方法</h2><p>因为这个是xml格式的，所以不允许出现类似“&gt;”这样的字符，但是都可以使用<![CDATA[ ]]>符号进行说明，将此类符号不进行解析<br>你的可以写成这个： </p>
 <p>mapper文件示例代码</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mybatis">&lt;![CDATA[ when min(starttime)&lt;=&#x27;12:00&#x27; and max(endtime)&lt;=&#x27;12:00&#x27; ]]&gt;<br></code></pre></td></tr></table></figure>
 
 <hr>
-<h2 id="MyBatis一对一关联查询"><a href="#MyBatis一对一关联查询" class="headerlink" title="MyBatis一对一关联查询"></a>MyBatis一对一关联查询</h2><p>在 MyBatis 中，通过 <resultMap> 元素的子元素 <association> 处理一对一级联关系。示例代码如下。</association></resultMap></p>
+<h2 id="MyBatis一对一关联查询"><a href="#MyBatis一对一关联查询" class="headerlink" title="MyBatis一对一关联查询"></a>MyBatis一对一关联查询</h2><p>在 MyBatis 中，通过 <resultMap> 元素的子元素 <association> 处理一对一级联关系。示例代码如下。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mybatis">&lt;association property=&quot;studentCard&quot; column=&quot;cardId&quot;<br>            javaType=&quot;net.biancheng.po.StudentCard&quot;<br>            select=&quot;net.biancheng.mapper.StudentCardMapper.selectStuCardById&quot; /&gt;<br></code></pre></td></tr></table></figure>
 
-<p>在 <association> 元素中通常使用以下属性。</association></p>
+<p>在 <association> 元素中通常使用以下属性。</p>
 <ul>
 <li>property：指定映射到实体类的对象属性。</li>
 <li>column：指定表中对应的字段（即查询返回的列名）。</li>
@@ -484,7 +492,7 @@
 <p>下面示例使用 forEach 迭代数组 a，然后把每个元素的值和下标索引输出显示，代码如下：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f</span>(<span class="hljs-params">value,index,array</span>) </span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;a[&quot;</span> + index + <span class="hljs-string">&quot;] = &quot;</span> + value);<br>&#125;<br><span class="hljs-keyword">var</span> a = [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>];<br>a.forEach(f);<br></code></pre></td></tr></table></figure>
 
-<img src="http://c.biancheng.net/uploads/allimg/190906/6-1ZZ6130204N8.gif" srcset="/img/loading.gif" lazyload style="zoom: 80%;"></li>
+<img src="http://c.biancheng.net/uploads/allimg/190906/6-1ZZ6130204N8.gif" srcset="/img/loading.gif" lazyload style="zoom: 80%;" /></li>
 </ol>
 <hr>
 <h2 id="js-清空array数组"><a href="#js-清空array数组" class="headerlink" title="js-清空array数组"></a>js-清空array数组</h2><ol>
@@ -649,8 +657,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/10/10/lanTingXu/">
-                        <span class="hidden-mobile">lanTingXu</span>
+                      <a href="/2021/09/25/hello-world/">
+                        <span class="hidden-mobile">Hello World</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -777,6 +785,8 @@
   
 
 
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 

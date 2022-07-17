@@ -212,6 +212,14 @@
 
   
   
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
 </div>
 
             
@@ -238,7 +246,7 @@
             <h1 style="display: none">SpringMVC:文件上传和下载功能</h1>
             
             <div class="markdown-body">
-              <meta name="referrer" content="no-referrer">
+              <meta name="referrer" content="no-referrer"/>
 
 <h1 id="SpringMVC-文件上传和下载功能"><a href="#SpringMVC-文件上传和下载功能" class="headerlink" title="SpringMVC:文件上传和下载功能"></a>SpringMVC:文件上传和下载功能</h1><p>前言<br>文件上传是项目开发中最常见的功能之一 ,springMVC 可以很好的支持文件上传，但是SpringMVC上下文中默认没有装配MultipartResolver，因此默认情况下其不能处理文件上传工作。如果想使用Spring的文件上传功能，则需要在上下文中配置MultipartResolver。<br>前端表单要求：为了能上传文件，必须将表单的method设置为POST，并将enctype设置为multipart/form-data。只有在这样的情况下，浏览器才会把用户选择的文件以二进制数据发送给服务器；</p>
 <hr>
@@ -454,6 +462,8 @@
   
 
 
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 

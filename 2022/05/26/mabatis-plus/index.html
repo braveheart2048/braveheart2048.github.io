@@ -219,6 +219,14 @@
 
   
   
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
 </div>
 
             
@@ -391,7 +399,7 @@ System.out.println(count);
   strategy.setLogicDeleteFieldName(&quot;deleted&quot;);
   //自动填充配置
 </code></pre>
-<p>//        TableFill gmtCreate = new TableFill(“gmt_create”, FieldFill.INSERT);<br>//        TableFill gmtModified = new TableFill(“gmt_modified”, FieldFill.INSERT_UPDATE);<br>//        ArrayList<TableFill> tableFills = new ArrayList&lt;&gt;();<br>//        tableFills.add(gmtCreate);<br>//        tableFills.add(gmtModified);<br>//        strategy.setTableFillList(tableFills);</TableFill></p>
+<p>//        TableFill gmtCreate = new TableFill(“gmt_create”, FieldFill.INSERT);<br>//        TableFill gmtModified = new TableFill(“gmt_modified”, FieldFill.INSERT_UPDATE);<br>//        ArrayList<TableFill> tableFills = new ArrayList&lt;&gt;();<br>//        tableFills.add(gmtCreate);<br>//        tableFills.add(gmtModified);<br>//        strategy.setTableFillList(tableFills);</p>
 <pre><code>  // 乐观锁
 </code></pre>
 <p>//        strategy.setVersionFieldName(“version”);</p>
@@ -586,6 +594,8 @@ System.out.println(count);
   
 
 
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 

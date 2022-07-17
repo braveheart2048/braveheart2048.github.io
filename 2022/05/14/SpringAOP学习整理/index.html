@@ -215,6 +215,14 @@
 
   
   
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
 </div>
 
             
@@ -241,7 +249,7 @@
             <h1 style="display: none">SpringAOP学习整理</h1>
             
             <div class="markdown-body">
-              <meta name="referrer" content="no-referrer">
+              <meta name="referrer" content="no-referrer"/>
 # 对AOP的初印象
 
 <p><img src="https://img-blog.csdn.net/20180530172528617?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3E5ODIxNTE3NTY=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" srcset="/img/loading.gif" lazyload></p>
@@ -257,7 +265,7 @@
 <li><p>Target（目标对象）：织入 Advice 的目标对象.。</p>
 </li>
 <li><p>Weaving（织入）：将 Aspect 和其他对象连接起来, 并创建 Adviced object 的过程</p>
-<img src="https://img-blog.csdn.net/20180530175605692?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3E5ODIxNTE3NTY=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" srcset="/img/loading.gif" lazyload style="zoom: 67%;"></li>
+<img src="https://img-blog.csdn.net/20180530175605692?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3E5ODIxNTE3NTY=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" srcset="/img/loading.gif" lazyload style="zoom: 67%;" /></li>
 </ul>
 <h1 id="Advice-的类型"><a href="#Advice-的类型" class="headerlink" title="Advice 的类型"></a>Advice 的类型</h1><ul>
 <li>before advice, 在 join point 前被执行的 advice. 虽然 before advice 是在 join point 前被执行, 但是它并不能够阻止 join point 的执行, 除非发生了异常(即我们在 before advice 代码中, 不能人为地决定是否继续执行 join point 中的代码)</li>
@@ -446,6 +454,8 @@
   
 
 
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 
