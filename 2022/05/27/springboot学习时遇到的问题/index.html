@@ -14,13 +14,13 @@
   
   <meta name="theme-color" content="#2f4154">
   <meta name="description" content="选择有时候比努力更重要">
-  <meta name="author" content="枫叶">
-  <meta name="keywords" content="">
+  <meta name="author" content="alfa">
+  <meta name="keywords" content="温馨小窝">
   <meta name="description" content="SpringBoot项目搭建 新建Empty Project   新建module，Spring initializer创建springboot项目，    导入jar包 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960&amp;lt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="springboot学习时遇到的问题">
 <meta property="og:url" content="http://example.com/2022/05/27/springboot%E5%AD%A6%E4%B9%A0%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/index.html">
-<meta property="og:site_name" content="枫叶苑">
+<meta property="og:site_name" content="温馨小窝">
 <meta property="og:description" content="SpringBoot项目搭建 新建Empty Project   新建module，Spring initializer创建springboot项目，    导入jar包 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960&amp;lt">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2022/05/30/Cyv4Y3HZrsSbFQe.png">
@@ -29,14 +29,18 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20181114144338606.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01yX1poYW5nQWRk,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://s2.loli.net/2022/07/06/FYXe2cZbu1IlRWU.png">
 <meta property="og:image" content="https://s2.loli.net/2022/07/09/e6Aq2w5dnMGDJaX.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210707121800150.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210707121902596.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzUzMDc5MTU2,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210707121918629.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzUzMDc5MTU2,size_16,color_FFFFFF,t_70">
 <meta property="article:published_time" content="2022-05-27T02:22:48.000Z">
-<meta property="article:modified_time" content="2022-07-09T12:41:01.936Z">
-<meta property="article:author" content="枫叶">
+<meta property="article:modified_time" content="2022-07-14T07:39:22.009Z">
+<meta property="article:author" content="alfa">
 <meta property="article:tag" content="springboot">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://s2.loli.net/2022/05/30/Cyv4Y3HZrsSbFQe.png">
   
-  <title>springboot学习时遇到的问题 - 枫叶苑</title>
+  <title>springboot学习时遇到的问题 - 温馨小窝</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -203,7 +207,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      7.6k 字
+      12k 字
     </span>
   
 
@@ -212,7 +216,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      24 分钟
+      37 分钟
     </span>
   
 
@@ -282,7 +286,20 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs dts"><br><span class="hljs-meta"># driver-class-name: com.mysql.cj.jdbc.Driver 报错的几种解决办法</span><br><br>`pom.xml`文件中<br><br>```xml<br><span class="hljs-params">&lt;dependency&gt;</span><br>    <span class="hljs-params">&lt;groupId&gt;</span>mysql<span class="hljs-params">&lt;/groupId&gt;</span><br>    <span class="hljs-params">&lt;artifactId&gt;</span>mysql-connector-java<span class="hljs-params">&lt;/artifactId&gt;</span><br><span class="hljs-params">&lt;/dependency&gt;</span><br></code></pre></td></tr></table></figure></html></li>
 </ol>
-<h1 id="mybatis——mapper文件详解"><a href="#mybatis——mapper文件详解" class="headerlink" title="mybatis——mapper文件详解"></a>mybatis——mapper文件详解</h1><blockquote>
+<h1 id="PathVariable注解使用"><a href="#PathVariable注解使用" class="headerlink" title="@PathVariable注解使用"></a>@PathVariable注解使用</h1><p><strong>@PathVariable是spring3.0的一个新功能：接收请求路径中占位符的值</strong></p>
+<p><strong>语法：</strong></p>
+<blockquote>
+<p>@PathVariable(“xxx”)<br>通过 @PathVariable 可以将URL中占位符参数{xxx}绑定到处理器类的方法形参中@PathVariable(“xxx“) </p>
+<p>@RequestMapping(value=”user/{id}/{name}”)<br>请求路径：<a target="_blank" rel="noopener" href="http://localhost:8080/hello/show5/1/james">http://localhost:8080/hello/show5/1/james</a></p>
+</blockquote>
+<h1 id="RequestParam注解的详细介绍"><a href="#RequestParam注解的详细介绍" class="headerlink" title="@RequestParam注解的详细介绍"></a>@RequestParam注解的详细介绍</h1><p>@RequestParam （org.springframework.web.bind.annotation.RequestParam）用于将指定的请求参数赋值给方法中的形参。</p>
+<p>有三个属性：</p>
+<ol>
+<li>value：请求参数名（必须配置）</li>
+<li>required：是否必需，默认为 true，即 请求中必须包含该参数，如果没有包含，将会抛出异常（可选配置）</li>
+<li>defaultValue：默认值，如果设置了该值，required 将自动设为 false，无论你是否配置了required，配置了什么值，都是 false（可选配置）</li>
+</ol>
+<h1 id="mybatis——mapper文件详解，mapper文件样例"><a href="#mybatis——mapper文件详解，mapper文件样例" class="headerlink" title="mybatis——mapper文件详解，mapper文件样例"></a>mybatis——mapper文件详解，mapper文件样例</h1><blockquote>
 <p>mapper文件样例</p>
 </blockquote>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">mapper</span> <span class="hljs-meta-keyword">PUBLIC</span> <span class="hljs-meta-string">&quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span> <span class="hljs-meta-string">&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;</span>&gt;</span><br><span class="hljs-comment">&lt;!--</span><br><span class="hljs-comment">  namespace绑定了与之对应的接口,值是该接口的全限定名;这个参数有且只有一个</span><br><span class="hljs-comment">--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">mapper</span> <span class="hljs-attr">namespace</span>=<span class="hljs-string">&quot;com.ruanyuan.dao.AuthorDao&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">mapper</span>&gt;</span><br></code></pre></td></tr></table></figure>
@@ -322,6 +339,24 @@
 <h1 id="SpringBoot连接数据库报错：Access-denied-for-user-‘root‘-‘localhost‘-using-password-YES"><a href="#SpringBoot连接数据库报错：Access-denied-for-user-‘root‘-‘localhost‘-using-password-YES" class="headerlink" title="SpringBoot连接数据库报错：Access denied for user ‘root‘@‘localhost‘ (using password: YES)"></a>SpringBoot连接数据库报错：Access denied for user ‘root‘@‘localhost‘ (using password: YES)</h1><p>SpringBoot连接数据库报错：Access denied for user ‘***’@‘localhost’ (using password: YES)<br>它报三个***，这个就很恶心了！找了很久，大多数都说是权限问题，刚开始我也以为是权限，后面弄得数据库都连接不上了！！！后面才发现和那些没有一点关系！<br>原因是因为我们在创建springboot的时候它自动给我们在properties中创建了连接对象！</p>
 <p><img src="https://s2.loli.net/2022/07/09/e6Aq2w5dnMGDJaX.png" srcset="/img/loading.gif" lazyload alt="在这里插入图片描述"></p>
 <p>这个时候只需要选择一个配置就OK了！！！</p>
+<h1 id="druid控制台无法监控sql问题，druid登录配置完了还是不需要账号密码"><a href="#druid控制台无法监控sql问题，druid登录配置完了还是不需要账号密码" class="headerlink" title="druid控制台无法监控sql问题，druid登录配置完了还是不需要账号密码"></a>druid控制台无法监控sql问题，druid登录配置完了还是不需要账号密码</h1><ol>
+<li><p>在Spring的数据库配置参数里开启监控并配置druid(yml形式)</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">datasource:</span><br>    <span class="hljs-attr">driver-class-name:</span> <span class="hljs-string">com.mysql.cj.jdbc.Driver</span><br>    <span class="hljs-attr">username:</span> <span class="hljs-string">root</span><br>    <span class="hljs-comment"># 假如时区报错了，就增加一个时区的配置就ok了 serverTimezone=UTC</span><br>    <span class="hljs-attr">url:</span> <span class="hljs-string">jdbc:mysql://localhost:3306/mybatis_plus?useUnicode=true&amp;characterEncoding=utf8&amp;characterSetResults=utf8&amp;useSSL=false</span><br>    <span class="hljs-attr">password:</span> <span class="hljs-string">asd123</span><br>    <span class="hljs-attr">type:</span> <span class="hljs-string">com.alibaba.druid.pool.DruidDataSource</span><br>	<span class="hljs-comment">#没有这条druid控制台无法监控sql</span><br>    <span class="hljs-comment">#用于SQL状态监控,stat代表状态,wall代表防火墙</span><br>    <span class="hljs-attr">filters:</span> <span class="hljs-string">stat,wall</span><br>    <span class="hljs-comment">#Spring Boot 默认是不注入这些属性值的，需要自己绑定</span><br>    <span class="hljs-comment">#druid 数据源专有配置</span><br>    <span class="hljs-attr">initialSize:</span> <span class="hljs-number">5</span><br>    <span class="hljs-attr">minIdle:</span> <span class="hljs-number">5</span><br>    <span class="hljs-attr">maxActive:</span> <span class="hljs-number">20</span><br>    <span class="hljs-attr">maxWait:</span> <span class="hljs-number">60000</span><br>    <span class="hljs-attr">timeBetweenEvictionRunsMillis:</span> <span class="hljs-number">60000</span><br>    <span class="hljs-attr">minEvictableIdleTimeMillis:</span> <span class="hljs-number">300000</span><br>    <span class="hljs-attr">validationQuery:</span> <span class="hljs-string">SELECT</span> <span class="hljs-number">1</span> <span class="hljs-string">FROM</span> <span class="hljs-string">DUAL</span><br>    <span class="hljs-attr">testWhileIdle:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">testOnBorrow:</span> <span class="hljs-literal">false</span><br>    <span class="hljs-attr">testOnReturn:</span> <span class="hljs-literal">false</span><br>    <span class="hljs-attr">poolPreparedStatements:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-comment">#配置监控统计拦截的filters，stat:监控统计、log4j：日志记录、wall：防御sql注入</span><br>    <span class="hljs-comment">#如果允许时报错 java.lang.ClassNotFoundException: org.apache.log4j.Priority</span><br>    <span class="hljs-comment">#则导入 log4j 依赖即可，Maven 地址：https://mvnrepository.com/artifact/log4j/</span><br>    <span class="hljs-attr">log4j filters:</span> <span class="hljs-string">stat,wall,log4j</span><br>    <span class="hljs-attr">maxPoolPreparedStatementPerConnectionSize:</span> <span class="hljs-number">20</span><br>    <span class="hljs-attr">useGlobalDataSourceStat:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">connectionProperties:</span> <span class="hljs-string">druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500</span><br>    <span class="hljs-comment">#配置监控统计拦截的filters,去掉后监控界面sql将无法统计</span><br>    <span class="hljs-attr">spring.datasource.filters:</span> <span class="hljs-string">stat</span><br></code></pre></td></tr></table></figure></li>
+<li><p>加入druid配置类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.kuang.config;<br><br><span class="hljs-keyword">import</span> com.alibaba.druid.pool.DruidDataSource;<br><span class="hljs-keyword">import</span> com.alibaba.druid.support.http.ResourceServlet;<br><span class="hljs-keyword">import</span> com.alibaba.druid.support.http.StatViewServlet;<br><span class="hljs-keyword">import</span> com.alibaba.druid.support.http.WebStatFilter;<br><span class="hljs-keyword">import</span> org.springframework.boot.context.properties.ConfigurationProperties;<br><span class="hljs-keyword">import</span> org.springframework.boot.web.servlet.FilterRegistrationBean;<br><span class="hljs-keyword">import</span> org.springframework.boot.web.servlet.ServletRegistrationBean;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Bean;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Configuration;<br><br><span class="hljs-keyword">import</span> javax.servlet.Filter;<br><span class="hljs-keyword">import</span> javax.sql.DataSource;<br><span class="hljs-keyword">import</span> java.util.Arrays;<br><span class="hljs-keyword">import</span> java.util.HashMap;<br><span class="hljs-keyword">import</span> java.util.Map;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * TODO</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@ClassName</span> DruidConfig</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Author</span> Alfa</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Data</span> 2022/7/11 9:24</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Version</span> 1.0</span><br><span class="hljs-comment"> **/</span><br><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DruidConfig</span> </span>&#123;<br>    <span class="hljs-meta">@ConfigurationProperties(prefix = &quot;spring.datasource&quot;)</span><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> DataSource <span class="hljs-title">druid</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> DruidDataSource();<br>    &#125;<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 配置一个druid的监控</span><br><span class="hljs-comment">     * 1、配置一个druid的后台  管理servlet</span><br><span class="hljs-comment">     * 2、配置一个druid的filter</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-comment">//1、配置一个druid的后台  管理servlet</span><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> ServletRegistrationBean <span class="hljs-title">servletRegistrationBean</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-comment">//注意，请求时 /druid/*</span><br>        ServletRegistrationBean&lt;StatViewServlet&gt; bean = <span class="hljs-keyword">new</span> ServletRegistrationBean(<span class="hljs-keyword">new</span> StatViewServlet(),<span class="hljs-string">&quot;/druid/*&quot;</span>);<br>        Map&lt;String,String&gt; initParm= <span class="hljs-keyword">new</span> HashMap&lt;&gt;();<br>        <span class="hljs-comment">//登陆页面账户与密码</span><br>        initParm.put(ResourceServlet.PARAM_NAME_USERNAME,<span class="hljs-string">&quot;root&quot;</span>);<br>        initParm.put(ResourceServlet.PARAM_NAME_PASSWORD,<span class="hljs-string">&quot;aabbcc&quot;</span>);<br>        <span class="hljs-comment">//监控后台 允许ip</span><br>        initParm.put(ResourceServlet.PARAM_NAME_ALLOW,<span class="hljs-string">&quot;&quot;</span>);<br>        <span class="hljs-comment">//黑名单</span><br>        initParm.put(ResourceServlet.PARAM_NAME_DENY,<span class="hljs-string">&quot;192.168.0.1&quot;</span>);<br><br>        bean.setInitParameters(initParm);<br>        <span class="hljs-keyword">return</span> bean;<br>    &#125;<br>    <span class="hljs-comment">//    2、配置一个druid的filter</span><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> FilterRegistrationBean <span class="hljs-title">webStatFilter</span><span class="hljs-params">()</span></span>&#123;<br>        FilterRegistrationBean&lt;Filter&gt; bean = <span class="hljs-keyword">new</span> FilterRegistrationBean&lt;&gt;();<br>        bean.setFilter(<span class="hljs-keyword">new</span> WebStatFilter());<br><br><span class="hljs-comment">//        可以过滤那些请求？</span><br>        Map&lt;String, String&gt; initPrams = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();<br><span class="hljs-comment">//        这些东西不进行统计</span><br>        initPrams.put(WebStatFilter.PARAM_NAME_EXCLUSIONS,<span class="hljs-string">&quot;*.js,*.css,/druid/*&quot;</span>);<br>        bean.setInitParameters(initPrams);<br><br>        <span class="hljs-comment">//设置拦截器请求</span><br>        bean.setUrlPatterns(Arrays.asList(<span class="hljs-string">&quot;/&quot;</span>));<br>        <span class="hljs-keyword">return</span> bean;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ol>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/danhua8381/article/details/107318641">原文链接</a></p>
+</blockquote>
+<h1 id="springboot有关type-aliases-package设置，xml别名爆红错误"><a href="#springboot有关type-aliases-package设置，xml别名爆红错误" class="headerlink" title="springboot有关type-aliases-package设置，xml别名爆红错误"></a>springboot有关type-aliases-package设置，xml别名爆红错误</h1><p><img src="https://img-blog.csdnimg.cn/20210707121800150.png" srcset="/img/loading.gif" lazyload alt="img"><img src="https://img-blog.csdnimg.cn/20210707121902596.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzUzMDc5MTU2,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210707121918629.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzUzMDc5MTU2,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>把IDEA设置的检查级别调低，默认是inspections，这个词的意思是检查的意思，就是会对你的代码进行静态检查，就像findbugs那样，如果你能把代码改进到消除inspections级别的所有警告，那么你的代码质量已经相当好了。</p>
+<p>但是很难把这个级别的警告消除干净，例如最常见的代码重复就很难消除，Intellij 甚至把不同modules的代码都会检查重复，而不同modules的重复代码难以合并。</p>
+<p>当你嫌警告太多，可以设置为syntax也就是语法级别。这个级别只会检查语法是否正确，这个级别和eclipse或myeclipse是一样的，提前发现你代码的编译错误。</p>
+<p>平时可以使用这个级别保持界面清爽，而审查代码的时候开开inspections级别进行更严格的代码质量检查。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_53079156/article/details/118544027">原文链接</a></p>
+</blockquote>
 
             </div>
             <hr>
@@ -340,6 +375,8 @@
                     <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/springboot/">springboot</a>
+                    
+                      <a class="hover-with-bg" href="/tags/java/">java</a>
                     
                   </div>
                 
