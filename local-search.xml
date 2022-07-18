@@ -573,31 +573,6 @@
   
   
   <entry>
-    <title>如何方便的在任意目录下运行Windows命令行</title>
-    <link href="/2022/05/14/Windows%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/"/>
-    <url>/2022/05/14/Windows%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
-    
-    <content type="html"><![CDATA[<h1 id="windows系统下使用cd命令"><a href="#windows系统下使用cd命令" class="headerlink" title="windows系统下使用cd命令"></a>windows系统下使用cd命令</h1><ol><li><p>输入D:  回车</p><img src="https://s2.loli.net/2022/05/26/vocCuYsR7WiVwQt.png" style="zoom:50%;" /></li><li><p>输入cd Program Files 回车</p><img src="https://s2.loli.net/2022/05/26/T2UDK9ou3MfJrs7.png" style="zoom:50%;" /></li></ol><hr><h1 id="Windows10-在当前文件夹下打开cmd（命令行）的方法"><a href="#Windows10-在当前文件夹下打开cmd（命令行）的方法" class="headerlink" title="Windows10 - 在当前文件夹下打开cmd（命令行）的方法"></a>Windows10 - 在当前文件夹下打开cmd（命令行）的方法</h1><p>清除文件路径输入cmd</p><p><img src="https://s2.loli.net/2022/06/28/MGTy3sqFHmfELN2.gif" alt="img"></p><h1 id="Windows-10任务管理器在哪-怎么打开"><a href="#Windows-10任务管理器在哪-怎么打开" class="headerlink" title="Windows 10任务管理器在哪?怎么打开?"></a>Windows 10任务管理器在哪?怎么打开?</h1><ol><li>先打开Windows 10运行命令框，可以直接使用 Win + R 组合快捷键打开;</li><li>在运行命令操作中，在打开后面键入命名：taskmgr 然后点击底部的“确定”就可以打开任务管理器了。</li></ol><h1 id="使用管理员权限打开cmd（命令提示符）的方法-（Windows10）"><a href="#使用管理员权限打开cmd（命令提示符）的方法-（Windows10）" class="headerlink" title="使用管理员权限打开cmd（命令提示符）的方法 （Windows10）"></a>使用管理员权限打开cmd（命令提示符）的方法 （Windows10）</h1><p>Step1 在任务栏搜索框里输入“cmd”</p><p><img src="https://s2.loli.net/2022/06/28/Pua2RmC7J6zgGro.png" alt="在这里插入图片描述"></p><p>Step2 鼠标左键点击“以管理员身份运行”</p><p><img src="https://s2.loli.net/2022/06/28/PYaxTcECewG1K6k.png" alt="在这里插入图片描述"></p><h1 id="如何在windows的DOS窗口中正常显示中文-UTF-8字符"><a href="#如何在windows的DOS窗口中正常显示中文-UTF-8字符" class="headerlink" title="如何在windows的DOS窗口中正常显示中文(UTF-8字符)"></a>如何在windows的DOS窗口中正常显示中文(UTF-8字符)</h1><p>打开CMD.exe命令行窗口,通过 chcp命令改变代码页</p><blockquote><p>UTF-8的代码页为65001,ANSI/OEM - 简体中文 GBK为936,window default OEM - 美国为437</p></blockquote><h1 id="win10设置防火墙端口开放及检测开放端口"><a href="#win10设置防火墙端口开放及检测开放端口" class="headerlink" title="win10设置防火墙端口开放及检测开放端口"></a>win10设置防火墙端口开放及检测开放端口</h1><blockquote><p><a href="https://blog.csdn.net/qq_43567345/article/details/105323795">原文链接</a></p></blockquote>]]></content>
-    
-    
-    <categories>
-      
-      <category>大二生涯</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>windows</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>快速学习时序图：时序图简介、画法及实例</title>
     <link href="/2022/05/14/UML%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B/"/>
     <url>/2022/05/14/UML%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B/</url>
@@ -615,6 +590,31 @@
     <tags>
       
       <tag>UML</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>如何方便的在任意目录下运行Windows命令行</title>
+    <link href="/2022/05/14/Windows%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/"/>
+    <url>/2022/05/14/Windows%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[<h1 id="windows系统下使用cd命令"><a href="#windows系统下使用cd命令" class="headerlink" title="windows系统下使用cd命令"></a>windows系统下使用cd命令</h1><ol><li><p>输入D:  回车</p><img src="https://s2.loli.net/2022/05/26/vocCuYsR7WiVwQt.png" style="zoom:50%;" /></li><li><p>输入cd Program Files 回车</p><img src="https://s2.loli.net/2022/05/26/T2UDK9ou3MfJrs7.png" style="zoom:50%;" /></li></ol><hr><h1 id="Windows10-在当前文件夹下打开cmd（命令行）的方法"><a href="#Windows10-在当前文件夹下打开cmd（命令行）的方法" class="headerlink" title="Windows10 - 在当前文件夹下打开cmd（命令行）的方法"></a>Windows10 - 在当前文件夹下打开cmd（命令行）的方法</h1><p>清除文件路径输入cmd</p><p><img src="https://s2.loli.net/2022/06/28/MGTy3sqFHmfELN2.gif" alt="img"></p><h1 id="Windows-10任务管理器在哪-怎么打开"><a href="#Windows-10任务管理器在哪-怎么打开" class="headerlink" title="Windows 10任务管理器在哪?怎么打开?"></a>Windows 10任务管理器在哪?怎么打开?</h1><ol><li>先打开Windows 10运行命令框，可以直接使用 Win + R 组合快捷键打开;</li><li>在运行命令操作中，在打开后面键入命名：taskmgr 然后点击底部的“确定”就可以打开任务管理器了。</li></ol><h1 id="使用管理员权限打开cmd（命令提示符）的方法-（Windows10）"><a href="#使用管理员权限打开cmd（命令提示符）的方法-（Windows10）" class="headerlink" title="使用管理员权限打开cmd（命令提示符）的方法 （Windows10）"></a>使用管理员权限打开cmd（命令提示符）的方法 （Windows10）</h1><p>Step1 在任务栏搜索框里输入“cmd”</p><p><img src="https://s2.loli.net/2022/06/28/Pua2RmC7J6zgGro.png" alt="在这里插入图片描述"></p><p>Step2 鼠标左键点击“以管理员身份运行”</p><p><img src="https://s2.loli.net/2022/06/28/PYaxTcECewG1K6k.png" alt="在这里插入图片描述"></p><h1 id="如何在windows的DOS窗口中正常显示中文-UTF-8字符"><a href="#如何在windows的DOS窗口中正常显示中文-UTF-8字符" class="headerlink" title="如何在windows的DOS窗口中正常显示中文(UTF-8字符)"></a>如何在windows的DOS窗口中正常显示中文(UTF-8字符)</h1><p>打开CMD.exe命令行窗口,通过 chcp命令改变代码页</p><blockquote><p>UTF-8的代码页为65001,ANSI/OEM - 简体中文 GBK为936,window default OEM - 美国为437</p></blockquote><h1 id="win10设置防火墙端口开放及检测开放端口"><a href="#win10设置防火墙端口开放及检测开放端口" class="headerlink" title="win10设置防火墙端口开放及检测开放端口"></a>win10设置防火墙端口开放及检测开放端口</h1><blockquote><p><a href="https://blog.csdn.net/qq_43567345/article/details/105323795">原文链接</a></p></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>大二生涯</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>windows</tag>
       
     </tags>
     
