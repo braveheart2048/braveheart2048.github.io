@@ -39,83 +39,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Maven介绍</title>
-    <url>/2022/05/14/Maven%E4%BB%8B%E7%BB%8D/</url>
-    <content><![CDATA[<meta name="referrer" content="no-referrer"/>
-
-<h1 id="Maven基础"><a href="#Maven基础" class="headerlink" title="Maven基础"></a>Maven基础</h1><p>Maven是一个Java项目管理和构建工具，它可以定义项目结构、项目依赖，并使用统一的方式进行自动化构建，是Java项目不可缺少的工具。</p>
-<hr>
-<h2 id="Maven介绍"><a href="#Maven介绍" class="headerlink" title="Maven介绍"></a>Maven介绍</h2><ol>
-<li><p>一个使用Maven管理的普通的Java项目，它的目录结构默认如下：</p>
-<p><img src="D:\Blog\source_posts\MavenDescription\image-20220419165550723.png"></p>
-</li>
-</ol>
-<p>存放Java源码的目录是<code>src/main/java</code>，存放资源文件的目录是<code>src/main/resources</code>，存放测试源码的目录是<code>src/test/java</code>，存放测试资源的目录是<code>src/test/resources</code>，最后，所有编译、打包生成的文件都放在<code>target</code>目录里。</p>
-<h2 id="依赖管理"><a href="#依赖管理" class="headerlink" title="依赖管理"></a>依赖管理</h2><ol>
-<li><p>Maven解决了依赖管理问题。例如，我们的项目依赖<code>abc</code>这个jar包，而<code>abc</code>又依赖<code>xyz</code>这个jar包：</p>
-<p><img src="D:\Blog\source_posts\MavenDescription\image-20220419170045724.png"></p>
-<p>​    当我们声明了<code>abc</code>的依赖时，Maven自动把<code>abc</code>和<code>xyz</code>都加入了我们的项目依赖，不需要我们自己去研究<code>abc</code>是否需要依赖<code>xyz</code>。</p>
-</li>
-<li><p>依赖关系</p>
-<p>Maven定义了几种依赖关系，分别是<code>compile</code>、<code>test</code>、<code>runtime</code>和<code>provided</code>：</p>
-<table>
-<thead>
-<tr>
-<th align="left">scope</th>
-<th align="left">说明</th>
-<th align="left">示例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">compile</td>
-<td align="left">编译时需要用到该jar包（默认）</td>
-<td align="left">commons-logging</td>
-</tr>
-<tr>
-<td align="left">test</td>
-<td align="left">编译Test时需要用到该jar包</td>
-<td align="left">junit</td>
-</tr>
-<tr>
-<td align="left">runtime</td>
-<td align="left">编译时不需要，但运行时需要用到</td>
-<td align="left">mysql</td>
-</tr>
-<tr>
-<td align="left">provided</td>
-<td align="left">编译时需要用到，但运行时由JDK或某个服务器提供</td>
-<td align="left">servlet-api</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>唯一ID</p>
-<p>对于某个依赖，Maven只需要3个变量即可唯一确定某个jar包：</p>
-<ul>
-<li>groupId：属于组织的名称，类似Java的包名；</li>
-<li>artifactId：该jar包自身的名称，类似Java的类名；</li>
-<li>version：该jar包的版本。</li>
-</ul>
-</li>
-<li><p>Maven镜像</p>
-<p>中国区用户可以使用阿里云提供的Maven镜像仓库。使用Maven镜像仓库需要一个配置，在用户主目录下进入<code>.m2</code>目录，创建一个<code>settings.xml</code>配置文件，内容如下：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">settings</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">mirrors</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">mirror</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>aliyun<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>aliyun<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">mirrorOf</span>&gt;</span>central<span class="hljs-tag">&lt;/<span class="hljs-name">mirrorOf</span>&gt;</span><br>            <span class="hljs-comment">&lt;!-- 国内推荐阿里云的Maven镜像 --&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>https://maven.aliyun.com/repository/central<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">mirror</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">mirrors</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">settings</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
-<li><p>搜索第三方组件</p>
-<p>最后一个问题：如果我们要引用一个第三方组件，比如<code>okhttp</code>，如何确切地获得它的<code>groupId</code>、<code>artifactId</code>和<code>version</code>？方法是通过<a href="https://search.maven.org/">search.maven.org</a>搜索关键字，找到对应的组件后，直接复制</p>
-</li>
-</ol>
-<p><strong>小结</strong></p>
-<p>Maven通过解析依赖关系确定项目所需的jar包，常用的4种<code>scope</code>有：<code>compile</code>（默认），<code>test</code>，<code>runtime</code>和<code>provided</code>；</p>
-<p>Maven从中央仓库下载所需的jar包并缓存在本地；</p>
-<p>可以通过镜像仓库加速下载。</p>
-]]></content>
-      <categories>
-        <category>大二生涯</category>
-      </categories>
-      <tags>
-        <tag>maven</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java多线程学习总结</title>
     <url>/2022/07/15/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h1 id="多线程的实现方式"><a href="#多线程的实现方式" class="headerlink" title="多线程的实现方式"></a>多线程的实现方式</h1><h2 id="通过实现-Runnable-接口"><a href="#通过实现-Runnable-接口" class="headerlink" title="通过实现 Runnable 接口"></a>通过实现 Runnable 接口</h2><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.ruanyuan;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * TODO</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@ClassName</span> TestThread</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Author</span> Alfa</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Data</span> 2022/7/14 15:43</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Version</span> 1.0</span><br><span class="hljs-comment"> **/</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestThread</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        RunnableDemo demo = <span class="hljs-keyword">new</span> RunnableDemo();<br>        <span class="hljs-keyword">new</span> Thread(demo).start();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++) &#123;<br>            System.out.println(<span class="hljs-string">&quot;主线程&quot;</span>);<br>        &#125;<br>    &#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RunnableDemo</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Runnable</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++) &#123;<br>            System.out.println(<span class="hljs-string">&quot;子线程--&quot;</span>+Thread.currentThread().getName());<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
@@ -419,6 +342,83 @@
       </tags>
   </entry>
   <entry>
+    <title>Maven介绍</title>
+    <url>/2022/05/14/Maven%E4%BB%8B%E7%BB%8D/</url>
+    <content><![CDATA[<meta name="referrer" content="no-referrer"/>
+
+<h1 id="Maven基础"><a href="#Maven基础" class="headerlink" title="Maven基础"></a>Maven基础</h1><p>Maven是一个Java项目管理和构建工具，它可以定义项目结构、项目依赖，并使用统一的方式进行自动化构建，是Java项目不可缺少的工具。</p>
+<hr>
+<h2 id="Maven介绍"><a href="#Maven介绍" class="headerlink" title="Maven介绍"></a>Maven介绍</h2><ol>
+<li><p>一个使用Maven管理的普通的Java项目，它的目录结构默认如下：</p>
+<p><img src="D:\Blog\source_posts\MavenDescription\image-20220419165550723.png"></p>
+</li>
+</ol>
+<p>存放Java源码的目录是<code>src/main/java</code>，存放资源文件的目录是<code>src/main/resources</code>，存放测试源码的目录是<code>src/test/java</code>，存放测试资源的目录是<code>src/test/resources</code>，最后，所有编译、打包生成的文件都放在<code>target</code>目录里。</p>
+<h2 id="依赖管理"><a href="#依赖管理" class="headerlink" title="依赖管理"></a>依赖管理</h2><ol>
+<li><p>Maven解决了依赖管理问题。例如，我们的项目依赖<code>abc</code>这个jar包，而<code>abc</code>又依赖<code>xyz</code>这个jar包：</p>
+<p><img src="D:\Blog\source_posts\MavenDescription\image-20220419170045724.png"></p>
+<p>​    当我们声明了<code>abc</code>的依赖时，Maven自动把<code>abc</code>和<code>xyz</code>都加入了我们的项目依赖，不需要我们自己去研究<code>abc</code>是否需要依赖<code>xyz</code>。</p>
+</li>
+<li><p>依赖关系</p>
+<p>Maven定义了几种依赖关系，分别是<code>compile</code>、<code>test</code>、<code>runtime</code>和<code>provided</code>：</p>
+<table>
+<thead>
+<tr>
+<th align="left">scope</th>
+<th align="left">说明</th>
+<th align="left">示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">compile</td>
+<td align="left">编译时需要用到该jar包（默认）</td>
+<td align="left">commons-logging</td>
+</tr>
+<tr>
+<td align="left">test</td>
+<td align="left">编译Test时需要用到该jar包</td>
+<td align="left">junit</td>
+</tr>
+<tr>
+<td align="left">runtime</td>
+<td align="left">编译时不需要，但运行时需要用到</td>
+<td align="left">mysql</td>
+</tr>
+<tr>
+<td align="left">provided</td>
+<td align="left">编译时需要用到，但运行时由JDK或某个服务器提供</td>
+<td align="left">servlet-api</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>唯一ID</p>
+<p>对于某个依赖，Maven只需要3个变量即可唯一确定某个jar包：</p>
+<ul>
+<li>groupId：属于组织的名称，类似Java的包名；</li>
+<li>artifactId：该jar包自身的名称，类似Java的类名；</li>
+<li>version：该jar包的版本。</li>
+</ul>
+</li>
+<li><p>Maven镜像</p>
+<p>中国区用户可以使用阿里云提供的Maven镜像仓库。使用Maven镜像仓库需要一个配置，在用户主目录下进入<code>.m2</code>目录，创建一个<code>settings.xml</code>配置文件，内容如下：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">settings</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">mirrors</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">mirror</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>aliyun<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>aliyun<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">mirrorOf</span>&gt;</span>central<span class="hljs-tag">&lt;/<span class="hljs-name">mirrorOf</span>&gt;</span><br>            <span class="hljs-comment">&lt;!-- 国内推荐阿里云的Maven镜像 --&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>https://maven.aliyun.com/repository/central<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">mirror</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">mirrors</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">settings</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
+<li><p>搜索第三方组件</p>
+<p>最后一个问题：如果我们要引用一个第三方组件，比如<code>okhttp</code>，如何确切地获得它的<code>groupId</code>、<code>artifactId</code>和<code>version</code>？方法是通过<a href="https://search.maven.org/">search.maven.org</a>搜索关键字，找到对应的组件后，直接复制</p>
+</li>
+</ol>
+<p><strong>小结</strong></p>
+<p>Maven通过解析依赖关系确定项目所需的jar包，常用的4种<code>scope</code>有：<code>compile</code>（默认），<code>test</code>，<code>runtime</code>和<code>provided</code>；</p>
+<p>Maven从中央仓库下载所需的jar包并缓存在本地；</p>
+<p>可以通过镜像仓库加速下载。</p>
+]]></content>
+      <categories>
+        <category>大二生涯</category>
+      </categories>
+      <tags>
+        <tag>maven</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySql问题整理</title>
     <url>/2022/07/09/MySql%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/</url>
     <content><![CDATA[<h1 id="mysql数据库中-查看数据库的字符集"><a href="#mysql数据库中-查看数据库的字符集" class="headerlink" title="mysql数据库中,查看数据库的字符集"></a>mysql数据库中,查看数据库的字符集</h1><ul>
@@ -464,49 +464,6 @@
       </categories>
       <tags>
         <tag>redis</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SpringAOP学习整理</title>
-    <url>/2022/05/14/SpringAOP%E5%AD%A6%E4%B9%A0%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<meta name="referrer" content="no-referrer"/>
-# 对AOP的初印象
-
-<p><img src="https://img-blog.csdn.net/20180530172528617?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3E5ODIxNTE3NTY=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
-<h1 id="AOP中的相关概念"><a href="#AOP中的相关概念" class="headerlink" title="AOP中的相关概念"></a>AOP中的相关概念</h1><ul>
-<li><p>Aspect（切面）： Aspect 声明类似于 Java 中的类声明，在 Aspect 中会包含着一些 Pointcut 以及相应的 Advice。</p>
-</li>
-<li><p>Joint point（连接点）：表示在程序中明确定义的点，典型的包括方法调用，对类成员的访问以及异常处理程序块的执行等等，它自身还可以嵌套其它 joint point。</p>
-</li>
-<li><p>Pointcut（切点）：表示一组 joint point，这些 joint point 或是通过逻辑关系组合起来，或是通过通配、正则表达式等方式集中起来，它定义了相应的 Advice 将要发生的地方。</p>
-</li>
-<li><p>Advice（增强）：Advice 定义了在 Pointcut 里面定义的程序点具体要做的操作，它通过 before、after 和 around 来区别是在每个 joint point 之前、之后还是代替执行的代码。</p>
-</li>
-<li><p>Target（目标对象）：织入 Advice 的目标对象.。</p>
-</li>
-<li><p>Weaving（织入）：将 Aspect 和其他对象连接起来, 并创建 Adviced object 的过程</p>
-<img src="https://img-blog.csdn.net/20180530175605692?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3E5ODIxNTE3NTY=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" style="zoom: 67%;" /></li>
-</ul>
-<h1 id="Advice-的类型"><a href="#Advice-的类型" class="headerlink" title="Advice 的类型"></a>Advice 的类型</h1><ul>
-<li>before advice, 在 join point 前被执行的 advice. 虽然 before advice 是在 join point 前被执行, 但是它并不能够阻止 join point 的执行, 除非发生了异常(即我们在 before advice 代码中, 不能人为地决定是否继续执行 join point 中的代码)</li>
-<li>after return advice, 在一个 join point 正常返回后执行的 advice</li>
-<li>after throwing advice, 当一个 join point 抛出异常后执行的 advice</li>
-<li>after(final) advice, 无论一个 join point 是正常退出还是发生了异常, 都会被执行的 advice.</li>
-<li>around advice, 在 join point 前和 joint point 退出后都执行的 advice. 这个是最常用的 advice.</li>
-<li>introduction，introduction可以为原有的对象增加新的属性和方法。</li>
-</ul>
-<h1 id="在Java平台上，对于AOP的织入，有3种方式："><a href="#在Java平台上，对于AOP的织入，有3种方式：" class="headerlink" title="在Java平台上，对于AOP的织入，有3种方式："></a>在Java平台上，对于AOP的织入，有3种方式：</h1><ol>
-<li>编译期：在编译时，由编译器把切面调用编译进字节码，这种方式需要定义新的关键字并扩展编译器，AspectJ就扩展了Java编译器，使用关键字aspect来实现织入；</li>
-<li>类加载器：在目标类被装载到JVM时，通过一个特殊的类加载器，对目标类的字节码重新“增强”；</li>
-<li>运行期：目标对象和切面都是普通Java类，通过JVM的动态代理功能或者第三方库实现运行期动态织入。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>大二生涯</category>
-      </categories>
-      <tags>
-        <tag>spring</tag>
-        <tag>AOP</tag>
       </tags>
   </entry>
   <entry>
@@ -647,44 +604,46 @@ public String model() &#123;
       </tags>
   </entry>
   <entry>
-    <title>Swagger学习记录</title>
-    <url>/2022/07/18/Swagger%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h1 id="SpringBoot集成Swagger"><a href="#SpringBoot集成Swagger" class="headerlink" title="SpringBoot集成Swagger"></a>SpringBoot集成Swagger</h1><ol>
-<li><p>新建SpringBoot-web项目</p>
+    <title>SpringAOP学习整理</title>
+    <url>/2022/05/14/SpringAOP%E5%AD%A6%E4%B9%A0%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<meta name="referrer" content="no-referrer"/>
+# 对AOP的初印象
+
+<p><img src="https://img-blog.csdn.net/20180530172528617?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3E5ODIxNTE3NTY=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+<h1 id="AOP中的相关概念"><a href="#AOP中的相关概念" class="headerlink" title="AOP中的相关概念"></a>AOP中的相关概念</h1><ul>
+<li><p>Aspect（切面）： Aspect 声明类似于 Java 中的类声明，在 Aspect 中会包含着一些 Pointcut 以及相应的 Advice。</p>
 </li>
-<li><p>导入maven依赖</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- Swagger2 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.springfox<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.9.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-comment">&lt;!-- Swagger的ui界面 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.springfox<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>springfox-swagger2<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.9.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
-<li><p>编写一个hello工程</p>
+<li><p>Joint point（连接点）：表示在程序中明确定义的点，典型的包括方法调用，对类成员的访问以及异常处理程序块的执行等等，它自身还可以嵌套其它 joint point。</p>
 </li>
-<li><p>配置Swagger</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@EnableSwagger2</span> <span class="hljs-comment">//开启Swagger2</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SwaggerConfig</span> </span>&#123;<br>&#125;<br></code></pre></td></tr></table></figure></li>
-<li><p>浏览器访问：<code>http://localhost:8080/swagger-ui.html</code></p>
-<p><img src="https://s2.loli.net/2022/07/18/w89M7nXejslu6dZ.png" alt="image-20220718113600228"></p>
+<li><p>Pointcut（切点）：表示一组 joint point，这些 joint point 或是通过逻辑关系组合起来，或是通过通配、正则表达式等方式集中起来，它定义了相应的 Advice 将要发生的地方。</p>
 </li>
+<li><p>Advice（增强）：Advice 定义了在 Pointcut 里面定义的程序点具体要做的操作，它通过 before、after 和 around 来区别是在每个 joint point 之前、之后还是代替执行的代码。</p>
+</li>
+<li><p>Target（目标对象）：织入 Advice 的目标对象.。</p>
+</li>
+<li><p>Weaving（织入）：将 Aspect 和其他对象连接起来, 并创建 Adviced object 的过程</p>
+<img src="https://img-blog.csdn.net/20180530175605692?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3E5ODIxNTE3NTY=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" style="zoom: 67%;" /></li>
+</ul>
+<h1 id="Advice-的类型"><a href="#Advice-的类型" class="headerlink" title="Advice 的类型"></a>Advice 的类型</h1><ul>
+<li>before advice, 在 join point 前被执行的 advice. 虽然 before advice 是在 join point 前被执行, 但是它并不能够阻止 join point 的执行, 除非发生了异常(即我们在 before advice 代码中, 不能人为地决定是否继续执行 join point 中的代码)</li>
+<li>after return advice, 在一个 join point 正常返回后执行的 advice</li>
+<li>after throwing advice, 当一个 join point 抛出异常后执行的 advice</li>
+<li>after(final) advice, 无论一个 join point 是正常退出还是发生了异常, 都会被执行的 advice.</li>
+<li>around advice, 在 join point 前和 joint point 退出后都执行的 advice. 这个是最常用的 advice.</li>
+<li>introduction，introduction可以为原有的对象增加新的属性和方法。</li>
+</ul>
+<h1 id="在Java平台上，对于AOP的织入，有3种方式："><a href="#在Java平台上，对于AOP的织入，有3种方式：" class="headerlink" title="在Java平台上，对于AOP的织入，有3种方式："></a>在Java平台上，对于AOP的织入，有3种方式：</h1><ol>
+<li>编译期：在编译时，由编译器把切面调用编译进字节码，这种方式需要定义新的关键字并扩展编译器，AspectJ就扩展了Java编译器，使用关键字aspect来实现织入；</li>
+<li>类加载器：在目标类被装载到JVM时，通过一个特殊的类加载器，对目标类的字节码重新“增强”；</li>
+<li>运行期：目标对象和切面都是普通Java类，通过JVM的动态代理功能或者第三方库实现运行期动态织入。</li>
 </ol>
-<h1 id="访问swagger-ui-html-404报错一秒解决"><a href="#访问swagger-ui-html-404报错一秒解决" class="headerlink" title="访问swagger-ui.html 404报错一秒解决"></a>访问swagger-ui.html 404报错一秒解决</h1><p><em>主要是swagger的版本不能用3.0.0</em></p>
-<h1 id="Swagger的基本配置信息"><a href="#Swagger的基本配置信息" class="headerlink" title="Swagger的基本配置信息"></a>Swagger的基本配置信息</h1><p><strong>添加配置信息</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * TODO</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@ClassName</span> SwaggerConfig</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Author</span> Alfa</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Data</span> 2022/7/18 11:25</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Version</span> 1.0</span><br><span class="hljs-comment"> **/</span><br><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@EnableSwagger2</span> <span class="hljs-comment">//开启Swagger2</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SwaggerConfig</span> </span>&#123;<br>    <span class="hljs-comment">// 配置了Swagger的Docket bean实例</span><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Docket <span class="hljs-title">docket</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Docket(DocumentationType.SWAGGER_2)<br>                .apiInfo(apiInfo());<br>    &#125;<br>    <span class="hljs-comment">//配置Swagger信息</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> ApiInfo <span class="hljs-title">apiInfo</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-comment">// 作者信息</span><br>        Contact contact = <span class="hljs-keyword">new</span> Contact(<span class="hljs-string">&quot;秦将&quot;</span>, <span class="hljs-string">&quot;http://idealstars.space&quot;</span>, <span class="hljs-string">&quot;123@qq.com&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ApiInfo(<br>                <span class="hljs-string">&quot;狂神的swagger日记&quot;</span>,<br>                <span class="hljs-string">&quot;即使再小的帆也能远航&quot;</span>,<br>                <span class="hljs-string">&quot;1.0&quot;</span>,<br>                <span class="hljs-string">&quot;http://idealstars.space&quot;</span>,<br>                contact,<br>                <span class="hljs-string">&quot;Apache 2.0&quot;</span>,<br>                <span class="hljs-string">&quot;http://www.apache.org/licenses/LICENSE-2.0&quot;</span>,<br>                <span class="hljs-keyword">new</span> ArrayList());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p><strong>界面展示</strong></p>
-<p><img src="https://s2.loli.net/2022/07/18/gyl2mqISk4as8Yx.png" alt="image-20220718115019912"></p>
-<h1 id="配置扫描接口和是否启用swagger"><a href="#配置扫描接口和是否启用swagger" class="headerlink" title="配置扫描接口和是否启用swagger"></a>配置扫描接口和是否启用swagger</h1><blockquote>
-<p>配置位置</p>
-</blockquote>
-<p><img src="https://s2.loli.net/2022/07/18/NWU4Pmwr2ujEZVd.png" alt="image-20220718122953122"></p>
-<blockquote>
-<p>代码</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 配置了Swagger的Docket bean实例</span><br><span class="hljs-meta">@Bean</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> Docket <span class="hljs-title">docket</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Docket(DocumentationType.SWAGGER_2)<br>        .apiInfo(apiInfo())<br>        <span class="hljs-comment">//是否启用swagger，如果为false，则swagger不能再浏览器中访问</span><br>        .enable(<span class="hljs-keyword">false</span>)<br>        .select()<br>        <span class="hljs-comment">// RequestHandlerSelectors 配置要扫描接口的方式</span><br>        <span class="hljs-comment">// basePackage指定要扫描的包</span><br>        <span class="hljs-comment">// any():扫描全部</span><br>        <span class="hljs-comment">// none():不扫描</span><br>        <span class="hljs-comment">//.withClassAnnotation():扫描类上的注解，参数是一个注解的反射对象</span><br>        <span class="hljs-comment">//.withMethodAnnotation():扫描方法上的注解</span><br>        .apis(RequestHandlerSelectors.basePackage(<span class="hljs-string">&quot;com.kuang.swagger.controller&quot;</span>))<br>        <span class="hljs-comment">//过滤路径</span><br>        <span class="hljs-comment">//.paths(PathSelectors.ant(&quot;/kuang/**&quot;))</span><br>        .build();<br>&#125;<br></code></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
-        <category>岗前实训</category>
+        <category>大二生涯</category>
       </categories>
       <tags>
-        <tag>Java</tag>
-        <tag>springboot</tag>
-        <tag>swagger</tag>
+        <tag>spring</tag>
+        <tag>AOP</tag>
       </tags>
   </entry>
   <entry>
@@ -767,10 +726,51 @@ public String model() &#123;
       </tags>
   </entry>
   <entry>
+    <title>Swagger学习记录</title>
+    <url>/2022/07/18/Swagger%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h1 id="SpringBoot集成Swagger"><a href="#SpringBoot集成Swagger" class="headerlink" title="SpringBoot集成Swagger"></a>SpringBoot集成Swagger</h1><ol>
+<li><p>新建SpringBoot-web项目</p>
+</li>
+<li><p>导入maven依赖</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- Swagger2 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.springfox<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.9.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-comment">&lt;!-- Swagger的ui界面 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.springfox<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>springfox-swagger2<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.9.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
+<li><p>编写一个hello工程</p>
+</li>
+<li><p>配置Swagger</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@EnableSwagger2</span> <span class="hljs-comment">//开启Swagger2</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SwaggerConfig</span> </span>&#123;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li><p>浏览器访问：<code>http://localhost:8080/swagger-ui.html</code></p>
+<p><img src="https://s2.loli.net/2022/07/18/w89M7nXejslu6dZ.png" alt="image-20220718113600228"></p>
+</li>
+</ol>
+<h1 id="访问swagger-ui-html-404报错一秒解决"><a href="#访问swagger-ui-html-404报错一秒解决" class="headerlink" title="访问swagger-ui.html 404报错一秒解决"></a>访问swagger-ui.html 404报错一秒解决</h1><p><em>主要是swagger的版本不能用3.0.0</em></p>
+<h1 id="Swagger的基本配置信息"><a href="#Swagger的基本配置信息" class="headerlink" title="Swagger的基本配置信息"></a>Swagger的基本配置信息</h1><p><strong>添加配置信息</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * TODO</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@ClassName</span> SwaggerConfig</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Author</span> Alfa</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Data</span> 2022/7/18 11:25</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Version</span> 1.0</span><br><span class="hljs-comment"> **/</span><br><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@EnableSwagger2</span> <span class="hljs-comment">//开启Swagger2</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SwaggerConfig</span> </span>&#123;<br>    <span class="hljs-comment">// 配置了Swagger的Docket bean实例</span><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Docket <span class="hljs-title">docket</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Docket(DocumentationType.SWAGGER_2)<br>                .apiInfo(apiInfo());<br>    &#125;<br>    <span class="hljs-comment">//配置Swagger信息</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> ApiInfo <span class="hljs-title">apiInfo</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-comment">// 作者信息</span><br>        Contact contact = <span class="hljs-keyword">new</span> Contact(<span class="hljs-string">&quot;秦将&quot;</span>, <span class="hljs-string">&quot;http://idealstars.space&quot;</span>, <span class="hljs-string">&quot;123@qq.com&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ApiInfo(<br>                <span class="hljs-string">&quot;狂神的swagger日记&quot;</span>,<br>                <span class="hljs-string">&quot;即使再小的帆也能远航&quot;</span>,<br>                <span class="hljs-string">&quot;1.0&quot;</span>,<br>                <span class="hljs-string">&quot;http://idealstars.space&quot;</span>,<br>                contact,<br>                <span class="hljs-string">&quot;Apache 2.0&quot;</span>,<br>                <span class="hljs-string">&quot;http://www.apache.org/licenses/LICENSE-2.0&quot;</span>,<br>                <span class="hljs-keyword">new</span> ArrayList());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>界面展示</strong></p>
+<p><img src="https://s2.loli.net/2022/07/18/gyl2mqISk4as8Yx.png" alt="image-20220718115019912"></p>
+<h1 id="配置扫描接口和是否启用swagger"><a href="#配置扫描接口和是否启用swagger" class="headerlink" title="配置扫描接口和是否启用swagger"></a>配置扫描接口和是否启用swagger</h1><blockquote>
+<p>配置位置</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2022/07/18/NWU4Pmwr2ujEZVd.png" alt="image-20220718122953122"></p>
+<blockquote>
+<p>代码</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 配置了Swagger的Docket bean实例</span><br><span class="hljs-meta">@Bean</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> Docket <span class="hljs-title">docket</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Docket(DocumentationType.SWAGGER_2)<br>        .apiInfo(apiInfo())<br>        <span class="hljs-comment">//是否启用swagger，如果为false，则swagger不能再浏览器中访问</span><br>        .enable(<span class="hljs-keyword">false</span>)<br>        .select()<br>        <span class="hljs-comment">// RequestHandlerSelectors 配置要扫描接口的方式</span><br>        <span class="hljs-comment">// basePackage指定要扫描的包</span><br>        <span class="hljs-comment">// any():扫描全部</span><br>        <span class="hljs-comment">// none():不扫描</span><br>        <span class="hljs-comment">//.withClassAnnotation():扫描类上的注解，参数是一个注解的反射对象</span><br>        <span class="hljs-comment">//.withMethodAnnotation():扫描方法上的注解</span><br>        .apis(RequestHandlerSelectors.basePackage(<span class="hljs-string">&quot;com.kuang.swagger.controller&quot;</span>))<br>        <span class="hljs-comment">//过滤路径</span><br>        <span class="hljs-comment">//.paths(PathSelectors.ant(&quot;/kuang/**&quot;))</span><br>        .build();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>岗前实训</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>springboot</tag>
+        <tag>swagger</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Typora使用问题</title>
     <url>/2022/07/18/Typora%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="markdown文件生成目录的方式"><a href="#markdown文件生成目录的方式" class="headerlink" title="markdown文件生成目录的方式"></a>markdown文件生成目录的方式</h1><p>在文章开始地方输入[toc]，即可在对应位置插入目录</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/8554214-110721724e95b75d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
+<p><img src="https://s2.loli.net/2022/07/21/5qBCYXF3gO1skpm.webp" alt="img"></p>
 <blockquote>
 <p>凡是文章标题带有#（1-6个）的都会被捕获到目录中。</p>
 </blockquote>
@@ -895,33 +895,6 @@ public String model() &#123;
       </tags>
   </entry>
   <entry>
-    <title>chrome使用问题</title>
-    <url>/2022/05/21/chrome%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="chrome浏览页面常用快捷键"><a href="#chrome浏览页面常用快捷键" class="headerlink" title="chrome浏览页面常用快捷键"></a>chrome浏览页面常用快捷键</h1><p><em><strong><a href="https://blog.csdn.net/weixin_35319943/article/details/111955799#:~:text=Ctrl%20%2B%20F4%20%E5%85%B3%E9%97%ADchrome%E6%B5%8F%E8%A7%88%E5%99%A8%20Ctrl%2BTab%20%E6%88%96%20Ctrl%2BPgDown%20%E5%88%87%E6%8D%A2%E5%88%B0%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%A0%87%E7%AD%BE%E9%A1%B5%E3%80%82,Ctrl%2BPgUp%20%E5%88%87%E6%8D%A2%E5%88%B0%E4%B8%8A%E4%B8%80%E4%B8%AA%E6%A0%87%E7%AD%BE%E9%A1%B5%E3%80%82%20Ctrl%2B1%20%E5%88%B0%20Ctrl%2B8%20%E5%88%87%E6%8D%A2%E5%88%B0%E6%A0%87%E7%AD%BE%E6%A0%8F%E4%B8%AD%E6%8C%87%E5%AE%9A%E5%9C%B0%E4%BD%8D%E7%BC%96%E5%8F%B7%E6%89%80%E5%AF%B9%E5%BA%94%E7%9A%84%E6%A0%87%E7%AD%BE%E9%A1%B5%E3%80%82%20Ctrl%2B9%20%E5%88%87%E6%8D%A2%E5%88%B0%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E6%A0%87%E7%AD%BE%E9%A1%B5%E3%80%82">原文链接</a></strong></em></p>
-<ol>
-<li>Ctrl+N 打开新窗口</li>
-<li>Ctrl+T 打开新标签页</li>
-<li>Ctrl+W关闭当前标签</li>
-<li>Ctrl+Tab 或 Ctrl+PgDown 切换到下一个标签页</li>
-<li>Ctrl+Shift+Tab 或 Ctrl+PgUp 切换到上一个标签页</li>
-<li>Ctrl+1 到 Ctrl+8 切换到标签栏中指定地位编号所对应的标签页</li>
-<li>Ctrl+Shift+T 从头打开前次封闭的标签页。谷歌浏览器可记住比来封闭的 10 个标签页</li>
-<li>Ctrl+Shift+Delete:用于显示“清除浏览数据”界面</li>
-</ol>
-<h1 id="chrome-如何删除对某一个网站的缓存"><a href="#chrome-如何删除对某一个网站的缓存" class="headerlink" title="chrome 如何删除对某一个网站的缓存"></a>chrome 如何删除对某一个网站的缓存</h1><blockquote>
-<p>点击F12即可 </p>
-</blockquote>
-<p><img src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220717140536975.png" alt="image-20220717140536975"></p>
-]]></content>
-      <categories>
-        <category>大二生涯</category>
-      </categories>
-      <tags>
-        <tag>chrome</tag>
-        <tag>快捷键</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>el和jstl表达式</title>
     <url>/2022/05/27/el%E5%92%8Cjstl%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
     <content><![CDATA[<p>el即Expression Language，用来在jsp页面上显示内容，jstl是JSP Standard Tag Library的缩写，包含多种标签，el和jstl结合使用，页面渲染更方便。</p>
@@ -1005,6 +978,257 @@ public String model() &#123;
       <tags>
         <tag>el表达式</tag>
         <tag>jstl表达式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>idea使用问题</title>
+    <url>/2022/05/20/idea%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="idea快捷键"><a href="#idea快捷键" class="headerlink" title="idea快捷键"></a>idea快捷键</h1><p><em><strong><a href="https://blog.csdn.net/qq_38963960/article/details/89552704">原文链接</a></strong></em></p>
+<ol>
+<li><h2 id="Ctrl"><a href="#Ctrl" class="headerlink" title="Ctrl"></a>Ctrl</h2><table>
+<thead>
+<tr>
+<th align="left">快捷键</th>
+<th align="left">介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Ctrl + Z</td>
+<td align="left">撤销</td>
+</tr>
+<tr>
+<td align="left">Ctrl + Tab</td>
+<td align="left">编辑窗口切换，如果在切换的过程又加按上delete，则是关闭对应选中的窗口</td>
+</tr>
+<tr>
+<td align="left">Ctrl + W</td>
+<td align="left">递进式选择代码块。可选中光标所在的单词或段落，连续按会在原有选中的基础上再扩展选中范围</td>
+</tr>
+<tr>
+<td align="left">Ctrl + Q</td>
+<td align="left">光标所在的变量 / 类名 / 方法名等上面（也可以在提示补充的时候按），显示文档内容</td>
+</tr>
+<tr>
+<td align="left">Ctrl + B</td>
+<td align="left">进入光标所在的方法/变量的接口或是定义出，等效于 <code>Ctrl + 左键单击</code></td>
+</tr>
+<tr>
+<td align="left">Ctrl + [</td>
+<td align="left">移动光标到当前所在代码的花括号开始位置</td>
+</tr>
+<tr>
+<td align="left">Ctrl + ]</td>
+<td align="left">移动光标到当前所在代码的花括号结束位置</td>
+</tr>
+</tbody></table>
+</li>
+<li><h2 id="Alt"><a href="#Alt" class="headerlink" title="Alt"></a>Alt</h2><table>
+<thead>
+<tr>
+<th align="left">快捷键</th>
+<th align="left">介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Alt + 1,2,3…9</td>
+<td align="left">显示对应数值的选项卡，其中 1 是 Project 用得最多</td>
+</tr>
+</tbody></table>
+</li>
+<li><h2 id="Shift"><a href="#Shift" class="headerlink" title="Shift"></a>Shift</h2><table>
+<thead>
+<tr>
+<th align="left">快捷键</th>
+<th align="left">介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Shift + F6</td>
+<td align="left">对文件 / 文件夹 重命名</td>
+</tr>
+<tr>
+<td align="left">Shift + Enter</td>
+<td align="left">开始新一行。光标所在行下空出一行，光标定位到新行位置</td>
+</tr>
+<tr>
+<td align="left">Shift + 滚轮前后滚动</td>
+<td align="left">当前文件的横向滚动轴滚动</td>
+</tr>
+<tr>
+<td align="left">shift + F11</td>
+<td align="left">编辑书签</td>
+</tr>
+</tbody></table>
+</li>
+<li><h2 id="Ctrl-Alt"><a href="#Ctrl-Alt" class="headerlink" title="Ctrl + Alt"></a>Ctrl + Alt</h2><table>
+<thead>
+<tr>
+<th align="left">快捷键</th>
+<th align="left">介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Ctrl + Alt + L</td>
+<td align="left">格式化代码，可以对当前文件和整个包目录使用</td>
+</tr>
+<tr>
+<td align="left">Ctrl + Alt + O</td>
+<td align="left">优化导入的类，可以对当前文件和整个包目录使用</td>
+</tr>
+<tr>
+<td align="left">Ctrl + Alt + Enter</td>
+<td align="left">光标所在行上空出一行，光标定位到新行</td>
+</tr>
+<tr>
+<td align="left">Ctrl + Alt + 左方向键</td>
+<td align="left">退回到上一个操作的地方</td>
+</tr>
+<tr>
+<td align="left">Ctrl + Alt + 右方向键</td>
+<td align="left">前进到上一个操作的地方</td>
+</tr>
+<tr>
+<td align="left">ctrl + alt + B</td>
+<td align="left">查找接口的实现类</td>
+</tr>
+</tbody></table>
+</li>
+<li><h2 id="Ctrl-Shift"><a href="#Ctrl-Shift" class="headerlink" title="Ctrl + Shift"></a>Ctrl + Shift</h2><table>
+<thead>
+<tr>
+<th align="left">快捷键</th>
+<th align="left">介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Ctrl + Shift + Z</td>
+<td align="left">取消撤销</td>
+</tr>
+<tr>
+<td align="left">Ctrl + Shift + W</td>
+<td align="left">递进式取消选择代码块。可选中光标所在的单词或段落，连续按会在原有选中的基础上再扩展取消选中范围</td>
+</tr>
+<tr>
+<td align="left">Ctrl + Shift + U</td>
+<td align="left">对选中的代码进行大 / 小写轮流转换</td>
+</tr>
+<tr>
+<td align="left">Ctrl + Shift + Enter</td>
+<td align="left">自动结束代码，行末自动添加分号</td>
+</tr>
+</tbody></table>
+</li>
+<li><h2 id="Alt-Shift"><a href="#Alt-Shift" class="headerlink" title="Alt + Shift"></a>Alt + Shift</h2><table>
+<thead>
+<tr>
+<th align="left">快捷键</th>
+<th align="left">介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Alt + Shift + 前方向键</td>
+<td align="left">移动光标所在行向上移动</td>
+</tr>
+<tr>
+<td align="left">Alt + Shift + 后方向键</td>
+<td align="left">移动光标所在行向下移动</td>
+</tr>
+</tbody></table>
+</li>
+<li><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><table>
+<thead>
+<tr>
+<th align="left">快捷键</th>
+<th align="left">介绍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">F2</td>
+<td align="left">跳转到下一个高亮错误 或 警告位置</td>
+</tr>
+<tr>
+<td align="left">F11</td>
+<td align="left">创建书签</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<h1 id="如何使用IDEA中自带的数据库database！"><a href="#如何使用IDEA中自带的数据库database！" class="headerlink" title="如何使用IDEA中自带的数据库database！"></a>如何使用IDEA中自带的数据库database！</h1><blockquote>
+<p>打开后自己填入信息<br>点击确定后会下载相应驱动，等待即可！</p>
+</blockquote>
+<img src="https://s2.loli.net/2022/05/26/FiRzKcaf1AEWUV6.png" style="zoom:50%;" />
+
+<h1 id="idea连接数据库-The-specified-database-user-password-combination-is-rejected-com-mysql-cj报错"><a href="#idea连接数据库-The-specified-database-user-password-combination-is-rejected-com-mysql-cj报错" class="headerlink" title="idea连接数据库 The specified database user/password combination is rejected: com.mysql.cj报错"></a>idea连接数据库 The specified database user/password combination is rejected: com.mysql.cj报错</h1><blockquote>
+<p>报错如下图：</p>
+</blockquote>
+<img src="https://s2.loli.net/2022/05/26/vyXs1GZLY7REqrh.png" style="zoom:50%;" />
+
+<blockquote>
+<p>解决方法：更换链接地址</p>
+</blockquote>
+<p><em><strong>jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=UTF8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</strong></em></p>
+<h1 id="idea配置外部tomcat访问路径"><a href="#idea配置外部tomcat访问路径" class="headerlink" title="idea配置外部tomcat访问路径"></a>idea配置外部tomcat访问路径</h1><blockquote>
+<p>需要配置两个地方，改一处就行</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2022/07/06/OoTDIkaBSur1zCn.png" alt="image-20220704104127339"></p>
+<p><img src="https://s2.loli.net/2022/07/06/BUlqtnYXDePopVW.png" alt="image-20220704104218184"></p>
+<h1 id="解决-spring-boot-devtool-热部署后出现访问404问题"><a href="#解决-spring-boot-devtool-热部署后出现访问404问题" class="headerlink" title="解决 spring boot devtool 热部署后出现访问404问题"></a>解决 spring boot devtool 热部署后出现访问404问题</h1><p>DevTools的检测时间和idea的编译所需时间存在差异。在idea还没完成编译工作前，DevTools就开始进行重启和加载，导致@RequestMapping没有被全部正常处理。其他方法没试，就直接用了看起来最简单的方法：牺牲一点时间，去加长devtools的轮询时间，增大等待时间。</p>
+<p><img src="https://s2.loli.net/2022/07/06/pfZChkat4lKXr2G.png" alt="image-20220705170634571"></p>
+<h1 id="解决IDEA中-Could-not-autowire-No-beans-of-‘xxxx’-type-found-的错误提示"><a href="#解决IDEA中-Could-not-autowire-No-beans-of-‘xxxx’-type-found-的错误提示" class="headerlink" title="解决IDEA中 Could not autowire. No beans of ‘xxxx’ type found 的错误提示"></a>解决IDEA中 Could not autowire. No beans of ‘xxxx’ type found 的错误提示</h1><p>修改IDEA设置,降低Autowired检测的级别，将Severity的级别由之前的error改成warning或其它可以忽略的级别。</p>
+<p><img src="https://s2.loli.net/2022/07/06/DtFU3sXykqIdnVC.png" alt="image-20220706095122340"></p>
+<h1 id="idea报错：Cannot-download-‘https-start-spring-io‘-connect-timed-out"><a href="#idea报错：Cannot-download-‘https-start-spring-io‘-connect-timed-out" class="headerlink" title="idea报错：Cannot download ‘https://start.spring.io‘: connect timed out"></a>idea报错：Cannot download ‘<a href="https://start.spring.io‘/">https://start.spring.io‘</a>: connect timed out</h1><blockquote>
+<p><strong>报错问题描述</strong></p>
+</blockquote>
+<p><img src="https://s2.loli.net/2022/07/08/54lTGrXnIviHENg.png" alt="在这里插入图片描述"></p>
+<blockquote>
+<p><strong>解决方法</strong></p>
+</blockquote>
+<p>添加aliyun地址，将默认的地址更改为aliyun地址</p>
+<p><strong><a href="https://start.aliyun.com/">https://start.aliyun.com/</a></strong></p>
+<p><img src="https://s2.loli.net/2022/07/15/TW7G4lwkJ3APQrY.png" alt="在这里插入图片描述"></p>
+<h1 id="IDEA注释有空格"><a href="#IDEA注释有空格" class="headerlink" title="IDEA注释有空格"></a>IDEA注释有空格</h1><p>问题描述</p>
+<p><img src="https://s2.loli.net/2022/07/15/c4VQ2NtPThO1RaB.png" alt="在这里插入图片描述"></p>
+<p>解决方法</p>
+<p><strong>setting-&gt;Editor-&gt;Code Style-&gt;HTML-&gt;Code Gerneration</strong>  取消掉 <strong>Comments</strong> 下面 两个选项 就可以了,要是不放心,把Code Style下面的每个格式的文件的Code Generation都取消掉,如下图所示:</p>
+<p><img src="https://s2.loli.net/2022/07/15/XhY4xn5NU3qwJAy.png" alt="在这里插入图片描述"></p>
+<blockquote>
+<p><a href="https://blog.csdn.net/qq_37844454/article/details/112795620">原文链接</a></p>
+</blockquote>
+<h1 id="IDEA编辑器控制台显示中文乱码的解决方案"><a href="#IDEA编辑器控制台显示中文乱码的解决方案" class="headerlink" title="IDEA编辑器控制台显示中文乱码的解决方案"></a>IDEA编辑器控制台显示中文乱码的解决方案</h1><p>解决办法是：<strong>找到 .idea 文件夹（</strong>每个idea项目，都会有一个.idea的目录的<strong>），里面有个<code>encodings.xml</code> 的文件，然后除了<code>UTF-8</code> 的都删了。</strong></p>
+]]></content>
+      <categories>
+        <category>大二生涯</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+        <tag>快捷键</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>chrome使用问题</title>
+    <url>/2022/05/21/chrome%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="chrome浏览页面常用快捷键"><a href="#chrome浏览页面常用快捷键" class="headerlink" title="chrome浏览页面常用快捷键"></a>chrome浏览页面常用快捷键</h1><p><em><strong><a href="https://blog.csdn.net/weixin_35319943/article/details/111955799#:~:text=Ctrl%20%2B%20F4%20%E5%85%B3%E9%97%ADchrome%E6%B5%8F%E8%A7%88%E5%99%A8%20Ctrl%2BTab%20%E6%88%96%20Ctrl%2BPgDown%20%E5%88%87%E6%8D%A2%E5%88%B0%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%A0%87%E7%AD%BE%E9%A1%B5%E3%80%82,Ctrl%2BPgUp%20%E5%88%87%E6%8D%A2%E5%88%B0%E4%B8%8A%E4%B8%80%E4%B8%AA%E6%A0%87%E7%AD%BE%E9%A1%B5%E3%80%82%20Ctrl%2B1%20%E5%88%B0%20Ctrl%2B8%20%E5%88%87%E6%8D%A2%E5%88%B0%E6%A0%87%E7%AD%BE%E6%A0%8F%E4%B8%AD%E6%8C%87%E5%AE%9A%E5%9C%B0%E4%BD%8D%E7%BC%96%E5%8F%B7%E6%89%80%E5%AF%B9%E5%BA%94%E7%9A%84%E6%A0%87%E7%AD%BE%E9%A1%B5%E3%80%82%20Ctrl%2B9%20%E5%88%87%E6%8D%A2%E5%88%B0%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E6%A0%87%E7%AD%BE%E9%A1%B5%E3%80%82">原文链接</a></strong></em></p>
+<ol>
+<li>Ctrl+N 打开新窗口</li>
+<li>Ctrl+T 打开新标签页</li>
+<li>Ctrl+W关闭当前标签</li>
+<li>Ctrl+Tab 或 Ctrl+PgDown 切换到下一个标签页</li>
+<li>Ctrl+Shift+Tab 或 Ctrl+PgUp 切换到上一个标签页</li>
+<li>Ctrl+1 到 Ctrl+8 切换到标签栏中指定地位编号所对应的标签页</li>
+<li>Ctrl+Shift+T 从头打开前次封闭的标签页。谷歌浏览器可记住比来封闭的 10 个标签页</li>
+<li>Ctrl+Shift+Delete:用于显示“清除浏览数据”界面</li>
+</ol>
+<h1 id="chrome-如何删除对某一个网站的缓存"><a href="#chrome-如何删除对某一个网站的缓存" class="headerlink" title="chrome 如何删除对某一个网站的缓存"></a>chrome 如何删除对某一个网站的缓存</h1><blockquote>
+<p>点击F12即可 </p>
+</blockquote>
+<p><img src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220717140536975.png" alt="image-20220717140536975"></p>
+]]></content>
+      <categories>
+        <category>大二生涯</category>
+      </categories>
+      <tags>
+        <tag>快捷键</tag>
+        <tag>chrome</tag>
       </tags>
   </entry>
   <entry>
@@ -1378,230 +1602,6 @@ public String model() &#123;
       <tags>
         <tag>crm</tag>
         <tag>crm项目</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>idea使用问题</title>
-    <url>/2022/05/20/idea%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="idea快捷键"><a href="#idea快捷键" class="headerlink" title="idea快捷键"></a>idea快捷键</h1><p><em><strong><a href="https://blog.csdn.net/qq_38963960/article/details/89552704">原文链接</a></strong></em></p>
-<ol>
-<li><h2 id="Ctrl"><a href="#Ctrl" class="headerlink" title="Ctrl"></a>Ctrl</h2><table>
-<thead>
-<tr>
-<th align="left">快捷键</th>
-<th align="left">介绍</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">Ctrl + Z</td>
-<td align="left">撤销</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Tab</td>
-<td align="left">编辑窗口切换，如果在切换的过程又加按上delete，则是关闭对应选中的窗口</td>
-</tr>
-<tr>
-<td align="left">Ctrl + W</td>
-<td align="left">递进式选择代码块。可选中光标所在的单词或段落，连续按会在原有选中的基础上再扩展选中范围</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Q</td>
-<td align="left">光标所在的变量 / 类名 / 方法名等上面（也可以在提示补充的时候按），显示文档内容</td>
-</tr>
-<tr>
-<td align="left">Ctrl + B</td>
-<td align="left">进入光标所在的方法/变量的接口或是定义出，等效于 <code>Ctrl + 左键单击</code></td>
-</tr>
-<tr>
-<td align="left">Ctrl + [</td>
-<td align="left">移动光标到当前所在代码的花括号开始位置</td>
-</tr>
-<tr>
-<td align="left">Ctrl + ]</td>
-<td align="left">移动光标到当前所在代码的花括号结束位置</td>
-</tr>
-</tbody></table>
-</li>
-<li><h2 id="Alt"><a href="#Alt" class="headerlink" title="Alt"></a>Alt</h2><table>
-<thead>
-<tr>
-<th align="left">快捷键</th>
-<th align="left">介绍</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">Alt + 1,2,3…9</td>
-<td align="left">显示对应数值的选项卡，其中 1 是 Project 用得最多</td>
-</tr>
-</tbody></table>
-</li>
-<li><h2 id="Shift"><a href="#Shift" class="headerlink" title="Shift"></a>Shift</h2><table>
-<thead>
-<tr>
-<th align="left">快捷键</th>
-<th align="left">介绍</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">Shift + F6</td>
-<td align="left">对文件 / 文件夹 重命名</td>
-</tr>
-<tr>
-<td align="left">Shift + Enter</td>
-<td align="left">开始新一行。光标所在行下空出一行，光标定位到新行位置</td>
-</tr>
-<tr>
-<td align="left">Shift + 滚轮前后滚动</td>
-<td align="left">当前文件的横向滚动轴滚动</td>
-</tr>
-<tr>
-<td align="left">shift + F11</td>
-<td align="left">编辑书签</td>
-</tr>
-</tbody></table>
-</li>
-<li><h2 id="Ctrl-Alt"><a href="#Ctrl-Alt" class="headerlink" title="Ctrl + Alt"></a>Ctrl + Alt</h2><table>
-<thead>
-<tr>
-<th align="left">快捷键</th>
-<th align="left">介绍</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">Ctrl + Alt + L</td>
-<td align="left">格式化代码，可以对当前文件和整个包目录使用</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Alt + O</td>
-<td align="left">优化导入的类，可以对当前文件和整个包目录使用</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Alt + Enter</td>
-<td align="left">光标所在行上空出一行，光标定位到新行</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Alt + 左方向键</td>
-<td align="left">退回到上一个操作的地方</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Alt + 右方向键</td>
-<td align="left">前进到上一个操作的地方</td>
-</tr>
-<tr>
-<td align="left">ctrl + alt + B</td>
-<td align="left">查找接口的实现类</td>
-</tr>
-</tbody></table>
-</li>
-<li><h2 id="Ctrl-Shift"><a href="#Ctrl-Shift" class="headerlink" title="Ctrl + Shift"></a>Ctrl + Shift</h2><table>
-<thead>
-<tr>
-<th align="left">快捷键</th>
-<th align="left">介绍</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">Ctrl + Shift + Z</td>
-<td align="left">取消撤销</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Shift + W</td>
-<td align="left">递进式取消选择代码块。可选中光标所在的单词或段落，连续按会在原有选中的基础上再扩展取消选中范围</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Shift + U</td>
-<td align="left">对选中的代码进行大 / 小写轮流转换</td>
-</tr>
-<tr>
-<td align="left">Ctrl + Shift + Enter</td>
-<td align="left">自动结束代码，行末自动添加分号</td>
-</tr>
-</tbody></table>
-</li>
-<li><h2 id="Alt-Shift"><a href="#Alt-Shift" class="headerlink" title="Alt + Shift"></a>Alt + Shift</h2><table>
-<thead>
-<tr>
-<th align="left">快捷键</th>
-<th align="left">介绍</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">Alt + Shift + 前方向键</td>
-<td align="left">移动光标所在行向上移动</td>
-</tr>
-<tr>
-<td align="left">Alt + Shift + 后方向键</td>
-<td align="left">移动光标所在行向下移动</td>
-</tr>
-</tbody></table>
-</li>
-<li><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><table>
-<thead>
-<tr>
-<th align="left">快捷键</th>
-<th align="left">介绍</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">F2</td>
-<td align="left">跳转到下一个高亮错误 或 警告位置</td>
-</tr>
-<tr>
-<td align="left">F11</td>
-<td align="left">创建书签</td>
-</tr>
-</tbody></table>
-</li>
-</ol>
-<h1 id="如何使用IDEA中自带的数据库database！"><a href="#如何使用IDEA中自带的数据库database！" class="headerlink" title="如何使用IDEA中自带的数据库database！"></a>如何使用IDEA中自带的数据库database！</h1><blockquote>
-<p>打开后自己填入信息<br>点击确定后会下载相应驱动，等待即可！</p>
-</blockquote>
-<img src="https://s2.loli.net/2022/05/26/FiRzKcaf1AEWUV6.png" style="zoom:50%;" />
-
-<h1 id="idea连接数据库-The-specified-database-user-password-combination-is-rejected-com-mysql-cj报错"><a href="#idea连接数据库-The-specified-database-user-password-combination-is-rejected-com-mysql-cj报错" class="headerlink" title="idea连接数据库 The specified database user/password combination is rejected: com.mysql.cj报错"></a>idea连接数据库 The specified database user/password combination is rejected: com.mysql.cj报错</h1><blockquote>
-<p>报错如下图：</p>
-</blockquote>
-<img src="https://s2.loli.net/2022/05/26/vyXs1GZLY7REqrh.png" style="zoom:50%;" />
-
-<blockquote>
-<p>解决方法：更换链接地址</p>
-</blockquote>
-<p><em><strong>jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=UTF8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</strong></em></p>
-<h1 id="idea配置外部tomcat访问路径"><a href="#idea配置外部tomcat访问路径" class="headerlink" title="idea配置外部tomcat访问路径"></a>idea配置外部tomcat访问路径</h1><blockquote>
-<p>需要配置两个地方，改一处就行</p>
-</blockquote>
-<p><img src="https://s2.loli.net/2022/07/06/OoTDIkaBSur1zCn.png" alt="image-20220704104127339"></p>
-<p><img src="https://s2.loli.net/2022/07/06/BUlqtnYXDePopVW.png" alt="image-20220704104218184"></p>
-<h1 id="解决-spring-boot-devtool-热部署后出现访问404问题"><a href="#解决-spring-boot-devtool-热部署后出现访问404问题" class="headerlink" title="解决 spring boot devtool 热部署后出现访问404问题"></a>解决 spring boot devtool 热部署后出现访问404问题</h1><p>DevTools的检测时间和idea的编译所需时间存在差异。在idea还没完成编译工作前，DevTools就开始进行重启和加载，导致@RequestMapping没有被全部正常处理。其他方法没试，就直接用了看起来最简单的方法：牺牲一点时间，去加长devtools的轮询时间，增大等待时间。</p>
-<p><img src="https://s2.loli.net/2022/07/06/pfZChkat4lKXr2G.png" alt="image-20220705170634571"></p>
-<h1 id="解决IDEA中-Could-not-autowire-No-beans-of-‘xxxx’-type-found-的错误提示"><a href="#解决IDEA中-Could-not-autowire-No-beans-of-‘xxxx’-type-found-的错误提示" class="headerlink" title="解决IDEA中 Could not autowire. No beans of ‘xxxx’ type found 的错误提示"></a>解决IDEA中 Could not autowire. No beans of ‘xxxx’ type found 的错误提示</h1><p>修改IDEA设置,降低Autowired检测的级别，将Severity的级别由之前的error改成warning或其它可以忽略的级别。</p>
-<p><img src="https://s2.loli.net/2022/07/06/DtFU3sXykqIdnVC.png" alt="image-20220706095122340"></p>
-<h1 id="idea报错：Cannot-download-‘https-start-spring-io‘-connect-timed-out"><a href="#idea报错：Cannot-download-‘https-start-spring-io‘-connect-timed-out" class="headerlink" title="idea报错：Cannot download ‘https://start.spring.io‘: connect timed out"></a>idea报错：Cannot download ‘<a href="https://start.spring.io‘/">https://start.spring.io‘</a>: connect timed out</h1><blockquote>
-<p><strong>报错问题描述</strong></p>
-</blockquote>
-<p><img src="https://s2.loli.net/2022/07/08/54lTGrXnIviHENg.png" alt="在这里插入图片描述"></p>
-<blockquote>
-<p><strong>解决方法</strong></p>
-</blockquote>
-<p>添加aliyun地址，将默认的地址更改为aliyun地址</p>
-<p><strong><a href="https://start.aliyun.com/">https://start.aliyun.com/</a></strong></p>
-<p><img src="https://s2.loli.net/2022/07/15/TW7G4lwkJ3APQrY.png" alt="在这里插入图片描述"></p>
-<h1 id="IDEA注释有空格"><a href="#IDEA注释有空格" class="headerlink" title="IDEA注释有空格"></a>IDEA注释有空格</h1><p>问题描述</p>
-<p><img src="https://s2.loli.net/2022/07/15/c4VQ2NtPThO1RaB.png" alt="在这里插入图片描述"></p>
-<p>解决方法</p>
-<p><strong>setting-&gt;Editor-&gt;Code Style-&gt;HTML-&gt;Code Gerneration</strong>  取消掉 <strong>Comments</strong> 下面 两个选项 就可以了,要是不放心,把Code Style下面的每个格式的文件的Code Generation都取消掉,如下图所示:</p>
-<p><img src="https://s2.loli.net/2022/07/15/XhY4xn5NU3qwJAy.png" alt="在这里插入图片描述"></p>
-<blockquote>
-<p><a href="https://blog.csdn.net/qq_37844454/article/details/112795620">原文链接</a></p>
-</blockquote>
-<h1 id="IDEA编辑器控制台显示中文乱码的解决方案"><a href="#IDEA编辑器控制台显示中文乱码的解决方案" class="headerlink" title="IDEA编辑器控制台显示中文乱码的解决方案"></a>IDEA编辑器控制台显示中文乱码的解决方案</h1><p>解决办法是：<strong>找到 .idea 文件夹（</strong>每个idea项目，都会有一个.idea的目录的<strong>），里面有个<code>encodings.xml</code> 的文件，然后除了<code>UTF-8</code> 的都删了。</strong></p>
-]]></content>
-      <categories>
-        <category>大二生涯</category>
-      </categories>
-      <tags>
-        <tag>快捷键</tag>
-        <tag>idea</tag>
       </tags>
   </entry>
   <entry>
@@ -2431,32 +2431,6 @@ fileInputStream.close();
       </tags>
   </entry>
   <entry>
-    <title>狂神说mysql事务</title>
-    <url>/2022/06/04/%E7%8B%82%E7%A5%9E%E8%AF%B4mysql%E4%BA%8B%E5%8A%A1/</url>
-    <content><![CDATA[<h1 id="事务ACID原则"><a href="#事务ACID原则" class="headerlink" title="事务ACID原则"></a>事务ACID原则</h1><blockquote>
-<p>原子性（<strong>A</strong>tomicity）、一致性（<strong>C</strong>onsistency）、隔离性（<strong>I</strong>solation）、持久性（<strong>D</strong>urability）。</p>
-</blockquote>
-<p>脏读：指一个事务读取了另一个事务未提交的数据</p>
-<p>不可重复读：在一个事务内读取表中的某一行数据，多次读取结果不同。（这个不一定是错误，只是某些场合不对）</p>
-<p>虚读(幻读): 是指在一个事务内读取到了别的事务插入的数据，导致前后读取数量总量不一致。</p>
-<h2 id="模拟场景"><a href="#模拟场景" class="headerlink" title="模拟场景"></a>模拟场景</h2><blockquote>
-<p>SAVEPOINT – 设置保存点<br>ROLLBACK TO SAVEPOINT – 回滚到保存点<br>RELEASE SAVEPOINT – 删除保存点</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs mysql"> -- 转账<br> CREATE DATABASE shop CHARACTER SET utf8 COLLATE utf8_general_ci<br>USE shop <br><br>CREATE TABLE `account` (<br>`id` INT(3) NOT NULL AUTO_INCREMENT,<br>`name` VARCHAR(30) NOT NULL,<br>`money` DECIMAL(9,2) NOT NULL,<br>PRIMARY KEY (`id`)<br>) ENGINE = INNODB DEFAULT CHARSET = utf8<br> <br> INSERT INTO account(`name`, `money`)<br> VALUES (&#x27;A&#x27;,2000.00),(&#x27;B&#x27;,10000.00)<br> <br>-- 模拟转账， 事务<br>SET autocommit = 0; -- 关闭自动提交<br>START TRANSACTION -- 开启一个事务 （一组事务）<br>UPDATE account SET money = money - 500 WHERE `name` = &#x27;A&#x27; -- a减500<br>UPDATE account SET money = money + 500 WHERE `name` = &#x27;B&#x27; -- a加500 <br><br>COMMIT; -- 提交事务<br>ROLLBACK; -- 回滚<br><br>SET autocommit = 1; -- 回复默认值 <br></code></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <categories>
-        <category>大二生涯</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>MySQL</tag>
-        <tag>MySQL事务</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>狂神说Spring</title>
     <url>/2022/06/06/%E7%8B%82%E7%A5%9E%E8%AF%B4Spring/</url>
     <content><![CDATA[<h1 id="Spring简介"><a href="#Spring简介" class="headerlink" title="Spring简介"></a>Spring简介</h1><ul>
@@ -2795,6 +2769,32 @@ fileInputStream.close();
         <tag>Java</tag>
         <tag>Java框架</tag>
         <tag>Spring</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>狂神说mysql事务</title>
+    <url>/2022/06/04/%E7%8B%82%E7%A5%9E%E8%AF%B4mysql%E4%BA%8B%E5%8A%A1/</url>
+    <content><![CDATA[<h1 id="事务ACID原则"><a href="#事务ACID原则" class="headerlink" title="事务ACID原则"></a>事务ACID原则</h1><blockquote>
+<p>原子性（<strong>A</strong>tomicity）、一致性（<strong>C</strong>onsistency）、隔离性（<strong>I</strong>solation）、持久性（<strong>D</strong>urability）。</p>
+</blockquote>
+<p>脏读：指一个事务读取了另一个事务未提交的数据</p>
+<p>不可重复读：在一个事务内读取表中的某一行数据，多次读取结果不同。（这个不一定是错误，只是某些场合不对）</p>
+<p>虚读(幻读): 是指在一个事务内读取到了别的事务插入的数据，导致前后读取数量总量不一致。</p>
+<h2 id="模拟场景"><a href="#模拟场景" class="headerlink" title="模拟场景"></a>模拟场景</h2><blockquote>
+<p>SAVEPOINT – 设置保存点<br>ROLLBACK TO SAVEPOINT – 回滚到保存点<br>RELEASE SAVEPOINT – 删除保存点</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs mysql"> -- 转账<br> CREATE DATABASE shop CHARACTER SET utf8 COLLATE utf8_general_ci<br>USE shop <br><br>CREATE TABLE `account` (<br>`id` INT(3) NOT NULL AUTO_INCREMENT,<br>`name` VARCHAR(30) NOT NULL,<br>`money` DECIMAL(9,2) NOT NULL,<br>PRIMARY KEY (`id`)<br>) ENGINE = INNODB DEFAULT CHARSET = utf8<br> <br> INSERT INTO account(`name`, `money`)<br> VALUES (&#x27;A&#x27;,2000.00),(&#x27;B&#x27;,10000.00)<br> <br>-- 模拟转账， 事务<br>SET autocommit = 0; -- 关闭自动提交<br>START TRANSACTION -- 开启一个事务 （一组事务）<br>UPDATE account SET money = money - 500 WHERE `name` = &#x27;A&#x27; -- a减500<br>UPDATE account SET money = money + 500 WHERE `name` = &#x27;B&#x27; -- a加500 <br><br>COMMIT; -- 提交事务<br>ROLLBACK; -- 回滚<br><br>SET autocommit = 1; -- 回复默认值 <br></code></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>大二生涯</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>MySQL</tag>
+        <tag>MySQL事务</tag>
       </tags>
   </entry>
   <entry>
