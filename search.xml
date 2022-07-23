@@ -60,6 +60,39 @@
       </tags>
   </entry>
   <entry>
+    <title>Java多线程学习总结</title>
+    <url>/2022/07/15/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h1 id="多线程的实现方式"><a href="#多线程的实现方式" class="headerlink" title="多线程的实现方式"></a>多线程的实现方式</h1><h2 id="通过实现-Runnable-接口"><a href="#通过实现-Runnable-接口" class="headerlink" title="通过实现 Runnable 接口"></a>通过实现 Runnable 接口</h2><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.ruanyuan;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * TODO</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@ClassName</span> TestThread</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Author</span> Alfa</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Data</span> 2022/7/14 15:43</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Version</span> 1.0</span><br><span class="hljs-comment"> **/</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestThread</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        RunnableDemo demo = <span class="hljs-keyword">new</span> RunnableDemo();<br>        <span class="hljs-keyword">new</span> Thread(demo).start();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++) &#123;<br>            System.out.println(<span class="hljs-string">&quot;主线程&quot;</span>);<br>        &#125;<br>    &#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RunnableDemo</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Runnable</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++) &#123;<br>            System.out.println(<span class="hljs-string">&quot;子线程--&quot;</span>+Thread.currentThread().getName());<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>推荐使用Runnable对象,因为Java单继承的局限性</p>
+</blockquote>
+<h2 id="通过继承-Thread-类本身"><a href="#通过继承-Thread-类本身" class="headerlink" title="通过继承 Thread 类本身"></a>通过继承 Thread 类本身</h2><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.ruanyuan;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * TODO</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@ClassName</span> TestThread</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Author</span> Alfa</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Data</span> 2022/7/14 15:43</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Version</span> 1.0</span><br><span class="hljs-comment"> **/</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestThread</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        ThreadRDemo demo = <span class="hljs-keyword">new</span> ThreadRDemo();<br>        demo.start();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++) &#123;<br>            System.out.println(<span class="hljs-string">&quot;主线程&quot;</span>);<br>        &#125;<br>    &#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ThreadRDemo</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++) &#123;<br>            System.out.println(<span class="hljs-string">&quot;子线程--&quot;</span>+Thread.currentThread().getName());<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="线程同步"><a href="#线程同步" class="headerlink" title="线程同步"></a>线程同步</h1><h2 id="线程安全案例一"><a href="#线程安全案例一" class="headerlink" title="线程安全案例一"></a>线程安全案例一</h2><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.ruanyuan;<br><br><span class="hljs-keyword">import</span> java.util.ArrayList;<br><span class="hljs-keyword">import</span> java.util.List;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * TODO</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@ClassName</span> TestThread</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Author</span> Alfa</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Data</span> 2022/7/14 15:43</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Version</span> 1.0</span><br><span class="hljs-comment"> **/</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestThread</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-comment">//ArrayList线程不安全案例</span><br>        List&lt;String&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>        <span class="hljs-comment">//开启一万个线程操作list</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10000</span>; i++) &#123;<br>            <span class="hljs-keyword">new</span> Thread(() -&gt; &#123;<br>                list.add(Thread.currentThread().getName());<br>            &#125;).start();<br>        &#125;<br>        <span class="hljs-comment">// 主线程睡眠三秒，等待一万个子线程执行完毕</span><br>        <span class="hljs-keyword">try</span> &#123;<br>            Thread.sleep(<span class="hljs-number">3000</span>);<br>        &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>            e.printStackTrace();<br>        &#125;<br>        System.out.println(list.size());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/07/14/tOSoZzuWDVYLpRF.png" alt="image-20220714163801117"></p>
+<blockquote>
+<p>并发太快，对集合的操作有的重复在了一个位置。</p>
+</blockquote>
+<h3 id="同步代码块"><a href="#同步代码块" class="headerlink" title="同步代码块"></a>同步代码块</h3><p><img src="https://s2.loli.net/2022/07/14/RNAzUJGmtpivfFc.png" alt="image-20220714171307635"></p>
+<h2 id="线程安全案例二"><a href="#线程安全案例二" class="headerlink" title="线程安全案例二"></a>线程安全案例二</h2><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.ruanyuan;<br><br><span class="hljs-comment">//不安全买票</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestThread</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        BuyTicket buyTicket = <span class="hljs-keyword">new</span> BuyTicket();<br>        <span class="hljs-keyword">new</span> Thread(buyTicket, <span class="hljs-string">&quot;张三&quot;</span>).start();<br>        <span class="hljs-keyword">new</span> Thread(buyTicket, <span class="hljs-string">&quot;李四&quot;</span>).start();<br>        <span class="hljs-keyword">new</span> Thread(buyTicket, <span class="hljs-string">&quot;王五&quot;</span>).start();<br>    &#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BuyTicket</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Runnable</span> </span>&#123;<br>    <span class="hljs-comment">//票</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> ticketNums = <span class="hljs-number">10</span>;<br>    <span class="hljs-keyword">boolean</span> flag = <span class="hljs-keyword">true</span>;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-comment">//买票</span><br>        <span class="hljs-keyword">while</span> (flag) &#123;<br>            <span class="hljs-keyword">try</span> &#123;<br>                buy();<br>            &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>                e.printStackTrace();<br>            &#125;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">//买票</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">buy</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-comment">//判断是否有票</span><br>        <span class="hljs-keyword">if</span> (ticketNums &lt;= <span class="hljs-number">0</span>) &#123;<br>            flag = <span class="hljs-keyword">false</span>;<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        <span class="hljs-comment">//延迟</span><br>        <span class="hljs-keyword">try</span> &#123;<br>            Thread.sleep(<span class="hljs-number">1</span>);<br>        &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>            e.printStackTrace();<br>        &#125;<br><br>        <span class="hljs-comment">//买票</span><br>        System.out.println(Thread.currentThread().getName() + <span class="hljs-string">&quot;拿到&quot;</span> + ticketNums--);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/07/14/PONuIji8S3sJUqk.png" alt="image-20220714172648484"></p>
+<h3 id="同步方法"><a href="#同步方法" class="headerlink" title="同步方法"></a>同步方法</h3><p><img src="https://s2.loli.net/2022/07/14/sHcwK3rkeDSmxGA.png" alt="image-20220714173011580"></p>
+<h1 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h1><h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.ruanyuan;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 死锁:多个线程互相抱着对方需要的资源,然后形成僵持</span><br><span class="hljs-comment"> * 解决:一个锁只锁一个对象</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DeadLock</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        MakeUp g1 = <span class="hljs-keyword">new</span> MakeUp(<span class="hljs-number">0</span>, <span class="hljs-string">&quot;灰姑娘&quot;</span>);<br>        MakeUp g2 = <span class="hljs-keyword">new</span> MakeUp(<span class="hljs-number">1</span>,<span class="hljs-string">&quot;白雪公主&quot;</span>);<br><br>        g1.start();<br>        g2.start();<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">//口红</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LipStick</span></span>&#123;<br><br>&#125;<br><br><span class="hljs-comment">//镜子</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Mirror</span></span>&#123;<br><br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MakeUp</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span></span>&#123;<br>	<span class="hljs-comment">//需要的资源只有一份,用static保证只有一份</span><br>    <span class="hljs-keyword">static</span> LipStick lipStick = <span class="hljs-keyword">new</span> LipStick();<br>    <span class="hljs-keyword">static</span> Mirror mirror = <span class="hljs-keyword">new</span> Mirror();<br>	<br>    <span class="hljs-comment">//选择</span><br>    <span class="hljs-keyword">int</span> choice;<br>    <span class="hljs-comment">//使用化妆品的人	</span><br>    String girlName;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MakeUp</span><span class="hljs-params">(<span class="hljs-keyword">int</span> choice, String girlName)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.choice = choice;<br>        <span class="hljs-keyword">this</span>.girlName = girlName;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-comment">//化妆</span><br>        makeup();<br>    &#125;<br><br>    <span class="hljs-comment">//化妆，互相持有对方的锁</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">makeup</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">if</span> (choice == <span class="hljs-number">0</span>)<br>        &#123;<br>            <span class="hljs-keyword">synchronized</span> (lipStick) &#123;<br>                <span class="hljs-comment">// 获得口红的锁</span><br>                System.out.println(<span class="hljs-keyword">this</span>.girlName+<span class="hljs-string">&quot;获得口红的锁&quot;</span>);<br>                <span class="hljs-keyword">try</span> &#123;<br>                    Thread.sleep(<span class="hljs-number">1000</span>);<br>                &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>                    e.printStackTrace();<br>                &#125;<br>                <span class="hljs-keyword">synchronized</span> (mirror) &#123;<br>                    <span class="hljs-comment">//一秒钟后想要获得镜子</span><br>                    System.out.println(<span class="hljs-keyword">this</span>.girlName+<span class="hljs-string">&quot;获得镜子的锁&quot;</span>);<br>                &#125;<br>            &#125;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">synchronized</span> (mirror) &#123;<br>                <span class="hljs-comment">// 获得镜子的锁</span><br>                System.out.println(<span class="hljs-keyword">this</span>.girlName+<span class="hljs-string">&quot;获得镜子的锁&quot;</span>);<br>                <span class="hljs-keyword">try</span> &#123;<br>                    Thread.sleep(<span class="hljs-number">2000</span>);<br>                &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>                    e.printStackTrace();<br>                &#125;<br>                <span class="hljs-keyword">synchronized</span> (lipStick) &#123;<br>                    <span class="hljs-comment">//两秒钟后想要获得镜子</span><br>                    System.out.println(<span class="hljs-keyword">this</span>.girlName+<span class="hljs-string">&quot;获得口红的锁&quot;</span>);<br>                &#125;<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p><img src="https://s2.loli.net/2022/07/15/nBF4oYs2OhGwtSr.png" alt="image-20220715092321508"></p>
+<p><img src="https://s2.loli.net/2022/07/15/2WTCHlyvpXYfZm5.png" alt="image-20220715092603663"></p>
+]]></content>
+      <categories>
+        <category>岗前实训</category>
+      </categories>
+      <tags>
+        <tag>Java多线程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java面试题学习整理</title>
     <url>/2022/06/11/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E5%AD%A6%E4%B9%A0%E6%95%B4%E7%90%86/</url>
     <content><![CDATA[<h1 id="第一模块Java-基础"><a href="#第一模块Java-基础" class="headerlink" title="第一模块Java 基础"></a>第一模块Java 基础</h1><h2 id="JDK-和-JRE-有什么区别？"><a href="#JDK-和-JRE-有什么区别？" class="headerlink" title="JDK 和 JRE 有什么区别？"></a>JDK 和 JRE 有什么区别？</h2><ul>
@@ -330,36 +363,27 @@
       </tags>
   </entry>
   <entry>
-    <title>Java多线程学习总结</title>
-    <url>/2022/07/15/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h1 id="多线程的实现方式"><a href="#多线程的实现方式" class="headerlink" title="多线程的实现方式"></a>多线程的实现方式</h1><h2 id="通过实现-Runnable-接口"><a href="#通过实现-Runnable-接口" class="headerlink" title="通过实现 Runnable 接口"></a>通过实现 Runnable 接口</h2><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.ruanyuan;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * TODO</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@ClassName</span> TestThread</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Author</span> Alfa</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Data</span> 2022/7/14 15:43</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Version</span> 1.0</span><br><span class="hljs-comment"> **/</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestThread</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        RunnableDemo demo = <span class="hljs-keyword">new</span> RunnableDemo();<br>        <span class="hljs-keyword">new</span> Thread(demo).start();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++) &#123;<br>            System.out.println(<span class="hljs-string">&quot;主线程&quot;</span>);<br>        &#125;<br>    &#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RunnableDemo</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Runnable</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++) &#123;<br>            System.out.println(<span class="hljs-string">&quot;子线程--&quot;</span>+Thread.currentThread().getName());<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<blockquote>
-<p>推荐使用Runnable对象,因为Java单继承的局限性</p>
-</blockquote>
-<h2 id="通过继承-Thread-类本身"><a href="#通过继承-Thread-类本身" class="headerlink" title="通过继承 Thread 类本身"></a>通过继承 Thread 类本身</h2><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.ruanyuan;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * TODO</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@ClassName</span> TestThread</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Author</span> Alfa</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Data</span> 2022/7/14 15:43</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Version</span> 1.0</span><br><span class="hljs-comment"> **/</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestThread</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        ThreadRDemo demo = <span class="hljs-keyword">new</span> ThreadRDemo();<br>        demo.start();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++) &#123;<br>            System.out.println(<span class="hljs-string">&quot;主线程&quot;</span>);<br>        &#125;<br>    &#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ThreadRDemo</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++) &#123;<br>            System.out.println(<span class="hljs-string">&quot;子线程--&quot;</span>+Thread.currentThread().getName());<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h1 id="线程同步"><a href="#线程同步" class="headerlink" title="线程同步"></a>线程同步</h1><h2 id="线程安全案例一"><a href="#线程安全案例一" class="headerlink" title="线程安全案例一"></a>线程安全案例一</h2><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.ruanyuan;<br><br><span class="hljs-keyword">import</span> java.util.ArrayList;<br><span class="hljs-keyword">import</span> java.util.List;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * TODO</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@ClassName</span> TestThread</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Author</span> Alfa</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Data</span> 2022/7/14 15:43</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Version</span> 1.0</span><br><span class="hljs-comment"> **/</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestThread</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-comment">//ArrayList线程不安全案例</span><br>        List&lt;String&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>        <span class="hljs-comment">//开启一万个线程操作list</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10000</span>; i++) &#123;<br>            <span class="hljs-keyword">new</span> Thread(() -&gt; &#123;<br>                list.add(Thread.currentThread().getName());<br>            &#125;).start();<br>        &#125;<br>        <span class="hljs-comment">// 主线程睡眠三秒，等待一万个子线程执行完毕</span><br>        <span class="hljs-keyword">try</span> &#123;<br>            Thread.sleep(<span class="hljs-number">3000</span>);<br>        &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>            e.printStackTrace();<br>        &#125;<br>        System.out.println(list.size());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://s2.loli.net/2022/07/14/tOSoZzuWDVYLpRF.png" alt="image-20220714163801117"></p>
-<blockquote>
-<p>并发太快，对集合的操作有的重复在了一个位置。</p>
-</blockquote>
-<h3 id="同步代码块"><a href="#同步代码块" class="headerlink" title="同步代码块"></a>同步代码块</h3><p><img src="https://s2.loli.net/2022/07/14/RNAzUJGmtpivfFc.png" alt="image-20220714171307635"></p>
-<h2 id="线程安全案例二"><a href="#线程安全案例二" class="headerlink" title="线程安全案例二"></a>线程安全案例二</h2><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.ruanyuan;<br><br><span class="hljs-comment">//不安全买票</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestThread</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        BuyTicket buyTicket = <span class="hljs-keyword">new</span> BuyTicket();<br>        <span class="hljs-keyword">new</span> Thread(buyTicket, <span class="hljs-string">&quot;张三&quot;</span>).start();<br>        <span class="hljs-keyword">new</span> Thread(buyTicket, <span class="hljs-string">&quot;李四&quot;</span>).start();<br>        <span class="hljs-keyword">new</span> Thread(buyTicket, <span class="hljs-string">&quot;王五&quot;</span>).start();<br>    &#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BuyTicket</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Runnable</span> </span>&#123;<br>    <span class="hljs-comment">//票</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> ticketNums = <span class="hljs-number">10</span>;<br>    <span class="hljs-keyword">boolean</span> flag = <span class="hljs-keyword">true</span>;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-comment">//买票</span><br>        <span class="hljs-keyword">while</span> (flag) &#123;<br>            <span class="hljs-keyword">try</span> &#123;<br>                buy();<br>            &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>                e.printStackTrace();<br>            &#125;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">//买票</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">buy</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-comment">//判断是否有票</span><br>        <span class="hljs-keyword">if</span> (ticketNums &lt;= <span class="hljs-number">0</span>) &#123;<br>            flag = <span class="hljs-keyword">false</span>;<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        <span class="hljs-comment">//延迟</span><br>        <span class="hljs-keyword">try</span> &#123;<br>            Thread.sleep(<span class="hljs-number">1</span>);<br>        &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>            e.printStackTrace();<br>        &#125;<br><br>        <span class="hljs-comment">//买票</span><br>        System.out.println(Thread.currentThread().getName() + <span class="hljs-string">&quot;拿到&quot;</span> + ticketNums--);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://s2.loli.net/2022/07/14/PONuIji8S3sJUqk.png" alt="image-20220714172648484"></p>
-<h3 id="同步方法"><a href="#同步方法" class="headerlink" title="同步方法"></a>同步方法</h3><p><img src="https://s2.loli.net/2022/07/14/sHcwK3rkeDSmxGA.png" alt="image-20220714173011580"></p>
-<h1 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h1><h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.ruanyuan;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 死锁:多个线程互相抱着对方需要的资源,然后形成僵持</span><br><span class="hljs-comment"> * 解决:一个锁只锁一个对象</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DeadLock</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        MakeUp g1 = <span class="hljs-keyword">new</span> MakeUp(<span class="hljs-number">0</span>, <span class="hljs-string">&quot;灰姑娘&quot;</span>);<br>        MakeUp g2 = <span class="hljs-keyword">new</span> MakeUp(<span class="hljs-number">1</span>,<span class="hljs-string">&quot;白雪公主&quot;</span>);<br><br>        g1.start();<br>        g2.start();<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">//口红</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LipStick</span></span>&#123;<br><br>&#125;<br><br><span class="hljs-comment">//镜子</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Mirror</span></span>&#123;<br><br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MakeUp</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span></span>&#123;<br>	<span class="hljs-comment">//需要的资源只有一份,用static保证只有一份</span><br>    <span class="hljs-keyword">static</span> LipStick lipStick = <span class="hljs-keyword">new</span> LipStick();<br>    <span class="hljs-keyword">static</span> Mirror mirror = <span class="hljs-keyword">new</span> Mirror();<br>	<br>    <span class="hljs-comment">//选择</span><br>    <span class="hljs-keyword">int</span> choice;<br>    <span class="hljs-comment">//使用化妆品的人	</span><br>    String girlName;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MakeUp</span><span class="hljs-params">(<span class="hljs-keyword">int</span> choice, String girlName)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.choice = choice;<br>        <span class="hljs-keyword">this</span>.girlName = girlName;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-comment">//化妆</span><br>        makeup();<br>    &#125;<br><br>    <span class="hljs-comment">//化妆，互相持有对方的锁</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">makeup</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">if</span> (choice == <span class="hljs-number">0</span>)<br>        &#123;<br>            <span class="hljs-keyword">synchronized</span> (lipStick) &#123;<br>                <span class="hljs-comment">// 获得口红的锁</span><br>                System.out.println(<span class="hljs-keyword">this</span>.girlName+<span class="hljs-string">&quot;获得口红的锁&quot;</span>);<br>                <span class="hljs-keyword">try</span> &#123;<br>                    Thread.sleep(<span class="hljs-number">1000</span>);<br>                &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>                    e.printStackTrace();<br>                &#125;<br>                <span class="hljs-keyword">synchronized</span> (mirror) &#123;<br>                    <span class="hljs-comment">//一秒钟后想要获得镜子</span><br>                    System.out.println(<span class="hljs-keyword">this</span>.girlName+<span class="hljs-string">&quot;获得镜子的锁&quot;</span>);<br>                &#125;<br>            &#125;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">synchronized</span> (mirror) &#123;<br>                <span class="hljs-comment">// 获得镜子的锁</span><br>                System.out.println(<span class="hljs-keyword">this</span>.girlName+<span class="hljs-string">&quot;获得镜子的锁&quot;</span>);<br>                <span class="hljs-keyword">try</span> &#123;<br>                    Thread.sleep(<span class="hljs-number">2000</span>);<br>                &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>                    e.printStackTrace();<br>                &#125;<br>                <span class="hljs-keyword">synchronized</span> (lipStick) &#123;<br>                    <span class="hljs-comment">//两秒钟后想要获得镜子</span><br>                    System.out.println(<span class="hljs-keyword">this</span>.girlName+<span class="hljs-string">&quot;获得口红的锁&quot;</span>);<br>                &#125;<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p><img src="https://s2.loli.net/2022/07/15/nBF4oYs2OhGwtSr.png" alt="image-20220715092321508"></p>
-<p><img src="https://s2.loli.net/2022/07/15/2WTCHlyvpXYfZm5.png" alt="image-20220715092603663"></p>
+    <title>MySql问题整理</title>
+    <url>/2022/07/09/MySql%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<h1 id="mysql数据库中-查看数据库的字符集"><a href="#mysql数据库中-查看数据库的字符集" class="headerlink" title="mysql数据库中,查看数据库的字符集"></a>mysql数据库中,查看数据库的字符集</h1><ul>
+<li><p>查看实例中所有数据库的字符集</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> schema_name,default_character_set_name <span class="hljs-keyword">from</span> information_schema.schemata;<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="MySQL修改数据库字符集的方法"><a href="#MySQL修改数据库字符集的方法" class="headerlink" title="MySQL修改数据库字符集的方法"></a>MySQL修改数据库字符集的方法</h1><ul>
+<li><p>修改库的字符集</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">alter</span> database 库名 <span class="hljs-keyword">default</span> <span class="hljs-type">character</span> <span class="hljs-keyword">set</span> 字符集;<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="控制台进入mysql"><a href="#控制台进入mysql" class="headerlink" title="控制台进入mysql"></a>控制台进入mysql</h1><p><strong>连接mysql数据库</strong></p>
+<ol>
+<li>首先打开cmd进入dos窗口</li>
+<li>键入命令：<code>mysql -uroot -p</code> 回车，提示输入密码，输入密码回车就可以了</li>
+</ol>
 ]]></content>
       <categories>
         <category>岗前实训</category>
       </categories>
       <tags>
-        <tag>Java多线程</tag>
+        <tag>MySql</tag>
       </tags>
   </entry>
   <entry>
@@ -437,30 +461,6 @@
       </categories>
       <tags>
         <tag>maven</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MySql问题整理</title>
-    <url>/2022/07/09/MySql%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<h1 id="mysql数据库中-查看数据库的字符集"><a href="#mysql数据库中-查看数据库的字符集" class="headerlink" title="mysql数据库中,查看数据库的字符集"></a>mysql数据库中,查看数据库的字符集</h1><ul>
-<li><p>查看实例中所有数据库的字符集</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> schema_name,default_character_set_name <span class="hljs-keyword">from</span> information_schema.schemata;<br></code></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="MySQL修改数据库字符集的方法"><a href="#MySQL修改数据库字符集的方法" class="headerlink" title="MySQL修改数据库字符集的方法"></a>MySQL修改数据库字符集的方法</h1><ul>
-<li><p>修改库的字符集</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">alter</span> database 库名 <span class="hljs-keyword">default</span> <span class="hljs-type">character</span> <span class="hljs-keyword">set</span> 字符集;<br></code></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="控制台进入mysql"><a href="#控制台进入mysql" class="headerlink" title="控制台进入mysql"></a>控制台进入mysql</h1><p><strong>连接mysql数据库</strong></p>
-<ol>
-<li>首先打开cmd进入dos窗口</li>
-<li>键入命令：<code>mysql -uroot -p</code> 回车，提示输入密码，输入密码回车就可以了</li>
-</ol>
-]]></content>
-      <categories>
-        <category>岗前实训</category>
-      </categories>
-      <tags>
-        <tag>MySql</tag>
       </tags>
   </entry>
   <entry>
@@ -560,6 +560,60 @@ public String model() &#123;
 <ol>
 <li>方法的返回值会存入到 Model 对象中，key 为 ModelAttribute 的 value 属性值。</li>
 <li>方法的返回值不再是方法的访问路径，访问路径会变为 @RequestMapping 的 value 值，例如：@RequestMapping(value = “/index”) 跳转的页面是 index.jsp 页面。<section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span>InternalResourceViewResolver 为“内部资源视图解析器”，是日常开发中最常用的视图解    析器类型。它是 URLBasedViewResolver 的子类，拥有 URLBasedViewResolver 的一切特性。<br>    使用 InternalResourceViewResolver 视图解析时，无需再单独指定 viewClass 属性。示例代码如下。<br>   <figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">&lt;bean id=<span class="hljs-string">&quot;viewResolver&quot;</span> <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;</span>&gt;<br> &lt;property name=<span class="hljs-string">&quot;viewClass&quot;</span> value=<span class="hljs-string">&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;</span>/&gt; &lt;!--可以省略--&gt;<br> &lt;!--前缀--&gt;<br> &lt;property name=<span class="hljs-string">&quot;prefix&quot;</span> value=<span class="hljs-string">&quot;/WEB-INF/jsp/&quot;</span>/&gt;<br> &lt;!--后缀--&gt;<br> &lt;property name=<span class="hljs-string">&quot;suffix&quot;</span> value=<span class="hljs-string">&quot;.jsp&quot;</span>/&gt;  <br> &lt;/bean&gt;<br></code></pre></td></tr></table></figure><br>3. FreeMarkerViewResolver<br><a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span>FreeMarkerViewResolver 最终会解析逻辑视图配置，返回 freemarker 模板。不需要指定 viewClass 属性。<br>   FreeMarkerViewResolver 配置如下。<br>   <figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">&lt;bean <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">&quot;org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver&quot;</span>&gt;    &lt;property name=<span class="hljs-string">&quot;prefix&quot;</span> value=<span class="hljs-string">&quot;fm_&quot;</span>/&gt;    &lt;property name=<span class="hljs-string">&quot;suffix&quot;</span> value=<span class="hljs-string">&quot;.ftl&quot;</span>/&gt;&lt;/bean&gt;<br></code></pre></td></tr></table></figure><br><a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section></li>
+</ol>
+]]></content>
+      <categories>
+        <category>大二生涯</category>
+      </categories>
+      <tags>
+        <tag>spring</tag>
+        <tag>spring MVC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringMVC:文件上传和下载功能</title>
+    <url>/2022/05/14/SpringMVC%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%92%8C%E4%B8%8B%E8%BD%BD%E5%8A%9F%E8%83%BD%20-%20%E5%89%AF%E6%9C%AC/</url>
+    <content><![CDATA[<meta name="referrer" content="no-referrer"/>
+
+<h1 id="SpringMVC-文件上传和下载功能"><a href="#SpringMVC-文件上传和下载功能" class="headerlink" title="SpringMVC:文件上传和下载功能"></a>SpringMVC:文件上传和下载功能</h1><p>前言<br>文件上传是项目开发中最常见的功能之一 ,springMVC 可以很好的支持文件上传，但是SpringMVC上下文中默认没有装配MultipartResolver，因此默认情况下其不能处理文件上传工作。如果想使用Spring的文件上传功能，则需要在上下文中配置MultipartResolver。<br>前端表单要求：为了能上传文件，必须将表单的method设置为POST，并将enctype设置为multipart/form-data。只有在这样的情况下，浏览器才会把用户选择的文件以二进制数据发送给服务器；</p>
+<hr>
+<ol>
+<li><h2 id="对表单中的-enctype-属性做个详细的说明："><a href="#对表单中的-enctype-属性做个详细的说明：" class="headerlink" title="对表单中的 enctype 属性做个详细的说明："></a>对表单中的 enctype 属性做个详细的说明：</h2><ul>
+<li><p>application/x-www=form-urlencoded：默认方式，只处理表单域中的 value 属性值，采用这种编码方式的表单会将表单域中的值处理成 URL 编码方式。</p>
+</li>
+<li><p>multipart/form-data：这种编码方式会以二进制流的方式来处理表单数据，这种编码方式会把文件域指定文件的内容也封装到请求参数中，不会对字符编码。</p>
+</li>
+<li><p>text/plain：除了把空格转换为 “+” 号外，其他字符都不做编码处理，这种方式适用直接通过表单发送邮件。</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">enctype</span>=<span class="hljs-string">&quot;multipart/form-data&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;file&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;file&quot;</span>/&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
+<li><h2 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h2><ul>
+<li><p>1.导入文件上传的jar包，commons-fileupload ， <a href="https://so.csdn.net/so/search?q=Maven&spm=1001.2101.3001.7020">Maven</a>会自动帮我们导入他的依赖包 commons-io包；</p>
+<p>代码如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">&lt;!--文件上传--&gt;<br>&lt;dependency&gt;<br>   &lt;groupId&gt;commons-fileupload&lt;/groupId&gt;<br>   &lt;artifactId&gt;commons-fileupload&lt;/artifactId&gt;<br>   &lt;version&gt;<span class="hljs-number">1.3</span><span class="hljs-number">.3</span>&lt;/version&gt;<br>&lt;/dependency&gt;<br>&lt;!--servlet-api导入高版本的--&gt;<br>&lt;dependency&gt;<br>   &lt;groupId&gt;javax.servlet&lt;/groupId&gt;<br>   &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;<br>   &lt;version&gt;<span class="hljs-number">4.0</span><span class="hljs-number">.1</span>&lt;/version&gt;<br>&lt;/dependency&gt;<br></code></pre></td></tr></table></figure></li>
+<li><p>2.配置bean：multipartResolver<br>代码如下（示例）：<br>【注意！！！这个bena的id必须为：multipartResolver ， 否则上传文件会报400的错误！在这里栽过坑,教训！】</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!--文件上传配置--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;multipartResolver&quot;</span>  <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;</span>&gt;</span><br>   <span class="hljs-comment">&lt;!-- 请求的编码格式，必须和jSP的pageEncoding属性一致，以便正确读取表单的内容，默认为ISO-8859-1 --&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;defaultEncoding&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;utf-8&quot;</span>/&gt;</span><br>   <span class="hljs-comment">&lt;!-- 上传文件大小上限，单位为字节（10485760=10M） --&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;maxUploadSize&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;10485760&quot;</span>/&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;maxInMemorySize&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;40960&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>CommonsMultipartFile 的 常用方法：</p>
+<p>String getOriginalFilename()：获取上传文件的原名</p>
+<p>InputStream getInputStream()：获取文件流</p>
+<p>void transferTo(File dest)：将上传文件保存到一个目录文件中</p>
+</li>
+<li><p>3.编写前端页面</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;/upload&quot;</span> <span class="hljs-attr">enctype</span>=<span class="hljs-string">&quot;multipart/form-data&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;file&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;file&quot;</span>/&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;upload&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
+<li><p>4.Controller</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.kuang.controller;<br><br><span class="hljs-keyword">import</span> org.springframework.stereotype.Controller;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RequestParam;<br><span class="hljs-keyword">import</span> org.springframework.web.multipart.commons.CommonsMultipartFile;<br><br><span class="hljs-keyword">import</span> javax.servlet.http.HttpServletRequest;<br><span class="hljs-keyword">import</span> java.io.*;<br><br><span class="hljs-meta">@Controller</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FileController</span> </span>&#123;<br>   <span class="hljs-comment">//@RequestParam(&quot;file&quot;) 将name=file控件得到的文件封装成CommonsMultipartFile 对象</span><br>   <span class="hljs-comment">//批量上传CommonsMultipartFile则为数组即可</span><br>   <span class="hljs-meta">@RequestMapping(&quot;/upload&quot;)</span><br>   <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">fileUpload</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam(&quot;file&quot;)</span> CommonsMultipartFile file , HttpServletRequest request)</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;<br><br>​	 <span class="hljs-comment">//获取文件名 : file.getOriginalFilename();</span><br>   String uploadFileName = file.getOriginalFilename();<br><br>   <span class="hljs-comment">//如果文件名为空，直接回到首页！</span><br>   <span class="hljs-keyword">if</span> (<span class="hljs-string">&quot;&quot;</span>.equals(uploadFileName))&#123;<br>       <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;redirect:/index.jsp&quot;</span>;<br>  &#125;<br>   System.out.println(<span class="hljs-string">&quot;上传文件名 : &quot;</span>+uploadFileName);<br><br>   <span class="hljs-comment">//上传路径保存设置</span><br>   String path = request.getServletContext().getRealPath(<span class="hljs-string">&quot;/upload&quot;</span>);<br>   <span class="hljs-comment">//如果路径不存在，创建一个</span><br>   File realPath = <span class="hljs-keyword">new</span> File(path);<br>   <span class="hljs-keyword">if</span> (!realPath.exists())&#123;<br>       realPath.mkdir();<br>  &#125;<br>   System.out.println(<span class="hljs-string">&quot;上传文件保存地址：&quot;</span>+realPath);<br><br>   InputStream is = file.getInputStream(); <span class="hljs-comment">//文件输入流</span><br>   OutputStream os = <span class="hljs-keyword">new</span> FileOutputStream(<span class="hljs-keyword">new</span> File(realPath,uploadFileName)); <span class="hljs-comment">//文件输出流</span><br><br>   <span class="hljs-comment">//读取写出</span><br>   <span class="hljs-keyword">int</span> len=<span class="hljs-number">0</span>;<br>   <span class="hljs-keyword">byte</span>[] buffer = <span class="hljs-keyword">new</span> <span class="hljs-keyword">byte</span>[<span class="hljs-number">1024</span>];<br>   <span class="hljs-keyword">while</span> ((len=is.read(buffer))!=-<span class="hljs-number">1</span>)&#123;<br>       os.write(buffer,<span class="hljs-number">0</span>,len);<br>       os.flush();<br>  &#125;<br>   os.close();<br>   is.close();<br>   <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;redirect:/index.jsp&quot;</span>;<br><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><h2 id="采用file-Transto-来保存上传的文件"><a href="#采用file-Transto-来保存上传的文件" class="headerlink" title="采用file.Transto 来保存上传的文件"></a>采用file.Transto 来保存上传的文件</h2><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/*</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">* 采用file.Transto 来保存上传的文件</span><br><span class="hljs-comment">  */</span><br>  <span class="hljs-meta">@RequestMapping(&quot;/upload2&quot;)</span><br>  <span class="hljs-function"><span class="hljs-keyword">public</span> String  <span class="hljs-title">fileUpload2</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam(&quot;file&quot;)</span> CommonsMultipartFile file, HttpServletRequest request)</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;<br><br>   <span class="hljs-comment">//上传路径保存设置</span><br>   String path = request.getServletContext().getRealPath(<span class="hljs-string">&quot;/upload&quot;</span>);<br>   File realPath = <span class="hljs-keyword">new</span> File(path);<br>   <span class="hljs-keyword">if</span> (!realPath.exists())&#123;<br>       realPath.mkdir();<br>  &#125;<br>   <span class="hljs-comment">//上传文件地址</span><br>   System.out.println(<span class="hljs-string">&quot;上传文件保存地址：&quot;</span>+realPath);<br><br>   <span class="hljs-comment">//通过CommonsMultipartFile的方法直接写文件（注意这个时候）</span><br>   file.transferTo(<span class="hljs-keyword">new</span> File(realPath +<span class="hljs-string">&quot;/&quot;</span>+ file.getOriginalFilename()));<br><br>   <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;redirect:/index.jsp&quot;</span>;<br>  &#125;<br></code></pre></td></tr></table></figure></li>
+<li><h2 id="文件下载"><a href="#文件下载" class="headerlink" title="文件下载"></a>文件下载</h2><p>文件下载步骤：</p>
+<p>1、设置 response 响应头</p>
+<p>2、读取文件 – InputStream</p>
+<p>3、写出文件 – OutputStream</p>
+<p>4、执行操作</p>
+<p>5、关闭流 （先开后关）</p>
+<p>代码实现：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping(value=&quot;/download&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">downloads</span><span class="hljs-params">(HttpServletResponse response ,HttpServletRequest request)</span> <span class="hljs-keyword">throws</span> Exception</span>&#123;<br>   <span class="hljs-comment">//要下载的图片地址</span><br>   String  path = request.getServletContext().getRealPath(<span class="hljs-string">&quot;/upload&quot;</span>);<br>   String  fileName = <span class="hljs-string">&quot;基础语法.jpg&quot;</span>;<br><br>   <span class="hljs-comment">//1、设置response 响应头</span><br>   response.reset(); <span class="hljs-comment">//设置页面不缓存,清空buffer</span><br>   response.setCharacterEncoding(<span class="hljs-string">&quot;UTF-8&quot;</span>); <span class="hljs-comment">//字符编码</span><br>   response.setContentType(<span class="hljs-string">&quot;multipart/form-data&quot;</span>); <span class="hljs-comment">//二进制传输数据</span><br>   <span class="hljs-comment">//设置响应头</span><br>   response.setHeader(<span class="hljs-string">&quot;Content-Disposition&quot;</span>,<br>           <span class="hljs-string">&quot;attachment;fileName=&quot;</span>+URLEncoder.encode(fileName, <span class="hljs-string">&quot;UTF-8&quot;</span>));<br><br>   File file = <span class="hljs-keyword">new</span> File(path,fileName);<br>   <span class="hljs-comment">//2、 读取文件--输入流</span><br>   InputStream input=<span class="hljs-keyword">new</span> FileInputStream(file);<br>   <span class="hljs-comment">//3、 写出文件--输出流</span><br>   OutputStream out = response.getOutputStream();<br><br>   <span class="hljs-keyword">byte</span>[] buff =<span class="hljs-keyword">new</span> <span class="hljs-keyword">byte</span>[<span class="hljs-number">1024</span>];<br>   <span class="hljs-keyword">int</span> index=<span class="hljs-number">0</span>;<br>   <span class="hljs-comment">//4、执行 写出操作</span><br>   <span class="hljs-keyword">while</span>((index= input.read(buff))!= -<span class="hljs-number">1</span>)&#123;<br>       out.write(buff, <span class="hljs-number">0</span>, index);<br>       out.flush();<br>  &#125;<br>   out.close();<br>   input.close();<br>   <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br>&#125;<br>————————————————<br>版权声明：本文为CSDN博主「南风<span class="hljs-number">1789</span>」的原创文章，遵循CC <span class="hljs-number">4.0</span> BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：https:<span class="hljs-comment">//blog.csdn.net/southwindpass/article/details/113980739</span><br></code></pre></td></tr></table></figure></li>
 </ol>
 ]]></content>
       <categories>
@@ -690,60 +744,6 @@ public String model() &#123;
         <tag>java</tag>
         <tag>SpringSecurity</tag>
         <tag>Shiro</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SpringMVC:文件上传和下载功能</title>
-    <url>/2022/05/14/SpringMVC%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%92%8C%E4%B8%8B%E8%BD%BD%E5%8A%9F%E8%83%BD%20-%20%E5%89%AF%E6%9C%AC/</url>
-    <content><![CDATA[<meta name="referrer" content="no-referrer"/>
-
-<h1 id="SpringMVC-文件上传和下载功能"><a href="#SpringMVC-文件上传和下载功能" class="headerlink" title="SpringMVC:文件上传和下载功能"></a>SpringMVC:文件上传和下载功能</h1><p>前言<br>文件上传是项目开发中最常见的功能之一 ,springMVC 可以很好的支持文件上传，但是SpringMVC上下文中默认没有装配MultipartResolver，因此默认情况下其不能处理文件上传工作。如果想使用Spring的文件上传功能，则需要在上下文中配置MultipartResolver。<br>前端表单要求：为了能上传文件，必须将表单的method设置为POST，并将enctype设置为multipart/form-data。只有在这样的情况下，浏览器才会把用户选择的文件以二进制数据发送给服务器；</p>
-<hr>
-<ol>
-<li><h2 id="对表单中的-enctype-属性做个详细的说明："><a href="#对表单中的-enctype-属性做个详细的说明：" class="headerlink" title="对表单中的 enctype 属性做个详细的说明："></a>对表单中的 enctype 属性做个详细的说明：</h2><ul>
-<li><p>application/x-www=form-urlencoded：默认方式，只处理表单域中的 value 属性值，采用这种编码方式的表单会将表单域中的值处理成 URL 编码方式。</p>
-</li>
-<li><p>multipart/form-data：这种编码方式会以二进制流的方式来处理表单数据，这种编码方式会把文件域指定文件的内容也封装到请求参数中，不会对字符编码。</p>
-</li>
-<li><p>text/plain：除了把空格转换为 “+” 号外，其他字符都不做编码处理，这种方式适用直接通过表单发送邮件。</p>
-</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">enctype</span>=<span class="hljs-string">&quot;multipart/form-data&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;file&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;file&quot;</span>/&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
-<li><h2 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h2><ul>
-<li><p>1.导入文件上传的jar包，commons-fileupload ， <a href="https://so.csdn.net/so/search?q=Maven&spm=1001.2101.3001.7020">Maven</a>会自动帮我们导入他的依赖包 commons-io包；</p>
-<p>代码如下：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">&lt;!--文件上传--&gt;<br>&lt;dependency&gt;<br>   &lt;groupId&gt;commons-fileupload&lt;/groupId&gt;<br>   &lt;artifactId&gt;commons-fileupload&lt;/artifactId&gt;<br>   &lt;version&gt;<span class="hljs-number">1.3</span><span class="hljs-number">.3</span>&lt;/version&gt;<br>&lt;/dependency&gt;<br>&lt;!--servlet-api导入高版本的--&gt;<br>&lt;dependency&gt;<br>   &lt;groupId&gt;javax.servlet&lt;/groupId&gt;<br>   &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;<br>   &lt;version&gt;<span class="hljs-number">4.0</span><span class="hljs-number">.1</span>&lt;/version&gt;<br>&lt;/dependency&gt;<br></code></pre></td></tr></table></figure></li>
-<li><p>2.配置bean：multipartResolver<br>代码如下（示例）：<br>【注意！！！这个bena的id必须为：multipartResolver ， 否则上传文件会报400的错误！在这里栽过坑,教训！】</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!--文件上传配置--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;multipartResolver&quot;</span>  <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;</span>&gt;</span><br>   <span class="hljs-comment">&lt;!-- 请求的编码格式，必须和jSP的pageEncoding属性一致，以便正确读取表单的内容，默认为ISO-8859-1 --&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;defaultEncoding&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;utf-8&quot;</span>/&gt;</span><br>   <span class="hljs-comment">&lt;!-- 上传文件大小上限，单位为字节（10485760=10M） --&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;maxUploadSize&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;10485760&quot;</span>/&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;maxInMemorySize&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;40960&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-<p>CommonsMultipartFile 的 常用方法：</p>
-<p>String getOriginalFilename()：获取上传文件的原名</p>
-<p>InputStream getInputStream()：获取文件流</p>
-<p>void transferTo(File dest)：将上传文件保存到一个目录文件中</p>
-</li>
-<li><p>3.编写前端页面</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;/upload&quot;</span> <span class="hljs-attr">enctype</span>=<span class="hljs-string">&quot;multipart/form-data&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;file&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;file&quot;</span>/&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;upload&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
-<li><p>4.Controller</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.kuang.controller;<br><br><span class="hljs-keyword">import</span> org.springframework.stereotype.Controller;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RequestParam;<br><span class="hljs-keyword">import</span> org.springframework.web.multipart.commons.CommonsMultipartFile;<br><br><span class="hljs-keyword">import</span> javax.servlet.http.HttpServletRequest;<br><span class="hljs-keyword">import</span> java.io.*;<br><br><span class="hljs-meta">@Controller</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FileController</span> </span>&#123;<br>   <span class="hljs-comment">//@RequestParam(&quot;file&quot;) 将name=file控件得到的文件封装成CommonsMultipartFile 对象</span><br>   <span class="hljs-comment">//批量上传CommonsMultipartFile则为数组即可</span><br>   <span class="hljs-meta">@RequestMapping(&quot;/upload&quot;)</span><br>   <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">fileUpload</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam(&quot;file&quot;)</span> CommonsMultipartFile file , HttpServletRequest request)</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;<br><br>​	 <span class="hljs-comment">//获取文件名 : file.getOriginalFilename();</span><br>   String uploadFileName = file.getOriginalFilename();<br><br>   <span class="hljs-comment">//如果文件名为空，直接回到首页！</span><br>   <span class="hljs-keyword">if</span> (<span class="hljs-string">&quot;&quot;</span>.equals(uploadFileName))&#123;<br>       <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;redirect:/index.jsp&quot;</span>;<br>  &#125;<br>   System.out.println(<span class="hljs-string">&quot;上传文件名 : &quot;</span>+uploadFileName);<br><br>   <span class="hljs-comment">//上传路径保存设置</span><br>   String path = request.getServletContext().getRealPath(<span class="hljs-string">&quot;/upload&quot;</span>);<br>   <span class="hljs-comment">//如果路径不存在，创建一个</span><br>   File realPath = <span class="hljs-keyword">new</span> File(path);<br>   <span class="hljs-keyword">if</span> (!realPath.exists())&#123;<br>       realPath.mkdir();<br>  &#125;<br>   System.out.println(<span class="hljs-string">&quot;上传文件保存地址：&quot;</span>+realPath);<br><br>   InputStream is = file.getInputStream(); <span class="hljs-comment">//文件输入流</span><br>   OutputStream os = <span class="hljs-keyword">new</span> FileOutputStream(<span class="hljs-keyword">new</span> File(realPath,uploadFileName)); <span class="hljs-comment">//文件输出流</span><br><br>   <span class="hljs-comment">//读取写出</span><br>   <span class="hljs-keyword">int</span> len=<span class="hljs-number">0</span>;<br>   <span class="hljs-keyword">byte</span>[] buffer = <span class="hljs-keyword">new</span> <span class="hljs-keyword">byte</span>[<span class="hljs-number">1024</span>];<br>   <span class="hljs-keyword">while</span> ((len=is.read(buffer))!=-<span class="hljs-number">1</span>)&#123;<br>       os.write(buffer,<span class="hljs-number">0</span>,len);<br>       os.flush();<br>  &#125;<br>   os.close();<br>   is.close();<br>   <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;redirect:/index.jsp&quot;</span>;<br><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><h2 id="采用file-Transto-来保存上传的文件"><a href="#采用file-Transto-来保存上传的文件" class="headerlink" title="采用file.Transto 来保存上传的文件"></a>采用file.Transto 来保存上传的文件</h2><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/*</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">* 采用file.Transto 来保存上传的文件</span><br><span class="hljs-comment">  */</span><br>  <span class="hljs-meta">@RequestMapping(&quot;/upload2&quot;)</span><br>  <span class="hljs-function"><span class="hljs-keyword">public</span> String  <span class="hljs-title">fileUpload2</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam(&quot;file&quot;)</span> CommonsMultipartFile file, HttpServletRequest request)</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;<br><br>   <span class="hljs-comment">//上传路径保存设置</span><br>   String path = request.getServletContext().getRealPath(<span class="hljs-string">&quot;/upload&quot;</span>);<br>   File realPath = <span class="hljs-keyword">new</span> File(path);<br>   <span class="hljs-keyword">if</span> (!realPath.exists())&#123;<br>       realPath.mkdir();<br>  &#125;<br>   <span class="hljs-comment">//上传文件地址</span><br>   System.out.println(<span class="hljs-string">&quot;上传文件保存地址：&quot;</span>+realPath);<br><br>   <span class="hljs-comment">//通过CommonsMultipartFile的方法直接写文件（注意这个时候）</span><br>   file.transferTo(<span class="hljs-keyword">new</span> File(realPath +<span class="hljs-string">&quot;/&quot;</span>+ file.getOriginalFilename()));<br><br>   <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;redirect:/index.jsp&quot;</span>;<br>  &#125;<br></code></pre></td></tr></table></figure></li>
-<li><h2 id="文件下载"><a href="#文件下载" class="headerlink" title="文件下载"></a>文件下载</h2><p>文件下载步骤：</p>
-<p>1、设置 response 响应头</p>
-<p>2、读取文件 – InputStream</p>
-<p>3、写出文件 – OutputStream</p>
-<p>4、执行操作</p>
-<p>5、关闭流 （先开后关）</p>
-<p>代码实现：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping(value=&quot;/download&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">downloads</span><span class="hljs-params">(HttpServletResponse response ,HttpServletRequest request)</span> <span class="hljs-keyword">throws</span> Exception</span>&#123;<br>   <span class="hljs-comment">//要下载的图片地址</span><br>   String  path = request.getServletContext().getRealPath(<span class="hljs-string">&quot;/upload&quot;</span>);<br>   String  fileName = <span class="hljs-string">&quot;基础语法.jpg&quot;</span>;<br><br>   <span class="hljs-comment">//1、设置response 响应头</span><br>   response.reset(); <span class="hljs-comment">//设置页面不缓存,清空buffer</span><br>   response.setCharacterEncoding(<span class="hljs-string">&quot;UTF-8&quot;</span>); <span class="hljs-comment">//字符编码</span><br>   response.setContentType(<span class="hljs-string">&quot;multipart/form-data&quot;</span>); <span class="hljs-comment">//二进制传输数据</span><br>   <span class="hljs-comment">//设置响应头</span><br>   response.setHeader(<span class="hljs-string">&quot;Content-Disposition&quot;</span>,<br>           <span class="hljs-string">&quot;attachment;fileName=&quot;</span>+URLEncoder.encode(fileName, <span class="hljs-string">&quot;UTF-8&quot;</span>));<br><br>   File file = <span class="hljs-keyword">new</span> File(path,fileName);<br>   <span class="hljs-comment">//2、 读取文件--输入流</span><br>   InputStream input=<span class="hljs-keyword">new</span> FileInputStream(file);<br>   <span class="hljs-comment">//3、 写出文件--输出流</span><br>   OutputStream out = response.getOutputStream();<br><br>   <span class="hljs-keyword">byte</span>[] buff =<span class="hljs-keyword">new</span> <span class="hljs-keyword">byte</span>[<span class="hljs-number">1024</span>];<br>   <span class="hljs-keyword">int</span> index=<span class="hljs-number">0</span>;<br>   <span class="hljs-comment">//4、执行 写出操作</span><br>   <span class="hljs-keyword">while</span>((index= input.read(buff))!= -<span class="hljs-number">1</span>)&#123;<br>       out.write(buff, <span class="hljs-number">0</span>, index);<br>       out.flush();<br>  &#125;<br>   out.close();<br>   input.close();<br>   <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br>&#125;<br>————————————————<br>版权声明：本文为CSDN博主「南风<span class="hljs-number">1789</span>」的原创文章，遵循CC <span class="hljs-number">4.0</span> BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：https:<span class="hljs-comment">//blog.csdn.net/southwindpass/article/details/113980739</span><br></code></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>大二生涯</category>
-      </categories>
-      <tags>
-        <tag>spring</tag>
-        <tag>spring MVC</tag>
       </tags>
   </entry>
   <entry>
@@ -940,6 +940,92 @@ public String model() &#123;
       <tags>
         <tag>chrome</tag>
         <tag>快捷键</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>el和jstl表达式</title>
+    <url>/2022/05/27/el%E5%92%8Cjstl%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
+    <content><![CDATA[<p>el即Expression Language，用来在jsp页面上显示内容，jstl是JSP Standard Tag Library的缩写，包含多种标签，el和jstl结合使用，页面渲染更方便。</p>
+<hr>
+<h1 id="EL内置对象"><a href="#EL内置对象" class="headerlink" title="EL内置对象"></a>EL内置对象</h1><table>
+<thead>
+<tr>
+<th align="left">内置对象</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">pageScope</td>
+<td align="left">获取 page 范围的变量</td>
+</tr>
+<tr>
+<td align="left">requestScope</td>
+<td align="left">获取 request 范围的变量</td>
+</tr>
+<tr>
+<td align="left">sessionScope</td>
+<td align="left">获取 session 范围的变量</td>
+</tr>
+<tr>
+<td align="left">applicationScope</td>
+<td align="left">获取 application 范围的变量</td>
+</tr>
+<tr>
+<td align="left">param</td>
+<td align="left">相当于 request.getParameter(String name)，获取单个参数的值</td>
+</tr>
+<tr>
+<td align="left">paramValues</td>
+<td align="left">相当于 request.getParameterValues(String name)，获取参数集合中的变量值</td>
+</tr>
+<tr>
+<td align="left">header</td>
+<td align="left">相当于 request.getHeader(String name)，获取 HTTP 请求头信息</td>
+</tr>
+<tr>
+<td align="left">headerValues</td>
+<td align="left">相当于 request.getHeaders(String name)，获取 HTTP 请求头数组信息</td>
+</tr>
+<tr>
+<td align="left">initParam</td>
+<td align="left">相当于 application.getInitParameter(String name)，获取 web.xml 文件中的参数值</td>
+</tr>
+<tr>
+<td align="left">cookie</td>
+<td align="left">相当于 request.getCookies()，获取 cookie 中的值</td>
+</tr>
+<tr>
+<td align="left">pageContext</td>
+<td align="left">表示当前 JSP 页面的 pageContext 对象</td>
+</tr>
+</tbody></table>
+<p>EL 表达式获取 4 种不同范围的属性，代码如下：</p>
+<figure class="highlight jsp"><table><tr><td class="code"><pre><code class="hljs jsp">&lt;%@ page language=<span class="hljs-string">&quot;java&quot;</span> contentType=<span class="hljs-string">&quot;text/html; charset=UTF-8&quot;</span><br>    pageEncoding=<span class="hljs-string">&quot;UTF-8&quot;</span>%&gt;<br>&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;title&gt;编程帮(www.biancheng.net)&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;%<br>        pageContext.setAttribute(<span class="hljs-string">&quot;info&quot;</span>, <span class="hljs-string">&quot;page属性范围&quot;</span>);<br>        request.setAttribute(<span class="hljs-string">&quot;info&quot;</span>, <span class="hljs-string">&quot;request属性范围&quot;</span>);<br>        session.setAttribute(<span class="hljs-string">&quot;info&quot;</span>, <span class="hljs-string">&quot;session属性范围&quot;</span>);<br>        application.setAttribute(<span class="hljs-string">&quot;info&quot;</span>, <span class="hljs-string">&quot;application属性范围&quot;</span>);<br>    %&gt;<br>    &lt;h2&gt;不同属性范围的值&lt;/h2&gt;<br>    &lt;hr /&gt;<br>    不指定范围：$&#123;info&#125;<br>    &lt;br&gt; page 属性内容：$&#123;pageScope.info&#125;<br>    &lt;br&gt; request 属性内容：$&#123;requestScope.info&#125;<br>    &lt;br&gt;session 属性内容：$&#123;sessionScope.info&#125;<br>    &lt;br&gt;application 属性内容：$&#123;applicationScope.info&#125;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="jstl标签很多，笔记一下我常用到的标签"><a href="#jstl标签很多，笔记一下我常用到的标签" class="headerlink" title="jstl标签很多，笔记一下我常用到的标签"></a>jstl标签很多，笔记一下我常用到的标签</h1><p><strong>if</strong></p>
+<p>语法：</p>
+<figure class="highlight jsp"><table><tr><td class="code"><pre><code class="hljs jsp">&lt;c:<span class="hljs-keyword">if</span> test=<span class="hljs-string">&quot;$&#123;one.name eq &#x27;nick&#x27;&#125;&quot;</span>&gt;<br>                &lt;tr&gt;<br>                    &lt;td&gt;nick&lt;/td&gt;<br>                &lt;/tr&gt;<br>&lt;/c:<span class="hljs-keyword">if</span>&gt;<br></code></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>c:forEach标签</strong></p>
+<p>语法:</p>
+<figure class="highlight jsp"><table><tr><td class="code"><pre><code class="hljs jsp">&lt;c:forEach item=<span class="hljs-string">&quot;collection&quot;</span> [<span class="hljs-keyword">var</span>=<span class="hljs-string">&quot;varname&quot;</span> [varStatus=<span class="hljs-string">&quot;varstatusName&quot;</span>] [begin=<span class="hljs-string">&quot;开始&quot;</span>] [end=<span class="hljs-string">&quot;结束&quot;</span>] [step=<span class="hljs-string">&quot;step&quot;</span>]]&gt;<br>    Java程序或HTML代码<br>&lt;/c:forEach&gt;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><em><strong>items：要被循环的信息，可以是数组、Java 集合等；</strong></em></li>
+<li><em><strong>var：可选项，指定迭代之的别名；</strong></em></li>
+</ul>
+<h1 id="核心标签是最常用的-JSTL标签。引用核心标签库的语法如下："><a href="#核心标签是最常用的-JSTL标签。引用核心标签库的语法如下：" class="headerlink" title="核心标签是最常用的 JSTL标签。引用核心标签库的语法如下："></a>核心标签是最常用的 JSTL标签。引用核心标签库的语法如下：</h1><figure class="highlight jsp"><table><tr><td class="code"><pre><code class="hljs jsp">&lt;%@ taglib prefix=<span class="hljs-string">&quot;c&quot;</span> uri=<span class="hljs-string">&quot;http://java.sun.com/jsp/jstl/core&quot;</span> %&gt;<br></code></pre></td></tr></table></figure>
+
+<hr>
+]]></content>
+      <categories>
+        <category>大二生涯</category>
+      </categories>
+      <tags>
+        <tag>el表达式</tag>
+        <tag>jstl表达式</tag>
       </tags>
   </entry>
   <entry>
@@ -1313,92 +1399,6 @@ public String model() &#123;
       <tags>
         <tag>crm</tag>
         <tag>crm项目</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>el和jstl表达式</title>
-    <url>/2022/05/27/el%E5%92%8Cjstl%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
-    <content><![CDATA[<p>el即Expression Language，用来在jsp页面上显示内容，jstl是JSP Standard Tag Library的缩写，包含多种标签，el和jstl结合使用，页面渲染更方便。</p>
-<hr>
-<h1 id="EL内置对象"><a href="#EL内置对象" class="headerlink" title="EL内置对象"></a>EL内置对象</h1><table>
-<thead>
-<tr>
-<th align="left">内置对象</th>
-<th align="left">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">pageScope</td>
-<td align="left">获取 page 范围的变量</td>
-</tr>
-<tr>
-<td align="left">requestScope</td>
-<td align="left">获取 request 范围的变量</td>
-</tr>
-<tr>
-<td align="left">sessionScope</td>
-<td align="left">获取 session 范围的变量</td>
-</tr>
-<tr>
-<td align="left">applicationScope</td>
-<td align="left">获取 application 范围的变量</td>
-</tr>
-<tr>
-<td align="left">param</td>
-<td align="left">相当于 request.getParameter(String name)，获取单个参数的值</td>
-</tr>
-<tr>
-<td align="left">paramValues</td>
-<td align="left">相当于 request.getParameterValues(String name)，获取参数集合中的变量值</td>
-</tr>
-<tr>
-<td align="left">header</td>
-<td align="left">相当于 request.getHeader(String name)，获取 HTTP 请求头信息</td>
-</tr>
-<tr>
-<td align="left">headerValues</td>
-<td align="left">相当于 request.getHeaders(String name)，获取 HTTP 请求头数组信息</td>
-</tr>
-<tr>
-<td align="left">initParam</td>
-<td align="left">相当于 application.getInitParameter(String name)，获取 web.xml 文件中的参数值</td>
-</tr>
-<tr>
-<td align="left">cookie</td>
-<td align="left">相当于 request.getCookies()，获取 cookie 中的值</td>
-</tr>
-<tr>
-<td align="left">pageContext</td>
-<td align="left">表示当前 JSP 页面的 pageContext 对象</td>
-</tr>
-</tbody></table>
-<p>EL 表达式获取 4 种不同范围的属性，代码如下：</p>
-<figure class="highlight jsp"><table><tr><td class="code"><pre><code class="hljs jsp">&lt;%@ page language=<span class="hljs-string">&quot;java&quot;</span> contentType=<span class="hljs-string">&quot;text/html; charset=UTF-8&quot;</span><br>    pageEncoding=<span class="hljs-string">&quot;UTF-8&quot;</span>%&gt;<br>&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;title&gt;编程帮(www.biancheng.net)&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;%<br>        pageContext.setAttribute(<span class="hljs-string">&quot;info&quot;</span>, <span class="hljs-string">&quot;page属性范围&quot;</span>);<br>        request.setAttribute(<span class="hljs-string">&quot;info&quot;</span>, <span class="hljs-string">&quot;request属性范围&quot;</span>);<br>        session.setAttribute(<span class="hljs-string">&quot;info&quot;</span>, <span class="hljs-string">&quot;session属性范围&quot;</span>);<br>        application.setAttribute(<span class="hljs-string">&quot;info&quot;</span>, <span class="hljs-string">&quot;application属性范围&quot;</span>);<br>    %&gt;<br>    &lt;h2&gt;不同属性范围的值&lt;/h2&gt;<br>    &lt;hr /&gt;<br>    不指定范围：$&#123;info&#125;<br>    &lt;br&gt; page 属性内容：$&#123;pageScope.info&#125;<br>    &lt;br&gt; request 属性内容：$&#123;requestScope.info&#125;<br>    &lt;br&gt;session 属性内容：$&#123;sessionScope.info&#125;<br>    &lt;br&gt;application 属性内容：$&#123;applicationScope.info&#125;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></code></pre></td></tr></table></figure>
-
-<hr>
-<h1 id="jstl标签很多，笔记一下我常用到的标签"><a href="#jstl标签很多，笔记一下我常用到的标签" class="headerlink" title="jstl标签很多，笔记一下我常用到的标签"></a>jstl标签很多，笔记一下我常用到的标签</h1><p><strong>if</strong></p>
-<p>语法：</p>
-<figure class="highlight jsp"><table><tr><td class="code"><pre><code class="hljs jsp">&lt;c:<span class="hljs-keyword">if</span> test=<span class="hljs-string">&quot;$&#123;one.name eq &#x27;nick&#x27;&#125;&quot;</span>&gt;<br>                &lt;tr&gt;<br>                    &lt;td&gt;nick&lt;/td&gt;<br>                &lt;/tr&gt;<br>&lt;/c:<span class="hljs-keyword">if</span>&gt;<br></code></pre></td></tr></table></figure>
-
-<hr>
-<p><strong>c:forEach标签</strong></p>
-<p>语法:</p>
-<figure class="highlight jsp"><table><tr><td class="code"><pre><code class="hljs jsp">&lt;c:forEach item=<span class="hljs-string">&quot;collection&quot;</span> [<span class="hljs-keyword">var</span>=<span class="hljs-string">&quot;varname&quot;</span> [varStatus=<span class="hljs-string">&quot;varstatusName&quot;</span>] [begin=<span class="hljs-string">&quot;开始&quot;</span>] [end=<span class="hljs-string">&quot;结束&quot;</span>] [step=<span class="hljs-string">&quot;step&quot;</span>]]&gt;<br>    Java程序或HTML代码<br>&lt;/c:forEach&gt;<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li><em><strong>items：要被循环的信息，可以是数组、Java 集合等；</strong></em></li>
-<li><em><strong>var：可选项，指定迭代之的别名；</strong></em></li>
-</ul>
-<h1 id="核心标签是最常用的-JSTL标签。引用核心标签库的语法如下："><a href="#核心标签是最常用的-JSTL标签。引用核心标签库的语法如下：" class="headerlink" title="核心标签是最常用的 JSTL标签。引用核心标签库的语法如下："></a>核心标签是最常用的 JSTL标签。引用核心标签库的语法如下：</h1><figure class="highlight jsp"><table><tr><td class="code"><pre><code class="hljs jsp">&lt;%@ taglib prefix=<span class="hljs-string">&quot;c&quot;</span> uri=<span class="hljs-string">&quot;http://java.sun.com/jsp/jstl/core&quot;</span> %&gt;<br></code></pre></td></tr></table></figure>
-
-<hr>
-]]></content>
-      <categories>
-        <category>大二生涯</category>
-      </categories>
-      <tags>
-        <tag>el表达式</tag>
-        <tag>jstl表达式</tag>
       </tags>
   </entry>
   <entry>
@@ -1806,44 +1806,6 @@ System.out.println(count);
       </tags>
   </entry>
   <entry>
-    <title>个人博客相关问题</title>
-    <url>/2022/05/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h1><ol>
-<li><p>进入博客所在目录，右键打开 Git Bash Here，创建博文：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>写完后运行下面代码将文章渲染并部署到 GitHub Pages 上完成发布。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">hexo g   <span class="hljs-comment"># 生成页面</span><br>hexo d   <span class="hljs-comment"># 部署发布</span><br></code></pre></td></tr></table></figure></li>
-<li><p>也可以不使用命令自己创建 .md 文件，只需在文件开头手动加入如下格式 Front-matter 即可，写完后运行 <code>hexo g</code> 和 <code>hexo d</code> 发布。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">---<br>title: Hello World <span class="hljs-comment"># 标题</span><br>date: 2019/3/26 hh:mm:ss <span class="hljs-comment"># 时间</span><br>categories: <span class="hljs-comment"># 分类</span><br>- Diary<br>tags: <span class="hljs-comment"># 标签</span><br>- PS3<br>- Games<br>---<br><br>摘要<br>&lt;!--more--&gt;<br>正文<br></code></pre></td></tr></table></figure></li>
-</ol>
-<hr>
-<h1 id="typora图床设置"><a href="#typora图床设置" class="headerlink" title="typora图床设置"></a>typora图床设置</h1><p>在配置typora图床并设置自动上传时，遇到了如下问题</p>
-<ol>
-<li><p>typora图片上传验证按钮报错</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">chcp<span class="hljs-string">&#x27; is not recognized as an internal or external command, operable program or batch file</span><br></code></pre></td></tr></table></figure>
-
-<p>解决办法：</p>
-<p>需要在环境变量的系统变量的path后面加;C:\Windows\System32</p>
-<p><img src="https://s2.loli.net/2022/05/15/RVk4TQdihegAE1P.png"></p>
-<p><em>要根据电脑上的system32文件夹的具体路径填入地址，区分大小写。</em></p>
-</li>
-</ol>
-<h1 id="hexo-更新之后总需要重新设置custom-domin"><a href="#hexo-更新之后总需要重新设置custom-domin" class="headerlink" title="hexo 更新之后总需要重新设置custom domin"></a>hexo 更新之后总需要重新设置custom domin</h1><p>在source目录下（不是hexo根目录下），创建一个CNAME文件，可以用sublime创建，然后保存成（All files格式，即不加文件后缀名） CNAME文件里写自己新的域名。</p>
-<p><img src="https://s2.loli.net/2022/06/08/uv1ZtGXEqWHYl2A.png"></p>
-<h1 id="查看nodejs版本"><a href="#查看nodejs版本" class="headerlink" title="查看nodejs版本"></a>查看nodejs版本</h1><blockquote>
-<p>打开cmd命令窗口执行<code>node -v</code>命令即可查看版本。</p>
-</blockquote>
-<p><img src="https://s2.loli.net/2022/07/17/wBKkvPS9jT7AfMs.png" alt="image-20220717131420742"></p>
-]]></content>
-      <categories>
-        <category>大二生涯</category>
-      </categories>
-      <tags>
-        <tag>博客建设</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>springboot学习时遇到的问题</title>
     <url>/2022/05/27/springboot%E5%AD%A6%E4%B9%A0%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="SpringBoot项目搭建"><a href="#SpringBoot项目搭建" class="headerlink" title="SpringBoot项目搭建"></a>SpringBoot项目搭建</h1><ol>
@@ -1962,6 +1924,45 @@ System.out.println(count);
       <tags>
         <tag>springboot</tag>
         <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>思政考试模拟题</title>
+    <url>/2022/05/30/%E6%80%9D%E6%94%BF%E8%80%83%E8%AF%95%E6%A8%A1%E6%8B%9F%E9%A2%98/</url>
+    <content><![CDATA[<ol>
+<li>中国特色社会主义进入新时代，我国社会主要矛盾已经转化为人民日益增长的<em><strong>美好生活需要和不平衡不充分的发展</strong></em>之间的矛盾。</li>
+<li>新时代推进中国特色社会主义事业的总体布局是“<em><strong>五位一体</strong></em>”</li>
+<li>战略布局是“<strong><em>四个全面</em>”</strong></li>
+<li><em><strong>战略思维</strong></em>是高瞻远瞩、统揽全局、善于把握事物发展总体趋势和方向的思维方法</li>
+<li>我们党原来提出的“三步走”战略的第三步即基本实现现代化，将提前15年，即在<em><strong>2035年</strong></em>实现。</li>
+<li><em><strong>习近平新时代中国特色社会主义经济思想</strong></em>是当代马克思主义政治经济学的集中体现，是中国特色社会主义政治经济学的最新成果。</li>
+<li>习近平总书记指出，“<em><strong>社区</strong></em>是党和政府联系、服务居民群众的‘最后一公里’。</li>
+<li>习近平同志强调，<em><strong>改革开放</strong></em>是当代中国发展进步的活力之源。</li>
+<li>党的十九大报告指出，坚持总体国家安全观，必须坚持<em><strong>国家利益至上</strong></em>。</li>
+<li>习近平：国家安全是安邦定国的重要基石，<em><strong>维护国家安全</strong></em>是全国各族人民根本利益所在。</li>
+<li>保持香港、澳门长期繁荣稳定，必须全面准确贯彻‘一国两制’、‘港人治港’、‘澳人治澳’、<em><strong>高度自治</strong></em>的方针。</li>
+<li>我们坚持<em><strong>爱国者</strong></em>为主体的“港人治港”、“澳人治澳”，让香港、澳门同胞同祖国人民共担民族复兴的历史责任、共享祖国繁荣富强的伟大荣光。</li>
+<li>党的十九大再次强调：“中国将高举和平、发展、合作、共赢的旗帜，恪守<em><strong>维护世界和平、促进共同发展的外交政策宗旨</strong></em>。</li>
+<li>习近平新时代中国特色社会主义思想的一个重要内容，弘扬和平、发展、公平、正义、民主、自由的<em><strong>全人类共同价值</strong></em>。</li>
+<li>党的十八大报告鲜明揭示了中国特色社会主义是三位一体的：即<em><strong>中国特色社会主义道路、中国特色社会主义理论体系、中国特色社会主义制度</strong>；</em></li>
+<li>新时代坚持和发展中国特色社会主义的总任务是<em><strong>实现社会主义现代化和中华民族伟大复兴</strong></em>。</li>
+<li>中国梦的本质是<em><strong>国家富强、民族振兴、人民幸福</strong></em>。</li>
+<li>实现中华民族伟大复兴的中国梦，必须弘扬中国精神，这就是<em><strong>以爱国主义为核心的民族精神和以改革创新为核心的时代精神</strong></em>。</li>
+<li>深化供给侧结构性改革、推动高质量发展，管总的要求是<em><strong>巩固、增强、提升、畅通。</strong></em></li>
+<li>检验我们一切工作的成效，最终都要看<em><strong>人民是否真正得到了实惠，人民生活是否真正得到了改善，人民权益是否真正得到了保障</strong></em>。</li>
+<li>全面深化改革的总目标，是<em><strong>完善和发展中国特色社会主义制度、推进国家治理体系和治理能力现代化</strong></em>。</li>
+<li><em><strong>实现中华民族伟大复兴是近代以来中华民族最伟大的梦想</strong></em></li>
+<li>制约我国经济发展的因素，供给和需求两侧都有，但矛盾的主要方面，在<em><strong>供给侧</strong></em>。</li>
+<li>“德治”与“法治”二者之间既是<em><strong>相互区别,又是相互依存,相互促进</strong></em>的。</li>
+<li>”一带“指的是“ 丝绸之路经济带 ”，”一路“指的是“ <em><strong>21世纪海上丝绸之路</strong></em>。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>大二生涯</category>
+      </categories>
+      <tags>
+        <tag>思政</tag>
+        <tag>考试题</tag>
       </tags>
   </entry>
   <entry>
@@ -2290,42 +2291,164 @@ System.out.println(count);
       </tags>
   </entry>
   <entry>
-    <title>思政考试模拟题</title>
-    <url>/2022/05/30/%E6%80%9D%E6%94%BF%E8%80%83%E8%AF%95%E6%A8%A1%E6%8B%9F%E9%A2%98/</url>
-    <content><![CDATA[<ol>
-<li>中国特色社会主义进入新时代，我国社会主要矛盾已经转化为人民日益增长的<em><strong>美好生活需要和不平衡不充分的发展</strong></em>之间的矛盾。</li>
-<li>新时代推进中国特色社会主义事业的总体布局是“<em><strong>五位一体</strong></em>”</li>
-<li>战略布局是“<strong><em>四个全面</em>”</strong></li>
-<li><em><strong>战略思维</strong></em>是高瞻远瞩、统揽全局、善于把握事物发展总体趋势和方向的思维方法</li>
-<li>我们党原来提出的“三步走”战略的第三步即基本实现现代化，将提前15年，即在<em><strong>2035年</strong></em>实现。</li>
-<li><em><strong>习近平新时代中国特色社会主义经济思想</strong></em>是当代马克思主义政治经济学的集中体现，是中国特色社会主义政治经济学的最新成果。</li>
-<li>习近平总书记指出，“<em><strong>社区</strong></em>是党和政府联系、服务居民群众的‘最后一公里’。</li>
-<li>习近平同志强调，<em><strong>改革开放</strong></em>是当代中国发展进步的活力之源。</li>
-<li>党的十九大报告指出，坚持总体国家安全观，必须坚持<em><strong>国家利益至上</strong></em>。</li>
-<li>习近平：国家安全是安邦定国的重要基石，<em><strong>维护国家安全</strong></em>是全国各族人民根本利益所在。</li>
-<li>保持香港、澳门长期繁荣稳定，必须全面准确贯彻‘一国两制’、‘港人治港’、‘澳人治澳’、<em><strong>高度自治</strong></em>的方针。</li>
-<li>我们坚持<em><strong>爱国者</strong></em>为主体的“港人治港”、“澳人治澳”，让香港、澳门同胞同祖国人民共担民族复兴的历史责任、共享祖国繁荣富强的伟大荣光。</li>
-<li>党的十九大再次强调：“中国将高举和平、发展、合作、共赢的旗帜，恪守<em><strong>维护世界和平、促进共同发展的外交政策宗旨</strong></em>。</li>
-<li>习近平新时代中国特色社会主义思想的一个重要内容，弘扬和平、发展、公平、正义、民主、自由的<em><strong>全人类共同价值</strong></em>。</li>
-<li>党的十八大报告鲜明揭示了中国特色社会主义是三位一体的：即<em><strong>中国特色社会主义道路、中国特色社会主义理论体系、中国特色社会主义制度</strong>；</em></li>
-<li>新时代坚持和发展中国特色社会主义的总任务是<em><strong>实现社会主义现代化和中华民族伟大复兴</strong></em>。</li>
-<li>中国梦的本质是<em><strong>国家富强、民族振兴、人民幸福</strong></em>。</li>
-<li>实现中华民族伟大复兴的中国梦，必须弘扬中国精神，这就是<em><strong>以爱国主义为核心的民族精神和以改革创新为核心的时代精神</strong></em>。</li>
-<li>深化供给侧结构性改革、推动高质量发展，管总的要求是<em><strong>巩固、增强、提升、畅通。</strong></em></li>
-<li>检验我们一切工作的成效，最终都要看<em><strong>人民是否真正得到了实惠，人民生活是否真正得到了改善，人民权益是否真正得到了保障</strong></em>。</li>
-<li>全面深化改革的总目标，是<em><strong>完善和发展中国特色社会主义制度、推进国家治理体系和治理能力现代化</strong></em>。</li>
-<li><em><strong>实现中华民族伟大复兴是近代以来中华民族最伟大的梦想</strong></em></li>
-<li>制约我国经济发展的因素，供给和需求两侧都有，但矛盾的主要方面，在<em><strong>供给侧</strong></em>。</li>
-<li>“德治”与“法治”二者之间既是<em><strong>相互区别,又是相互依存,相互促进</strong></em>的。</li>
-<li>”一带“指的是“ 丝绸之路经济带 ”，”一路“指的是“ <em><strong>21世纪海上丝绸之路</strong></em>。</li>
+    <title>个人博客相关问题</title>
+    <url>/2022/05/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h1><ol>
+<li><p>进入博客所在目录，右键打开 Git Bash Here，创建博文：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>写完后运行下面代码将文章渲染并部署到 GitHub Pages 上完成发布。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">hexo g   <span class="hljs-comment"># 生成页面</span><br>hexo d   <span class="hljs-comment"># 部署发布</span><br></code></pre></td></tr></table></figure></li>
+<li><p>也可以不使用命令自己创建 .md 文件，只需在文件开头手动加入如下格式 Front-matter 即可，写完后运行 <code>hexo g</code> 和 <code>hexo d</code> 发布。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">---<br>title: Hello World <span class="hljs-comment"># 标题</span><br>date: 2019/3/26 hh:mm:ss <span class="hljs-comment"># 时间</span><br>categories: <span class="hljs-comment"># 分类</span><br>- Diary<br>tags: <span class="hljs-comment"># 标签</span><br>- PS3<br>- Games<br>---<br><br>摘要<br>&lt;!--more--&gt;<br>正文<br></code></pre></td></tr></table></figure></li>
 </ol>
+<hr>
+<h1 id="typora图床设置"><a href="#typora图床设置" class="headerlink" title="typora图床设置"></a>typora图床设置</h1><p>在配置typora图床并设置自动上传时，遇到了如下问题</p>
+<ol>
+<li><p>typora图片上传验证按钮报错</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">chcp<span class="hljs-string">&#x27; is not recognized as an internal or external command, operable program or batch file</span><br></code></pre></td></tr></table></figure>
+
+<p>解决办法：</p>
+<p>需要在环境变量的系统变量的path后面加;C:\Windows\System32</p>
+<p><img src="https://s2.loli.net/2022/05/15/RVk4TQdihegAE1P.png"></p>
+<p><em>要根据电脑上的system32文件夹的具体路径填入地址，区分大小写。</em></p>
+</li>
+</ol>
+<h1 id="hexo-更新之后总需要重新设置custom-domin"><a href="#hexo-更新之后总需要重新设置custom-domin" class="headerlink" title="hexo 更新之后总需要重新设置custom domin"></a>hexo 更新之后总需要重新设置custom domin</h1><p>在source目录下（不是hexo根目录下），创建一个CNAME文件，可以用sublime创建，然后保存成（All files格式，即不加文件后缀名） CNAME文件里写自己新的域名。</p>
+<p><img src="https://s2.loli.net/2022/06/08/uv1ZtGXEqWHYl2A.png"></p>
+<h1 id="查看nodejs版本"><a href="#查看nodejs版本" class="headerlink" title="查看nodejs版本"></a>查看nodejs版本</h1><blockquote>
+<p>打开cmd命令窗口执行<code>node -v</code>命令即可查看版本。</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2022/07/17/wBKkvPS9jT7AfMs.png" alt="image-20220717131420742"></p>
 ]]></content>
       <categories>
         <category>大二生涯</category>
       </categories>
       <tags>
-        <tag>思政</tag>
-        <tag>考试题</tag>
+        <tag>博客建设</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>狂神说POI及EasyExcel</title>
+    <url>/2022/05/28/%E7%8B%82%E7%A5%9E%E8%AF%B4POI%E5%8F%8AEasyExcel/</url>
+    <content><![CDATA[<p><em><strong><a href="https://www.bilibili.com/video/BV1Ua4y1x7BK?p=2">视频地址</a></strong></em></p>
+<h1 id="EXCEL基本写操作"><a href="#EXCEL基本写操作" class="headerlink" title="EXCEL基本写操作"></a>EXCEL基本写操作</h1><h2 id="excel中的对象"><a href="#excel中的对象" class="headerlink" title="excel中的对象"></a>excel中的对象</h2><img src="https://s2.loli.net/2022/05/29/dVJ9IOgfhZc3Pkx.png" alt="image-20220528114104951" style="zoom: 25%;" />
+
+<h2 id="对象的对应实现类"><a href="#对象的对应实现类" class="headerlink" title="对象的对应实现类"></a>对象的对应实现类</h2><img src="https://s2.loli.net/2022/05/29/3Mkr7PXxjDUHNuQ.png" alt="image-20220528115547462" style="zoom: 25%;" />
+
+<h2 id="导入maven依赖"><a href="#导入maven依赖" class="headerlink" title="导入maven依赖"></a>导入maven依赖</h2><figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--导入依赖--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--xls(03)--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.poi<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>poi<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.10-FINAL<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--xlsx(07)--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.poi<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>poi-ooxml<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.10-FINAL<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--日期格式化工具--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>joda-time<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>joda-time<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.10.10<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>joda-time是一个常用的时间处理类库 </p>
+</blockquote>
+<h1 id="大数据量的写入"><a href="#大数据量的写入" class="headerlink" title="大数据量的写入"></a>大数据量的写入</h1><ol>
+<li><p>```java<br>@Test<br>public void  testWrite03BigData() throws IOException {</p>
+<pre><code>// 时间
+long begin = System.currentTimeMillis();
+// 创建一个工作簿
+Workbook workbook = new HSSFWorkbook();
+// 创建表
+Sheet sheet = workbook.createSheet();
+// 写入数据
+for (int rowNum = 0; rowNum &lt; 65536; rowNum++)&#123;
+    Row row = sheet.createRow(rowNum);
+    for (int cellNum = 0; cellNum &lt; 10; cellNum++) &#123;
+        Cell cell = row.createCell(cellNum);
+        cell.setCellValue(cellNum);
+    &#125;
+&#125;
+System.out.println(&quot;over&quot;);
+// 开启IO流
+FileOutputStream fileOutputStream = new FileOutputStream(PATH + &quot;testWrite03BigData.xls&quot;);
+// 写出数据
+workbook.write(fileOutputStream);
+// 关闭IO流
+fileOutputStream.close();
+long end = System.currentTimeMillis();
+
+System.out.print((double) (end - begin) / 1000);
+</code></pre>
+<p>}</p>
+<figure class="highlight reasonml"><table><tr><td class="code"><pre><code class="hljs reasonml"><br>   !<span class="hljs-literal">[<span class="hljs-identifier">image</span>-<span class="hljs-number">20220529124847258</span>]</span>(https:<span class="hljs-comment">//s2.loli.net/2022/05/29/KT4JCeHx3RirWLQ.png)</span><br><br>   &gt; xls只能写入<span class="hljs-number">65536</span>行数据，否则报错<br><br>   !<span class="hljs-literal">[<span class="hljs-identifier">image</span>-<span class="hljs-number">20220529125102389</span>]</span>(https:<span class="hljs-comment">//s2.loli.net/2022/05/29/ZNsr6bJ9GVTQ1kg.png)</span><br><br><span class="hljs-number">2.</span> ```java<br>   @Test<br>   public void  test<span class="hljs-constructor">Write07BigData()</span> throws IOException &#123;<br>       <span class="hljs-comment">// 时间</span><br>       long <span class="hljs-keyword">begin</span> = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>current<span class="hljs-constructor">TimeMillis()</span>;<br>       <span class="hljs-comment">// 创建一个工作簿</span><br>       Workbook workbook = <span class="hljs-keyword">new</span> <span class="hljs-constructor">XSSFWorkbook()</span>;<br>       <span class="hljs-comment">// 创建表</span><br>       Sheet sheet = workbook.create<span class="hljs-constructor">Sheet()</span>;<br>       <span class="hljs-comment">// 写入数据</span><br>       <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> rowNum = <span class="hljs-number">0</span>; rowNum &lt; <span class="hljs-number">65537</span>; rowNum++)&#123;<br>           Row row = sheet.create<span class="hljs-constructor">Row(<span class="hljs-params">rowNum</span>)</span>;<br>           <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> cellNum = <span class="hljs-number">0</span>; cellNum &lt; <span class="hljs-number">10</span>; cellNum++) &#123;<br>               Cell cell = row.create<span class="hljs-constructor">Cell(<span class="hljs-params">cellNum</span>)</span>;<br>               cell.set<span class="hljs-constructor">CellValue(<span class="hljs-params">cellNum</span>)</span>;<br>           &#125;<br>       &#125;<br>       <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(<span class="hljs-string">&quot;over&quot;</span>);<br>       <span class="hljs-comment">// 开启IO流</span><br>       FileOutputStream fileOutputStream = <span class="hljs-keyword">new</span> <span class="hljs-constructor">FileOutputStream(PATH + <span class="hljs-string">&quot;testWrite07BigData.xlsx&quot;</span>)</span>;<br>       <span class="hljs-comment">// 写出数据</span><br>       workbook.write(fileOutputStream);<br>       <span class="hljs-comment">// 关闭IO流</span><br>       fileOutputStream.close<span class="hljs-literal">()</span>;<br>       long <span class="hljs-keyword">end</span> = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>current<span class="hljs-constructor">TimeMillis()</span>;<br>   <br>       <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.print((double) (<span class="hljs-keyword">end</span> - <span class="hljs-keyword">begin</span>)<span class="hljs-operator"> / </span><span class="hljs-number">1000</span>);<br>   &#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/05/29/VzkSL3TiCrIFhYo.png" alt="image-20220529125443725"></p>
+<blockquote>
+<p>xlsx写入速度较慢，数据无上限</p>
+</blockquote>
+</li>
+<li><p>```java<br>@Test<br>public void  testWrite07BigDataS() throws IOException {</p>
+<pre><code>// 时间
+long begin = System.currentTimeMillis();
+// 创建一个工作簿
+Workbook workbook = new SXSSFWorkbook();
+// 创建表
+Sheet sheet = workbook.createSheet();
+// 写入数据
+for (int rowNum = 0; rowNum &lt; 65537; rowNum++)&#123;
+    Row row = sheet.createRow(rowNum);
+    for (int cellNum = 0; cellNum &lt; 10; cellNum++) &#123;
+        Cell cell = row.createCell(cellNum);
+        cell.setCellValue(cellNum);
+    &#125;
+&#125;
+System.out.println(&quot;over&quot;);
+// 开启IO流
+FileOutputStream fileOutputStream = new FileOutputStream(PATH + &quot;testWrite07BigDataS.xlsx&quot;);
+// 写出数据
+workbook.write(fileOutputStream);
+// 关闭IO流
+fileOutputStream.close();
+// 清楚加速版中运用内存缓冲带来的临时文件
+((SXSSFWorkbook)workbook).dispose();
+long end = System.currentTimeMillis();
+
+System.out.print((double) (end - begin) / 1000);
+</code></pre>
+<p>}</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk"><br>   ![image-<span class="hljs-number">20220529130020834</span>](https:<span class="hljs-regexp">//</span>s2.loli.net<span class="hljs-regexp">/2022/</span><span class="hljs-number">05</span><span class="hljs-regexp">/29/</span>sp4QLahNcKbzo1R.png)<br><br>   &gt; xlsx加速版，SXSSFWorkbook类，结束时需要清除内存缓存。<br><br><span class="hljs-comment"># Excel基本读取及注意</span><br><br><span class="hljs-number">1</span>. ```java<br>   @Test<br>   public void testRead03() throws Exception &#123;<br>       <span class="hljs-regexp">//</span> 获取文件流<br>       FileInputStream fileInputStream = new FileInputStream(PATH + <span class="hljs-string">&quot;\\kuang-poi狂神观众统计表03.xls&quot;</span>);<br>       <span class="hljs-regexp">//</span> <span class="hljs-number">1</span>.创建一个工作簿<br>       HSSFWorkbook workbook = new HSSFWorkbook(fileInputStream);<br>       <span class="hljs-regexp">//</span> <span class="hljs-number">2</span>.得到表<br>       Sheet sheet = workbook.getSheetAt(<span class="hljs-number">0</span>);<br>       <span class="hljs-regexp">//</span> <span class="hljs-number">3</span>.得到行<br>       Row row = sheet.getRow(<span class="hljs-number">0</span>);<br>       <span class="hljs-regexp">//</span> <span class="hljs-number">4</span>.得到列<br>       Cell cell = row.getCell(<span class="hljs-number">0</span>);<br>   <br>       System.out.println(cell.getStringCellValue());<br>       <span class="hljs-regexp">//</span> 关闭流<br>       fileInputStream.close();<br>   <br>   &#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/05/29/LGOxZqfeblBVvCu.png" alt="image-20220529134938222"></p>
+</li>
+<li><p>```java<br>@Test<br>public void testRead07() throws Exception {</p>
+<pre><code>// 获取文件流
+FileInputStream fileInputStream = new FileInputStream(PATH + &quot;\\kuang-poi狂神观众统计表07.xlsx&quot;);
+// 1.创建一个工作簿
+Workbook workbook = new XSSFWorkbook(fileInputStream);
+// 2.得到表
+Sheet sheet = workbook.getSheetAt(0);
+// 3.得到行
+Row row = sheet.getRow(0);
+// 4.得到列
+Cell cell = row.getCell(0);
+Cell cell1 = row.getCell(1);
+System.out.println(cell.getStringCellValue());
+System.out.println(cell1.getNumericCellValue());
+// 关闭流
+fileInputStream.close();
+</code></pre>
+<p>}</p>
+<figure class="highlight reasonml"><table><tr><td class="code"><pre><code class="hljs reasonml"><br>   !<span class="hljs-literal">[<span class="hljs-identifier">image</span>-<span class="hljs-number">20220529135023165</span>]</span>(https:<span class="hljs-comment">//s2.loli.net/2022/05/29/RVZH5SewdOo4Wth.png)</span><br><br># 读取不同类型数据，批量读取，可以直接用<br><br>```java<br>@Test<br>public void test<span class="hljs-constructor">CellType()</span> throws Exception &#123;<br>    <span class="hljs-comment">// 获取文件流</span><br>    FileInputStream fileInputStream = <span class="hljs-keyword">new</span> <span class="hljs-constructor">FileInputStream(PATH + <span class="hljs-string">&quot;\\kuang-poi狂神观众统计表07.xlsx&quot;</span>)</span>;<br>    <span class="hljs-comment">// 1.创建一个工作簿</span><br>    Workbook workbook = <span class="hljs-keyword">new</span> <span class="hljs-constructor">XSSFWorkbook(<span class="hljs-params">fileInputStream</span>)</span>;<br>    <span class="hljs-comment">// 2.得到表</span><br>    Sheet sheet = workbook.get<span class="hljs-constructor">SheetAt(0)</span>;<br><br>    <span class="hljs-comment">// 获取表中的内容</span><br>    <span class="hljs-comment">// 获取行数</span><br>    <span class="hljs-built_in">int</span> rowCount = sheet.get<span class="hljs-constructor">PhysicalNumberOfRows()</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> rowNum = <span class="hljs-number">0</span>; rowNum &lt; rowCount; rowNum++) &#123;<br>        Row rowData = sheet.get<span class="hljs-constructor">Row(<span class="hljs-params">rowNum</span>)</span>;<br>        <span class="hljs-keyword">if</span> (rowData != null) &#123;<br>            <span class="hljs-comment">// 获取每行列数</span><br>            <span class="hljs-built_in">int</span> cellCount = rowData.get<span class="hljs-constructor">PhysicalNumberOfCells()</span>;<br>            <span class="hljs-comment">// 遍历单元格</span><br>            <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> cellNum = <span class="hljs-number">0</span>; cellNum &lt; cellCount; cellNum++) &#123;<br>                <span class="hljs-comment">// 读取单元格</span><br>                Cell cell = rowData.get<span class="hljs-constructor">Cell(<span class="hljs-params">cellNum</span>)</span>;<br>                String cellValue = <span class="hljs-string">&quot;&quot;</span>;<br>                <span class="hljs-comment">// 匹配单元格数据类型</span><br>                <span class="hljs-keyword">if</span> (cell != null) &#123;<br>                    <span class="hljs-built_in">int</span> cellType = cell.get<span class="hljs-constructor">CellType()</span>;<br>                    switch (cellType) &#123;<br>                        case Cell.CELL_TYPE_STRING: <span class="hljs-comment">// 字符串</span><br>                            <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.print(<span class="hljs-string">&quot;[String]&quot;</span>);<br>                            cellValue = cell.get<span class="hljs-constructor">StringCellValue()</span>;<br>                            break;<br>                        case Cell.CELL_TYPE_BOOLEAN: <span class="hljs-comment">// 布尔值</span><br>                            <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.print(<span class="hljs-string">&quot;[BOOLEAN]&quot;</span>);<br>                            cellValue = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">String</span>.</span></span>value<span class="hljs-constructor">Of(<span class="hljs-params">cell</span>.<span class="hljs-params">getBooleanCellValue</span>()</span>);<br>                            break;<br>                        case Cell.CELL_TYPE_BLANK: <span class="hljs-comment">// 空</span><br>                            <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.print(<span class="hljs-string">&quot;[BLANK]&quot;</span>);<br>                            break;<br>                        case Cell.CELL_TYPE_NUMERIC: <span class="hljs-comment">// 数字（日期，普通数字）</span><br>                            <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.print(<span class="hljs-string">&quot;[NUMERIC]&quot;</span>);<br>                            <span class="hljs-keyword">if</span> (<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">DateUtil</span>.</span></span>is<span class="hljs-constructor">CellDateFormatted(<span class="hljs-params">cell</span>)</span>)&#123; <span class="hljs-comment">// 日期</span><br>                                <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.print(<span class="hljs-string">&quot;[日期]&quot;</span>);<br>                                Date date = cell.get<span class="hljs-constructor">DateCellValue()</span>;<br>                                cellValue = <span class="hljs-keyword">new</span> <span class="hljs-constructor">DateTime(<span class="hljs-params">date</span>)</span>.<span class="hljs-keyword">to</span><span class="hljs-constructor">String(<span class="hljs-string">&quot;yyyy-MM-dd&quot;</span>)</span>;<br>                            &#125; <span class="hljs-keyword">else</span>&#123;<br>                                <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.print(<span class="hljs-string">&quot;[转换为字符串输出]&quot;</span>);<br>                                cell.set<span class="hljs-constructor">CellType(Cell.CELL_TYPE_STRING)</span>;<br>                                cellValue = cell.<span class="hljs-keyword">to</span><span class="hljs-constructor">String()</span>;<br>                            &#125;<br>                            break;<br>                        case Cell.CELL_TYPE_ERROR: <span class="hljs-comment">// 错误</span><br>                            <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.print(<span class="hljs-string">&quot;[数据类型错误]&quot;</span>);<br>                            break;<br>                    &#125;<br>                    <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(cellValue);<br>                &#125;<br>            &#125;<br>        &#125;<br>        fileInputStream.close<span class="hljs-literal">()</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ol>
+<p><img src="https://s2.loli.net/2022/05/29/EWie9vl4X73A1o5.png" alt="image-20220529143246577"></p>
+<h1 id="了解-计算公式"><a href="#了解-计算公式" class="headerlink" title="了解-计算公式"></a>了解-计算公式</h1><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testFormula</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;<br>    <span class="hljs-comment">// 开启IO流</span><br>    FileInputStream fileInputStream = <span class="hljs-keyword">new</span> FileInputStream(PATH + <span class="hljs-string">&quot;\\公式.xls&quot;</span>);<br>    <span class="hljs-comment">// 获取工作簿</span><br>    Workbook workbook = <span class="hljs-keyword">new</span> HSSFWorkbook(fileInputStream);<br>    <span class="hljs-comment">// 获取工作表</span><br>    Sheet sheet = workbook.getSheetAt(<span class="hljs-number">0</span>);<br>    <span class="hljs-comment">// 获取行</span><br>    Row row = sheet.getRow(<span class="hljs-number">4</span>);<br>    <span class="hljs-comment">// 获取列</span><br>    Cell cell = row.getCell(<span class="hljs-number">0</span>);<br><br>    <span class="hljs-comment">// 拿到计算公式 eval</span><br>    FormulaEvaluator formulaEvaluator = <span class="hljs-keyword">new</span> HSSFFormulaEvaluator((HSSFWorkbook)workbook);<br><br>    <span class="hljs-comment">// 输出单元格的内容</span><br>    <span class="hljs-keyword">int</span> cellType = cell.getCellType();<br>    <span class="hljs-keyword">switch</span> (cellType)&#123;<br>        <span class="hljs-keyword">case</span> Cell.CELL_TYPE_FORMULA: <span class="hljs-comment">//公式</span><br>            String cellFormula = cell.getCellFormula();<br>            System.out.println(cellFormula);<br><br>            <span class="hljs-comment">// 计算</span><br>            CellValue evaluate = formulaEvaluator.evaluate(cell);<br>            String cellValue = evaluate.formatAsString();<br>            System.out.println(cellValue);<br>            <span class="hljs-keyword">break</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/05/29/gl3DGJw4Rvurz7C.png" alt="image-20220529150028007"></p>
+<h1 id="easyExcel操作"><a href="#easyExcel操作" class="headerlink" title="easyExcel操作"></a>easyExcel操作</h1><p>导入依赖</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- easyExcel --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.alibaba<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>easyexcel<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.1.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>固定套路</p>
+<p>1.写入根据固定类格式进行写入</p>
+<p>2.读取根据监听器设置的规则进行读取</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>大二生涯</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>POI</tag>
+        <tag>easyExcel</tag>
       </tags>
   </entry>
   <entry>
@@ -2670,155 +2793,6 @@ System.out.println(count);
       </tags>
   </entry>
   <entry>
-    <title>狂神说POI及EasyExcel</title>
-    <url>/2022/05/28/%E7%8B%82%E7%A5%9E%E8%AF%B4POI%E5%8F%8AEasyExcel/</url>
-    <content><![CDATA[<p><em><strong><a href="https://www.bilibili.com/video/BV1Ua4y1x7BK?p=2">视频地址</a></strong></em></p>
-<h1 id="EXCEL基本写操作"><a href="#EXCEL基本写操作" class="headerlink" title="EXCEL基本写操作"></a>EXCEL基本写操作</h1><h2 id="excel中的对象"><a href="#excel中的对象" class="headerlink" title="excel中的对象"></a>excel中的对象</h2><img src="https://s2.loli.net/2022/05/29/dVJ9IOgfhZc3Pkx.png" alt="image-20220528114104951" style="zoom: 25%;" />
-
-<h2 id="对象的对应实现类"><a href="#对象的对应实现类" class="headerlink" title="对象的对应实现类"></a>对象的对应实现类</h2><img src="https://s2.loli.net/2022/05/29/3Mkr7PXxjDUHNuQ.png" alt="image-20220528115547462" style="zoom: 25%;" />
-
-<h2 id="导入maven依赖"><a href="#导入maven依赖" class="headerlink" title="导入maven依赖"></a>导入maven依赖</h2><figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--导入依赖--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--xls(03)--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.poi<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>poi<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.10-FINAL<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--xlsx(07)--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.poi<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>poi-ooxml<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.10-FINAL<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--日期格式化工具--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>joda-time<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>joda-time<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.10.10<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-<blockquote>
-<p>joda-time是一个常用的时间处理类库 </p>
-</blockquote>
-<h1 id="大数据量的写入"><a href="#大数据量的写入" class="headerlink" title="大数据量的写入"></a>大数据量的写入</h1><ol>
-<li><p>```java<br>@Test<br>public void  testWrite03BigData() throws IOException {</p>
-<pre><code>// 时间
-long begin = System.currentTimeMillis();
-// 创建一个工作簿
-Workbook workbook = new HSSFWorkbook();
-// 创建表
-Sheet sheet = workbook.createSheet();
-// 写入数据
-for (int rowNum = 0; rowNum &lt; 65536; rowNum++)&#123;
-    Row row = sheet.createRow(rowNum);
-    for (int cellNum = 0; cellNum &lt; 10; cellNum++) &#123;
-        Cell cell = row.createCell(cellNum);
-        cell.setCellValue(cellNum);
-    &#125;
-&#125;
-System.out.println(&quot;over&quot;);
-// 开启IO流
-FileOutputStream fileOutputStream = new FileOutputStream(PATH + &quot;testWrite03BigData.xls&quot;);
-// 写出数据
-workbook.write(fileOutputStream);
-// 关闭IO流
-fileOutputStream.close();
-long end = System.currentTimeMillis();
-
-System.out.print((double) (end - begin) / 1000);
-</code></pre>
-<p>}</p>
-<figure class="highlight reasonml"><table><tr><td class="code"><pre><code class="hljs reasonml"><br>   !<span class="hljs-literal">[<span class="hljs-identifier">image</span>-<span class="hljs-number">20220529124847258</span>]</span>(https:<span class="hljs-comment">//s2.loli.net/2022/05/29/KT4JCeHx3RirWLQ.png)</span><br><br>   &gt; xls只能写入<span class="hljs-number">65536</span>行数据，否则报错<br><br>   !<span class="hljs-literal">[<span class="hljs-identifier">image</span>-<span class="hljs-number">20220529125102389</span>]</span>(https:<span class="hljs-comment">//s2.loli.net/2022/05/29/ZNsr6bJ9GVTQ1kg.png)</span><br><br><span class="hljs-number">2.</span> ```java<br>   @Test<br>   public void  test<span class="hljs-constructor">Write07BigData()</span> throws IOException &#123;<br>       <span class="hljs-comment">// 时间</span><br>       long <span class="hljs-keyword">begin</span> = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>current<span class="hljs-constructor">TimeMillis()</span>;<br>       <span class="hljs-comment">// 创建一个工作簿</span><br>       Workbook workbook = <span class="hljs-keyword">new</span> <span class="hljs-constructor">XSSFWorkbook()</span>;<br>       <span class="hljs-comment">// 创建表</span><br>       Sheet sheet = workbook.create<span class="hljs-constructor">Sheet()</span>;<br>       <span class="hljs-comment">// 写入数据</span><br>       <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> rowNum = <span class="hljs-number">0</span>; rowNum &lt; <span class="hljs-number">65537</span>; rowNum++)&#123;<br>           Row row = sheet.create<span class="hljs-constructor">Row(<span class="hljs-params">rowNum</span>)</span>;<br>           <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> cellNum = <span class="hljs-number">0</span>; cellNum &lt; <span class="hljs-number">10</span>; cellNum++) &#123;<br>               Cell cell = row.create<span class="hljs-constructor">Cell(<span class="hljs-params">cellNum</span>)</span>;<br>               cell.set<span class="hljs-constructor">CellValue(<span class="hljs-params">cellNum</span>)</span>;<br>           &#125;<br>       &#125;<br>       <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(<span class="hljs-string">&quot;over&quot;</span>);<br>       <span class="hljs-comment">// 开启IO流</span><br>       FileOutputStream fileOutputStream = <span class="hljs-keyword">new</span> <span class="hljs-constructor">FileOutputStream(PATH + <span class="hljs-string">&quot;testWrite07BigData.xlsx&quot;</span>)</span>;<br>       <span class="hljs-comment">// 写出数据</span><br>       workbook.write(fileOutputStream);<br>       <span class="hljs-comment">// 关闭IO流</span><br>       fileOutputStream.close<span class="hljs-literal">()</span>;<br>       long <span class="hljs-keyword">end</span> = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>current<span class="hljs-constructor">TimeMillis()</span>;<br>   <br>       <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.print((double) (<span class="hljs-keyword">end</span> - <span class="hljs-keyword">begin</span>)<span class="hljs-operator"> / </span><span class="hljs-number">1000</span>);<br>   &#125;<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://s2.loli.net/2022/05/29/VzkSL3TiCrIFhYo.png" alt="image-20220529125443725"></p>
-<blockquote>
-<p>xlsx写入速度较慢，数据无上限</p>
-</blockquote>
-</li>
-<li><p>```java<br>@Test<br>public void  testWrite07BigDataS() throws IOException {</p>
-<pre><code>// 时间
-long begin = System.currentTimeMillis();
-// 创建一个工作簿
-Workbook workbook = new SXSSFWorkbook();
-// 创建表
-Sheet sheet = workbook.createSheet();
-// 写入数据
-for (int rowNum = 0; rowNum &lt; 65537; rowNum++)&#123;
-    Row row = sheet.createRow(rowNum);
-    for (int cellNum = 0; cellNum &lt; 10; cellNum++) &#123;
-        Cell cell = row.createCell(cellNum);
-        cell.setCellValue(cellNum);
-    &#125;
-&#125;
-System.out.println(&quot;over&quot;);
-// 开启IO流
-FileOutputStream fileOutputStream = new FileOutputStream(PATH + &quot;testWrite07BigDataS.xlsx&quot;);
-// 写出数据
-workbook.write(fileOutputStream);
-// 关闭IO流
-fileOutputStream.close();
-// 清楚加速版中运用内存缓冲带来的临时文件
-((SXSSFWorkbook)workbook).dispose();
-long end = System.currentTimeMillis();
-
-System.out.print((double) (end - begin) / 1000);
-</code></pre>
-<p>}</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><code class="hljs awk"><br>   ![image-<span class="hljs-number">20220529130020834</span>](https:<span class="hljs-regexp">//</span>s2.loli.net<span class="hljs-regexp">/2022/</span><span class="hljs-number">05</span><span class="hljs-regexp">/29/</span>sp4QLahNcKbzo1R.png)<br><br>   &gt; xlsx加速版，SXSSFWorkbook类，结束时需要清除内存缓存。<br><br><span class="hljs-comment"># Excel基本读取及注意</span><br><br><span class="hljs-number">1</span>. ```java<br>   @Test<br>   public void testRead03() throws Exception &#123;<br>       <span class="hljs-regexp">//</span> 获取文件流<br>       FileInputStream fileInputStream = new FileInputStream(PATH + <span class="hljs-string">&quot;\\kuang-poi狂神观众统计表03.xls&quot;</span>);<br>       <span class="hljs-regexp">//</span> <span class="hljs-number">1</span>.创建一个工作簿<br>       HSSFWorkbook workbook = new HSSFWorkbook(fileInputStream);<br>       <span class="hljs-regexp">//</span> <span class="hljs-number">2</span>.得到表<br>       Sheet sheet = workbook.getSheetAt(<span class="hljs-number">0</span>);<br>       <span class="hljs-regexp">//</span> <span class="hljs-number">3</span>.得到行<br>       Row row = sheet.getRow(<span class="hljs-number">0</span>);<br>       <span class="hljs-regexp">//</span> <span class="hljs-number">4</span>.得到列<br>       Cell cell = row.getCell(<span class="hljs-number">0</span>);<br>   <br>       System.out.println(cell.getStringCellValue());<br>       <span class="hljs-regexp">//</span> 关闭流<br>       fileInputStream.close();<br>   <br>   &#125;<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://s2.loli.net/2022/05/29/LGOxZqfeblBVvCu.png" alt="image-20220529134938222"></p>
-</li>
-<li><p>```java<br>@Test<br>public void testRead07() throws Exception {</p>
-<pre><code>// 获取文件流
-FileInputStream fileInputStream = new FileInputStream(PATH + &quot;\\kuang-poi狂神观众统计表07.xlsx&quot;);
-// 1.创建一个工作簿
-Workbook workbook = new XSSFWorkbook(fileInputStream);
-// 2.得到表
-Sheet sheet = workbook.getSheetAt(0);
-// 3.得到行
-Row row = sheet.getRow(0);
-// 4.得到列
-Cell cell = row.getCell(0);
-Cell cell1 = row.getCell(1);
-System.out.println(cell.getStringCellValue());
-System.out.println(cell1.getNumericCellValue());
-// 关闭流
-fileInputStream.close();
-</code></pre>
-<p>}</p>
-<figure class="highlight reasonml"><table><tr><td class="code"><pre><code class="hljs reasonml"><br>   !<span class="hljs-literal">[<span class="hljs-identifier">image</span>-<span class="hljs-number">20220529135023165</span>]</span>(https:<span class="hljs-comment">//s2.loli.net/2022/05/29/RVZH5SewdOo4Wth.png)</span><br><br># 读取不同类型数据，批量读取，可以直接用<br><br>```java<br>@Test<br>public void test<span class="hljs-constructor">CellType()</span> throws Exception &#123;<br>    <span class="hljs-comment">// 获取文件流</span><br>    FileInputStream fileInputStream = <span class="hljs-keyword">new</span> <span class="hljs-constructor">FileInputStream(PATH + <span class="hljs-string">&quot;\\kuang-poi狂神观众统计表07.xlsx&quot;</span>)</span>;<br>    <span class="hljs-comment">// 1.创建一个工作簿</span><br>    Workbook workbook = <span class="hljs-keyword">new</span> <span class="hljs-constructor">XSSFWorkbook(<span class="hljs-params">fileInputStream</span>)</span>;<br>    <span class="hljs-comment">// 2.得到表</span><br>    Sheet sheet = workbook.get<span class="hljs-constructor">SheetAt(0)</span>;<br><br>    <span class="hljs-comment">// 获取表中的内容</span><br>    <span class="hljs-comment">// 获取行数</span><br>    <span class="hljs-built_in">int</span> rowCount = sheet.get<span class="hljs-constructor">PhysicalNumberOfRows()</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> rowNum = <span class="hljs-number">0</span>; rowNum &lt; rowCount; rowNum++) &#123;<br>        Row rowData = sheet.get<span class="hljs-constructor">Row(<span class="hljs-params">rowNum</span>)</span>;<br>        <span class="hljs-keyword">if</span> (rowData != null) &#123;<br>            <span class="hljs-comment">// 获取每行列数</span><br>            <span class="hljs-built_in">int</span> cellCount = rowData.get<span class="hljs-constructor">PhysicalNumberOfCells()</span>;<br>            <span class="hljs-comment">// 遍历单元格</span><br>            <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> cellNum = <span class="hljs-number">0</span>; cellNum &lt; cellCount; cellNum++) &#123;<br>                <span class="hljs-comment">// 读取单元格</span><br>                Cell cell = rowData.get<span class="hljs-constructor">Cell(<span class="hljs-params">cellNum</span>)</span>;<br>                String cellValue = <span class="hljs-string">&quot;&quot;</span>;<br>                <span class="hljs-comment">// 匹配单元格数据类型</span><br>                <span class="hljs-keyword">if</span> (cell != null) &#123;<br>                    <span class="hljs-built_in">int</span> cellType = cell.get<span class="hljs-constructor">CellType()</span>;<br>                    switch (cellType) &#123;<br>                        case Cell.CELL_TYPE_STRING: <span class="hljs-comment">// 字符串</span><br>                            <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.print(<span class="hljs-string">&quot;[String]&quot;</span>);<br>                            cellValue = cell.get<span class="hljs-constructor">StringCellValue()</span>;<br>                            break;<br>                        case Cell.CELL_TYPE_BOOLEAN: <span class="hljs-comment">// 布尔值</span><br>                            <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.print(<span class="hljs-string">&quot;[BOOLEAN]&quot;</span>);<br>                            cellValue = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">String</span>.</span></span>value<span class="hljs-constructor">Of(<span class="hljs-params">cell</span>.<span class="hljs-params">getBooleanCellValue</span>()</span>);<br>                            break;<br>                        case Cell.CELL_TYPE_BLANK: <span class="hljs-comment">// 空</span><br>                            <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.print(<span class="hljs-string">&quot;[BLANK]&quot;</span>);<br>                            break;<br>                        case Cell.CELL_TYPE_NUMERIC: <span class="hljs-comment">// 数字（日期，普通数字）</span><br>                            <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.print(<span class="hljs-string">&quot;[NUMERIC]&quot;</span>);<br>                            <span class="hljs-keyword">if</span> (<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">DateUtil</span>.</span></span>is<span class="hljs-constructor">CellDateFormatted(<span class="hljs-params">cell</span>)</span>)&#123; <span class="hljs-comment">// 日期</span><br>                                <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.print(<span class="hljs-string">&quot;[日期]&quot;</span>);<br>                                Date date = cell.get<span class="hljs-constructor">DateCellValue()</span>;<br>                                cellValue = <span class="hljs-keyword">new</span> <span class="hljs-constructor">DateTime(<span class="hljs-params">date</span>)</span>.<span class="hljs-keyword">to</span><span class="hljs-constructor">String(<span class="hljs-string">&quot;yyyy-MM-dd&quot;</span>)</span>;<br>                            &#125; <span class="hljs-keyword">else</span>&#123;<br>                                <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.print(<span class="hljs-string">&quot;[转换为字符串输出]&quot;</span>);<br>                                cell.set<span class="hljs-constructor">CellType(Cell.CELL_TYPE_STRING)</span>;<br>                                cellValue = cell.<span class="hljs-keyword">to</span><span class="hljs-constructor">String()</span>;<br>                            &#125;<br>                            break;<br>                        case Cell.CELL_TYPE_ERROR: <span class="hljs-comment">// 错误</span><br>                            <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.print(<span class="hljs-string">&quot;[数据类型错误]&quot;</span>);<br>                            break;<br>                    &#125;<br>                    <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(cellValue);<br>                &#125;<br>            &#125;<br>        &#125;<br>        fileInputStream.close<span class="hljs-literal">()</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
-</ol>
-<p><img src="https://s2.loli.net/2022/05/29/EWie9vl4X73A1o5.png" alt="image-20220529143246577"></p>
-<h1 id="了解-计算公式"><a href="#了解-计算公式" class="headerlink" title="了解-计算公式"></a>了解-计算公式</h1><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testFormula</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;<br>    <span class="hljs-comment">// 开启IO流</span><br>    FileInputStream fileInputStream = <span class="hljs-keyword">new</span> FileInputStream(PATH + <span class="hljs-string">&quot;\\公式.xls&quot;</span>);<br>    <span class="hljs-comment">// 获取工作簿</span><br>    Workbook workbook = <span class="hljs-keyword">new</span> HSSFWorkbook(fileInputStream);<br>    <span class="hljs-comment">// 获取工作表</span><br>    Sheet sheet = workbook.getSheetAt(<span class="hljs-number">0</span>);<br>    <span class="hljs-comment">// 获取行</span><br>    Row row = sheet.getRow(<span class="hljs-number">4</span>);<br>    <span class="hljs-comment">// 获取列</span><br>    Cell cell = row.getCell(<span class="hljs-number">0</span>);<br><br>    <span class="hljs-comment">// 拿到计算公式 eval</span><br>    FormulaEvaluator formulaEvaluator = <span class="hljs-keyword">new</span> HSSFFormulaEvaluator((HSSFWorkbook)workbook);<br><br>    <span class="hljs-comment">// 输出单元格的内容</span><br>    <span class="hljs-keyword">int</span> cellType = cell.getCellType();<br>    <span class="hljs-keyword">switch</span> (cellType)&#123;<br>        <span class="hljs-keyword">case</span> Cell.CELL_TYPE_FORMULA: <span class="hljs-comment">//公式</span><br>            String cellFormula = cell.getCellFormula();<br>            System.out.println(cellFormula);<br><br>            <span class="hljs-comment">// 计算</span><br>            CellValue evaluate = formulaEvaluator.evaluate(cell);<br>            String cellValue = evaluate.formatAsString();<br>            System.out.println(cellValue);<br>            <span class="hljs-keyword">break</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://s2.loli.net/2022/05/29/gl3DGJw4Rvurz7C.png" alt="image-20220529150028007"></p>
-<h1 id="easyExcel操作"><a href="#easyExcel操作" class="headerlink" title="easyExcel操作"></a>easyExcel操作</h1><p>导入依赖</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- easyExcel --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.alibaba<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>easyexcel<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.1.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-<blockquote>
-<p>固定套路</p>
-<p>1.写入根据固定类格式进行写入</p>
-<p>2.读取根据监听器设置的规则进行读取</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>大二生涯</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>POI</tag>
-        <tag>easyExcel</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>狂神说mysql事务</title>
-    <url>/2022/06/04/%E7%8B%82%E7%A5%9E%E8%AF%B4mysql%E4%BA%8B%E5%8A%A1/</url>
-    <content><![CDATA[<h1 id="事务ACID原则"><a href="#事务ACID原则" class="headerlink" title="事务ACID原则"></a>事务ACID原则</h1><blockquote>
-<p>原子性（<strong>A</strong>tomicity）、一致性（<strong>C</strong>onsistency）、隔离性（<strong>I</strong>solation）、持久性（<strong>D</strong>urability）。</p>
-</blockquote>
-<p>脏读：指一个事务读取了另一个事务未提交的数据</p>
-<p>不可重复读：在一个事务内读取表中的某一行数据，多次读取结果不同。（这个不一定是错误，只是某些场合不对）</p>
-<p>虚读(幻读): 是指在一个事务内读取到了别的事务插入的数据，导致前后读取数量总量不一致。</p>
-<h2 id="模拟场景"><a href="#模拟场景" class="headerlink" title="模拟场景"></a>模拟场景</h2><blockquote>
-<p>SAVEPOINT – 设置保存点<br>ROLLBACK TO SAVEPOINT – 回滚到保存点<br>RELEASE SAVEPOINT – 删除保存点</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs mysql"> -- 转账<br> CREATE DATABASE shop CHARACTER SET utf8 COLLATE utf8_general_ci<br>USE shop <br><br>CREATE TABLE `account` (<br>`id` INT(3) NOT NULL AUTO_INCREMENT,<br>`name` VARCHAR(30) NOT NULL,<br>`money` DECIMAL(9,2) NOT NULL,<br>PRIMARY KEY (`id`)<br>) ENGINE = INNODB DEFAULT CHARSET = utf8<br> <br> INSERT INTO account(`name`, `money`)<br> VALUES (&#x27;A&#x27;,2000.00),(&#x27;B&#x27;,10000.00)<br> <br>-- 模拟转账， 事务<br>SET autocommit = 0; -- 关闭自动提交<br>START TRANSACTION -- 开启一个事务 （一组事务）<br>UPDATE account SET money = money - 500 WHERE `name` = &#x27;A&#x27; -- a减500<br>UPDATE account SET money = money + 500 WHERE `name` = &#x27;B&#x27; -- a加500 <br><br>COMMIT; -- 提交事务<br>ROLLBACK; -- 回滚<br><br>SET autocommit = 1; -- 回复默认值 <br></code></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <categories>
-        <category>大二生涯</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>MySQL</tag>
-        <tag>MySQL事务</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>用例图怎么画？附4大关系详解</title>
     <url>/2022/05/14/%E7%94%A8%E4%BE%8B%E5%9B%BE%E6%80%8E%E4%B9%88%E7%94%BB%EF%BC%9F%E9%99%844%E5%A4%A7%E5%85%B3%E7%B3%BB%E8%AF%A6%E8%A7%A3/</url>
     <content><![CDATA[<h1 id="用例图的定义及组成要素"><a href="#用例图的定义及组成要素" class="headerlink" title="用例图的定义及组成要素"></a>用例图的定义及组成要素</h1><p>它主要由三部分组成：<strong>参与者</strong>、<strong>用例</strong>、<strong>参与者与用例之间的关系。</strong></p>
@@ -2845,6 +2819,32 @@ fileInputStream.close();
       </categories>
       <tags>
         <tag>UML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>狂神说mysql事务</title>
+    <url>/2022/06/04/%E7%8B%82%E7%A5%9E%E8%AF%B4mysql%E4%BA%8B%E5%8A%A1/</url>
+    <content><![CDATA[<h1 id="事务ACID原则"><a href="#事务ACID原则" class="headerlink" title="事务ACID原则"></a>事务ACID原则</h1><blockquote>
+<p>原子性（<strong>A</strong>tomicity）、一致性（<strong>C</strong>onsistency）、隔离性（<strong>I</strong>solation）、持久性（<strong>D</strong>urability）。</p>
+</blockquote>
+<p>脏读：指一个事务读取了另一个事务未提交的数据</p>
+<p>不可重复读：在一个事务内读取表中的某一行数据，多次读取结果不同。（这个不一定是错误，只是某些场合不对）</p>
+<p>虚读(幻读): 是指在一个事务内读取到了别的事务插入的数据，导致前后读取数量总量不一致。</p>
+<h2 id="模拟场景"><a href="#模拟场景" class="headerlink" title="模拟场景"></a>模拟场景</h2><blockquote>
+<p>SAVEPOINT – 设置保存点<br>ROLLBACK TO SAVEPOINT – 回滚到保存点<br>RELEASE SAVEPOINT – 删除保存点</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs mysql"> -- 转账<br> CREATE DATABASE shop CHARACTER SET utf8 COLLATE utf8_general_ci<br>USE shop <br><br>CREATE TABLE `account` (<br>`id` INT(3) NOT NULL AUTO_INCREMENT,<br>`name` VARCHAR(30) NOT NULL,<br>`money` DECIMAL(9,2) NOT NULL,<br>PRIMARY KEY (`id`)<br>) ENGINE = INNODB DEFAULT CHARSET = utf8<br> <br> INSERT INTO account(`name`, `money`)<br> VALUES (&#x27;A&#x27;,2000.00),(&#x27;B&#x27;,10000.00)<br> <br>-- 模拟转账， 事务<br>SET autocommit = 0; -- 关闭自动提交<br>START TRANSACTION -- 开启一个事务 （一组事务）<br>UPDATE account SET money = money - 500 WHERE `name` = &#x27;A&#x27; -- a减500<br>UPDATE account SET money = money + 500 WHERE `name` = &#x27;B&#x27; -- a加500 <br><br>COMMIT; -- 提交事务<br>ROLLBACK; -- 回滚<br><br>SET autocommit = 1; -- 回复默认值 <br></code></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>大二生涯</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>MySQL</tag>
+        <tag>MySQL事务</tag>
       </tags>
   </entry>
 </search>
