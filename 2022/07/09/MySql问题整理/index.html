@@ -253,18 +253,23 @@
               </p>
             
             <div class="markdown-body">
-              <h1 id="mysql数据库中-查看数据库的字符集"><a href="#mysql数据库中-查看数据库的字符集" class="headerlink" title="mysql数据库中,查看数据库的字符集"></a>mysql数据库中,查看数据库的字符集</h1><ul>
+              <h1
+id="mysql数据库中查看数据库的字符集">mysql数据库中,查看数据库的字符集</h1>
+<ul>
 <li><p>查看实例中所有数据库的字符集</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> schema_name,default_character_set_name <span class="hljs-keyword">from</span> information_schema.schemata;<br></code></pre></td></tr></table></figure></li>
 </ul>
-<h1 id="MySQL修改数据库字符集的方法"><a href="#MySQL修改数据库字符集的方法" class="headerlink" title="MySQL修改数据库字符集的方法"></a>MySQL修改数据库字符集的方法</h1><ul>
+<h1 id="mysql修改数据库字符集的方法">MySQL修改数据库字符集的方法</h1>
+<ul>
 <li><p>修改库的字符集</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">alter</span> database 库名 <span class="hljs-keyword">default</span> <span class="hljs-type">character</span> <span class="hljs-keyword">set</span> 字符集;<br></code></pre></td></tr></table></figure></li>
 </ul>
-<h1 id="控制台进入mysql"><a href="#控制台进入mysql" class="headerlink" title="控制台进入mysql"></a>控制台进入mysql</h1><p><strong>连接mysql数据库</strong></p>
-<ol>
+<h1 id="控制台进入mysql">控制台进入mysql</h1>
+<p><strong>连接mysql数据库</strong></p>
+<ol type="1">
 <li>首先打开cmd进入dos窗口</li>
-<li>键入命令：<code>mysql -uroot -p</code> 回车，提示输入密码，输入密码回车就可以了</li>
+<li>键入命令：<code>mysql -uroot -p</code>
+回车，提示输入密码，输入密码回车就可以了</li>
 </ol>
 
             </div>
@@ -458,6 +463,48 @@
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
 
 
 

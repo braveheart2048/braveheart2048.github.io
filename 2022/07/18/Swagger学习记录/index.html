@@ -200,7 +200,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.9k 字
+      2k 字
     </span>
   
 
@@ -255,34 +255,47 @@
               </p>
             
             <div class="markdown-body">
-              <h1 id="SpringBoot集成Swagger"><a href="#SpringBoot集成Swagger" class="headerlink" title="SpringBoot集成Swagger"></a>SpringBoot集成Swagger</h1><ol>
-<li><p>新建SpringBoot-web项目</p>
-</li>
+              <h1 id="springboot集成swagger">SpringBoot集成Swagger</h1>
+<ol type="1">
+<li><p>新建SpringBoot-web项目</p></li>
 <li><p>导入maven依赖</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- Swagger2 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.springfox<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.9.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-comment">&lt;!-- Swagger的ui界面 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.springfox<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>springfox-swagger2<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.9.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
-<li><p>编写一个hello工程</p>
-</li>
+<li><p>编写一个hello工程</p></li>
 <li><p>配置Swagger</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@EnableSwagger2</span> <span class="hljs-comment">//开启Swagger2</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SwaggerConfig</span> </span>&#123;<br>&#125;<br></code></pre></td></tr></table></figure></li>
 <li><p>浏览器访问：<code>http://localhost:8080/swagger-ui.html</code></p>
-<p><img src="https://s2.loli.net/2022/07/18/w89M7nXejslu6dZ.png" srcset="/img/loading.gif" lazyload alt="image-20220718113600228"></p>
-</li>
+<figure>
+<img src="https://s2.loli.net/2022/07/18/w89M7nXejslu6dZ.png" srcset="/img/loading.gif" lazyload
+alt="image-20220718113600228" />
+<figcaption aria-hidden="true">image-20220718113600228</figcaption>
+</figure></li>
 </ol>
-<h1 id="访问swagger-ui-html-404报错一秒解决"><a href="#访问swagger-ui-html-404报错一秒解决" class="headerlink" title="访问swagger-ui.html 404报错一秒解决"></a>访问swagger-ui.html 404报错一秒解决</h1><p><em>主要是swagger的版本不能用3.0.0</em></p>
-<h1 id="Swagger的基本配置信息"><a href="#Swagger的基本配置信息" class="headerlink" title="Swagger的基本配置信息"></a>Swagger的基本配置信息</h1><p><strong>添加配置信息</strong></p>
+<h1 id="访问swagger-ui.html-404报错一秒解决">访问swagger-ui.html
+404报错一秒解决</h1>
+<p><em>主要是swagger的版本不能用3.0.0</em></p>
+<h1 id="swagger的基本配置信息">Swagger的基本配置信息</h1>
+<p><strong>添加配置信息</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * TODO</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@ClassName</span> SwaggerConfig</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Author</span> Alfa</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Data</span> 2022/7/18 11:25</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Version</span> 1.0</span><br><span class="hljs-comment"> **/</span><br><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@EnableSwagger2</span> <span class="hljs-comment">//开启Swagger2</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SwaggerConfig</span> </span>&#123;<br>    <span class="hljs-comment">// 配置了Swagger的Docket bean实例</span><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Docket <span class="hljs-title">docket</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Docket(DocumentationType.SWAGGER_2)<br>                .apiInfo(apiInfo());<br>    &#125;<br>    <span class="hljs-comment">//配置Swagger信息</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> ApiInfo <span class="hljs-title">apiInfo</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-comment">// 作者信息</span><br>        Contact contact = <span class="hljs-keyword">new</span> Contact(<span class="hljs-string">&quot;秦将&quot;</span>, <span class="hljs-string">&quot;http://idealstars.space&quot;</span>, <span class="hljs-string">&quot;123@qq.com&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ApiInfo(<br>                <span class="hljs-string">&quot;狂神的swagger日记&quot;</span>,<br>                <span class="hljs-string">&quot;即使再小的帆也能远航&quot;</span>,<br>                <span class="hljs-string">&quot;1.0&quot;</span>,<br>                <span class="hljs-string">&quot;http://idealstars.space&quot;</span>,<br>                contact,<br>                <span class="hljs-string">&quot;Apache 2.0&quot;</span>,<br>                <span class="hljs-string">&quot;http://www.apache.org/licenses/LICENSE-2.0&quot;</span>,<br>                <span class="hljs-keyword">new</span> ArrayList());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
 <p><strong>界面展示</strong></p>
-<p><img src="https://s2.loli.net/2022/07/18/gyl2mqISk4as8Yx.png" srcset="/img/loading.gif" lazyload alt="image-20220718115019912"></p>
-<h1 id="配置扫描接口和是否启用swagger"><a href="#配置扫描接口和是否启用swagger" class="headerlink" title="配置扫描接口和是否启用swagger"></a>配置扫描接口和是否启用swagger</h1><blockquote>
+<figure>
+<img src="https://s2.loli.net/2022/07/18/gyl2mqISk4as8Yx.png" srcset="/img/loading.gif" lazyload
+alt="image-20220718115019912" />
+<figcaption aria-hidden="true">image-20220718115019912</figcaption>
+</figure>
+<h1
+id="配置扫描接口和是否启用swagger">配置扫描接口和是否启用swagger</h1>
+<blockquote>
 <p>配置位置</p>
 </blockquote>
-<p><img src="https://s2.loli.net/2022/07/18/NWU4Pmwr2ujEZVd.png" srcset="/img/loading.gif" lazyload alt="image-20220718122953122"></p>
+<figure>
+<img src="https://s2.loli.net/2022/07/18/NWU4Pmwr2ujEZVd.png" srcset="/img/loading.gif" lazyload
+alt="image-20220718122953122" />
+<figcaption aria-hidden="true">image-20220718122953122</figcaption>
+</figure>
 <blockquote>
 <p>代码</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 配置了Swagger的Docket bean实例</span><br><span class="hljs-meta">@Bean</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> Docket <span class="hljs-title">docket</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Docket(DocumentationType.SWAGGER_2)<br>        .apiInfo(apiInfo())<br>        <span class="hljs-comment">//是否启用swagger，如果为false，则swagger不能再浏览器中访问</span><br>        .enable(<span class="hljs-keyword">false</span>)<br>        .select()<br>        <span class="hljs-comment">// RequestHandlerSelectors 配置要扫描接口的方式</span><br>        <span class="hljs-comment">// basePackage指定要扫描的包</span><br>        <span class="hljs-comment">// any():扫描全部</span><br>        <span class="hljs-comment">// none():不扫描</span><br>        <span class="hljs-comment">//.withClassAnnotation():扫描类上的注解，参数是一个注解的反射对象</span><br>        <span class="hljs-comment">//.withMethodAnnotation():扫描方法上的注解</span><br>        .apis(RequestHandlerSelectors.basePackage(<span class="hljs-string">&quot;com.kuang.swagger.controller&quot;</span>))<br>        <span class="hljs-comment">//过滤路径</span><br>        <span class="hljs-comment">//.paths(PathSelectors.ant(&quot;/kuang/**&quot;))</span><br>        .build();<br>&#125;<br></code></pre></td></tr></table></figure>
-
 
             </div>
             <hr>
@@ -479,6 +492,48 @@
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
 
 
 

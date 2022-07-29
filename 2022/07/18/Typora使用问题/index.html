@@ -198,7 +198,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      384 字
+      379 字
     </span>
   
 
@@ -248,42 +248,57 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：1 小时前
+                  本文最后更新于：6 小时前
                 
               </p>
             
             <div class="markdown-body">
-              <h1 id="markdown文件生成目录的方式"><a href="#markdown文件生成目录的方式" class="headerlink" title="markdown文件生成目录的方式"></a>markdown文件生成目录的方式</h1><p>在文章开始地方输入[toc]，即可在对应位置插入目录</p>
-<p><img src="https://s2.loli.net/2022/07/21/5qBCYXF3gO1skpm.webp" srcset="/img/loading.gif" lazyload alt="img"></p>
+              <h1 id="markdown文件生成目录的方式">markdown文件生成目录的方式</h1>
+<p>在文章开始地方输入[toc]，即可在对应位置插入目录</p>
+<figure>
+<img src="https://s2.loli.net/2022/07/21/5qBCYXF3gO1skpm.webp" srcset="/img/loading.gif" lazyload
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
 <blockquote>
 <p>凡是文章标题带有#（1-6个）的都会被捕获到目录中。</p>
 </blockquote>
-<h1 id="Typora-向数学公式中插入空格"><a href="#Typora-向数学公式中插入空格" class="headerlink" title="Typora 向数学公式中插入空格"></a>Typora 向数学公式中插入空格</h1><table>
+<h1 id="typora-向数学公式中插入空格">Typora 向数学公式中插入空格</h1>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th>输入字符</th>
 <th>显示效果</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>a~b</td>
 <td>a b</td>
 </tr>
-<tr>
-<td>a\quad b</td>
-<td>a    b</td>
+<tr class="even">
+<td>ab</td>
+<td>a b</td>
 </tr>
-</tbody></table>
-<h1 id="Markdown-LaTex-极限符号"><a href="#Markdown-LaTex-极限符号" class="headerlink" title="Markdown_LaTex_极限符号"></a>Markdown_LaTex_极限符号</h1><ul>
-<li><p>极限符号<br>$$<br>\lim\limits_{x\rightarrow\infty}<br>$$</p>
+</tbody>
+</table>
+<h1 id="markdown_latex_极限符号">Markdown_LaTex_极限符号</h1>
+<ul>
+<li><p>极限符号 <span class="math display">\[
+\lim\limits_{x\rightarrow\infty}
+\]</span></p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">$$\lim\limits<span class="hljs-emphasis">_&#123;x\rightarrow\infty&#125;$$</span><br></code></pre></td></tr></table></figure></li>
-<li><p>分数部分<br>$$<br>\frac{1}{x}<br>$$</p>
+<li><p>分数部分 <span class="math display">\[
+\frac{1}{x}
+\]</span></p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">$$\frac&#123;1&#125;&#123;x&#125;$$<br></code></pre></td></tr></table></figure></li>
 </ul>
-<h1 id="markdown如何打出双下标"><a href="#markdown如何打出双下标" class="headerlink" title="markdown如何打出双下标"></a>markdown如何打出双下标</h1><p>如果同时有两个下标，则需要使用<code>&#123;&#125;</code>来将符号括起来</p>
-<h1 id="Markdown-KaTex-正负号±"><a href="#Markdown-KaTex-正负号±" class="headerlink" title="Markdown KaTex 正负号±"></a>Markdown KaTex 正负号±</h1><p>在KaTex中你可以用<code>$\pm</code>表示正负号(± \pm±)。</p>
-<h1 id="markdown乘号的代码"><a href="#markdown乘号的代码" class="headerlink" title="markdown乘号的代码"></a>markdown乘号的代码</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mark">$\times$<br></code></pre></td></tr></table></figure>
-
+<h1 id="markdown如何打出双下标">markdown如何打出双下标</h1>
+<p>如果同时有两个下标，则需要使用<code>&#123;&#125;</code>来将符号括起来</p>
+<h1 id="markdown-katex-正负号">Markdown KaTex 正负号±</h1>
+<p>在KaTex中你可以用<code>$\pm</code>表示正负号(± ±)。</p>
+<h1 id="markdown乘号的代码">markdown乘号的代码</h1>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mark">$\times$<br></code></pre></td></tr></table></figure>
 
             </div>
             <hr>
@@ -476,6 +491,48 @@
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
 
 
 

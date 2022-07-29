@@ -253,174 +253,177 @@
               </p>
             
             <div class="markdown-body">
-              <h1 id="CRUD扩展"><a href="#CRUD扩展" class="headerlink" title="CRUD扩展"></a>CRUD扩展</h1><h3 id="不同的主键策略测试"><a href="#不同的主键策略测试" class="headerlink" title="不同的主键策略测试"></a>不同的主键策略测试</h3><blockquote>
+              <h1 id="crud扩展">CRUD扩展</h1>
+<h3 id="不同的主键策略测试">不同的主键策略测试</h3>
+<blockquote>
 <p>主键自增</p>
 </blockquote>
 <ul>
 <li><p>实体类上添加代码：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@TableId(type = IdType.AUTO)</span><br></code></pre></td></tr></table></figure></li>
-<li><p>数据库字段设置自增</p>
-</li>
+<li><p>数据库字段设置自增</p></li>
 </ul>
 <blockquote>
 <p>其他主键策略</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">IdType</span> </span>&#123;<br>    AUTO(<span class="hljs-number">0</span>),<br>    NONE(<span class="hljs-number">1</span>), <span class="hljs-comment">// 无主键</span><br>    INPUT(<span class="hljs-number">2</span>), <span class="hljs-comment">// 手动输入主键</span><br>    ID_WORKER(<span class="hljs-number">3</span>), <span class="hljs-comment">//默认</span><br>    UUID(<span class="hljs-number">4</span>),<br>    ID_WORKER_STR(<span class="hljs-number">5</span>);<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> key;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">IdType</span><span class="hljs-params">(<span class="hljs-keyword">int</span> key)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.key = key;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getKey</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.key;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h3 id="乐观锁处理讲解"><a href="#乐观锁处理讲解" class="headerlink" title="乐观锁处理讲解"></a>乐观锁处理讲解</h3><blockquote>
+<h3 id="乐观锁处理讲解">乐观锁处理讲解</h3>
+<blockquote>
 <p>乐观锁，一般不锁</p>
 <p>悲观锁，一直锁着</p>
 </blockquote>
-<ol>
+<ol type="1">
 <li><p>给数据库中添加version字段</p>
-<p><img src="https://s2.loli.net/2022/05/26/LIlJoiUDq9s2w3H.png" srcset="/img/loading.gif" lazyload></p>
-</li>
+<p><img
+src="https://s2.loli.net/2022/05/26/LIlJoiUDq9s2w3H.png" srcset="/img/loading.gif" lazyload /></p></li>
 <li><p>实体类加对应的字段</p>
-<p><img src="https://s2.loli.net/2022/05/26/7F6Ufhc4iLJaGw3.png" srcset="/img/loading.gif" lazyload></p>
-</li>
+<p><img
+src="https://s2.loli.net/2022/05/26/7F6Ufhc4iLJaGw3.png" srcset="/img/loading.gif" lazyload /></p></li>
 <li><p>注册组件</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@MapperScan(&quot;com.kuang.mapper&quot;)</span><br><span class="hljs-meta">@EnableTransactionManagement</span><br><span class="hljs-meta">@Configuration</span> <span class="hljs-comment">//配置类</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyBatisPlusConfig</span> </span>&#123;<br>    <span class="hljs-comment">// 注册乐观锁插件</span><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 旧版</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> OptimisticLockerInterceptor <span class="hljs-title">optimisticLockerInterceptor</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> OptimisticLockerInterceptor();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
 </ol>
-<h2 id="多条件查询"><a href="#多条件查询" class="headerlink" title="多条件查询"></a>多条件查询</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//tiao条件查询map</span><br><span class="hljs-meta">@Test</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testSelectByHashMap</span><span class="hljs-params">()</span></span>&#123;<br>    HashMap&lt;String, Object&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();<br>    <span class="hljs-comment">//自定义查询</span><br>    map.put(<span class="hljs-string">&quot;name&quot;</span>, <span class="hljs-string">&quot;狂神说JAVA&quot;</span>);<br>    map.put(<span class="hljs-string">&quot;age&quot;</span>, <span class="hljs-number">3</span>);<br><br>    List&lt;User&gt; users = userMapper.selectByMap(map);<br>    users.forEach(System.out::println);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h2 id="分页查询操作"><a href="#分页查询操作" class="headerlink" title="分页查询操作"></a>分页查询操作</h2><blockquote>
+<h2 id="多条件查询">多条件查询</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//tiao条件查询map</span><br><span class="hljs-meta">@Test</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testSelectByHashMap</span><span class="hljs-params">()</span></span>&#123;<br>    HashMap&lt;String, Object&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();<br>    <span class="hljs-comment">//自定义查询</span><br>    map.put(<span class="hljs-string">&quot;name&quot;</span>, <span class="hljs-string">&quot;狂神说JAVA&quot;</span>);<br>    map.put(<span class="hljs-string">&quot;age&quot;</span>, <span class="hljs-number">3</span>);<br><br>    List&lt;User&gt; users = userMapper.selectByMap(map);<br>    users.forEach(System.out::println);<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="分页查询操作">分页查询操作</h2>
+<blockquote>
 <p>mybatis_plus其实内置了分页插件</p>
 </blockquote>
-<ol>
-<li><p>配置拦截器组件即可</p>
-</li>
-<li><p>```java<br>// 旧版<br>// 分页插件<br>@Bean<br>public PaginationInterceptor paginationInterceptor() {</p>
-<pre><code>return new PaginationInterceptor();
-</code></pre>
-<p>}</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><br><span class="hljs-number">3.</span> ```java<br>   // 测试分页查询<br>       @Test<br>       <span class="hljs-built_in">public</span> <span class="hljs-type">void</span> testPage() &#123;<br>   //        IPage接口实现类<br>   //        参数一：当前页<br>   //        参数二：页面大小<br>           Page&lt;<span class="hljs-keyword">User</span>&gt; page = <span class="hljs-built_in">new</span> Page&lt;&gt;(<span class="hljs-number">1</span>,<span class="hljs-number">5</span>);<br>   //        IPage&lt;T&gt; selectPage(IPage&lt;T&gt; var1, @Param(&quot;ew&quot;) <span class="hljs-keyword">Wrapper</span>&lt;T&gt; var2);<br>           userMapper.selectPage(page, <span class="hljs-keyword">null</span>);<br>           page.getRecords().<span class="hljs-keyword">forEach</span>(<span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>::println);<br>   <br>           // 获取数据总量<br>           <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(page.getTotal());<br>       &#125;<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://s2.loli.net/2022/05/27/JTRysxuviroW26q.png" srcset="/img/loading.gif" lazyload></p>
-</li>
+<ol type="1">
+<li><p>配置拦截器组件即可</p></li>
+<li><p>```java // 旧版 // 分页插件 <span class="citation"
+data-cites="Bean">@Bean</span> public PaginationInterceptor
+paginationInterceptor() { return new PaginationInterceptor(); }
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><br><span class="hljs-number">3.</span> ```java<br>   // 测试分页查询<br>       @Test<br>       <span class="hljs-built_in">public</span> <span class="hljs-type">void</span> testPage() &#123;<br>   //        IPage接口实现类<br>   //        参数一：当前页<br>   //        参数二：页面大小<br>           Page&lt;<span class="hljs-keyword">User</span>&gt; page = <span class="hljs-built_in">new</span> Page&lt;&gt;(<span class="hljs-number">1</span>,<span class="hljs-number">5</span>);<br>   //        IPage&lt;T&gt; selectPage(IPage&lt;T&gt; var1, @Param(&quot;ew&quot;) <span class="hljs-keyword">Wrapper</span>&lt;T&gt; var2);<br>           userMapper.selectPage(page, <span class="hljs-keyword">null</span>);<br>           page.getRecords().<span class="hljs-keyword">forEach</span>(<span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>::println);<br>   <br>           // 获取数据总量<br>           <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(page.getTotal());<br>       &#125;<br></code></pre></td></tr></table></figure></p>
+<p><img
+src="https://s2.loli.net/2022/05/27/JTRysxuviroW26q.png" srcset="/img/loading.gif" lazyload /></p></li>
 </ol>
-<h2 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h2><h3 id="根据ID删除记录"><a href="#根据ID删除记录" class="headerlink" title="根据ID删除记录"></a>根据ID删除记录</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 测试删除</span><br>   <span class="hljs-meta">@Test</span><br>   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testDeleteById</span><span class="hljs-params">()</span></span>&#123;<br>       userMapper.deleteById(<span class="hljs-number">1L</span>);<br>   &#125;<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://s2.loli.net/2022/05/27/qIduXc571lmPBMH.png" srcset="/img/loading.gif" lazyload></p>
-<h3 id="批量删除"><a href="#批量删除" class="headerlink" title="批量删除"></a>批量删除</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 测试通过ID批量删除</span><br><span class="hljs-meta">@Test</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testDeleteByIds</span><span class="hljs-params">()</span></span>&#123;<br>    userMapper.deleteBatchIds(Arrays.asList(<span class="hljs-number">1L</span>, <span class="hljs-number">2L</span>));<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://s2.loli.net/2022/05/27/tfSCJKvGoemMRV8.png" srcset="/img/loading.gif" lazyload></p>
-<h3 id="根据条件删除"><a href="#根据条件删除" class="headerlink" title="根据条件删除"></a>根据条件删除</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 通过map删除</span><br><span class="hljs-meta">@Test</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testDeleteByMap</span><span class="hljs-params">()</span> </span>&#123;<br>    HashMap&lt;String, Object&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();<br>    map.put(<span class="hljs-string">&quot;name&quot;</span>,<span class="hljs-string">&quot;Tom&quot;</span>);<br>    userMapper.deleteByMap(map);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://s2.loli.net/2022/05/27/V6ONAyHMzBngIcf.png" srcset="/img/loading.gif" lazyload></p>
-<h1 id="条件构造器"><a href="#条件构造器" class="headerlink" title="条件构造器"></a>条件构造器</h1><p>wrapper，替代复杂sql语句</p>
-<ol>
-<li><p>```java<br>@Test<br>void contextLoads() {</p>
-<pre><code>//查询name和email不为空的用户，年龄大于等于12
-QueryWrapper&lt;User&gt; wrapper = new QueryWrapper&lt;&gt;();
-wrapper.isNotNull(&quot;name&quot;)
-    .isNotNull(&quot;email&quot;)
-    .ge(&quot;age&quot;,12);
-userMapper.selectList(wrapper);
-</code></pre>
-<p>}</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><br><span class="hljs-number">2.</span> ```java<br>   @Test<br>   <span class="hljs-type">void</span> test2()&#123;<br>       // 查询名字狂神说<br>       QueryWrapper&lt;<span class="hljs-keyword">User</span>&gt; <span class="hljs-keyword">wrapper</span> = <span class="hljs-built_in">new</span> QueryWrapper&lt;&gt;();<br>       <span class="hljs-keyword">wrapper</span>.eq(&quot;name&quot;, &quot;Tom&quot;);<br>       <span class="hljs-keyword">User</span> <span class="hljs-keyword">user</span> = userMapper.selectOne(<span class="hljs-keyword">wrapper</span>);<br>       <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(<span class="hljs-keyword">user</span>);<br>   &#125;<br></code></pre></td></tr></table></figure></li>
-<li><p>```java<br>@Test<br>void test3(){</p>
-<pre><code>// 查询年龄在20~30之间的用户
-QueryWrapper&lt;User&gt; wrapper = new QueryWrapper&lt;&gt;();
-wrapper.between(&quot;age&quot;, 20, 30);
-Integer count = userMapper.selectCount(wrapper);
-System.out.println(count);
-</code></pre>
-<p>}</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><br><span class="hljs-number">4.</span> ```java<br>   // 模糊查询<br>   @Test<br>   <span class="hljs-type">void</span> test4()&#123;<br>       // 邮箱t开头，名字中不含字母e的用户<br>       QueryWrapper&lt;<span class="hljs-keyword">User</span>&gt; <span class="hljs-keyword">wrapper</span> = <span class="hljs-built_in">new</span> QueryWrapper&lt;&gt;();<br>       <span class="hljs-keyword">wrapper</span>.notLike(&quot;name&quot;, &quot;e&quot;)<br>           .likeRight(&quot;email&quot;, &quot;t&quot;);<br>       List&lt;Map&lt;String,<span class="hljs-keyword">Object</span>&gt;&gt; maps = userMapper.selectMaps(<span class="hljs-keyword">wrapper</span>);<br>       maps.<span class="hljs-keyword">forEach</span>(<span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>::println);<br>   &#125;<br></code></pre></td></tr></table></figure></li>
+<h2 id="删除操作">删除操作</h2>
+<h3 id="根据id删除记录">根据ID删除记录</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 测试删除</span><br>   <span class="hljs-meta">@Test</span><br>   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testDeleteById</span><span class="hljs-params">()</span></span>&#123;<br>       userMapper.deleteById(<span class="hljs-number">1L</span>);<br>   &#125;<br></code></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2022/05/27/qIduXc571lmPBMH.png" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="批量删除">批量删除</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 测试通过ID批量删除</span><br><span class="hljs-meta">@Test</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testDeleteByIds</span><span class="hljs-params">()</span></span>&#123;<br>    userMapper.deleteBatchIds(Arrays.asList(<span class="hljs-number">1L</span>, <span class="hljs-number">2L</span>));<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2022/05/27/tfSCJKvGoemMRV8.png" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="根据条件删除">根据条件删除</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 通过map删除</span><br><span class="hljs-meta">@Test</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testDeleteByMap</span><span class="hljs-params">()</span> </span>&#123;<br>    HashMap&lt;String, Object&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();<br>    map.put(<span class="hljs-string">&quot;name&quot;</span>,<span class="hljs-string">&quot;Tom&quot;</span>);<br>    userMapper.deleteByMap(map);<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2022/05/27/V6ONAyHMzBngIcf.png" srcset="/img/loading.gif" lazyload /></p>
+<h1 id="条件构造器">条件构造器</h1>
+<p>wrapper，替代复杂sql语句</p>
+<ol type="1">
+<li><p>```java <span class="citation" data-cites="Test">@Test</span>
+void contextLoads() { //查询name和email不为空的用户，年龄大于等于12
+QueryWrapper<User> wrapper = new QueryWrapper&lt;&gt;();
+wrapper.isNotNull("name") .isNotNull("email") .ge("age",12);
+userMapper.selectList(wrapper); } <figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><br><span class="hljs-number">2.</span> ```java<br>   @Test<br>   <span class="hljs-type">void</span> test2()&#123;<br>       // 查询名字狂神说<br>       QueryWrapper&lt;<span class="hljs-keyword">User</span>&gt; <span class="hljs-keyword">wrapper</span> = <span class="hljs-built_in">new</span> QueryWrapper&lt;&gt;();<br>       <span class="hljs-keyword">wrapper</span>.eq(&quot;name&quot;, &quot;Tom&quot;);<br>       <span class="hljs-keyword">User</span> <span class="hljs-keyword">user</span> = userMapper.selectOne(<span class="hljs-keyword">wrapper</span>);<br>       <span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(<span class="hljs-keyword">user</span>);<br>   &#125;<br></code></pre></td></tr></table></figure></p></li>
+<li><p>```java <span class="citation" data-cites="Test">@Test</span>
+void test3(){ // 查询年龄在20~30之间的用户 QueryWrapper<User> wrapper =
+new QueryWrapper&lt;&gt;(); wrapper.between("age", 20, 30); Integer
+count = userMapper.selectCount(wrapper); System.out.println(count); }
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><br><span class="hljs-number">4.</span> ```java<br>   // 模糊查询<br>   @Test<br>   <span class="hljs-type">void</span> test4()&#123;<br>       // 邮箱t开头，名字中不含字母e的用户<br>       QueryWrapper&lt;<span class="hljs-keyword">User</span>&gt; <span class="hljs-keyword">wrapper</span> = <span class="hljs-built_in">new</span> QueryWrapper&lt;&gt;();<br>       <span class="hljs-keyword">wrapper</span>.notLike(&quot;name&quot;, &quot;e&quot;)<br>           .likeRight(&quot;email&quot;, &quot;t&quot;);<br>       List&lt;Map&lt;String,<span class="hljs-keyword">Object</span>&gt;&gt; maps = userMapper.selectMaps(<span class="hljs-keyword">wrapper</span>);<br>       maps.<span class="hljs-keyword">forEach</span>(<span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>::println);<br>   &#125;<br></code></pre></td></tr></table></figure></p></li>
 </ol>
-<h1 id="代码生成器"><a href="#代码生成器" class="headerlink" title="代码生成器"></a>代码生成器</h1><ol>
-<li><p>3.0.7版本移除 对 mybatis-plus-generator 包的依赖,自己按需引入，尽在还需要导入模板依赖，</p>
+<h1 id="代码生成器">代码生成器</h1>
+<ol type="1">
+<li><p>3.0.7版本移除 对 mybatis-plus-generator
+包的依赖,自己按需引入，尽在还需要导入模板依赖，</p>
 <!-- 模板引擎 -->
-<dependency>
-<groupId>org.apache.velocity</groupId>
-<artifactId>velocity-engine-core</artifactId>
-<version>2.0</version>
-</dependency></li>
-<li><p>```java<br>package com.kuang;</p>
-<p>import com.baomidou.mybatisplus.annotation.DbType;<br>import com.baomidou.mybatisplus.annotation.IdType;<br>import com.baomidou.mybatisplus.generator.AutoGenerator;<br>import com.baomidou.mybatisplus.generator.config.DataSourceConfig;<br>import com.baomidou.mybatisplus.generator.config.GlobalConfig;<br>import com.baomidou.mybatisplus.generator.config.PackageConfig;<br>import com.baomidou.mybatisplus.generator.config.StrategyConfig;<br>import com.baomidou.mybatisplus.generator.config.rules.DateType;<br>import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;</p>
+<p><dependency> <groupId>org.apache.velocity</groupId>
+<artifactId>velocity-engine-core</artifactId> <version>2.0</version>
+</dependency></p></li>
+<li><p>```java package com.kuang;</p>
+<p>import com.baomidou.mybatisplus.annotation.DbType; import
+com.baomidou.mybatisplus.annotation.IdType; import
+com.baomidou.mybatisplus.generator.AutoGenerator; import
+com.baomidou.mybatisplus.generator.config.DataSourceConfig; import
+com.baomidou.mybatisplus.generator.config.GlobalConfig; import
+com.baomidou.mybatisplus.generator.config.PackageConfig; import
+com.baomidou.mybatisplus.generator.config.StrategyConfig; import
+com.baomidou.mybatisplus.generator.config.rules.DateType; import
+com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;</p>
 <p>/**</p>
 <ul>
-<li><p>TODO</p>
-</li>
+<li><p>TODO</p></li>
 <li></li>
-<li><p>@ClassName KuangCode</p>
-</li>
-<li><p>@Author Alfa</p>
-</li>
-<li><p>@Data 2022/5/26 14:27</p>
-</li>
-<li><p>@Version 1.0</p>
-</li>
-<li><p>*/<br>public class KuangCode {<br>  public static void main(String[] args) {</p>
-<pre><code>  // 构建代码自动生成器对象
-  AutoGenerator mpg = new AutoGenerator();
-  // 配置策略
+<li><p><span class="citation" data-cites="ClassName">@ClassName</span>
+KuangCode</p></li>
+<li><p><span class="citation" data-cites="Author">@Author</span>
+Alfa</p></li>
+<li><p><span class="citation" data-cites="Data">@Data</span> 2022/5/26
+14:27</p></li>
+<li><p><span class="citation" data-cites="Version">@Version</span> 1.0
+**/ public class KuangCode { public static void main(String[] args) { //
+构建代码自动生成器对象 AutoGenerator mpg = new AutoGenerator(); //
+配置策略</p>
+<pre><code> // 1.全局配置
+ GlobalConfig gc = new GlobalConfig();
+ String projectPath= System.getProperty(&quot;user.dir&quot;);
+ gc.setOutputDir(projectPath + &quot;/src/main/java&quot;);
 
-  // 1.全局配置
-  GlobalConfig gc = new GlobalConfig();
-  String projectPath= System.getProperty(&quot;user.dir&quot;);
-  gc.setOutputDir(projectPath + &quot;/src/main/java&quot;);
+ gc.setAuthor(&quot;alfa&quot;);
+ gc.setOpen(false);
+ gc.setFileOverride(false); // 是否覆盖
+ gc.setServiceName(&quot;%sService&quot;); // 去service的i前缀
+ gc.setIdType(IdType.ID_WORKER);
+ gc.setDateType(DateType.ONLY_DATE);
+ gc.setSwagger2(true);
+ mpg.setGlobalConfig(gc);
 
-  gc.setAuthor(&quot;alfa&quot;);
-  gc.setOpen(false);
-  gc.setFileOverride(false); // 是否覆盖
-  gc.setServiceName(&quot;%sService&quot;); // 去service的i前缀
-  gc.setIdType(IdType.ID_WORKER);
-  gc.setDateType(DateType.ONLY_DATE);
-  gc.setSwagger2(true);
-  mpg.setGlobalConfig(gc);
+ //2.设置数据源
+ DataSourceConfig dsc = new DataSourceConfig();
+ dsc.setUrl(&quot;jdbc:mysql://localhost:3306/mybatis_plus?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf8&quot;);
+ dsc.setDriverName(&quot;com.mysql.cj.jdbc.Driver&quot;);
+ dsc.setUsername(&quot;root&quot;);
+ dsc.setPassword(&quot;&quot;);
+ dsc.setDbType(DbType.MYSQL);
+ mpg.setDataSource(dsc);
 
-  //2.设置数据源
-  DataSourceConfig dsc = new DataSourceConfig();
-  dsc.setUrl(&quot;jdbc:mysql://localhost:3306/mybatis_plus?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf8&quot;);
-  dsc.setDriverName(&quot;com.mysql.cj.jdbc.Driver&quot;);
-  dsc.setUsername(&quot;root&quot;);
-  dsc.setPassword(&quot;&quot;);
-  dsc.setDbType(DbType.MYSQL);
-  mpg.setDataSource(dsc);
+ // 3。包的配置
+ PackageConfig pc = new PackageConfig();
+ pc.setModuleName(&quot;blog&quot;);
+ pc.setParent(&quot;com.kuang&quot;);
+ pc.setEntity(&quot;pojo&quot;);
+ pc.setMapper(&quot;mapper&quot;);
+ pc.setService(&quot;service&quot;);
+ pc.setController(&quot;controller&quot;);
+ mpg.setPackageInfo(pc);
 
-  // 3。包的配置
-  PackageConfig pc = new PackageConfig();
-  pc.setModuleName(&quot;blog&quot;);
-  pc.setParent(&quot;com.kuang&quot;);
-  pc.setEntity(&quot;pojo&quot;);
-  pc.setMapper(&quot;mapper&quot;);
-  pc.setService(&quot;service&quot;);
-  pc.setController(&quot;controller&quot;);
-  mpg.setPackageInfo(pc);
-
-  //5.策略配置
-  StrategyConfig strategy = new StrategyConfig();
-  strategy.setInclude(&quot;user&quot;);
-  strategy.setNaming(NamingStrategy.underline_to_camel);
-  strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-  strategy.setEntityLombokModel(true); //自动生成lombok注解
-  strategy.setLogicDeleteFieldName(&quot;deleted&quot;);
-  //自动填充配置
-</code></pre>
-<p>//        TableFill gmtCreate = new TableFill(“gmt_create”, FieldFill.INSERT);<br>//        TableFill gmtModified = new TableFill(“gmt_modified”, FieldFill.INSERT_UPDATE);<br>//        ArrayList<TableFill> tableFills = new ArrayList&lt;&gt;();<br>//        tableFills.add(gmtCreate);<br>//        tableFills.add(gmtModified);<br>//        strategy.setTableFillList(tableFills);</p>
-<pre><code>  // 乐观锁
-</code></pre>
-<p>//        strategy.setVersionFieldName(“version”);</p>
-<pre><code>  // 驼峰命名
-  strategy.setRestControllerStyle(true);
-  strategy.setControllerMappingHyphenStyle(true); // localhost:8080/hello_iu_2
-  mpg.setStrategy(strategy);
-
-  mpg.execute();
-</code></pre>
-<p>  }<br>}</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs xml"><br>3. <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://s2.loli.net/2022/05/27/6K8OTpCWrlkezSJ.png&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;zoom: 50%;&quot;</span> /&gt;</span><br><br><br><br><br><br># MybatisPlus 代码生成器 出现 实体类的@ApiModel 注解报错 解决方法<br><br>&gt; 问题<br><br>![在这里插入图片描述](https://s2.loli.net/2022/07/08/J7dVgsYaWtnFiBR.png)<br><br>&gt; 解决问题<br><br>在pom.[xml](https://so.csdn.net/so/search?q=xml&amp;spm=1001.2101.3001.7020) 文件中添加 ApiModel 依赖 就不会报错了<br><br>```XML<br><span class="hljs-comment">&lt;!--配置ApiModel在实体类中不生效--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.spring4all<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-swagger<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.5.1.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
-</ul>
-</li>
+ //5.策略配置
+ StrategyConfig strategy = new StrategyConfig();
+ strategy.setInclude(&quot;user&quot;);
+ strategy.setNaming(NamingStrategy.underline_to_camel);
+ strategy.setColumnNaming(NamingStrategy.underline_to_camel);
+ strategy.setEntityLombokModel(true); //自动生成lombok注解
+ strategy.setLogicDeleteFieldName(&quot;deleted&quot;);
+ //自动填充配置</code></pre>
+<p>// TableFill gmtCreate = new TableFill("gmt_create",
+FieldFill.INSERT); // TableFill gmtModified = new
+TableFill("gmt_modified", FieldFill.INSERT_UPDATE); //
+ArrayList<TableFill> tableFills = new ArrayList&lt;&gt;(); //
+tableFills.add(gmtCreate); // tableFills.add(gmtModified); //
+strategy.setTableFillList(tableFills); // 乐观锁 //
+strategy.setVersionFieldName("version"); // 驼峰命名
+strategy.setRestControllerStyle(true);
+strategy.setControllerMappingHyphenStyle(true); //
+localhost:8080/hello_iu_2 mpg.setStrategy(strategy);</p>
+<pre><code> mpg.execute();</code></pre>
+<p>} } <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs xml"><br>3. <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://s2.loli.net/2022/05/27/6K8OTpCWrlkezSJ.png&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;zoom: 50%;&quot;</span> /&gt;</span><br><br><br><br><br><br># MybatisPlus 代码生成器 出现 实体类的@ApiModel 注解报错 解决方法<br><br>&gt; 问题<br><br>![在这里插入图片描述](https://s2.loli.net/2022/07/08/J7dVgsYaWtnFiBR.png)<br><br>&gt; 解决问题<br><br>在pom.[xml](https://so.csdn.net/so/search?q=xml&amp;spm=1001.2101.3001.7020) 文件中添加 ApiModel 依赖 就不会报错了<br><br>```XML<br><span class="hljs-comment">&lt;!--配置ApiModel在实体类中不生效--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.spring4all<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-swagger<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.5.1.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure></p></li>
+</ul></li>
 </ol>
-<h1 id="Mybatis-plus最新代码生成器（3-5-1-）的使用"><a href="#Mybatis-plus最新代码生成器（3-5-1-）的使用" class="headerlink" title="Mybatis-plus最新代码生成器（3.5.1+）的使用"></a>Mybatis-plus最新代码生成器（3.5.1+）的使用</h1><blockquote>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42682745/article/details/120626012">原文链接</a></p>
-</blockquote>
-<h1 id="解决mybatis-plus代码生成器在idea中的module生成代码，但是生成到外面的project"><a href="#解决mybatis-plus代码生成器在idea中的module生成代码，但是生成到外面的project" class="headerlink" title="解决mybatis-plus代码生成器在idea中的module生成代码，但是生成到外面的project"></a>解决mybatis-plus代码生成器在idea中的module生成代码，但是生成到外面的project</h1><p><img src="https://s2.loli.net/2022/07/09/uTP7o38ZfdKkMWy.png" srcset="/img/loading.gif" lazyload alt="image-20220709160706232"></p>
+<h1
+id="mybatis-plus最新代码生成器3.5.1的使用">Mybatis-plus最新代码生成器（3.5.1+）的使用</h1>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42168438/article/details/103298782">原文链接</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42682745/article/details/120626012">原文链接</a></p>
+</blockquote>
+<h1
+id="解决mybatis-plus代码生成器在idea中的module生成代码但是生成到外面的project">解决mybatis-plus代码生成器在idea中的module生成代码，但是生成到外面的project</h1>
+<figure>
+<img src="https://s2.loli.net/2022/07/09/uTP7o38ZfdKkMWy.png" srcset="/img/loading.gif" lazyload
+alt="image-20220709160706232" />
+<figcaption aria-hidden="true">image-20220709160706232</figcaption>
+</figure>
+<blockquote>
+<p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42168438/article/details/103298782">原文链接</a></p>
 </blockquote>
 
             </div>
@@ -614,6 +617,48 @@ System.out.println(count);
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
 
 
 

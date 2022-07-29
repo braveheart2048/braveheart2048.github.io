@@ -213,21 +213,25 @@
             
           
           微分方程通解公式
+
 一阶微分方程
 
-齐次$$Ce^{-\int p(x)dx}$$
-非齐次$$e^{-\int p(x)dx}[\int q(x)e^{\int p(x)dx}dx + C]$$
-
+齐次 \[
+Ce^{-\int p(x)dx}
+\]
+非齐次 \[
+e^{-\int p(x)dx}[\int q(x)e^{\int p(x)dx}dx + C]
+\]
 
 二阶微分方程
 
 齐次
 
-特征方程r1!=r2$$C_1e^{r_1x}+C_2e^{r_2x}$$
-
-特征方程r1=r2=r$$(C_1+C_2x)e^{rx}$$
-
-特征方程$\alpha \pm i
+特征方程r1!=r2 \[
+C_1e^{r_1x}+C_2e^{r_2x}
+\]
+特征方程r1=r2=r \[
+(C_1+C_2
         </a>
       </p>
 
@@ -286,17 +290,27 @@
             
           
           微机原理与系统设计绪论（一）
+
+
+image-20220727140717045
+
 微机原理与系统设计绪论（二）
 
 
+image-20220727145027072
+
+
+
+image-20220727145302088
+
+
+
+image-20220727145723680
+
 微机原理与系统设计绪论（三）
-芯片引脚OE，英文全称为Output Enable,中文意思为输出使能端、输出允许信号。
 
-
-微机原理与系统设计绪论（四）
-
-
-
+芯片引脚OE，英文全称为Output
+Enable
         </a>
       </p>
 
@@ -348,7 +362,11 @@
           
             
           
-          markdown文件生成目录的方式在文章开始地方输入[toc]，即可在对应位置插入目录
+          markdown文件生成目录的方式
+在文章开始地方输入[toc]，即可在对应位置插入目录
+
+
+img
 
 
 凡是文章标题带有#（1-6个）的都会被捕获到目录中。
@@ -356,8 +374,10 @@
 Typora 向数学公式中插入空格
 
 
+
 输入字符
 显示效果
+
 
 
 
@@ -365,13 +385,15 @@ a~b
 a b
 
 
-a\quad b
-a    b
+ab
+a b
+
 
 
 Markdown_LaTex_极限符号
-极限符号$$\lim\limits_{x\rightarrow\infty}$$
-1$$\
+
+极限符号 \[
+\lim
         </a>
       </p>
 
@@ -428,10 +450,10 @@ Markdown_LaTex_极限符号
             
           
           SpringBoot集成Swagger
-新建SpringBoot-web项目
 
+新建SpringBoot-web项目
 导入maven依赖
-123456789101112&lt;!-- Swagger2 --&gt;&lt;dependency&gt;    &lt;groupId&gt;io.springfox&lt;/groupId&gt;    &lt;artifactId&gt;springfox-swagger-ui&lt;/
+123456789101112&lt;!-- Swagger2 --&gt;&lt;dependency&gt;    &lt;groupId&gt;io.springfox&lt;/groupId&gt;    &lt;artifactId&gt;springfox-swagger-ui&
         </a>
       </p>
 
@@ -491,7 +513,9 @@ Markdown_LaTex_极限符号
           
             
           
-          多线程的实现方式通过实现 Runnable 接口1234567891011121314151617181920212223242526package com.ruanyuan;/** * TODO * * @ClassName TestThread * @Author Alfa * @Data 2022/7/14 15:43 * @Version 1.0 **/public class TestT
+          多线程的实现方式
+通过实现 Runnable 接口
+1234567891011121314151617181920212223242526package com.ruanyuan;/** * TODO * * @ClassName TestThread * @Author Alfa * @Data 2022/7/14 15:43 * @Version 1.0 **/public class T
         </a>
       </p>
 
@@ -541,9 +565,13 @@ Markdown_LaTex_极限符号
           
             
           
-          认识SpringSecuritySpring Security 是针对Spring项目的安全框架，也是Spring Boot底层安全模块默认的技术选型，他可以实现强大的Web安全控制，对于安全控制，我们仅需要引入 spring-boot-starter-security 模块，进行少量的配置，即可实现强大的安全管理！
+          认识SpringSecurity
+Spring Security 是针对Spring项目的安全框架，也是Spring
+Boot底层安全模块默认的技术选型，他可以实现强大的Web安全控制，对于安全控制，我们仅需要引入
+spring-boot-starter-security
+模块，进行少量的配置，即可实现强大的安全管理！
 记住几个类：
-WebSecurityConfigurerAdapter：自定义S
+WebSecurityConfigurerAdapt
         </a>
       </p>
 
@@ -600,14 +628,15 @@ WebSecurityConfigurerAdapter：自定义S
             
           
           mysql数据库中,查看数据库的字符集
+
 查看实例中所有数据库的字符集
 1select schema_name,default_character_set_name from information_schema.schemata;
 
 MySQL修改数据库字符集的方法
+
 修改库的字符集
 1alter database 库名 default character set 字符集;
 
-控制台进入mysql连
         </a>
       </p>
 
@@ -657,11 +686,14 @@ MySQL修改数据库字符集的方法
           
             
           
-          第一模块Java 基础JDK 和 JRE 有什么区别？
-JDK : Java Development Kit的简称，Java开发工具包，包含了Java开发环境和Java运行环境。
+          第一模块Java 基础
+JDK 和 JRE 有什么区别？
+
+JDK : Java Development
+Kit的简称，Java开发工具包，包含了Java开发环境和Java运行环境。
 JRE : Java Runtime Environment的简称，只包含了Java的运行环境。
 
-具体来说JDK包含了JRE，还包含了编译Java源码的编译器Javac，还包含了许多Java程序调试和分析的工具。简单来
+具体来说JDK包含了JRE，还包含了编译Java源码的编译器Javac，还包含了许多Java程序调试和
         </a>
       </p>
 
@@ -718,15 +750,19 @@ JRE : Java Runtime Environment的简称，只包含了Java的运行环境。
           打开redis
 
 
+
+image-20220620110123304
+
+
 这时候另启一个 cmd 窗口，原来的不要关闭，不然就无法访问服务端了。
 
 
 
+image-20220620110253220
 
 
-我们可以通过以下命令查看是否设置了密码验证123127.0.0.1:6379&gt; CONFIG get requirepass1) &quot;requirepass&quot;2) &quot;&quot;
-
-默认情况下 requirepass 参数是空的，这就意味着你无需通过密码验证就可以
+我们可以通过以下命令查看是否设置了密码验证
+123127.0.0.1:6379&gt; CONFIG get requirepass1) &quot;requirep
         </a>
       </p>
 
@@ -777,11 +813,13 @@ JRE : Java Runtime Environment的简称，只包含了Java的运行环境。
             
           
           Spring简介
+
 SSH : Struct2 + Spring + Hibernate!
 SSm : SpringMVC + Spring + Mybatis!
 
 Spring就是一个轻量级的控制反转（IOC）和面向切面编程（AOP）的框架。
-引入maven123456789101112&lt;!-- https://mvnrepository.com/artifact/org.springfra
+引入maven
+123456789101112&lt;!-- https://mvnrepository.com/artifact/org.
         </a>
       </p>
 

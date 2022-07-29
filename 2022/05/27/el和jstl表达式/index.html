@@ -254,80 +254,96 @@
               </p>
             
             <div class="markdown-body">
-              <p>el即Expression Language，用来在jsp页面上显示内容，jstl是JSP Standard Tag Library的缩写，包含多种标签，el和jstl结合使用，页面渲染更方便。</p>
-<hr>
-<h1 id="EL内置对象"><a href="#EL内置对象" class="headerlink" title="EL内置对象"></a>EL内置对象</h1><table>
+              <p>el即Expression Language，用来在jsp页面上显示内容，jstl是JSP Standard
+Tag Library的缩写，包含多种标签，el和jstl结合使用，页面渲染更方便。</p>
+<hr />
+<h1 id="el内置对象">EL内置对象</h1>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 78%" />
+</colgroup>
 <thead>
-<tr>
-<th align="left">内置对象</th>
-<th align="left">说明</th>
+<tr class="header">
+<th style="text-align: left;">内置对象</th>
+<th style="text-align: left;">说明</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">pageScope</td>
-<td align="left">获取 page 范围的变量</td>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">pageScope</td>
+<td style="text-align: left;">获取 page 范围的变量</td>
 </tr>
-<tr>
-<td align="left">requestScope</td>
-<td align="left">获取 request 范围的变量</td>
+<tr class="even">
+<td style="text-align: left;">requestScope</td>
+<td style="text-align: left;">获取 request 范围的变量</td>
 </tr>
-<tr>
-<td align="left">sessionScope</td>
-<td align="left">获取 session 范围的变量</td>
+<tr class="odd">
+<td style="text-align: left;">sessionScope</td>
+<td style="text-align: left;">获取 session 范围的变量</td>
 </tr>
-<tr>
-<td align="left">applicationScope</td>
-<td align="left">获取 application 范围的变量</td>
+<tr class="even">
+<td style="text-align: left;">applicationScope</td>
+<td style="text-align: left;">获取 application 范围的变量</td>
 </tr>
-<tr>
-<td align="left">param</td>
-<td align="left">相当于 request.getParameter(String name)，获取单个参数的值</td>
+<tr class="odd">
+<td style="text-align: left;">param</td>
+<td style="text-align: left;">相当于 request.getParameter(String
+name)，获取单个参数的值</td>
 </tr>
-<tr>
-<td align="left">paramValues</td>
-<td align="left">相当于 request.getParameterValues(String name)，获取参数集合中的变量值</td>
+<tr class="even">
+<td style="text-align: left;">paramValues</td>
+<td style="text-align: left;">相当于 request.getParameterValues(String
+name)，获取参数集合中的变量值</td>
 </tr>
-<tr>
-<td align="left">header</td>
-<td align="left">相当于 request.getHeader(String name)，获取 HTTP 请求头信息</td>
+<tr class="odd">
+<td style="text-align: left;">header</td>
+<td style="text-align: left;">相当于 request.getHeader(String
+name)，获取 HTTP 请求头信息</td>
 </tr>
-<tr>
-<td align="left">headerValues</td>
-<td align="left">相当于 request.getHeaders(String name)，获取 HTTP 请求头数组信息</td>
+<tr class="even">
+<td style="text-align: left;">headerValues</td>
+<td style="text-align: left;">相当于 request.getHeaders(String
+name)，获取 HTTP 请求头数组信息</td>
 </tr>
-<tr>
-<td align="left">initParam</td>
-<td align="left">相当于 application.getInitParameter(String name)，获取 web.xml 文件中的参数值</td>
+<tr class="odd">
+<td style="text-align: left;">initParam</td>
+<td style="text-align: left;">相当于 application.getInitParameter(String
+name)，获取 web.xml 文件中的参数值</td>
 </tr>
-<tr>
-<td align="left">cookie</td>
-<td align="left">相当于 request.getCookies()，获取 cookie 中的值</td>
+<tr class="even">
+<td style="text-align: left;">cookie</td>
+<td style="text-align: left;">相当于 request.getCookies()，获取 cookie
+中的值</td>
 </tr>
-<tr>
-<td align="left">pageContext</td>
-<td align="left">表示当前 JSP 页面的 pageContext 对象</td>
+<tr class="odd">
+<td style="text-align: left;">pageContext</td>
+<td style="text-align: left;">表示当前 JSP 页面的 pageContext 对象</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>EL 表达式获取 4 种不同范围的属性，代码如下：</p>
 <figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs jsp">&lt;%@ page language=<span class="hljs-string">&quot;java&quot;</span> contentType=<span class="hljs-string">&quot;text/html; charset=UTF-8&quot;</span><br>    pageEncoding=<span class="hljs-string">&quot;UTF-8&quot;</span>%&gt;<br>&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;title&gt;编程帮(www.biancheng.net)&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;%<br>        pageContext.setAttribute(<span class="hljs-string">&quot;info&quot;</span>, <span class="hljs-string">&quot;page属性范围&quot;</span>);<br>        request.setAttribute(<span class="hljs-string">&quot;info&quot;</span>, <span class="hljs-string">&quot;request属性范围&quot;</span>);<br>        session.setAttribute(<span class="hljs-string">&quot;info&quot;</span>, <span class="hljs-string">&quot;session属性范围&quot;</span>);<br>        application.setAttribute(<span class="hljs-string">&quot;info&quot;</span>, <span class="hljs-string">&quot;application属性范围&quot;</span>);<br>    %&gt;<br>    &lt;h2&gt;不同属性范围的值&lt;/h2&gt;<br>    &lt;hr /&gt;<br>    不指定范围：$&#123;info&#125;<br>    &lt;br&gt; page 属性内容：$&#123;pageScope.info&#125;<br>    &lt;br&gt; request 属性内容：$&#123;requestScope.info&#125;<br>    &lt;br&gt;session 属性内容：$&#123;sessionScope.info&#125;<br>    &lt;br&gt;application 属性内容：$&#123;applicationScope.info&#125;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></code></pre></td></tr></table></figure>
-
-<hr>
-<h1 id="jstl标签很多，笔记一下我常用到的标签"><a href="#jstl标签很多，笔记一下我常用到的标签" class="headerlink" title="jstl标签很多，笔记一下我常用到的标签"></a>jstl标签很多，笔记一下我常用到的标签</h1><p><strong>if</strong></p>
+<hr />
+<h1
+id="jstl标签很多笔记一下我常用到的标签">jstl标签很多，笔记一下我常用到的标签</h1>
+<p><strong>if</strong></p>
 <p>语法：</p>
 <figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs jsp">&lt;c:<span class="hljs-keyword">if</span> test=<span class="hljs-string">&quot;$&#123;one.name eq &#x27;nick&#x27;&#125;&quot;</span>&gt;<br>                &lt;tr&gt;<br>                    &lt;td&gt;nick&lt;/td&gt;<br>                &lt;/tr&gt;<br>&lt;/c:<span class="hljs-keyword">if</span>&gt;<br></code></pre></td></tr></table></figure>
-
-<hr>
+<hr />
 <p><strong>c:forEach标签</strong></p>
 <p>语法:</p>
 <figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs jsp">&lt;c:forEach item=<span class="hljs-string">&quot;collection&quot;</span> [<span class="hljs-keyword">var</span>=<span class="hljs-string">&quot;varname&quot;</span> [varStatus=<span class="hljs-string">&quot;varstatusName&quot;</span>] [begin=<span class="hljs-string">&quot;开始&quot;</span>] [end=<span class="hljs-string">&quot;结束&quot;</span>] [step=<span class="hljs-string">&quot;step&quot;</span>]]&gt;<br>    Java程序或HTML代码<br>&lt;/c:forEach&gt;<br></code></pre></td></tr></table></figure>
-
 <ul>
-<li><em><strong>items：要被循环的信息，可以是数组、Java 集合等；</strong></em></li>
-<li><em><strong>var：可选项，指定迭代之的别名；</strong></em></li>
+<li><strong><em>items：要被循环的信息，可以是数组、Java
+集合等；</em></strong></li>
+<li><strong><em>var：可选项，指定迭代之的别名；</em></strong></li>
 </ul>
-<h1 id="核心标签是最常用的-JSTL标签。引用核心标签库的语法如下："><a href="#核心标签是最常用的-JSTL标签。引用核心标签库的语法如下：" class="headerlink" title="核心标签是最常用的 JSTL标签。引用核心标签库的语法如下："></a>核心标签是最常用的 JSTL标签。引用核心标签库的语法如下：</h1><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jsp">&lt;%@ taglib prefix=<span class="hljs-string">&quot;c&quot;</span> uri=<span class="hljs-string">&quot;http://java.sun.com/jsp/jstl/core&quot;</span> %&gt;<br></code></pre></td></tr></table></figure>
-
-<hr>
+<h1
+id="核心标签是最常用的-jstl标签引用核心标签库的语法如下">核心标签是最常用的
+JSTL标签。引用核心标签库的语法如下：</h1>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jsp">&lt;%@ taglib prefix=<span class="hljs-string">&quot;c&quot;</span> uri=<span class="hljs-string">&quot;http://java.sun.com/jsp/jstl/core&quot;</span> %&gt;<br></code></pre></td></tr></table></figure>
+<hr />
 
             </div>
             <hr>
@@ -522,6 +538,48 @@
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
 
 
 

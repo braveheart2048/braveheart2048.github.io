@@ -253,23 +253,29 @@
               </p>
             
             <div class="markdown-body">
-              <h1 id="用例图的定义及组成要素"><a href="#用例图的定义及组成要素" class="headerlink" title="用例图的定义及组成要素"></a>用例图的定义及组成要素</h1><p>它主要由三部分组成：<strong>参与者</strong>、<strong>用例</strong>、<strong>参与者与用例之间的关系。</strong></p>
+              <h1 id="用例图的定义及组成要素">用例图的定义及组成要素</h1>
+<p>它主要由三部分组成：<strong>参与者</strong>、<strong>用例</strong>、<strong>参与者与用例之间的关系。</strong></p>
 <p><strong>参与者：</strong>不是特指人，是指系统以外的，在使用系统或与系统交互中所扮演的角色。</p>
 <p><strong>用例：</strong>是对包括变量在内的一组动作序列的描述，系统执行这些动作，并产生传递特定参与者的价值的可观察结果。</p>
 <p><strong>关系：</strong>参与者与用例之间的关系主要包括关联、归纳（泛化）、包含、拓展和依赖。</p>
-<h1 id="参与者与用例的4种关系"><a href="#参与者与用例的4种关系" class="headerlink" title="参与者与用例的4种关系"></a>参与者与用例的4种关系</h1><ol>
-<li><h2 id="关联关系"><a href="#关联关系" class="headerlink" title="关联关系"></a><strong>关联关系</strong></h2><p><strong>举例说明：</strong>用户登录系统</p>
-<p><img src="https://pic3.zhimg.com/80/v2-830ec9e117f74c4d1a9dc1776bead9b2_720w.jpg" srcset="/img/loading.gif" lazyload></p>
-</li>
-<li><h2 id="归纳（泛化）关系"><a href="#归纳（泛化）关系" class="headerlink" title="归纳（泛化）关系"></a><strong>归纳（泛化）关系</strong></h2><p><strong>举例说明：</strong>VIP会员和普通用户，归纳为用户；账号登录与微信登录，也可归纳为登录系统。</p>
-<p><img src="https://pic4.zhimg.com/80/v2-27fcca6ef7b16bdcf2cdf676d9adf7a3_720w.jpg" srcset="/img/loading.gif" lazyload></p>
-</li>
-<li><h2 id="包含关系"><a href="#包含关系" class="headerlink" title="包含关系"></a><strong>包含关系</strong></h2><p><strong>举例说明：</strong>用户在账号登录过程中，包括输入账号、输入密码、确认登录等操作</p>
-<p><img src="https://pic3.zhimg.com/80/v2-d5d0914418cbeb28d987f7f2673febd2_720w.jpg" srcset="/img/loading.gif" lazyload></p>
-</li>
-<li><h2 id="拓展关系"><a href="#拓展关系" class="headerlink" title="拓展关系"></a><strong>拓展关系</strong></h2><p>举例说明：用户在登录过程中忘记了密码</p>
-<p><img src="https://pic4.zhimg.com/80/v2-e05e2ae3afe5ffea1836352c547f3c13_720w.jpg" srcset="/img/loading.gif" lazyload></p>
-</li>
+<h1 id="参与者与用例的4种关系">参与者与用例的4种关系</h1>
+<ol type="1">
+<li><h2 id="关联关系"><strong>关联关系</strong></h2>
+<p><strong>举例说明：</strong>用户登录系统</p>
+<p><img
+src="https://pic3.zhimg.com/80/v2-830ec9e117f74c4d1a9dc1776bead9b2_720w.jpg" srcset="/img/loading.gif" lazyload /></p></li>
+<li><h2 id="归纳泛化关系"><strong>归纳（泛化）关系</strong></h2>
+<p><strong>举例说明：</strong>VIP会员和普通用户，归纳为用户；账号登录与微信登录，也可归纳为登录系统。</p>
+<p><img
+src="https://pic4.zhimg.com/80/v2-27fcca6ef7b16bdcf2cdf676d9adf7a3_720w.jpg" srcset="/img/loading.gif" lazyload /></p></li>
+<li><h2 id="包含关系"><strong>包含关系</strong></h2>
+<p><strong>举例说明：</strong>用户在账号登录过程中，包括输入账号、输入密码、确认登录等操作</p>
+<p><img
+src="https://pic3.zhimg.com/80/v2-d5d0914418cbeb28d987f7f2673febd2_720w.jpg" srcset="/img/loading.gif" lazyload /></p></li>
+<li><h2 id="拓展关系"><strong>拓展关系</strong></h2>
+<p>举例说明：用户在登录过程中忘记了密码</p>
+<p><img
+src="https://pic4.zhimg.com/80/v2-e05e2ae3afe5ffea1836352c547f3c13_720w.jpg" srcset="/img/loading.gif" lazyload /></p></li>
 </ol>
 
             </div>
@@ -463,6 +469,48 @@
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
 
 
 

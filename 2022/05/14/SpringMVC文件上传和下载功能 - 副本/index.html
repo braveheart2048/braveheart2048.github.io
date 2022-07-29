@@ -255,39 +255,48 @@
             
             <div class="markdown-body">
               <meta name="referrer" content="no-referrer"/>
-
-<h1 id="SpringMVC-文件上传和下载功能"><a href="#SpringMVC-文件上传和下载功能" class="headerlink" title="SpringMVC:文件上传和下载功能"></a>SpringMVC:文件上传和下载功能</h1><p>前言<br>文件上传是项目开发中最常见的功能之一 ,springMVC 可以很好的支持文件上传，但是SpringMVC上下文中默认没有装配MultipartResolver，因此默认情况下其不能处理文件上传工作。如果想使用Spring的文件上传功能，则需要在上下文中配置MultipartResolver。<br>前端表单要求：为了能上传文件，必须将表单的method设置为POST，并将enctype设置为multipart/form-data。只有在这样的情况下，浏览器才会把用户选择的文件以二进制数据发送给服务器；</p>
-<hr>
-<ol>
-<li><h2 id="对表单中的-enctype-属性做个详细的说明："><a href="#对表单中的-enctype-属性做个详细的说明：" class="headerlink" title="对表单中的 enctype 属性做个详细的说明："></a>对表单中的 enctype 属性做个详细的说明：</h2><ul>
-<li><p>application/x-www=form-urlencoded：默认方式，只处理表单域中的 value 属性值，采用这种编码方式的表单会将表单域中的值处理成 URL 编码方式。</p>
-</li>
-<li><p>multipart/form-data：这种编码方式会以二进制流的方式来处理表单数据，这种编码方式会把文件域指定文件的内容也封装到请求参数中，不会对字符编码。</p>
-</li>
-<li><p>text/plain：除了把空格转换为 “+” 号外，其他字符都不做编码处理，这种方式适用直接通过表单发送邮件。</p>
-</li>
+<h1 id="springmvc文件上传和下载功能">SpringMVC:文件上传和下载功能</h1>
+<p>前言 文件上传是项目开发中最常见的功能之一 ,springMVC
+可以很好的支持文件上传，但是SpringMVC上下文中默认没有装配MultipartResolver，因此默认情况下其不能处理文件上传工作。如果想使用Spring的文件上传功能，则需要在上下文中配置MultipartResolver。
+前端表单要求：为了能上传文件，必须将表单的method设置为POST，并将enctype设置为multipart/form-data。只有在这样的情况下，浏览器才会把用户选择的文件以二进制数据发送给服务器；</p>
+<hr />
+<ol type="1">
+<li><h2 id="对表单中的-enctype-属性做个详细的说明">对表单中的 enctype
+属性做个详细的说明：</h2>
+<ul>
+<li><p>application/x-www=form-urlencoded：默认方式，只处理表单域中的
+value 属性值，采用这种编码方式的表单会将表单域中的值处理成 URL
+编码方式。</p></li>
+<li><p>multipart/form-data：这种编码方式会以二进制流的方式来处理表单数据，这种编码方式会把文件域指定文件的内容也封装到请求参数中，不会对字符编码。</p></li>
+<li><p>text/plain：除了把空格转换为 “+”
+号外，其他字符都不做编码处理，这种方式适用直接通过表单发送邮件。</p></li>
 </ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">enctype</span>=<span class="hljs-string">&quot;multipart/form-data&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;file&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;file&quot;</span>/&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
-<li><h2 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h2><ul>
-<li><p>1.导入文件上传的jar包，commons-fileupload ， <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Maven&spm=1001.2101.3001.7020">Maven</a>会自动帮我们导入他的依赖包 commons-io包；</p>
+<li><h2 id="使用步骤">使用步骤</h2>
+<ul>
+<li><p>1.导入文件上传的jar包，commons-fileupload ， <a
+target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Maven&amp;spm=1001.2101.3001.7020">Maven</a>会自动帮我们导入他的依赖包
+commons-io包；</p>
 <p>代码如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java">&lt;!--文件上传--&gt;<br>&lt;dependency&gt;<br>   &lt;groupId&gt;commons-fileupload&lt;/groupId&gt;<br>   &lt;artifactId&gt;commons-fileupload&lt;/artifactId&gt;<br>   &lt;version&gt;<span class="hljs-number">1.3</span><span class="hljs-number">.3</span>&lt;/version&gt;<br>&lt;/dependency&gt;<br>&lt;!--servlet-api导入高版本的--&gt;<br>&lt;dependency&gt;<br>   &lt;groupId&gt;javax.servlet&lt;/groupId&gt;<br>   &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;<br>   &lt;version&gt;<span class="hljs-number">4.0</span><span class="hljs-number">.1</span>&lt;/version&gt;<br>&lt;/dependency&gt;<br></code></pre></td></tr></table></figure></li>
-<li><p>2.配置bean：multipartResolver<br>代码如下（示例）：<br>【注意！！！这个bena的id必须为：multipartResolver ， 否则上传文件会报400的错误！在这里栽过坑,教训！】</p>
+<li><p>2.配置bean：multipartResolver 代码如下（示例）：
+【注意！！！这个bena的id必须为：multipartResolver ，
+否则上传文件会报400的错误！在这里栽过坑,教训！】</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!--文件上传配置--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;multipartResolver&quot;</span>  <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;</span>&gt;</span><br>   <span class="hljs-comment">&lt;!-- 请求的编码格式，必须和jSP的pageEncoding属性一致，以便正确读取表单的内容，默认为ISO-8859-1 --&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;defaultEncoding&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;utf-8&quot;</span>/&gt;</span><br>   <span class="hljs-comment">&lt;!-- 上传文件大小上限，单位为字节（10485760=10M） --&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;maxUploadSize&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;10485760&quot;</span>/&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;maxInMemorySize&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;40960&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
 <p>CommonsMultipartFile 的 常用方法：</p>
 <p>String getOriginalFilename()：获取上传文件的原名</p>
 <p>InputStream getInputStream()：获取文件流</p>
-<p>void transferTo(File dest)：将上传文件保存到一个目录文件中</p>
-</li>
+<p>void transferTo(File dest)：将上传文件保存到一个目录文件中</p></li>
 <li><p>3.编写前端页面</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;/upload&quot;</span> <span class="hljs-attr">enctype</span>=<span class="hljs-string">&quot;multipart/form-data&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;file&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;file&quot;</span>/&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;upload&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
 <li><p>4.Controller</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.kuang.controller;<br><br><span class="hljs-keyword">import</span> org.springframework.stereotype.Controller;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RequestParam;<br><span class="hljs-keyword">import</span> org.springframework.web.multipart.commons.CommonsMultipartFile;<br><br><span class="hljs-keyword">import</span> javax.servlet.http.HttpServletRequest;<br><span class="hljs-keyword">import</span> java.io.*;<br><br><span class="hljs-meta">@Controller</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FileController</span> </span>&#123;<br>   <span class="hljs-comment">//@RequestParam(&quot;file&quot;) 将name=file控件得到的文件封装成CommonsMultipartFile 对象</span><br>   <span class="hljs-comment">//批量上传CommonsMultipartFile则为数组即可</span><br>   <span class="hljs-meta">@RequestMapping(&quot;/upload&quot;)</span><br>   <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">fileUpload</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam(&quot;file&quot;)</span> CommonsMultipartFile file , HttpServletRequest request)</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;<br><br>​	 <span class="hljs-comment">//获取文件名 : file.getOriginalFilename();</span><br>   String uploadFileName = file.getOriginalFilename();<br><br>   <span class="hljs-comment">//如果文件名为空，直接回到首页！</span><br>   <span class="hljs-keyword">if</span> (<span class="hljs-string">&quot;&quot;</span>.equals(uploadFileName))&#123;<br>       <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;redirect:/index.jsp&quot;</span>;<br>  &#125;<br>   System.out.println(<span class="hljs-string">&quot;上传文件名 : &quot;</span>+uploadFileName);<br><br>   <span class="hljs-comment">//上传路径保存设置</span><br>   String path = request.getServletContext().getRealPath(<span class="hljs-string">&quot;/upload&quot;</span>);<br>   <span class="hljs-comment">//如果路径不存在，创建一个</span><br>   File realPath = <span class="hljs-keyword">new</span> File(path);<br>   <span class="hljs-keyword">if</span> (!realPath.exists())&#123;<br>       realPath.mkdir();<br>  &#125;<br>   System.out.println(<span class="hljs-string">&quot;上传文件保存地址：&quot;</span>+realPath);<br><br>   InputStream is = file.getInputStream(); <span class="hljs-comment">//文件输入流</span><br>   OutputStream os = <span class="hljs-keyword">new</span> FileOutputStream(<span class="hljs-keyword">new</span> File(realPath,uploadFileName)); <span class="hljs-comment">//文件输出流</span><br><br>   <span class="hljs-comment">//读取写出</span><br>   <span class="hljs-keyword">int</span> len=<span class="hljs-number">0</span>;<br>   <span class="hljs-keyword">byte</span>[] buffer = <span class="hljs-keyword">new</span> <span class="hljs-keyword">byte</span>[<span class="hljs-number">1024</span>];<br>   <span class="hljs-keyword">while</span> ((len=is.read(buffer))!=-<span class="hljs-number">1</span>)&#123;<br>       os.write(buffer,<span class="hljs-number">0</span>,len);<br>       os.flush();<br>  &#125;<br>   os.close();<br>   is.close();<br>   <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;redirect:/index.jsp&quot;</span>;<br><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><h2 id="采用file-Transto-来保存上传的文件"><a href="#采用file-Transto-来保存上传的文件" class="headerlink" title="采用file.Transto 来保存上传的文件"></a>采用file.Transto 来保存上传的文件</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/*</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">* 采用file.Transto 来保存上传的文件</span><br><span class="hljs-comment">  */</span><br>  <span class="hljs-meta">@RequestMapping(&quot;/upload2&quot;)</span><br>  <span class="hljs-function"><span class="hljs-keyword">public</span> String  <span class="hljs-title">fileUpload2</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam(&quot;file&quot;)</span> CommonsMultipartFile file, HttpServletRequest request)</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;<br><br>   <span class="hljs-comment">//上传路径保存设置</span><br>   String path = request.getServletContext().getRealPath(<span class="hljs-string">&quot;/upload&quot;</span>);<br>   File realPath = <span class="hljs-keyword">new</span> File(path);<br>   <span class="hljs-keyword">if</span> (!realPath.exists())&#123;<br>       realPath.mkdir();<br>  &#125;<br>   <span class="hljs-comment">//上传文件地址</span><br>   System.out.println(<span class="hljs-string">&quot;上传文件保存地址：&quot;</span>+realPath);<br><br>   <span class="hljs-comment">//通过CommonsMultipartFile的方法直接写文件（注意这个时候）</span><br>   file.transferTo(<span class="hljs-keyword">new</span> File(realPath +<span class="hljs-string">&quot;/&quot;</span>+ file.getOriginalFilename()));<br><br>   <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;redirect:/index.jsp&quot;</span>;<br>  &#125;<br></code></pre></td></tr></table></figure></li>
-<li><h2 id="文件下载"><a href="#文件下载" class="headerlink" title="文件下载"></a>文件下载</h2><p>文件下载步骤：</p>
+</ul></li>
+<li><h2 id="采用file.transto-来保存上传的文件">采用file.Transto
+来保存上传的文件</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/*</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">* 采用file.Transto 来保存上传的文件</span><br><span class="hljs-comment">  */</span><br>  <span class="hljs-meta">@RequestMapping(&quot;/upload2&quot;)</span><br>  <span class="hljs-function"><span class="hljs-keyword">public</span> String  <span class="hljs-title">fileUpload2</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam(&quot;file&quot;)</span> CommonsMultipartFile file, HttpServletRequest request)</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;<br><br>   <span class="hljs-comment">//上传路径保存设置</span><br>   String path = request.getServletContext().getRealPath(<span class="hljs-string">&quot;/upload&quot;</span>);<br>   File realPath = <span class="hljs-keyword">new</span> File(path);<br>   <span class="hljs-keyword">if</span> (!realPath.exists())&#123;<br>       realPath.mkdir();<br>  &#125;<br>   <span class="hljs-comment">//上传文件地址</span><br>   System.out.println(<span class="hljs-string">&quot;上传文件保存地址：&quot;</span>+realPath);<br><br>   <span class="hljs-comment">//通过CommonsMultipartFile的方法直接写文件（注意这个时候）</span><br>   file.transferTo(<span class="hljs-keyword">new</span> File(realPath +<span class="hljs-string">&quot;/&quot;</span>+ file.getOriginalFilename()));<br><br>   <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;redirect:/index.jsp&quot;</span>;<br>  &#125;<br></code></pre></td></tr></table></figure></li>
+<li><h2 id="文件下载">文件下载</h2>
+<p>文件下载步骤：</p>
 <p>1、设置 response 响应头</p>
 <p>2、读取文件 – InputStream</p>
 <p>3、写出文件 – OutputStream</p>
@@ -342,8 +351,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/05/14/Windows%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">
-                        <span class="hidden-mobile">如何方便的在任意目录下运行Windows命令行</span>
+                      <a href="/2022/05/14/UML%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B/">
+                        <span class="hidden-mobile">快速学习时序图：时序图简介、画法及实例</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -490,6 +499,48 @@
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
 
 
 

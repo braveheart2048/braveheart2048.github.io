@@ -198,7 +198,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.4k 字
+      2.5k 字
     </span>
   
 
@@ -207,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7 分钟
+      8 分钟
     </span>
   
 
@@ -253,85 +253,121 @@
               </p>
             
             <div class="markdown-body">
-              <h1 id="HTML-table-标签"><a href="#HTML-table-标签" class="headerlink" title="HTML table 标签"></a>HTML table 标签</h1><p><strong>实例：</strong></p>
+              <h1 id="html-table-标签">HTML table 标签</h1>
+<p><strong>实例：</strong></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">border</span>=<span class="hljs-string">&quot;1&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Month<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Savings<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>January<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>$100<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
 <table>
 <thead>
-<tr>
-<th align="left">属性</th>
-<th align="left">值</th>
-<th align="left">描述</th>
+<tr class="header">
+<th style="text-align: left;">属性</th>
+<th style="text-align: left;">值</th>
+<th style="text-align: left;">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">border</td>
-<td align="left"><em>pixels</em></td>
-<td align="left">规定表格边框的宽度。</td>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">border</td>
+<td style="text-align: left;"><em>pixels</em></td>
+<td style="text-align: left;">规定表格边框的宽度。</td>
 </tr>
-</tbody></table>
-<h1 id="HTML-form标签-隐藏表单前后台传参"><a href="#HTML-form标签-隐藏表单前后台传参" class="headerlink" title="HTML form标签 隐藏表单前后台传参"></a>HTML form标签 隐藏表单前后台传参</h1><p><strong>HTML:</strong></p>
+</tbody>
+</table>
+<h1 id="html-form标签-隐藏表单前后台传参">HTML form标签
+隐藏表单前后台传参</h1>
+<p><strong>HTML:</strong></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;deleteUserById&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;hidden&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;id&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;$&#123;user.id&#125;&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;删除&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
 <p><strong>JAVA:</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping(&quot;/deleteUserById&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">deleteUserById</span><span class="hljs-params">(<span class="hljs-keyword">int</span> id,Model model)</span></span>&#123;<br>    userService.deleteUserById(id);<br>    List&lt;User&gt; userList = userService.getAllUser();<br>    model.addAttribute(<span class="hljs-string">&quot;userList&quot;</span>,userList);<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;list&quot;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h1 id="css样式写在哪里？"><a href="#css样式写在哪里？" class="headerlink" title="css样式写在哪里？"></a>css样式写在哪里？</h1><ul>
-<li><p>嵌套样式 ，在HTML文档头部 <head> 区域使用<style> 元素 来包含CSS代码。</p>
+<h1 id="css样式写在哪里">css样式写在哪里？</h1>
+<ul>
+<li><p>嵌套样式 ，在HTML文档头部</p>
+<head>
+<p>区域使用</p>
+<style>
+<p>元素 来包含CSS代码。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs css">&lt;head&gt;<br>&lt;style type=&quot;text/css&quot;&gt;<br><span class="hljs-selector-tag">body</span> &#123;<span class="hljs-attribute">background-color</span>: red&#125;<br><span class="hljs-selector-tag">p</span> &#123;<span class="hljs-attribute">margin-left</span>: <span class="hljs-number">20px</span>&#125;<br>&lt;/style&gt;<br>&lt;/head&gt;<br></code></pre></td></tr></table></figure></li>
 </ul>
-<h1 id="JavaScript-对象"><a href="#JavaScript-对象" class="headerlink" title="JavaScript 对象"></a>JavaScript 对象</h1><p>对象也是一个变量，但对象可以包含多个值（多个变量），每个值以 <strong>name:value</strong> 对呈现。</p>
+<h1 id="javascript-对象">JavaScript 对象</h1>
+<p>对象也是一个变量，但对象可以包含多个值（多个变量），每个值以
+<strong>name:value</strong> 对呈现。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> car = &#123;<span class="hljs-attr">name</span>:<span class="hljs-string">&quot;Fiat&quot;</span>, <span class="hljs-attr">model</span>:<span class="hljs-number">500</span>, <span class="hljs-attr">color</span>:<span class="hljs-string">&quot;white&quot;</span>&#125;;<br></code></pre></td></tr></table></figure>
-
-<h1 id="jquery获取input输入框中的值"><a href="#jquery获取input输入框中的值" class="headerlink" title="jquery获取input输入框中的值"></a>jquery获取input输入框中的值</h1><ol>
+<h1 id="jquery获取input输入框中的值">jquery获取input输入框中的值</h1>
+<ol type="1">
 <li><p>jquery方法</p>
 <ul>
 <li><p>通过 <strong>id</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> title = $(<span class="hljs-string">&#x27;#courseName&#x27;</span>).val();<br></code></pre></td></tr></table></figure></li>
-</ul>
-</li>
+</ul></li>
 </ol>
-<h1 id="js非空判断"><a href="#js非空判断" class="headerlink" title="js非空判断"></a>js非空判断</h1><p>实际开发中我们可能不需要区分地这么细，而是只要简单地进行非空判断（如果变量为 <strong>undefined</strong> 或者为 <strong>null</strong> 都表示空），那么可以使用下面方法：</p>
+<h1 id="js非空判断">js非空判断</h1>
+<p>实际开发中我们可能不需要区分地这么细，而是只要简单地进行非空判断（如果变量为
+<strong>undefined</strong> 或者为 <strong>null</strong>
+都表示空），那么可以使用下面方法：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> a;<br><span class="hljs-keyword">var</span> b = <span class="hljs-literal">null</span>;<br>  <br><span class="hljs-keyword">if</span>(!a) &#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;a 为空&#x27;</span>);<br>&#125;<span class="hljs-keyword">else</span>&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;a 不为空&#x27;</span>);<br>&#125;<br>  <br><span class="hljs-keyword">if</span>(!b) &#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;b 为空&#x27;</span>);<br>&#125;<span class="hljs-keyword">else</span>&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;b 不为空&#x27;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h1 id="Jquery获取img的src值的方法"><a href="#Jquery获取img的src值的方法" class="headerlink" title="Jquery获取img的src值的方法"></a>Jquery获取img的src值的方法</h1><p>代码如下:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">$(<span class="hljs-string">&quot;#imgId&quot;</span>)[<span class="hljs-number">0</span>].src;<br></code></pre></td></tr></table></figure>
-
-<h1 id="JavaScript-–-Equality-vs-Identity-Operators"><a href="#JavaScript-–-Equality-vs-Identity-Operators" class="headerlink" title="JavaScript – Equality (==) vs. Identity (===) Operators"></a>JavaScript – Equality (==) vs. Identity (===) Operators</h1><p>请记住，在执行比较时， <strong>相等运算符（ <code>==</code> ）将</strong>在继续操作之前<strong>尝试使数据类型相同</strong> 。 另一方面， <strong>身份运算符（ <code>===</code> ）要求这两种数据类型必须相同，作为前提</strong> 。</p>
+<h1 id="jquery获取img的src值的方法">Jquery获取img的src值的方法</h1>
+<p>代码如下: <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">$(<span class="hljs-string">&quot;#imgId&quot;</span>)[<span class="hljs-number">0</span>].src;<br></code></pre></td></tr></table></figure></p>
+<h1 id="javascript-equality-vs.-identity-operators">JavaScript –
+Equality (==) vs. Identity (===) Operators</h1>
+<p>请记住，在执行比较时， <strong>相等运算符（ <code>==</code>
+）将</strong>在继续操作之前<strong>尝试使数据类型相同</strong> 。
+另一方面， <strong>身份运算符（ <code>===</code>
+）要求这两种数据类型必须相同，作为前提</strong> 。</p>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="https://rumenz.com/java-topic/javascript/javascript-equality-vs-identity-operators/index.html">原文链接</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://rumenz.com/java-topic/javascript/javascript-equality-vs-identity-operators/index.html">原文链接</a></p>
 </blockquote>
-<h1 id="Uncaught-ReferenceError-jQuery-is-not-defined"><a href="#Uncaught-ReferenceError-jQuery-is-not-defined" class="headerlink" title="Uncaught ReferenceError: jQuery is not defined"></a>Uncaught ReferenceError: jQuery is not defined</h1><p><img src="https://s2.loli.net/2022/07/27/kJzp2YZHSCw7y6h.png" srcset="/img/loading.gif" lazyload alt="image-20220725113702756"></p>
+<h1 id="uncaught-referenceerror-jquery-is-not-defined">Uncaught
+ReferenceError: jQuery is not defined</h1>
+<figure>
+<img src="https://s2.loli.net/2022/07/27/kJzp2YZHSCw7y6h.png" srcset="/img/loading.gif" lazyload
+alt="image-20220725113702756" />
+<figcaption aria-hidden="true">image-20220725113702756</figcaption>
+</figure>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/haohaoxuexiyai/article/details/109178435">原文链接</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/haohaoxuexiyai/article/details/109178435">原文链接</a></p>
 </blockquote>
-<h1 id="layer和select2一起使用，导致select2下拉框无法显示的问题"><a href="#layer和select2一起使用，导致select2下拉框无法显示的问题" class="headerlink" title="layer和select2一起使用，导致select2下拉框无法显示的问题"></a>layer和select2一起使用，导致select2下拉框无法显示的问题</h1><blockquote>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/chouzizi/article/details/87092319">原文链接</a></p>
+<h1
+id="layer和select2一起使用导致select2下拉框无法显示的问题">layer和select2一起使用，导致select2下拉框无法显示的问题</h1>
+<blockquote>
+<p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/chouzizi/article/details/87092319">原文链接</a></p>
 </blockquote>
-<h1 id="select2不渲染也不报错"><a href="#select2不渲染也不报错" class="headerlink" title="select2不渲染也不报错"></a>select2不渲染也不报错</h1><p>看看你的初始化代码是不是写成这样</p>
-<p><img src="https://s2.loli.net/2022/07/27/ah9KGlCbv2op8Xw.png" srcset="/img/loading.gif" lazyload alt="image-20220725172102756"></p>
+<h1 id="select2不渲染也不报错">select2不渲染也不报错</h1>
+<p>看看你的初始化代码是不是写成这样</p>
+<figure>
+<img src="https://s2.loli.net/2022/07/27/ah9KGlCbv2op8Xw.png" srcset="/img/loading.gif" lazyload
+alt="image-20220725172102756" />
+<figcaption aria-hidden="true">image-20220725172102756</figcaption>
+</figure>
 <blockquote>
 <p>解决：改成ID选择器就好了</p>
 </blockquote>
-<p><img src="https://s2.loli.net/2022/07/27/UtlWEBNoVC9gPHi.png" srcset="/img/loading.gif" lazyload alt="image-20220725172144965"></p>
-<h1 id="select2去除搜索框"><a href="#select2去除搜索框" class="headerlink" title="select2去除搜索框"></a>select2去除搜索框</h1><p>设置select2属性：</p>
+<figure>
+<img src="https://s2.loli.net/2022/07/27/UtlWEBNoVC9gPHi.png" srcset="/img/loading.gif" lazyload
+alt="image-20220725172144965" />
+<figcaption aria-hidden="true">image-20220725172144965</figcaption>
+</figure>
+<h1 id="select2去除搜索框">select2去除搜索框</h1>
+<p>设置select2属性：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js">$(<span class="hljs-string">&quot;#type_select&quot;</span>).select2(&#123;<br>    <span class="hljs-attr">minimumResultsForSearch</span>: -<span class="hljs-number">1</span><br>&#125;);<br></code></pre></td></tr></table></figure>
-
-<h1 id="jQuery-offset-方法"><a href="#jQuery-offset-方法" class="headerlink" title="jQuery offset() 方法"></a>jQuery offset() 方法</h1><p>返回偏移坐标：</p>
+<h1 id="jquery-offset-方法">jQuery offset() 方法</h1>
+<p>返回偏移坐标：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">$(selector).offset()<br></code></pre></td></tr></table></figure>
-
-<p><em>该方法返回第一个匹配元素的偏移坐标。它返回一个带有两个属性（以像素为单位的 top 和 left 位置）的对象。</em></p>
-<h1 id="jQuery-效果-slideDown-方法"><a href="#jQuery-效果-slideDown-方法" class="headerlink" title="jQuery 效果 - slideDown() 方法"></a>jQuery 效果 - slideDown() 方法</h1><p>slideDown() 方法通过使用滑动效果，显示隐藏的被选元素。</p>
+<p><em>该方法返回第一个匹配元素的偏移坐标。它返回一个带有两个属性（以像素为单位的
+top 和 left 位置）的对象。</em></p>
+<h1 id="jquery-效果---slidedown-方法">jQuery 效果 - slideDown()
+方法</h1>
+<p>slideDown() 方法通过使用滑动效果，显示隐藏的被选元素。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">$(selector).slideDown(speed,callback)<br></code></pre></td></tr></table></figure>
-
-<h1 id="jq向input的value赋值"><a href="#jq向input的value赋值" class="headerlink" title="jq向input的value赋值"></a>jq向input的value赋值</h1><p>文本框如下</p>
+<h1 id="jq向input的value赋值">jq向input的value赋值</h1>
+<p>文本框如下</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;imgtalk&quot;</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
 <p>jquery/js 代码为</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//1),不推荐使用</span><br><span class="hljs-comment">//这种写法有时会失效,特别是他的父元素是dosplay:none时	</span><br>$(<span class="hljs-string">&quot;#imgtalk&quot;</span>).val(<span class="hljs-string">&quot;值&quot;</span>);<br><span class="hljs-comment">//2),推荐使用</span><br><span class="hljs-comment">//可正常赋值</span><br>$(<span class="hljs-string">&quot;#imgtalk&quot;</span>).attr(<span class="hljs-string">&quot;value&quot;</span>,<span class="hljs-string">&quot;值&quot;</span>);<br><span class="hljs-comment">//3),js原始写法</span><br><span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;imgtalk&quot;</span>).value=<span class="hljs-string">&quot;值&quot;</span>;<br></code></pre></td></tr></table></figure>
-
 <blockquote>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/TTTZZZTTTZZZ/article/details/87015708">原文链接</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/TTTZZZTTTZZZ/article/details/87015708">原文链接</a></p>
 </blockquote>
 
             </div>
@@ -525,6 +561,48 @@
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
 
 
 

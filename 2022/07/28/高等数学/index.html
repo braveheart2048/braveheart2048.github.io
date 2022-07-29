@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2022/07/23/c4MHyGQfPRuODUJ.jpg">
 <meta property="article:published_time" content="2022-07-28T06:45:00.000Z">
-<meta property="article:modified_time" content="2022-07-29T03:14:19.079Z">
+<meta property="article:modified_time" content="2022-07-29T07:31:07.350Z">
 <meta property="article:author" content="Alfa">
 <meta property="article:tag" content="专升本">
 <meta property="article:tag" content="高等数学">
@@ -199,7 +199,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      809 字
+      863 字
     </span>
   
 
@@ -249,138 +249,164 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：几秒前
+                  本文最后更新于：31 分钟前
                 
               </p>
             
             <div class="markdown-body">
-              <h1 id="微分方程通解公式"><a href="#微分方程通解公式" class="headerlink" title="微分方程通解公式"></a>微分方程通解公式</h1><ol>
+              <h1 id="微分方程通解公式">微分方程通解公式</h1>
+<ol type="1">
 <li><p>一阶微分方程</p>
 <ul>
-<li>齐次<br>$$<br>Ce^{-\int p(x)dx}<br>$$</li>
-<li>非齐次<br>$$<br>e^{-\int p(x)dx}[\int q(x)e^{\int p(x)dx}dx + C]<br>$$</li>
-</ul>
-</li>
+<li><p>齐次 <span class="math display">\[
+Ce^{-\int p(x)dx}
+\]</span></p></li>
+<li><p>非齐次 <span class="math display">\[
+e^{-\int p(x)dx}[\int q(x)e^{\int p(x)dx}dx + C]
+\]</span></p></li>
+</ul></li>
 <li><p>二阶微分方程</p>
 <ul>
 <li><p>齐次</p>
 <ul>
-<li><p>特征方程r1!=r2<br>$$<br>C_1e^{r_1x}+C_2e^{r_2x}<br>$$</p>
-</li>
-<li><p>特征方程r1=r2=r<br>$$<br>(C_1+C_2x)e^{rx}<br>$$</p>
-</li>
-<li><p>特征方程$\alpha \pm i \beta$<br>$$<br>e^{ax}(c_1\cos\beta+c_2\sin\beta)<br>$$</p>
-</li>
-</ul>
-</li>
+<li><p>特征方程r1!=r2 <span class="math display">\[
+C_1e^{r_1x}+C_2e^{r_2x}
+\]</span></p></li>
+<li><p>特征方程r1=r2=r <span class="math display">\[
+(C_1+C_2x)e^{rx}
+\]</span></p></li>
+<li><p>特征方程<span class="math inline">\(\alpha \pm i \beta\)</span>
+<span class="math display">\[
+e^{ax}(c_1\cos\beta+c_2\sin\beta)
+\]</span></p></li>
+</ul></li>
 <li><p>非齐次</p>
-<p>求解非齐次方程，需要求出其对应齐次方程的通解$Y$，再加上特解$y^*$</p>
+<p>求解非齐次方程，需要求出其对应齐次方程的通解<span
+class="math inline">\(Y\)</span>，再加上特解<span
+class="math inline">\(y^*\)</span></p>
 <ul>
-<li><p>$q(x)$形式$P_n(x)$</p>
+<li><p><span class="math inline">\(q(x)\)</span>形式<span
+class="math inline">\(P_n(x)\)</span></p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>特征方程解的形式</th>
 <th>设特解形式</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>0不是特征方程的根</td>
-<td>$R_nx$</td>
+<td><span class="math inline">\(R_nx\)</span></td>
 </tr>
-<tr>
+<tr class="even">
 <td>0是特征方程的单根</td>
-<td>$xR_nx$</td>
+<td><span class="math inline">\(xR_nx\)</span></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>0是特征方程的重根</td>
-<td>$x^2R_nx$</td>
+<td><span class="math inline">\(x^2R_nx\)</span></td>
 </tr>
-</tbody></table>
-</li>
-<li><p>q(x)形式$P_n(x)e^{ax}$</p>
+</tbody>
+</table></li>
+<li><p>q(x)形式<span class="math inline">\(P_n(x)e^{ax}\)</span></p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>特征方程解的形式</th>
 <th>设特解形式</th>
 </tr>
 </thead>
-<tbody><tr>
-<td>$\alpha$不是特征方程的根</td>
-<td>$e^{\alpha x}R_nx$</td>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\alpha\)</span>不是特征方程的根</td>
+<td><span class="math inline">\(e^{\alpha x}R_nx\)</span></td>
 </tr>
-<tr>
-<td>$\alpha$是特征方程的单根</td>
-<td>$xe^{\alpha x}R_nx$</td>
+<tr class="even">
+<td><span class="math inline">\(\alpha\)</span>是特征方程的单根</td>
+<td><span class="math inline">\(xe^{\alpha x}R_nx\)</span></td>
 </tr>
-<tr>
-<td>$\alpha$是特征方程的重根</td>
-<td>$x^2e^{\alpha x}R_nx$</td>
+<tr class="odd">
+<td><span class="math inline">\(\alpha\)</span>是特征方程的重根</td>
+<td><span class="math inline">\(x^2e^{\alpha x}R_nx\)</span></td>
 </tr>
-</tbody></table>
-</li>
-<li><p>$q(x)$形式$e^{\alpha x}(a\cos x+b\sin x)$</p>
+</tbody>
+</table></li>
+<li><p><span class="math inline">\(q(x)\)</span>形式<span
+class="math inline">\(e^{\alpha x}(a\cos x+b\sin x)\)</span></p>
 <table>
+<colgroup>
+<col style="width: 44%" />
+<col style="width: 55%" />
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>特征方程解的形式</th>
 <th>设特解形式</th>
 </tr>
 </thead>
-<tbody><tr>
-<td>$\alpha\pm i\beta$不是特征方程的根</td>
-<td>$e^{\alpha x}(A\cos\beta x+B\sin\beta x)$</td>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\alpha\pm
+i\beta\)</span>不是特征方程的根</td>
+<td><span class="math inline">\(e^{\alpha x}(A\cos\beta x+B\sin\beta
+x)\)</span></td>
 </tr>
-<tr>
-<td>$\alpha\pm i\beta$是特征方程的根</td>
-<td>$xe^{\alpha x}(A\cos\beta x+B\sin\beta x)$</td>
+<tr class="even">
+<td><span class="math inline">\(\alpha\pm
+i\beta\)</span>是特征方程的根</td>
+<td><span class="math inline">\(xe^{\alpha x}(A\cos\beta x+B\sin\beta
+x)\)</span></td>
 </tr>
-</tbody></table>
-</li>
-</ul>
-</li>
-</ul>
-</li>
+</tbody>
+</table></li>
+</ul></li>
+</ul></li>
 </ol>
-<h1 id="奇偶函数的判别公式"><a href="#奇偶函数的判别公式" class="headerlink" title="奇偶函数的判别公式"></a>奇偶函数的判别公式</h1><ul>
-<li><p>奇函数<br>$$<br>f(-x) = -f(x)<br>$$</p>
-</li>
-<li><p>偶函数<br>$$<br>f(-x) = f(x)<br>$$</p>
-</li>
+<h1 id="奇偶函数的判别公式">奇偶函数的判别公式</h1>
+<ul>
+<li><p>奇函数 <span class="math display">\[
+f(-x) = -f(x)
+\]</span></p></li>
+<li><p>偶函数 <span class="math display">\[
+f(-x) = f(x)
+\]</span></p></li>
 </ul>
-<h1 id="奇偶函数的加减乘除"><a href="#奇偶函数的加减乘除" class="headerlink" title="奇偶函数的加减乘除"></a>奇偶函数的加减乘除</h1><table>
+<h1 id="奇偶函数的加减乘除">奇偶函数的加减乘除</h1>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th>参与计算的函数</th>
 <th>结果</th>
 </tr>
 </thead>
-<tbody><tr>
-<td>奇函数$\pm$偶函数</td>
+<tbody>
+<tr class="odd">
+<td>奇函数<span class="math inline">\(\pm\)</span>偶函数</td>
 <td>非奇非偶函数</td>
 </tr>
-<tr>
-<td>奇函数$\pm$奇函数</td>
+<tr class="even">
+<td>奇函数<span class="math inline">\(\pm\)</span>奇函数</td>
 <td>奇函数</td>
 </tr>
-<tr>
-<td>偶函数$\pm$偶函数</td>
+<tr class="odd">
+<td>偶函数<span class="math inline">\(\pm\)</span>偶函数</td>
 <td>偶函数</td>
 </tr>
-<tr>
-<td>奇函数$\times/$偶函数</td>
+<tr class="even">
+<td>奇函数<span class="math inline">\(\times/\)</span>偶函数</td>
 <td>奇函数</td>
 </tr>
-<tr>
-<td>奇函数$\times/$奇函数</td>
+<tr class="odd">
+<td>奇函数<span class="math inline">\(\times/\)</span>奇函数</td>
 <td>偶函数</td>
 </tr>
-<tr>
-<td>偶函数$\times/$偶函数</td>
+<tr class="even">
+<td>偶函数<span class="math inline">\(\times/\)</span>偶函数</td>
 <td>偶函数</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 
             </div>
             <hr>
@@ -569,6 +595,48 @@
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
 
 
 

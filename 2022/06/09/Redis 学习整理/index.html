@@ -198,7 +198,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      216 字
+      285 字
     </span>
   
 
@@ -253,19 +253,36 @@
               </p>
             
             <div class="markdown-body">
-              <h1 id="打开redis"><a href="#打开redis" class="headerlink" title="打开redis"></a>打开redis</h1><ol>
-<li><p><img src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220620110123304.png" srcset="/img/loading.gif" lazyload alt="image-20220620110123304"></p>
+              <h1 id="打开redis">打开redis</h1>
+<ol type="1">
+<li><figure>
+<img
+src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220620110123304.png" srcset="/img/loading.gif" lazyload
+alt="image-20220620110123304" />
+<figcaption aria-hidden="true">image-20220620110123304</figcaption>
+</figure>
 <blockquote>
 <p>这时候另启一个 cmd 窗口，原来的不要关闭，不然就无法访问服务端了。</p>
-</blockquote>
-</li>
-<li><p><img src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220620110253220.png" srcset="/img/loading.gif" lazyload alt="image-20220620110253220"></p>
-</li>
+</blockquote></li>
+<li><figure>
+<img
+src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220620110253220.png" srcset="/img/loading.gif" lazyload
+alt="image-20220620110253220" />
+<figcaption aria-hidden="true">image-20220620110253220</figcaption>
+</figure></li>
 </ol>
-<h1 id="我们可以通过以下命令查看是否设置了密码验证"><a href="#我们可以通过以下命令查看是否设置了密码验证" class="headerlink" title="我们可以通过以下命令查看是否设置了密码验证"></a>我们可以通过以下命令查看是否设置了密码验证</h1><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">127</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">1</span>:<span class="hljs-number">6379</span>&gt; CONFIG get requirepass<br><span class="hljs-attribute">1</span>) <span class="hljs-string">&quot;requirepass&quot;</span><br><span class="hljs-attribute">2</span>) <span class="hljs-string">&quot;&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>默认情况下 requirepass 参数是空的，这就意味着你无需通过密码验证就可以连接到 redis 服务。</p>
-<h1 id="RDM-Redis可视化工具编辑Redis连接信息"><a href="#RDM-Redis可视化工具编辑Redis连接信息" class="headerlink" title="RDM-Redis可视化工具编辑Redis连接信息"></a>RDM-Redis可视化工具编辑Redis连接信息</h1><p><img src="https://s2.loli.net/2022/07/12/iwD3V6vFt5jzKuI.png" srcset="/img/loading.gif" lazyload alt="image-20220712152846004"></p>
+<h1
+id="我们可以通过以下命令查看是否设置了密码验证">我们可以通过以下命令查看是否设置了密码验证</h1>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">127</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">1</span>:<span class="hljs-number">6379</span>&gt; CONFIG get requirepass<br><span class="hljs-attribute">1</span>) <span class="hljs-string">&quot;requirepass&quot;</span><br><span class="hljs-attribute">2</span>) <span class="hljs-string">&quot;&quot;</span><br></code></pre></td></tr></table></figure>
+<p>默认情况下 requirepass
+参数是空的，这就意味着你无需通过密码验证就可以连接到 redis 服务。</p>
+<h1
+id="rdm-redis可视化工具编辑redis连接信息">RDM-Redis可视化工具编辑Redis连接信息</h1>
+<figure>
+<img src="https://s2.loli.net/2022/07/12/iwD3V6vFt5jzKuI.png" srcset="/img/loading.gif" lazyload
+alt="image-20220712152846004" />
+<figcaption aria-hidden="true">image-20220712152846004</figcaption>
+</figure>
 
             </div>
             <hr>
@@ -458,6 +475,48 @@
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
 
 
 
