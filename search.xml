@@ -1,39 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Java多线程学习总结</title>
-    <url>/2022/07/15/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h1 id="多线程的实现方式"><a href="#多线程的实现方式" class="headerlink" title="多线程的实现方式"></a>多线程的实现方式</h1><h2 id="通过实现-Runnable-接口"><a href="#通过实现-Runnable-接口" class="headerlink" title="通过实现 Runnable 接口"></a>通过实现 Runnable 接口</h2><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.ruanyuan;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * TODO</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@ClassName</span> TestThread</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Author</span> Alfa</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Data</span> 2022/7/14 15:43</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Version</span> 1.0</span><br><span class="hljs-comment"> **/</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestThread</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        RunnableDemo demo = <span class="hljs-keyword">new</span> RunnableDemo();<br>        <span class="hljs-keyword">new</span> Thread(demo).start();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++) &#123;<br>            System.out.println(<span class="hljs-string">&quot;主线程&quot;</span>);<br>        &#125;<br>    &#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RunnableDemo</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Runnable</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++) &#123;<br>            System.out.println(<span class="hljs-string">&quot;子线程--&quot;</span>+Thread.currentThread().getName());<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<blockquote>
-<p>推荐使用Runnable对象,因为Java单继承的局限性</p>
-</blockquote>
-<h2 id="通过继承-Thread-类本身"><a href="#通过继承-Thread-类本身" class="headerlink" title="通过继承 Thread 类本身"></a>通过继承 Thread 类本身</h2><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.ruanyuan;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * TODO</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@ClassName</span> TestThread</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Author</span> Alfa</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Data</span> 2022/7/14 15:43</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Version</span> 1.0</span><br><span class="hljs-comment"> **/</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestThread</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        ThreadRDemo demo = <span class="hljs-keyword">new</span> ThreadRDemo();<br>        demo.start();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++) &#123;<br>            System.out.println(<span class="hljs-string">&quot;主线程&quot;</span>);<br>        &#125;<br>    &#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ThreadRDemo</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++) &#123;<br>            System.out.println(<span class="hljs-string">&quot;子线程--&quot;</span>+Thread.currentThread().getName());<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h1 id="线程同步"><a href="#线程同步" class="headerlink" title="线程同步"></a>线程同步</h1><h2 id="线程安全案例一"><a href="#线程安全案例一" class="headerlink" title="线程安全案例一"></a>线程安全案例一</h2><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.ruanyuan;<br><br><span class="hljs-keyword">import</span> java.util.ArrayList;<br><span class="hljs-keyword">import</span> java.util.List;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * TODO</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@ClassName</span> TestThread</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Author</span> Alfa</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Data</span> 2022/7/14 15:43</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Version</span> 1.0</span><br><span class="hljs-comment"> **/</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestThread</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-comment">//ArrayList线程不安全案例</span><br>        List&lt;String&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>        <span class="hljs-comment">//开启一万个线程操作list</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10000</span>; i++) &#123;<br>            <span class="hljs-keyword">new</span> Thread(() -&gt; &#123;<br>                list.add(Thread.currentThread().getName());<br>            &#125;).start();<br>        &#125;<br>        <span class="hljs-comment">// 主线程睡眠三秒，等待一万个子线程执行完毕</span><br>        <span class="hljs-keyword">try</span> &#123;<br>            Thread.sleep(<span class="hljs-number">3000</span>);<br>        &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>            e.printStackTrace();<br>        &#125;<br>        System.out.println(list.size());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://s2.loli.net/2022/07/14/tOSoZzuWDVYLpRF.png" alt="image-20220714163801117"></p>
-<blockquote>
-<p>并发太快，对集合的操作有的重复在了一个位置。</p>
-</blockquote>
-<h3 id="同步代码块"><a href="#同步代码块" class="headerlink" title="同步代码块"></a>同步代码块</h3><p><img src="https://s2.loli.net/2022/07/14/RNAzUJGmtpivfFc.png" alt="image-20220714171307635"></p>
-<h2 id="线程安全案例二"><a href="#线程安全案例二" class="headerlink" title="线程安全案例二"></a>线程安全案例二</h2><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.ruanyuan;<br><br><span class="hljs-comment">//不安全买票</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestThread</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        BuyTicket buyTicket = <span class="hljs-keyword">new</span> BuyTicket();<br>        <span class="hljs-keyword">new</span> Thread(buyTicket, <span class="hljs-string">&quot;张三&quot;</span>).start();<br>        <span class="hljs-keyword">new</span> Thread(buyTicket, <span class="hljs-string">&quot;李四&quot;</span>).start();<br>        <span class="hljs-keyword">new</span> Thread(buyTicket, <span class="hljs-string">&quot;王五&quot;</span>).start();<br>    &#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BuyTicket</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Runnable</span> </span>&#123;<br>    <span class="hljs-comment">//票</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> ticketNums = <span class="hljs-number">10</span>;<br>    <span class="hljs-keyword">boolean</span> flag = <span class="hljs-keyword">true</span>;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-comment">//买票</span><br>        <span class="hljs-keyword">while</span> (flag) &#123;<br>            <span class="hljs-keyword">try</span> &#123;<br>                buy();<br>            &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>                e.printStackTrace();<br>            &#125;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">//买票</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">buy</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-comment">//判断是否有票</span><br>        <span class="hljs-keyword">if</span> (ticketNums &lt;= <span class="hljs-number">0</span>) &#123;<br>            flag = <span class="hljs-keyword">false</span>;<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        <span class="hljs-comment">//延迟</span><br>        <span class="hljs-keyword">try</span> &#123;<br>            Thread.sleep(<span class="hljs-number">1</span>);<br>        &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>            e.printStackTrace();<br>        &#125;<br><br>        <span class="hljs-comment">//买票</span><br>        System.out.println(Thread.currentThread().getName() + <span class="hljs-string">&quot;拿到&quot;</span> + ticketNums--);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://s2.loli.net/2022/07/14/PONuIji8S3sJUqk.png" alt="image-20220714172648484"></p>
-<h3 id="同步方法"><a href="#同步方法" class="headerlink" title="同步方法"></a>同步方法</h3><p><img src="https://s2.loli.net/2022/07/14/sHcwK3rkeDSmxGA.png" alt="image-20220714173011580"></p>
-<h1 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h1><h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.ruanyuan;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 死锁:多个线程互相抱着对方需要的资源,然后形成僵持</span><br><span class="hljs-comment"> * 解决:一个锁只锁一个对象</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DeadLock</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        MakeUp g1 = <span class="hljs-keyword">new</span> MakeUp(<span class="hljs-number">0</span>, <span class="hljs-string">&quot;灰姑娘&quot;</span>);<br>        MakeUp g2 = <span class="hljs-keyword">new</span> MakeUp(<span class="hljs-number">1</span>,<span class="hljs-string">&quot;白雪公主&quot;</span>);<br><br>        g1.start();<br>        g2.start();<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">//口红</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LipStick</span></span>&#123;<br><br>&#125;<br><br><span class="hljs-comment">//镜子</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Mirror</span></span>&#123;<br><br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MakeUp</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span></span>&#123;<br>	<span class="hljs-comment">//需要的资源只有一份,用static保证只有一份</span><br>    <span class="hljs-keyword">static</span> LipStick lipStick = <span class="hljs-keyword">new</span> LipStick();<br>    <span class="hljs-keyword">static</span> Mirror mirror = <span class="hljs-keyword">new</span> Mirror();<br>	<br>    <span class="hljs-comment">//选择</span><br>    <span class="hljs-keyword">int</span> choice;<br>    <span class="hljs-comment">//使用化妆品的人	</span><br>    String girlName;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MakeUp</span><span class="hljs-params">(<span class="hljs-keyword">int</span> choice, String girlName)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.choice = choice;<br>        <span class="hljs-keyword">this</span>.girlName = girlName;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-comment">//化妆</span><br>        makeup();<br>    &#125;<br><br>    <span class="hljs-comment">//化妆，互相持有对方的锁</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">makeup</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">if</span> (choice == <span class="hljs-number">0</span>)<br>        &#123;<br>            <span class="hljs-keyword">synchronized</span> (lipStick) &#123;<br>                <span class="hljs-comment">// 获得口红的锁</span><br>                System.out.println(<span class="hljs-keyword">this</span>.girlName+<span class="hljs-string">&quot;获得口红的锁&quot;</span>);<br>                <span class="hljs-keyword">try</span> &#123;<br>                    Thread.sleep(<span class="hljs-number">1000</span>);<br>                &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>                    e.printStackTrace();<br>                &#125;<br>                <span class="hljs-keyword">synchronized</span> (mirror) &#123;<br>                    <span class="hljs-comment">//一秒钟后想要获得镜子</span><br>                    System.out.println(<span class="hljs-keyword">this</span>.girlName+<span class="hljs-string">&quot;获得镜子的锁&quot;</span>);<br>                &#125;<br>            &#125;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">synchronized</span> (mirror) &#123;<br>                <span class="hljs-comment">// 获得镜子的锁</span><br>                System.out.println(<span class="hljs-keyword">this</span>.girlName+<span class="hljs-string">&quot;获得镜子的锁&quot;</span>);<br>                <span class="hljs-keyword">try</span> &#123;<br>                    Thread.sleep(<span class="hljs-number">2000</span>);<br>                &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>                    e.printStackTrace();<br>                &#125;<br>                <span class="hljs-keyword">synchronized</span> (lipStick) &#123;<br>                    <span class="hljs-comment">//两秒钟后想要获得镜子</span><br>                    System.out.println(<span class="hljs-keyword">this</span>.girlName+<span class="hljs-string">&quot;获得口红的锁&quot;</span>);<br>                &#125;<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p><img src="https://s2.loli.net/2022/07/15/nBF4oYs2OhGwtSr.png" alt="image-20220715092321508"></p>
-<p><img src="https://s2.loli.net/2022/07/15/2WTCHlyvpXYfZm5.png" alt="image-20220715092603663"></p>
-]]></content>
-      <categories>
-        <category>岗前实训</category>
-      </categories>
-      <tags>
-        <tag>Java多线程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>HTML相关问题</title>
     <url>/2022/05/28/HTML%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="HTML-table-标签"><a href="#HTML-table-标签" class="headerlink" title="HTML table 标签"></a>HTML table 标签</h1><p><strong>实例：</strong></p>
@@ -395,30 +362,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Redis学习整理</title>
-    <url>/2022/06/09/Redis%20%E5%AD%A6%E4%B9%A0%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<h1 id="打开redis"><a href="#打开redis" class="headerlink" title="打开redis"></a>打开redis</h1><ol>
-<li><p><img src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220620110123304.png" alt="image-20220620110123304"></p>
-<blockquote>
-<p>这时候另启一个 cmd 窗口，原来的不要关闭，不然就无法访问服务端了。</p>
-</blockquote>
-</li>
-<li><p><img src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220620110253220.png" alt="image-20220620110253220"></p>
-</li>
-</ol>
-<h1 id="我们可以通过以下命令查看是否设置了密码验证"><a href="#我们可以通过以下命令查看是否设置了密码验证" class="headerlink" title="我们可以通过以下命令查看是否设置了密码验证"></a>我们可以通过以下命令查看是否设置了密码验证</h1><figure class="highlight apache"><table><tr><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">127</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">1</span>:<span class="hljs-number">6379</span>&gt; CONFIG get requirepass<br><span class="hljs-attribute">1</span>) <span class="hljs-string">&quot;requirepass&quot;</span><br><span class="hljs-attribute">2</span>) <span class="hljs-string">&quot;&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>默认情况下 requirepass 参数是空的，这就意味着你无需通过密码验证就可以连接到 redis 服务。</p>
-<h1 id="RDM-Redis可视化工具编辑Redis连接信息"><a href="#RDM-Redis可视化工具编辑Redis连接信息" class="headerlink" title="RDM-Redis可视化工具编辑Redis连接信息"></a>RDM-Redis可视化工具编辑Redis连接信息</h1><p><img src="https://s2.loli.net/2022/07/12/iwD3V6vFt5jzKuI.png" alt="image-20220712152846004"></p>
-]]></content>
-      <categories>
-        <category>大二生涯</category>
-      </categories>
-      <tags>
-        <tag>redis</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Maven介绍</title>
     <url>/2022/05/14/Maven%E4%BB%8B%E7%BB%8D/</url>
     <content><![CDATA[<meta name="referrer" content="no-referrer"/>
@@ -496,6 +439,39 @@
       </tags>
   </entry>
   <entry>
+    <title>Java多线程学习总结</title>
+    <url>/2022/07/15/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h1 id="多线程的实现方式"><a href="#多线程的实现方式" class="headerlink" title="多线程的实现方式"></a>多线程的实现方式</h1><h2 id="通过实现-Runnable-接口"><a href="#通过实现-Runnable-接口" class="headerlink" title="通过实现 Runnable 接口"></a>通过实现 Runnable 接口</h2><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.ruanyuan;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * TODO</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@ClassName</span> TestThread</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Author</span> Alfa</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Data</span> 2022/7/14 15:43</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Version</span> 1.0</span><br><span class="hljs-comment"> **/</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestThread</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        RunnableDemo demo = <span class="hljs-keyword">new</span> RunnableDemo();<br>        <span class="hljs-keyword">new</span> Thread(demo).start();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++) &#123;<br>            System.out.println(<span class="hljs-string">&quot;主线程&quot;</span>);<br>        &#125;<br>    &#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RunnableDemo</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Runnable</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++) &#123;<br>            System.out.println(<span class="hljs-string">&quot;子线程--&quot;</span>+Thread.currentThread().getName());<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>推荐使用Runnable对象,因为Java单继承的局限性</p>
+</blockquote>
+<h2 id="通过继承-Thread-类本身"><a href="#通过继承-Thread-类本身" class="headerlink" title="通过继承 Thread 类本身"></a>通过继承 Thread 类本身</h2><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.ruanyuan;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * TODO</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@ClassName</span> TestThread</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Author</span> Alfa</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Data</span> 2022/7/14 15:43</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Version</span> 1.0</span><br><span class="hljs-comment"> **/</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestThread</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        ThreadRDemo demo = <span class="hljs-keyword">new</span> ThreadRDemo();<br>        demo.start();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++) &#123;<br>            System.out.println(<span class="hljs-string">&quot;主线程&quot;</span>);<br>        &#125;<br>    &#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ThreadRDemo</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++) &#123;<br>            System.out.println(<span class="hljs-string">&quot;子线程--&quot;</span>+Thread.currentThread().getName());<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="线程同步"><a href="#线程同步" class="headerlink" title="线程同步"></a>线程同步</h1><h2 id="线程安全案例一"><a href="#线程安全案例一" class="headerlink" title="线程安全案例一"></a>线程安全案例一</h2><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.ruanyuan;<br><br><span class="hljs-keyword">import</span> java.util.ArrayList;<br><span class="hljs-keyword">import</span> java.util.List;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * TODO</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@ClassName</span> TestThread</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Author</span> Alfa</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Data</span> 2022/7/14 15:43</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Version</span> 1.0</span><br><span class="hljs-comment"> **/</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestThread</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-comment">//ArrayList线程不安全案例</span><br>        List&lt;String&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>        <span class="hljs-comment">//开启一万个线程操作list</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10000</span>; i++) &#123;<br>            <span class="hljs-keyword">new</span> Thread(() -&gt; &#123;<br>                list.add(Thread.currentThread().getName());<br>            &#125;).start();<br>        &#125;<br>        <span class="hljs-comment">// 主线程睡眠三秒，等待一万个子线程执行完毕</span><br>        <span class="hljs-keyword">try</span> &#123;<br>            Thread.sleep(<span class="hljs-number">3000</span>);<br>        &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>            e.printStackTrace();<br>        &#125;<br>        System.out.println(list.size());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/07/14/tOSoZzuWDVYLpRF.png" alt="image-20220714163801117"></p>
+<blockquote>
+<p>并发太快，对集合的操作有的重复在了一个位置。</p>
+</blockquote>
+<h3 id="同步代码块"><a href="#同步代码块" class="headerlink" title="同步代码块"></a>同步代码块</h3><p><img src="https://s2.loli.net/2022/07/14/RNAzUJGmtpivfFc.png" alt="image-20220714171307635"></p>
+<h2 id="线程安全案例二"><a href="#线程安全案例二" class="headerlink" title="线程安全案例二"></a>线程安全案例二</h2><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.ruanyuan;<br><br><span class="hljs-comment">//不安全买票</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestThread</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        BuyTicket buyTicket = <span class="hljs-keyword">new</span> BuyTicket();<br>        <span class="hljs-keyword">new</span> Thread(buyTicket, <span class="hljs-string">&quot;张三&quot;</span>).start();<br>        <span class="hljs-keyword">new</span> Thread(buyTicket, <span class="hljs-string">&quot;李四&quot;</span>).start();<br>        <span class="hljs-keyword">new</span> Thread(buyTicket, <span class="hljs-string">&quot;王五&quot;</span>).start();<br>    &#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BuyTicket</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Runnable</span> </span>&#123;<br>    <span class="hljs-comment">//票</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> ticketNums = <span class="hljs-number">10</span>;<br>    <span class="hljs-keyword">boolean</span> flag = <span class="hljs-keyword">true</span>;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-comment">//买票</span><br>        <span class="hljs-keyword">while</span> (flag) &#123;<br>            <span class="hljs-keyword">try</span> &#123;<br>                buy();<br>            &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>                e.printStackTrace();<br>            &#125;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">//买票</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">buy</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-comment">//判断是否有票</span><br>        <span class="hljs-keyword">if</span> (ticketNums &lt;= <span class="hljs-number">0</span>) &#123;<br>            flag = <span class="hljs-keyword">false</span>;<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        <span class="hljs-comment">//延迟</span><br>        <span class="hljs-keyword">try</span> &#123;<br>            Thread.sleep(<span class="hljs-number">1</span>);<br>        &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>            e.printStackTrace();<br>        &#125;<br><br>        <span class="hljs-comment">//买票</span><br>        System.out.println(Thread.currentThread().getName() + <span class="hljs-string">&quot;拿到&quot;</span> + ticketNums--);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/07/14/PONuIji8S3sJUqk.png" alt="image-20220714172648484"></p>
+<h3 id="同步方法"><a href="#同步方法" class="headerlink" title="同步方法"></a>同步方法</h3><p><img src="https://s2.loli.net/2022/07/14/sHcwK3rkeDSmxGA.png" alt="image-20220714173011580"></p>
+<h1 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h1><h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.ruanyuan;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 死锁:多个线程互相抱着对方需要的资源,然后形成僵持</span><br><span class="hljs-comment"> * 解决:一个锁只锁一个对象</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DeadLock</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        MakeUp g1 = <span class="hljs-keyword">new</span> MakeUp(<span class="hljs-number">0</span>, <span class="hljs-string">&quot;灰姑娘&quot;</span>);<br>        MakeUp g2 = <span class="hljs-keyword">new</span> MakeUp(<span class="hljs-number">1</span>,<span class="hljs-string">&quot;白雪公主&quot;</span>);<br><br>        g1.start();<br>        g2.start();<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">//口红</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LipStick</span></span>&#123;<br><br>&#125;<br><br><span class="hljs-comment">//镜子</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Mirror</span></span>&#123;<br><br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MakeUp</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span></span>&#123;<br>	<span class="hljs-comment">//需要的资源只有一份,用static保证只有一份</span><br>    <span class="hljs-keyword">static</span> LipStick lipStick = <span class="hljs-keyword">new</span> LipStick();<br>    <span class="hljs-keyword">static</span> Mirror mirror = <span class="hljs-keyword">new</span> Mirror();<br>	<br>    <span class="hljs-comment">//选择</span><br>    <span class="hljs-keyword">int</span> choice;<br>    <span class="hljs-comment">//使用化妆品的人	</span><br>    String girlName;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MakeUp</span><span class="hljs-params">(<span class="hljs-keyword">int</span> choice, String girlName)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.choice = choice;<br>        <span class="hljs-keyword">this</span>.girlName = girlName;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-comment">//化妆</span><br>        makeup();<br>    &#125;<br><br>    <span class="hljs-comment">//化妆，互相持有对方的锁</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">makeup</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">if</span> (choice == <span class="hljs-number">0</span>)<br>        &#123;<br>            <span class="hljs-keyword">synchronized</span> (lipStick) &#123;<br>                <span class="hljs-comment">// 获得口红的锁</span><br>                System.out.println(<span class="hljs-keyword">this</span>.girlName+<span class="hljs-string">&quot;获得口红的锁&quot;</span>);<br>                <span class="hljs-keyword">try</span> &#123;<br>                    Thread.sleep(<span class="hljs-number">1000</span>);<br>                &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>                    e.printStackTrace();<br>                &#125;<br>                <span class="hljs-keyword">synchronized</span> (mirror) &#123;<br>                    <span class="hljs-comment">//一秒钟后想要获得镜子</span><br>                    System.out.println(<span class="hljs-keyword">this</span>.girlName+<span class="hljs-string">&quot;获得镜子的锁&quot;</span>);<br>                &#125;<br>            &#125;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">synchronized</span> (mirror) &#123;<br>                <span class="hljs-comment">// 获得镜子的锁</span><br>                System.out.println(<span class="hljs-keyword">this</span>.girlName+<span class="hljs-string">&quot;获得镜子的锁&quot;</span>);<br>                <span class="hljs-keyword">try</span> &#123;<br>                    Thread.sleep(<span class="hljs-number">2000</span>);<br>                &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>                    e.printStackTrace();<br>                &#125;<br>                <span class="hljs-keyword">synchronized</span> (lipStick) &#123;<br>                    <span class="hljs-comment">//两秒钟后想要获得镜子</span><br>                    System.out.println(<span class="hljs-keyword">this</span>.girlName+<span class="hljs-string">&quot;获得口红的锁&quot;</span>);<br>                &#125;<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p><img src="https://s2.loli.net/2022/07/15/nBF4oYs2OhGwtSr.png" alt="image-20220715092321508"></p>
+<p><img src="https://s2.loli.net/2022/07/15/2WTCHlyvpXYfZm5.png" alt="image-20220715092603663"></p>
+]]></content>
+      <categories>
+        <category>岗前实训</category>
+      </categories>
+      <tags>
+        <tag>Java多线程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySql问题整理</title>
     <url>/2022/07/09/MySql%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/</url>
     <content><![CDATA[<h1 id="mysql数据库中-查看数据库的字符集"><a href="#mysql数据库中-查看数据库的字符集" class="headerlink" title="mysql数据库中,查看数据库的字符集"></a>mysql数据库中,查看数据库的字符集</h1><ul>
@@ -517,6 +493,30 @@
       </categories>
       <tags>
         <tag>MySql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Redis学习整理</title>
+    <url>/2022/06/09/Redis%20%E5%AD%A6%E4%B9%A0%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<h1 id="打开redis"><a href="#打开redis" class="headerlink" title="打开redis"></a>打开redis</h1><ol>
+<li><p><img src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220620110123304.png" alt="image-20220620110123304"></p>
+<blockquote>
+<p>这时候另启一个 cmd 窗口，原来的不要关闭，不然就无法访问服务端了。</p>
+</blockquote>
+</li>
+<li><p><img src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220620110253220.png" alt="image-20220620110253220"></p>
+</li>
+</ol>
+<h1 id="我们可以通过以下命令查看是否设置了密码验证"><a href="#我们可以通过以下命令查看是否设置了密码验证" class="headerlink" title="我们可以通过以下命令查看是否设置了密码验证"></a>我们可以通过以下命令查看是否设置了密码验证</h1><figure class="highlight apache"><table><tr><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">127</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">1</span>:<span class="hljs-number">6379</span>&gt; CONFIG get requirepass<br><span class="hljs-attribute">1</span>) <span class="hljs-string">&quot;requirepass&quot;</span><br><span class="hljs-attribute">2</span>) <span class="hljs-string">&quot;&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>默认情况下 requirepass 参数是空的，这就意味着你无需通过密码验证就可以连接到 redis 服务。</p>
+<h1 id="RDM-Redis可视化工具编辑Redis连接信息"><a href="#RDM-Redis可视化工具编辑Redis连接信息" class="headerlink" title="RDM-Redis可视化工具编辑Redis连接信息"></a>RDM-Redis可视化工具编辑Redis连接信息</h1><p><img src="https://s2.loli.net/2022/07/12/iwD3V6vFt5jzKuI.png" alt="image-20220712152846004"></p>
+]]></content>
+      <categories>
+        <category>大二生涯</category>
+      </categories>
+      <tags>
+        <tag>redis</tag>
       </tags>
   </entry>
   <entry>
@@ -700,44 +700,6 @@ public String model() &#123;
       </tags>
   </entry>
   <entry>
-    <title>Typora使用问题</title>
-    <url>/2022/07/18/Typora%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="markdown文件生成目录的方式"><a href="#markdown文件生成目录的方式" class="headerlink" title="markdown文件生成目录的方式"></a>markdown文件生成目录的方式</h1><p>在文章开始地方输入[toc]，即可在对应位置插入目录</p>
-<p><img src="https://s2.loli.net/2022/07/21/5qBCYXF3gO1skpm.webp" alt="img"></p>
-<blockquote>
-<p>凡是文章标题带有#（1-6个）的都会被捕获到目录中。</p>
-</blockquote>
-<h1 id="Typora-向数学公式中插入空格"><a href="#Typora-向数学公式中插入空格" class="headerlink" title="Typora 向数学公式中插入空格"></a>Typora 向数学公式中插入空格</h1><table>
-<thead>
-<tr>
-<th>输入字符</th>
-<th>显示效果</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>a~b</td>
-<td>a b</td>
-</tr>
-<tr>
-<td>a\quad b</td>
-<td>a    b</td>
-</tr>
-</tbody></table>
-<h1 id="Markdown-LaTex-极限符号"><a href="#Markdown-LaTex-极限符号" class="headerlink" title="Markdown_LaTex_极限符号"></a>Markdown_LaTex_极限符号</h1><ul>
-<li><p>极限符号<br>$$<br>\lim\limits_{x\rightarrow\infty}<br>$$</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown">$$\lim\limits<span class="hljs-emphasis">_&#123;x\rightarrow\infty&#125;$$</span><br></code></pre></td></tr></table></figure></li>
-<li><p>分数部分<br>$$<br>\frac{1}{x}<br>$$</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown">$$\frac&#123;1&#125;&#123;x&#125;$$<br></code></pre></td></tr></table></figure></li>
-</ul>
-]]></content>
-      <categories>
-        <category>岗前实训</category>
-      </categories>
-      <tags>
-        <tag>Typora</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SpringSecurity和Shiro学习整理</title>
     <url>/2022/07/11/SpringSecurity%E5%92%8CShiro%E5%AD%A6%E4%B9%A0%E6%95%B4%E7%90%86/</url>
     <content><![CDATA[<h1 id="认识SpringSecurity"><a href="#认识SpringSecurity" class="headerlink" title="认识SpringSecurity"></a>认识SpringSecurity</h1><p>Spring Security 是针对Spring项目的安全框架，也是Spring Boot底层安全模块默认的技术选型，他可以实现强大的Web安全控制，对于安全控制，我们仅需要引入 spring-boot-starter-security 模块，进行少量的配置，即可实现强大的安全管理！</p>
@@ -858,6 +820,48 @@ public String model() &#123;
       </tags>
   </entry>
   <entry>
+    <title>Typora使用问题</title>
+    <url>/2022/07/18/Typora%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="markdown文件生成目录的方式"><a href="#markdown文件生成目录的方式" class="headerlink" title="markdown文件生成目录的方式"></a>markdown文件生成目录的方式</h1><p>在文章开始地方输入[toc]，即可在对应位置插入目录</p>
+<p><img src="https://s2.loli.net/2022/07/21/5qBCYXF3gO1skpm.webp" alt="img"></p>
+<blockquote>
+<p>凡是文章标题带有#（1-6个）的都会被捕获到目录中。</p>
+</blockquote>
+<h1 id="Typora-向数学公式中插入空格"><a href="#Typora-向数学公式中插入空格" class="headerlink" title="Typora 向数学公式中插入空格"></a>Typora 向数学公式中插入空格</h1><table>
+<thead>
+<tr>
+<th>输入字符</th>
+<th>显示效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a~b</td>
+<td>a b</td>
+</tr>
+<tr>
+<td>a\quad b</td>
+<td>a    b</td>
+</tr>
+</tbody></table>
+<h1 id="Markdown-LaTex-极限符号"><a href="#Markdown-LaTex-极限符号" class="headerlink" title="Markdown_LaTex_极限符号"></a>Markdown_LaTex_极限符号</h1><ul>
+<li><p>极限符号<br>$$<br>\lim\limits_{x\rightarrow\infty}<br>$$</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown">$$\lim\limits<span class="hljs-emphasis">_&#123;x\rightarrow\infty&#125;$$</span><br></code></pre></td></tr></table></figure></li>
+<li><p>分数部分<br>$$<br>\frac{1}{x}<br>$$</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown">$$\frac&#123;1&#125;&#123;x&#125;$$<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="markdown如何打出双下标"><a href="#markdown如何打出双下标" class="headerlink" title="markdown如何打出双下标"></a>markdown如何打出双下标</h1><p>如果同时有两个下标，则需要使用<code>&#123;&#125;</code>来将符号括起来</p>
+<h1 id="Markdown-KaTex-正负号±"><a href="#Markdown-KaTex-正负号±" class="headerlink" title="Markdown KaTex 正负号±"></a>Markdown KaTex 正负号±</h1><p>在KaTex中你可以用<code>$\pm</code>表示正负号(± \pm±)。</p>
+<h1 id="markdown乘号的代码"><a href="#markdown乘号的代码" class="headerlink" title="markdown乘号的代码"></a>markdown乘号的代码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs mark">$\times$<br></code></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>岗前实训</category>
+      </categories>
+      <tags>
+        <tag>Typora</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>如何方便的在任意目录下运行Windows命令行</title>
     <url>/2022/05/14/Windows%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="windows系统下使用cd命令"><a href="#windows系统下使用cd命令" class="headerlink" title="windows系统下使用cd命令"></a>windows系统下使用cd命令</h1><ol>
@@ -885,7 +889,7 @@ public String model() &#123;
 <p><a href="https://blog.csdn.net/qq_43567345/article/details/105323795">原文链接</a></p>
 </blockquote>
 <h1 id="在-CMD-里根据进程名杀掉进程"><a href="#在-CMD-里根据进程名杀掉进程" class="headerlink" title="在 CMD 里根据进程名杀掉进程"></a>在 CMD 里根据进程名杀掉进程</h1><p>taskkill 命令</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><code class="hljs powershell">taskkill /pid 要杀死的processId，ta<span class="hljs-string">&#x27;s&#x27;</span>k<br></code></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><code class="hljs powershell">taskkill /pid 要杀死的processId，taskList命令查看<br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p><a href="https://blog.csdn.net/WPwalter/article/details/107034597">原文链接</a></p>
@@ -896,6 +900,67 @@ public String model() &#123;
       </categories>
       <tags>
         <tag>windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>快速学习时序图：时序图简介、画法及实例</title>
+    <url>/2022/05/14/UML%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="快速学习时序图：时序图简介、画法及实例"><a href="#快速学习时序图：时序图简介、画法及实例" class="headerlink" title="快速学习时序图：时序图简介、画法及实例"></a><strong>快速学习时序图：时序图简介、画法及实例</strong></h1><h2 id="组成元素有哪些？"><a href="#组成元素有哪些？" class="headerlink" title="组成元素有哪些？"></a><strong>组成元素有哪些？</strong></h2><ol>
+<li><p>角色（Actor）</p>
+</li>
+<li><p>对象（Object）</p>
+</li>
+<li><p>生命线（Lifeline）</p>
+</li>
+<li><p>控制焦点（Focus of Control）</p>
+</li>
+<li><p>消息（Message）</p>
+</li>
+<li><p>自关联消息</p>
+</li>
+<li><p>组合片段</p>
+<p>组合片段用来解决交互执行的条件和方式，它允许在序列图中直接表示逻辑组件，用于通过指定条件或子进程的应用区域，为任何生命线的任何部分定义特殊条件和子进程。组合片段共有13种，名称及含义如下：</p>
+<p><img src="http://www.uml.org.cn/oobject/images/2019092021.png"></p>
+<p>常用组合片段举例：</p>
+<ol>
+<li><p>抉择（Alt）</p>
+<p>抉择在任何场合下只发生一个序列。</p>
+<p><img src="http://www.uml.org.cn/oobject/images/2019092022.png"></p>
+</li>
+<li><p>选项（Opt）</p>
+<p>包含一个可能发生或不发生的序列；</p>
+<p><img src="http://www.uml.org.cn/oobject/images/2019092023.png"></p>
+</li>
+<li><p>循环（Loop）</p>
+<p>片段重复一定次数，可以在临界中指示片段重复的条件。</p>
+<p><img src="http://www.uml.org.cn/oobject/images/2019092024.png"></p>
+</li>
+<li><p>并行（Par）</p>
+<p><img src="http://www.uml.org.cn/oobject/images/2019092025.png"></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="时序图的画法及实例"><a href="#时序图的画法及实例" class="headerlink" title="时序图的画法及实例"></a><strong>时序图的画法及实例</strong></h2><ol>
+<li><p>划清边界，识别交互的语境</p>
+<p>所谓划清边界，就是要界定好自己所要画的时序图的范围，“学生在教务系统中查询其课程的成绩”就是所要绘制的时序图的交互内容，不用往上延伸到用户登录，也不要往下延伸到下载成绩单。</p>
+<p>识别交互的语境，即是读懂所要画的时序图的前提和背景。比如本例中，既然学生可以查询成绩，那么该学生肯定已经注册并认证过其身份，并可选择其所考试的课程查询相应成绩。</p>
+</li>
+<li><p>梳理角色和对象</p>
+<p>在本例中，角色有学生，对象有教务系统、课程、成绩。</p>
+<p>对象的梳理是一个相对主观的过程，比如本例中，课程以及成绩分别作为了对象存在，也可以合并为数据库这一个对象。</p>
+<p>请注意：角色以及对象，都为名词，动词不可作为角色和对象，如“成绩查询”不可作为对象。</p>
+<img src="http://www.uml.org.cn/oobject/images/2019092026.png" style="zoom:50%;" /></li>
+<li><p>添加消息</p>
+<p>学生的登录验证作为本时序图的前置行为，可直接引用到本时序图中，也可忽略不画；学生进入成绩查询页面后，页面会加载本学生的成绩查询课程列表，并显示出课程对应的成绩；</p>
+<img src="http://www.uml.org.cn/oobject/images/2019092027.png" style="zoom:50%;" /></li>
+</ol>
+]]></content>
+      <categories>
+        <category>大二生涯</category>
+      </categories>
+      <tags>
+        <tag>UML</tag>
       </tags>
   </entry>
   <entry>
@@ -1299,64 +1364,89 @@ public String model() &#123;
       </tags>
   </entry>
   <entry>
-    <title>快速学习时序图：时序图简介、画法及实例</title>
-    <url>/2022/05/14/UML%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<h1 id="快速学习时序图：时序图简介、画法及实例"><a href="#快速学习时序图：时序图简介、画法及实例" class="headerlink" title="快速学习时序图：时序图简介、画法及实例"></a><strong>快速学习时序图：时序图简介、画法及实例</strong></h1><h2 id="组成元素有哪些？"><a href="#组成元素有哪些？" class="headerlink" title="组成元素有哪些？"></a><strong>组成元素有哪些？</strong></h2><ol>
-<li><p>角色（Actor）</p>
-</li>
-<li><p>对象（Object）</p>
-</li>
-<li><p>生命线（Lifeline）</p>
-</li>
-<li><p>控制焦点（Focus of Control）</p>
-</li>
-<li><p>消息（Message）</p>
-</li>
-<li><p>自关联消息</p>
-</li>
-<li><p>组合片段</p>
-<p>组合片段用来解决交互执行的条件和方式，它允许在序列图中直接表示逻辑组件，用于通过指定条件或子进程的应用区域，为任何生命线的任何部分定义特殊条件和子进程。组合片段共有13种，名称及含义如下：</p>
-<p><img src="http://www.uml.org.cn/oobject/images/2019092021.png"></p>
-<p>常用组合片段举例：</p>
-<ol>
-<li><p>抉择（Alt）</p>
-<p>抉择在任何场合下只发生一个序列。</p>
-<p><img src="http://www.uml.org.cn/oobject/images/2019092022.png"></p>
-</li>
-<li><p>选项（Opt）</p>
-<p>包含一个可能发生或不发生的序列；</p>
-<p><img src="http://www.uml.org.cn/oobject/images/2019092023.png"></p>
-</li>
-<li><p>循环（Loop）</p>
-<p>片段重复一定次数，可以在临界中指示片段重复的条件。</p>
-<p><img src="http://www.uml.org.cn/oobject/images/2019092024.png"></p>
-</li>
-<li><p>并行（Par）</p>
-<p><img src="http://www.uml.org.cn/oobject/images/2019092025.png"></p>
-</li>
-</ol>
-</li>
-</ol>
-<h2 id="时序图的画法及实例"><a href="#时序图的画法及实例" class="headerlink" title="时序图的画法及实例"></a><strong>时序图的画法及实例</strong></h2><ol>
-<li><p>划清边界，识别交互的语境</p>
-<p>所谓划清边界，就是要界定好自己所要画的时序图的范围，“学生在教务系统中查询其课程的成绩”就是所要绘制的时序图的交互内容，不用往上延伸到用户登录，也不要往下延伸到下载成绩单。</p>
-<p>识别交互的语境，即是读懂所要画的时序图的前提和背景。比如本例中，既然学生可以查询成绩，那么该学生肯定已经注册并认证过其身份，并可选择其所考试的课程查询相应成绩。</p>
-</li>
-<li><p>梳理角色和对象</p>
-<p>在本例中，角色有学生，对象有教务系统、课程、成绩。</p>
-<p>对象的梳理是一个相对主观的过程，比如本例中，课程以及成绩分别作为了对象存在，也可以合并为数据库这一个对象。</p>
-<p>请注意：角色以及对象，都为名词，动词不可作为角色和对象，如“成绩查询”不可作为对象。</p>
-<img src="http://www.uml.org.cn/oobject/images/2019092026.png" style="zoom:50%;" /></li>
-<li><p>添加消息</p>
-<p>学生的登录验证作为本时序图的前置行为，可直接引用到本时序图中，也可忽略不画；学生进入成绩查询页面后，页面会加载本学生的成绩查询课程列表，并显示出课程对应的成绩；</p>
-<img src="http://www.uml.org.cn/oobject/images/2019092027.png" style="zoom:50%;" /></li>
-</ol>
+    <title>el和jstl表达式</title>
+    <url>/2022/05/27/el%E5%92%8Cjstl%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
+    <content><![CDATA[<p>el即Expression Language，用来在jsp页面上显示内容，jstl是JSP Standard Tag Library的缩写，包含多种标签，el和jstl结合使用，页面渲染更方便。</p>
+<hr>
+<h1 id="EL内置对象"><a href="#EL内置对象" class="headerlink" title="EL内置对象"></a>EL内置对象</h1><table>
+<thead>
+<tr>
+<th align="left">内置对象</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">pageScope</td>
+<td align="left">获取 page 范围的变量</td>
+</tr>
+<tr>
+<td align="left">requestScope</td>
+<td align="left">获取 request 范围的变量</td>
+</tr>
+<tr>
+<td align="left">sessionScope</td>
+<td align="left">获取 session 范围的变量</td>
+</tr>
+<tr>
+<td align="left">applicationScope</td>
+<td align="left">获取 application 范围的变量</td>
+</tr>
+<tr>
+<td align="left">param</td>
+<td align="left">相当于 request.getParameter(String name)，获取单个参数的值</td>
+</tr>
+<tr>
+<td align="left">paramValues</td>
+<td align="left">相当于 request.getParameterValues(String name)，获取参数集合中的变量值</td>
+</tr>
+<tr>
+<td align="left">header</td>
+<td align="left">相当于 request.getHeader(String name)，获取 HTTP 请求头信息</td>
+</tr>
+<tr>
+<td align="left">headerValues</td>
+<td align="left">相当于 request.getHeaders(String name)，获取 HTTP 请求头数组信息</td>
+</tr>
+<tr>
+<td align="left">initParam</td>
+<td align="left">相当于 application.getInitParameter(String name)，获取 web.xml 文件中的参数值</td>
+</tr>
+<tr>
+<td align="left">cookie</td>
+<td align="left">相当于 request.getCookies()，获取 cookie 中的值</td>
+</tr>
+<tr>
+<td align="left">pageContext</td>
+<td align="left">表示当前 JSP 页面的 pageContext 对象</td>
+</tr>
+</tbody></table>
+<p>EL 表达式获取 4 种不同范围的属性，代码如下：</p>
+<figure class="highlight jsp"><table><tr><td class="code"><pre><code class="hljs jsp">&lt;%@ page language=<span class="hljs-string">&quot;java&quot;</span> contentType=<span class="hljs-string">&quot;text/html; charset=UTF-8&quot;</span><br>    pageEncoding=<span class="hljs-string">&quot;UTF-8&quot;</span>%&gt;<br>&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;title&gt;编程帮(www.biancheng.net)&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;%<br>        pageContext.setAttribute(<span class="hljs-string">&quot;info&quot;</span>, <span class="hljs-string">&quot;page属性范围&quot;</span>);<br>        request.setAttribute(<span class="hljs-string">&quot;info&quot;</span>, <span class="hljs-string">&quot;request属性范围&quot;</span>);<br>        session.setAttribute(<span class="hljs-string">&quot;info&quot;</span>, <span class="hljs-string">&quot;session属性范围&quot;</span>);<br>        application.setAttribute(<span class="hljs-string">&quot;info&quot;</span>, <span class="hljs-string">&quot;application属性范围&quot;</span>);<br>    %&gt;<br>    &lt;h2&gt;不同属性范围的值&lt;/h2&gt;<br>    &lt;hr /&gt;<br>    不指定范围：$&#123;info&#125;<br>    &lt;br&gt; page 属性内容：$&#123;pageScope.info&#125;<br>    &lt;br&gt; request 属性内容：$&#123;requestScope.info&#125;<br>    &lt;br&gt;session 属性内容：$&#123;sessionScope.info&#125;<br>    &lt;br&gt;application 属性内容：$&#123;applicationScope.info&#125;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="jstl标签很多，笔记一下我常用到的标签"><a href="#jstl标签很多，笔记一下我常用到的标签" class="headerlink" title="jstl标签很多，笔记一下我常用到的标签"></a>jstl标签很多，笔记一下我常用到的标签</h1><p><strong>if</strong></p>
+<p>语法：</p>
+<figure class="highlight jsp"><table><tr><td class="code"><pre><code class="hljs jsp">&lt;c:<span class="hljs-keyword">if</span> test=<span class="hljs-string">&quot;$&#123;one.name eq &#x27;nick&#x27;&#125;&quot;</span>&gt;<br>                &lt;tr&gt;<br>                    &lt;td&gt;nick&lt;/td&gt;<br>                &lt;/tr&gt;<br>&lt;/c:<span class="hljs-keyword">if</span>&gt;<br></code></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>c:forEach标签</strong></p>
+<p>语法:</p>
+<figure class="highlight jsp"><table><tr><td class="code"><pre><code class="hljs jsp">&lt;c:forEach item=<span class="hljs-string">&quot;collection&quot;</span> [<span class="hljs-keyword">var</span>=<span class="hljs-string">&quot;varname&quot;</span> [varStatus=<span class="hljs-string">&quot;varstatusName&quot;</span>] [begin=<span class="hljs-string">&quot;开始&quot;</span>] [end=<span class="hljs-string">&quot;结束&quot;</span>] [step=<span class="hljs-string">&quot;step&quot;</span>]]&gt;<br>    Java程序或HTML代码<br>&lt;/c:forEach&gt;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><em><strong>items：要被循环的信息，可以是数组、Java 集合等；</strong></em></li>
+<li><em><strong>var：可选项，指定迭代之的别名；</strong></em></li>
+</ul>
+<h1 id="核心标签是最常用的-JSTL标签。引用核心标签库的语法如下："><a href="#核心标签是最常用的-JSTL标签。引用核心标签库的语法如下：" class="headerlink" title="核心标签是最常用的 JSTL标签。引用核心标签库的语法如下："></a>核心标签是最常用的 JSTL标签。引用核心标签库的语法如下：</h1><figure class="highlight jsp"><table><tr><td class="code"><pre><code class="hljs jsp">&lt;%@ taglib prefix=<span class="hljs-string">&quot;c&quot;</span> uri=<span class="hljs-string">&quot;http://java.sun.com/jsp/jstl/core&quot;</span> %&gt;<br></code></pre></td></tr></table></figure>
+
+<hr>
 ]]></content>
       <categories>
         <category>大二生涯</category>
       </categories>
       <tags>
-        <tag>UML</tag>
+        <tag>el表达式</tag>
+        <tag>jstl表达式</tag>
       </tags>
   </entry>
   <entry>
@@ -1764,92 +1854,6 @@ System.out.println(count);
       </tags>
   </entry>
   <entry>
-    <title>el和jstl表达式</title>
-    <url>/2022/05/27/el%E5%92%8Cjstl%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
-    <content><![CDATA[<p>el即Expression Language，用来在jsp页面上显示内容，jstl是JSP Standard Tag Library的缩写，包含多种标签，el和jstl结合使用，页面渲染更方便。</p>
-<hr>
-<h1 id="EL内置对象"><a href="#EL内置对象" class="headerlink" title="EL内置对象"></a>EL内置对象</h1><table>
-<thead>
-<tr>
-<th align="left">内置对象</th>
-<th align="left">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">pageScope</td>
-<td align="left">获取 page 范围的变量</td>
-</tr>
-<tr>
-<td align="left">requestScope</td>
-<td align="left">获取 request 范围的变量</td>
-</tr>
-<tr>
-<td align="left">sessionScope</td>
-<td align="left">获取 session 范围的变量</td>
-</tr>
-<tr>
-<td align="left">applicationScope</td>
-<td align="left">获取 application 范围的变量</td>
-</tr>
-<tr>
-<td align="left">param</td>
-<td align="left">相当于 request.getParameter(String name)，获取单个参数的值</td>
-</tr>
-<tr>
-<td align="left">paramValues</td>
-<td align="left">相当于 request.getParameterValues(String name)，获取参数集合中的变量值</td>
-</tr>
-<tr>
-<td align="left">header</td>
-<td align="left">相当于 request.getHeader(String name)，获取 HTTP 请求头信息</td>
-</tr>
-<tr>
-<td align="left">headerValues</td>
-<td align="left">相当于 request.getHeaders(String name)，获取 HTTP 请求头数组信息</td>
-</tr>
-<tr>
-<td align="left">initParam</td>
-<td align="left">相当于 application.getInitParameter(String name)，获取 web.xml 文件中的参数值</td>
-</tr>
-<tr>
-<td align="left">cookie</td>
-<td align="left">相当于 request.getCookies()，获取 cookie 中的值</td>
-</tr>
-<tr>
-<td align="left">pageContext</td>
-<td align="left">表示当前 JSP 页面的 pageContext 对象</td>
-</tr>
-</tbody></table>
-<p>EL 表达式获取 4 种不同范围的属性，代码如下：</p>
-<figure class="highlight jsp"><table><tr><td class="code"><pre><code class="hljs jsp">&lt;%@ page language=<span class="hljs-string">&quot;java&quot;</span> contentType=<span class="hljs-string">&quot;text/html; charset=UTF-8&quot;</span><br>    pageEncoding=<span class="hljs-string">&quot;UTF-8&quot;</span>%&gt;<br>&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>&lt;head&gt;<br>&lt;title&gt;编程帮(www.biancheng.net)&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>    &lt;%<br>        pageContext.setAttribute(<span class="hljs-string">&quot;info&quot;</span>, <span class="hljs-string">&quot;page属性范围&quot;</span>);<br>        request.setAttribute(<span class="hljs-string">&quot;info&quot;</span>, <span class="hljs-string">&quot;request属性范围&quot;</span>);<br>        session.setAttribute(<span class="hljs-string">&quot;info&quot;</span>, <span class="hljs-string">&quot;session属性范围&quot;</span>);<br>        application.setAttribute(<span class="hljs-string">&quot;info&quot;</span>, <span class="hljs-string">&quot;application属性范围&quot;</span>);<br>    %&gt;<br>    &lt;h2&gt;不同属性范围的值&lt;/h2&gt;<br>    &lt;hr /&gt;<br>    不指定范围：$&#123;info&#125;<br>    &lt;br&gt; page 属性内容：$&#123;pageScope.info&#125;<br>    &lt;br&gt; request 属性内容：$&#123;requestScope.info&#125;<br>    &lt;br&gt;session 属性内容：$&#123;sessionScope.info&#125;<br>    &lt;br&gt;application 属性内容：$&#123;applicationScope.info&#125;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></code></pre></td></tr></table></figure>
-
-<hr>
-<h1 id="jstl标签很多，笔记一下我常用到的标签"><a href="#jstl标签很多，笔记一下我常用到的标签" class="headerlink" title="jstl标签很多，笔记一下我常用到的标签"></a>jstl标签很多，笔记一下我常用到的标签</h1><p><strong>if</strong></p>
-<p>语法：</p>
-<figure class="highlight jsp"><table><tr><td class="code"><pre><code class="hljs jsp">&lt;c:<span class="hljs-keyword">if</span> test=<span class="hljs-string">&quot;$&#123;one.name eq &#x27;nick&#x27;&#125;&quot;</span>&gt;<br>                &lt;tr&gt;<br>                    &lt;td&gt;nick&lt;/td&gt;<br>                &lt;/tr&gt;<br>&lt;/c:<span class="hljs-keyword">if</span>&gt;<br></code></pre></td></tr></table></figure>
-
-<hr>
-<p><strong>c:forEach标签</strong></p>
-<p>语法:</p>
-<figure class="highlight jsp"><table><tr><td class="code"><pre><code class="hljs jsp">&lt;c:forEach item=<span class="hljs-string">&quot;collection&quot;</span> [<span class="hljs-keyword">var</span>=<span class="hljs-string">&quot;varname&quot;</span> [varStatus=<span class="hljs-string">&quot;varstatusName&quot;</span>] [begin=<span class="hljs-string">&quot;开始&quot;</span>] [end=<span class="hljs-string">&quot;结束&quot;</span>] [step=<span class="hljs-string">&quot;step&quot;</span>]]&gt;<br>    Java程序或HTML代码<br>&lt;/c:forEach&gt;<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li><em><strong>items：要被循环的信息，可以是数组、Java 集合等；</strong></em></li>
-<li><em><strong>var：可选项，指定迭代之的别名；</strong></em></li>
-</ul>
-<h1 id="核心标签是最常用的-JSTL标签。引用核心标签库的语法如下："><a href="#核心标签是最常用的-JSTL标签。引用核心标签库的语法如下：" class="headerlink" title="核心标签是最常用的 JSTL标签。引用核心标签库的语法如下："></a>核心标签是最常用的 JSTL标签。引用核心标签库的语法如下：</h1><figure class="highlight jsp"><table><tr><td class="code"><pre><code class="hljs jsp">&lt;%@ taglib prefix=<span class="hljs-string">&quot;c&quot;</span> uri=<span class="hljs-string">&quot;http://java.sun.com/jsp/jstl/core&quot;</span> %&gt;<br></code></pre></td></tr></table></figure>
-
-<hr>
-]]></content>
-      <categories>
-        <category>大二生涯</category>
-      </categories>
-      <tags>
-        <tag>el表达式</tag>
-        <tag>jstl表达式</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>springboot学习时遇到的问题</title>
     <url>/2022/05/27/springboot%E5%AD%A6%E4%B9%A0%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="SpringBoot项目搭建"><a href="#SpringBoot项目搭建" class="headerlink" title="SpringBoot项目搭建"></a>SpringBoot项目搭建</h1><ol>
@@ -1968,26 +1972,6 @@ System.out.println(count);
       <tags>
         <tag>springboot</tag>
         <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>微机原理学习记录</title>
-    <url>/2022/07/27/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h1 id="微机原理与系统设计绪论（一）"><a href="#微机原理与系统设计绪论（一）" class="headerlink" title="微机原理与系统设计绪论（一）"></a>微机原理与系统设计绪论（一）</h1><p><img src="https://s2.loli.net/2022/07/27/x7oDLf1HP2tZIEG.png" alt="image-20220727140717045"></p>
-<h1 id="微机原理与系统设计绪论（二）"><a href="#微机原理与系统设计绪论（二）" class="headerlink" title="微机原理与系统设计绪论（二）"></a>微机原理与系统设计绪论（二）</h1><p><img src="https://s2.loli.net/2022/07/27/WbcIVX2eqtz6OwN.png" alt="image-20220727145027072"></p>
-<p><img src="https://s2.loli.net/2022/07/27/ersVFv4GPxtDBbZ.png" alt="image-20220727145302088"></p>
-<p><img src="https://s2.loli.net/2022/07/27/JMdr4FqxBDk8gu2.png" alt="image-20220727145723680"></p>
-<h1 id="微机原理与系统设计绪论（四）"><a href="#微机原理与系统设计绪论（四）" class="headerlink" title="微机原理与系统设计绪论（四）"></a>微机原理与系统设计绪论（四）</h1><ul>
-<li>芯片引脚OE，英文全称为Output Enable,中文意思为输出使能端、输出允许信号。</li>
-</ul>
-<p><img src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220727180422448.png" alt="image-20220727180422448"></p>
-]]></content>
-      <categories>
-        <category>岗前实训</category>
-      </categories>
-      <tags>
-        <tag>专升本</tag>
-        <tag>微机原理</tag>
       </tags>
   </entry>
   <entry>
@@ -2316,45 +2300,6 @@ System.out.println(count);
       </tags>
   </entry>
   <entry>
-    <title>思政考试模拟题</title>
-    <url>/2022/05/30/%E6%80%9D%E6%94%BF%E8%80%83%E8%AF%95%E6%A8%A1%E6%8B%9F%E9%A2%98/</url>
-    <content><![CDATA[<ol>
-<li>中国特色社会主义进入新时代，我国社会主要矛盾已经转化为人民日益增长的<em><strong>美好生活需要和不平衡不充分的发展</strong></em>之间的矛盾。</li>
-<li>新时代推进中国特色社会主义事业的总体布局是“<em><strong>五位一体</strong></em>”</li>
-<li>战略布局是“<strong><em>四个全面</em>”</strong></li>
-<li><em><strong>战略思维</strong></em>是高瞻远瞩、统揽全局、善于把握事物发展总体趋势和方向的思维方法</li>
-<li>我们党原来提出的“三步走”战略的第三步即基本实现现代化，将提前15年，即在<em><strong>2035年</strong></em>实现。</li>
-<li><em><strong>习近平新时代中国特色社会主义经济思想</strong></em>是当代马克思主义政治经济学的集中体现，是中国特色社会主义政治经济学的最新成果。</li>
-<li>习近平总书记指出，“<em><strong>社区</strong></em>是党和政府联系、服务居民群众的‘最后一公里’。</li>
-<li>习近平同志强调，<em><strong>改革开放</strong></em>是当代中国发展进步的活力之源。</li>
-<li>党的十九大报告指出，坚持总体国家安全观，必须坚持<em><strong>国家利益至上</strong></em>。</li>
-<li>习近平：国家安全是安邦定国的重要基石，<em><strong>维护国家安全</strong></em>是全国各族人民根本利益所在。</li>
-<li>保持香港、澳门长期繁荣稳定，必须全面准确贯彻‘一国两制’、‘港人治港’、‘澳人治澳’、<em><strong>高度自治</strong></em>的方针。</li>
-<li>我们坚持<em><strong>爱国者</strong></em>为主体的“港人治港”、“澳人治澳”，让香港、澳门同胞同祖国人民共担民族复兴的历史责任、共享祖国繁荣富强的伟大荣光。</li>
-<li>党的十九大再次强调：“中国将高举和平、发展、合作、共赢的旗帜，恪守<em><strong>维护世界和平、促进共同发展的外交政策宗旨</strong></em>。</li>
-<li>习近平新时代中国特色社会主义思想的一个重要内容，弘扬和平、发展、公平、正义、民主、自由的<em><strong>全人类共同价值</strong></em>。</li>
-<li>党的十八大报告鲜明揭示了中国特色社会主义是三位一体的：即<em><strong>中国特色社会主义道路、中国特色社会主义理论体系、中国特色社会主义制度</strong>；</em></li>
-<li>新时代坚持和发展中国特色社会主义的总任务是<em><strong>实现社会主义现代化和中华民族伟大复兴</strong></em>。</li>
-<li>中国梦的本质是<em><strong>国家富强、民族振兴、人民幸福</strong></em>。</li>
-<li>实现中华民族伟大复兴的中国梦，必须弘扬中国精神，这就是<em><strong>以爱国主义为核心的民族精神和以改革创新为核心的时代精神</strong></em>。</li>
-<li>深化供给侧结构性改革、推动高质量发展，管总的要求是<em><strong>巩固、增强、提升、畅通。</strong></em></li>
-<li>检验我们一切工作的成效，最终都要看<em><strong>人民是否真正得到了实惠，人民生活是否真正得到了改善，人民权益是否真正得到了保障</strong></em>。</li>
-<li>全面深化改革的总目标，是<em><strong>完善和发展中国特色社会主义制度、推进国家治理体系和治理能力现代化</strong></em>。</li>
-<li><em><strong>实现中华民族伟大复兴是近代以来中华民族最伟大的梦想</strong></em></li>
-<li>制约我国经济发展的因素，供给和需求两侧都有，但矛盾的主要方面，在<em><strong>供给侧</strong></em>。</li>
-<li>“德治”与“法治”二者之间既是<em><strong>相互区别,又是相互依存,相互促进</strong></em>的。</li>
-<li>”一带“指的是“ 丝绸之路经济带 ”，”一路“指的是“ <em><strong>21世纪海上丝绸之路</strong></em>。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>大二生涯</category>
-      </categories>
-      <tags>
-        <tag>思政</tag>
-        <tag>考试题</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>个人博客相关问题</title>
     <url>/2022/05/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h1><ol>
@@ -2390,6 +2335,29 @@ System.out.println(count);
       </categories>
       <tags>
         <tag>博客建设</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>微机原理学习记录</title>
+    <url>/2022/07/27/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h1 id="微机原理与系统设计绪论（一）"><a href="#微机原理与系统设计绪论（一）" class="headerlink" title="微机原理与系统设计绪论（一）"></a>微机原理与系统设计绪论（一）</h1><p><img src="https://s2.loli.net/2022/07/27/x7oDLf1HP2tZIEG.png" alt="image-20220727140717045"></p>
+<h1 id="微机原理与系统设计绪论（二）"><a href="#微机原理与系统设计绪论（二）" class="headerlink" title="微机原理与系统设计绪论（二）"></a>微机原理与系统设计绪论（二）</h1><p><img src="https://s2.loli.net/2022/07/27/WbcIVX2eqtz6OwN.png" alt="image-20220727145027072"></p>
+<p><img src="https://s2.loli.net/2022/07/27/ersVFv4GPxtDBbZ.png" alt="image-20220727145302088"></p>
+<p><img src="https://s2.loli.net/2022/07/27/JMdr4FqxBDk8gu2.png" alt="image-20220727145723680"></p>
+<h1 id="微机原理与系统设计绪论（三）"><a href="#微机原理与系统设计绪论（三）" class="headerlink" title="微机原理与系统设计绪论（三）"></a>微机原理与系统设计绪论（三）</h1><ul>
+<li>芯片引脚OE，英文全称为Output Enable,中文意思为输出使能端、输出允许信号。</li>
+</ul>
+<p><img src="https://s2.loli.net/2022/07/28/ArowYjNHplU1fuh.png" alt="image-20220727180422448"></p>
+<h1 id="微机原理与系统设计绪论（四）"><a href="#微机原理与系统设计绪论（四）" class="headerlink" title="微机原理与系统设计绪论（四）"></a>微机原理与系统设计绪论（四）</h1><p><img src="https://s2.loli.net/2022/07/28/VBksfvCEeLotyXK.png" alt="image-20220728163052792"></p>
+<p><img src="https://s2.loli.net/2022/07/28/aclKtryEXjBbh3D.png" alt="image-20220728163311292"></p>
+<p><img src="https://s2.loli.net/2022/07/28/v63CxpGih2tckAS.png" alt="image-20220728163541839"></p>
+]]></content>
+      <categories>
+        <category>岗前实训</category>
+      </categories>
+      <tags>
+        <tag>专升本</tag>
+        <tag>微机原理</tag>
       </tags>
   </entry>
   <entry>
@@ -2516,32 +2484,42 @@ fileInputStream.close();
       </tags>
   </entry>
   <entry>
-    <title>用例图怎么画？附4大关系详解</title>
-    <url>/2022/05/14/%E7%94%A8%E4%BE%8B%E5%9B%BE%E6%80%8E%E4%B9%88%E7%94%BB%EF%BC%9F%E9%99%844%E5%A4%A7%E5%85%B3%E7%B3%BB%E8%AF%A6%E8%A7%A3/</url>
-    <content><![CDATA[<h1 id="用例图的定义及组成要素"><a href="#用例图的定义及组成要素" class="headerlink" title="用例图的定义及组成要素"></a>用例图的定义及组成要素</h1><p>它主要由三部分组成：<strong>参与者</strong>、<strong>用例</strong>、<strong>参与者与用例之间的关系。</strong></p>
-<p><strong>参与者：</strong>不是特指人，是指系统以外的，在使用系统或与系统交互中所扮演的角色。</p>
-<p><strong>用例：</strong>是对包括变量在内的一组动作序列的描述，系统执行这些动作，并产生传递特定参与者的价值的可观察结果。</p>
-<p><strong>关系：</strong>参与者与用例之间的关系主要包括关联、归纳（泛化）、包含、拓展和依赖。</p>
-<h1 id="参与者与用例的4种关系"><a href="#参与者与用例的4种关系" class="headerlink" title="参与者与用例的4种关系"></a>参与者与用例的4种关系</h1><ol>
-<li><h2 id="关联关系"><a href="#关联关系" class="headerlink" title="关联关系"></a><strong>关联关系</strong></h2><p><strong>举例说明：</strong>用户登录系统</p>
-<p><img src="https://pic3.zhimg.com/80/v2-830ec9e117f74c4d1a9dc1776bead9b2_720w.jpg"></p>
-</li>
-<li><h2 id="归纳（泛化）关系"><a href="#归纳（泛化）关系" class="headerlink" title="归纳（泛化）关系"></a><strong>归纳（泛化）关系</strong></h2><p><strong>举例说明：</strong>VIP会员和普通用户，归纳为用户；账号登录与微信登录，也可归纳为登录系统。</p>
-<p><img src="https://pic4.zhimg.com/80/v2-27fcca6ef7b16bdcf2cdf676d9adf7a3_720w.jpg"></p>
-</li>
-<li><h2 id="包含关系"><a href="#包含关系" class="headerlink" title="包含关系"></a><strong>包含关系</strong></h2><p><strong>举例说明：</strong>用户在账号登录过程中，包括输入账号、输入密码、确认登录等操作</p>
-<p><img src="https://pic3.zhimg.com/80/v2-d5d0914418cbeb28d987f7f2673febd2_720w.jpg"></p>
-</li>
-<li><h2 id="拓展关系"><a href="#拓展关系" class="headerlink" title="拓展关系"></a><strong>拓展关系</strong></h2><p>举例说明：用户在登录过程中忘记了密码</p>
-<p><img src="https://pic4.zhimg.com/80/v2-e05e2ae3afe5ffea1836352c547f3c13_720w.jpg"></p>
-</li>
+    <title>思政考试模拟题</title>
+    <url>/2022/05/30/%E6%80%9D%E6%94%BF%E8%80%83%E8%AF%95%E6%A8%A1%E6%8B%9F%E9%A2%98/</url>
+    <content><![CDATA[<ol>
+<li>中国特色社会主义进入新时代，我国社会主要矛盾已经转化为人民日益增长的<em><strong>美好生活需要和不平衡不充分的发展</strong></em>之间的矛盾。</li>
+<li>新时代推进中国特色社会主义事业的总体布局是“<em><strong>五位一体</strong></em>”</li>
+<li>战略布局是“<strong><em>四个全面</em>”</strong></li>
+<li><em><strong>战略思维</strong></em>是高瞻远瞩、统揽全局、善于把握事物发展总体趋势和方向的思维方法</li>
+<li>我们党原来提出的“三步走”战略的第三步即基本实现现代化，将提前15年，即在<em><strong>2035年</strong></em>实现。</li>
+<li><em><strong>习近平新时代中国特色社会主义经济思想</strong></em>是当代马克思主义政治经济学的集中体现，是中国特色社会主义政治经济学的最新成果。</li>
+<li>习近平总书记指出，“<em><strong>社区</strong></em>是党和政府联系、服务居民群众的‘最后一公里’。</li>
+<li>习近平同志强调，<em><strong>改革开放</strong></em>是当代中国发展进步的活力之源。</li>
+<li>党的十九大报告指出，坚持总体国家安全观，必须坚持<em><strong>国家利益至上</strong></em>。</li>
+<li>习近平：国家安全是安邦定国的重要基石，<em><strong>维护国家安全</strong></em>是全国各族人民根本利益所在。</li>
+<li>保持香港、澳门长期繁荣稳定，必须全面准确贯彻‘一国两制’、‘港人治港’、‘澳人治澳’、<em><strong>高度自治</strong></em>的方针。</li>
+<li>我们坚持<em><strong>爱国者</strong></em>为主体的“港人治港”、“澳人治澳”，让香港、澳门同胞同祖国人民共担民族复兴的历史责任、共享祖国繁荣富强的伟大荣光。</li>
+<li>党的十九大再次强调：“中国将高举和平、发展、合作、共赢的旗帜，恪守<em><strong>维护世界和平、促进共同发展的外交政策宗旨</strong></em>。</li>
+<li>习近平新时代中国特色社会主义思想的一个重要内容，弘扬和平、发展、公平、正义、民主、自由的<em><strong>全人类共同价值</strong></em>。</li>
+<li>党的十八大报告鲜明揭示了中国特色社会主义是三位一体的：即<em><strong>中国特色社会主义道路、中国特色社会主义理论体系、中国特色社会主义制度</strong>；</em></li>
+<li>新时代坚持和发展中国特色社会主义的总任务是<em><strong>实现社会主义现代化和中华民族伟大复兴</strong></em>。</li>
+<li>中国梦的本质是<em><strong>国家富强、民族振兴、人民幸福</strong></em>。</li>
+<li>实现中华民族伟大复兴的中国梦，必须弘扬中国精神，这就是<em><strong>以爱国主义为核心的民族精神和以改革创新为核心的时代精神</strong></em>。</li>
+<li>深化供给侧结构性改革、推动高质量发展，管总的要求是<em><strong>巩固、增强、提升、畅通。</strong></em></li>
+<li>检验我们一切工作的成效，最终都要看<em><strong>人民是否真正得到了实惠，人民生活是否真正得到了改善，人民权益是否真正得到了保障</strong></em>。</li>
+<li>全面深化改革的总目标，是<em><strong>完善和发展中国特色社会主义制度、推进国家治理体系和治理能力现代化</strong></em>。</li>
+<li><em><strong>实现中华民族伟大复兴是近代以来中华民族最伟大的梦想</strong></em></li>
+<li>制约我国经济发展的因素，供给和需求两侧都有，但矛盾的主要方面，在<em><strong>供给侧</strong></em>。</li>
+<li>“德治”与“法治”二者之间既是<em><strong>相互区别,又是相互依存,相互促进</strong></em>的。</li>
+<li>”一带“指的是“ 丝绸之路经济带 ”，”一路“指的是“ <em><strong>21世纪海上丝绸之路</strong></em>。</li>
 </ol>
 ]]></content>
       <categories>
         <category>大二生涯</category>
       </categories>
       <tags>
-        <tag>UML</tag>
+        <tag>思政</tag>
+        <tag>考试题</tag>
       </tags>
   </entry>
   <entry>
@@ -2909,6 +2887,174 @@ fileInputStream.close();
         <tag>Java</tag>
         <tag>MySQL</tag>
         <tag>MySQL事务</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>高等数学</title>
+    <url>/2022/07/28/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/</url>
+    <content><![CDATA[<h1 id="微分方程通解公式"><a href="#微分方程通解公式" class="headerlink" title="微分方程通解公式"></a>微分方程通解公式</h1><ol>
+<li><p>一阶微分方程</p>
+<ul>
+<li>齐次<br>$$<br>Ce^{-\int p(x)dx}<br>$$</li>
+<li>非齐次<br>$$<br>e^{-\int p(x)dx}[\int q(x)e^{\int p(x)dx}dx + C]<br>$$</li>
+</ul>
+</li>
+<li><p>二阶微分方程</p>
+<ul>
+<li><p>齐次</p>
+<ul>
+<li><p>特征方程r1!=r2<br>$$<br>C_1e^{r_1x}+C_2e^{r_2x}<br>$$</p>
+</li>
+<li><p>特征方程r1=r2=r<br>$$<br>(C_1+C_2x)e^{rx}<br>$$</p>
+</li>
+<li><p>特征方程$\alpha \pm i \beta$<br>$$<br>e^{ax}(c_1\cos\beta+c_2\sin\beta)<br>$$</p>
+</li>
+</ul>
+</li>
+<li><p>非齐次</p>
+<p>求解非齐次方程，需要求出其对应齐次方程的通解$Y$，再加上特解$y^*$</p>
+<ul>
+<li><p>$q(x)$形式$P_n(x)$</p>
+<table>
+<thead>
+<tr>
+<th>特征方程解的形式</th>
+<th>设特解形式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0不是特征方程的根</td>
+<td>$R_nx$</td>
+</tr>
+<tr>
+<td>0是特征方程的单根</td>
+<td>$xR_nx$</td>
+</tr>
+<tr>
+<td>0是特征方程的重根</td>
+<td>$x^2R_nx$</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>q(x)形式$P_n(x)e^{ax}$</p>
+<table>
+<thead>
+<tr>
+<th>特征方程解的形式</th>
+<th>设特解形式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\alpha$不是特征方程的根</td>
+<td>$e^{\alpha x}R_nx$</td>
+</tr>
+<tr>
+<td>$\alpha$是特征方程的单根</td>
+<td>$xe^{\alpha x}R_nx$</td>
+</tr>
+<tr>
+<td>$\alpha$是特征方程的重根</td>
+<td>$x^2e^{\alpha x}R_nx$</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>$q(x)$形式$e^{\alpha x}(a\cos x+b\sin x)$</p>
+<table>
+<thead>
+<tr>
+<th>特征方程解的形式</th>
+<th>设特解形式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\alpha\pm i\beta$不是特征方程的根</td>
+<td>$e^{\alpha x}(A\cos\beta x+B\sin\beta x)$</td>
+</tr>
+<tr>
+<td>$\alpha\pm i\beta$是特征方程的根</td>
+<td>$xe^{\alpha x}(A\cos\beta x+B\sin\beta x)$</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="奇偶函数的判别公式"><a href="#奇偶函数的判别公式" class="headerlink" title="奇偶函数的判别公式"></a>奇偶函数的判别公式</h1><ul>
+<li><p>奇函数<br>$$<br>f(-x) = -f(x)<br>$$</p>
+</li>
+<li><p>偶函数<br>$$<br>f(-x) = f(x)<br>$$</p>
+</li>
+</ul>
+<h1 id="奇偶函数的加减乘除"><a href="#奇偶函数的加减乘除" class="headerlink" title="奇偶函数的加减乘除"></a>奇偶函数的加减乘除</h1><table>
+<thead>
+<tr>
+<th>参与计算的函数</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>奇函数$\pm$偶函数</td>
+<td>非奇非偶函数</td>
+</tr>
+<tr>
+<td>奇函数$\pm$奇函数</td>
+<td>奇函数</td>
+</tr>
+<tr>
+<td>偶函数$\pm$偶函数</td>
+<td>偶函数</td>
+</tr>
+<tr>
+<td>奇函数$\times/$偶函数</td>
+<td>奇函数</td>
+</tr>
+<tr>
+<td>奇函数$\times/$奇函数</td>
+<td>偶函数</td>
+</tr>
+<tr>
+<td>偶函数$\times/$偶函数</td>
+<td>偶函数</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>岗前实训</category>
+      </categories>
+      <tags>
+        <tag>专升本</tag>
+        <tag>高等数学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>用例图怎么画？附4大关系详解</title>
+    <url>/2022/05/14/%E7%94%A8%E4%BE%8B%E5%9B%BE%E6%80%8E%E4%B9%88%E7%94%BB%EF%BC%9F%E9%99%844%E5%A4%A7%E5%85%B3%E7%B3%BB%E8%AF%A6%E8%A7%A3/</url>
+    <content><![CDATA[<h1 id="用例图的定义及组成要素"><a href="#用例图的定义及组成要素" class="headerlink" title="用例图的定义及组成要素"></a>用例图的定义及组成要素</h1><p>它主要由三部分组成：<strong>参与者</strong>、<strong>用例</strong>、<strong>参与者与用例之间的关系。</strong></p>
+<p><strong>参与者：</strong>不是特指人，是指系统以外的，在使用系统或与系统交互中所扮演的角色。</p>
+<p><strong>用例：</strong>是对包括变量在内的一组动作序列的描述，系统执行这些动作，并产生传递特定参与者的价值的可观察结果。</p>
+<p><strong>关系：</strong>参与者与用例之间的关系主要包括关联、归纳（泛化）、包含、拓展和依赖。</p>
+<h1 id="参与者与用例的4种关系"><a href="#参与者与用例的4种关系" class="headerlink" title="参与者与用例的4种关系"></a>参与者与用例的4种关系</h1><ol>
+<li><h2 id="关联关系"><a href="#关联关系" class="headerlink" title="关联关系"></a><strong>关联关系</strong></h2><p><strong>举例说明：</strong>用户登录系统</p>
+<p><img src="https://pic3.zhimg.com/80/v2-830ec9e117f74c4d1a9dc1776bead9b2_720w.jpg"></p>
+</li>
+<li><h2 id="归纳（泛化）关系"><a href="#归纳（泛化）关系" class="headerlink" title="归纳（泛化）关系"></a><strong>归纳（泛化）关系</strong></h2><p><strong>举例说明：</strong>VIP会员和普通用户，归纳为用户；账号登录与微信登录，也可归纳为登录系统。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-27fcca6ef7b16bdcf2cdf676d9adf7a3_720w.jpg"></p>
+</li>
+<li><h2 id="包含关系"><a href="#包含关系" class="headerlink" title="包含关系"></a><strong>包含关系</strong></h2><p><strong>举例说明：</strong>用户在账号登录过程中，包括输入账号、输入密码、确认登录等操作</p>
+<p><img src="https://pic3.zhimg.com/80/v2-d5d0914418cbeb28d987f7f2673febd2_720w.jpg"></p>
+</li>
+<li><h2 id="拓展关系"><a href="#拓展关系" class="headerlink" title="拓展关系"></a><strong>拓展关系</strong></h2><p>举例说明：用户在登录过程中忘记了密码</p>
+<p><img src="https://pic4.zhimg.com/80/v2-e05e2ae3afe5ffea1836352c547f3c13_720w.jpg"></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>大二生涯</category>
+      </categories>
+      <tags>
+        <tag>UML</tag>
       </tags>
   </entry>
 </search>
