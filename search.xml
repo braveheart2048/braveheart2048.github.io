@@ -128,6 +128,69 @@ href="https://blog.csdn.net/TTTZZZTTTZZZ/article/details/87015708">原文链接<
       </tags>
   </entry>
   <entry>
+    <title>Java多线程学习总结</title>
+    <url>/2022/07/15/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h1 id="多线程的实现方式">多线程的实现方式</h1>
+<h2 id="通过实现-runnable-接口">通过实现 Runnable 接口</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.ruanyuan;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * TODO</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@ClassName</span> TestThread</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Author</span> Alfa</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Data</span> 2022/7/14 15:43</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Version</span> 1.0</span><br><span class="hljs-comment"> **/</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestThread</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        RunnableDemo demo = <span class="hljs-keyword">new</span> RunnableDemo();<br>        <span class="hljs-keyword">new</span> Thread(demo).start();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++) &#123;<br>            System.out.println(<span class="hljs-string">&quot;主线程&quot;</span>);<br>        &#125;<br>    &#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RunnableDemo</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Runnable</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++) &#123;<br>            System.out.println(<span class="hljs-string">&quot;子线程--&quot;</span>+Thread.currentThread().getName());<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>推荐使用Runnable对象,因为Java单继承的局限性</p>
+</blockquote>
+<h2 id="通过继承-thread-类本身">通过继承 Thread 类本身</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.ruanyuan;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * TODO</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@ClassName</span> TestThread</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Author</span> Alfa</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Data</span> 2022/7/14 15:43</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Version</span> 1.0</span><br><span class="hljs-comment"> **/</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestThread</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        ThreadRDemo demo = <span class="hljs-keyword">new</span> ThreadRDemo();<br>        demo.start();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++) &#123;<br>            System.out.println(<span class="hljs-string">&quot;主线程&quot;</span>);<br>        &#125;<br>    &#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ThreadRDemo</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++) &#123;<br>            System.out.println(<span class="hljs-string">&quot;子线程--&quot;</span>+Thread.currentThread().getName());<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h1 id="线程同步">线程同步</h1>
+<h2 id="线程安全案例一">线程安全案例一</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.ruanyuan;<br><br><span class="hljs-keyword">import</span> java.util.ArrayList;<br><span class="hljs-keyword">import</span> java.util.List;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * TODO</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@ClassName</span> TestThread</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Author</span> Alfa</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Data</span> 2022/7/14 15:43</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Version</span> 1.0</span><br><span class="hljs-comment"> **/</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestThread</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-comment">//ArrayList线程不安全案例</span><br>        List&lt;String&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>        <span class="hljs-comment">//开启一万个线程操作list</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10000</span>; i++) &#123;<br>            <span class="hljs-keyword">new</span> Thread(() -&gt; &#123;<br>                list.add(Thread.currentThread().getName());<br>            &#125;).start();<br>        &#125;<br>        <span class="hljs-comment">// 主线程睡眠三秒，等待一万个子线程执行完毕</span><br>        <span class="hljs-keyword">try</span> &#123;<br>            Thread.sleep(<span class="hljs-number">3000</span>);<br>        &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>            e.printStackTrace();<br>        &#125;<br>        System.out.println(list.size());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure>
+<img src="https://s2.loli.net/2022/07/14/tOSoZzuWDVYLpRF.png"
+alt="image-20220714163801117" />
+<figcaption aria-hidden="true">image-20220714163801117</figcaption>
+</figure>
+<blockquote>
+<p>并发太快，对集合的操作有的重复在了一个位置。</p>
+</blockquote>
+<h3 id="同步代码块">同步代码块</h3>
+<figure>
+<img src="https://s2.loli.net/2022/07/14/RNAzUJGmtpivfFc.png"
+alt="image-20220714171307635" />
+<figcaption aria-hidden="true">image-20220714171307635</figcaption>
+</figure>
+<h2 id="线程安全案例二">线程安全案例二</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.ruanyuan;<br><br><span class="hljs-comment">//不安全买票</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestThread</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        BuyTicket buyTicket = <span class="hljs-keyword">new</span> BuyTicket();<br>        <span class="hljs-keyword">new</span> Thread(buyTicket, <span class="hljs-string">&quot;张三&quot;</span>).start();<br>        <span class="hljs-keyword">new</span> Thread(buyTicket, <span class="hljs-string">&quot;李四&quot;</span>).start();<br>        <span class="hljs-keyword">new</span> Thread(buyTicket, <span class="hljs-string">&quot;王五&quot;</span>).start();<br>    &#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BuyTicket</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Runnable</span> </span>&#123;<br>    <span class="hljs-comment">//票</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> ticketNums = <span class="hljs-number">10</span>;<br>    <span class="hljs-keyword">boolean</span> flag = <span class="hljs-keyword">true</span>;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-comment">//买票</span><br>        <span class="hljs-keyword">while</span> (flag) &#123;<br>            <span class="hljs-keyword">try</span> &#123;<br>                buy();<br>            &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>                e.printStackTrace();<br>            &#125;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">//买票</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">buy</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-comment">//判断是否有票</span><br>        <span class="hljs-keyword">if</span> (ticketNums &lt;= <span class="hljs-number">0</span>) &#123;<br>            flag = <span class="hljs-keyword">false</span>;<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        <span class="hljs-comment">//延迟</span><br>        <span class="hljs-keyword">try</span> &#123;<br>            Thread.sleep(<span class="hljs-number">1</span>);<br>        &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>            e.printStackTrace();<br>        &#125;<br><br>        <span class="hljs-comment">//买票</span><br>        System.out.println(Thread.currentThread().getName() + <span class="hljs-string">&quot;拿到&quot;</span> + ticketNums--);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure>
+<img src="https://s2.loli.net/2022/07/14/PONuIji8S3sJUqk.png"
+alt="image-20220714172648484" />
+<figcaption aria-hidden="true">image-20220714172648484</figcaption>
+</figure>
+<h3 id="同步方法">同步方法</h3>
+<figure>
+<img src="https://s2.loli.net/2022/07/14/sHcwK3rkeDSmxGA.png"
+alt="image-20220714173011580" />
+<figcaption aria-hidden="true">image-20220714173011580</figcaption>
+</figure>
+<h1 id="死锁">死锁</h1>
+<h2 id="案例">案例</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.ruanyuan;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 死锁:多个线程互相抱着对方需要的资源,然后形成僵持</span><br><span class="hljs-comment"> * 解决:一个锁只锁一个对象</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DeadLock</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        MakeUp g1 = <span class="hljs-keyword">new</span> MakeUp(<span class="hljs-number">0</span>, <span class="hljs-string">&quot;灰姑娘&quot;</span>);<br>        MakeUp g2 = <span class="hljs-keyword">new</span> MakeUp(<span class="hljs-number">1</span>,<span class="hljs-string">&quot;白雪公主&quot;</span>);<br><br>        g1.start();<br>        g2.start();<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">//口红</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LipStick</span></span>&#123;<br><br>&#125;<br><br><span class="hljs-comment">//镜子</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Mirror</span></span>&#123;<br><br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MakeUp</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span></span>&#123;<br>	<span class="hljs-comment">//需要的资源只有一份,用static保证只有一份</span><br>    <span class="hljs-keyword">static</span> LipStick lipStick = <span class="hljs-keyword">new</span> LipStick();<br>    <span class="hljs-keyword">static</span> Mirror mirror = <span class="hljs-keyword">new</span> Mirror();<br>	<br>    <span class="hljs-comment">//选择</span><br>    <span class="hljs-keyword">int</span> choice;<br>    <span class="hljs-comment">//使用化妆品的人	</span><br>    String girlName;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MakeUp</span><span class="hljs-params">(<span class="hljs-keyword">int</span> choice, String girlName)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.choice = choice;<br>        <span class="hljs-keyword">this</span>.girlName = girlName;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-comment">//化妆</span><br>        makeup();<br>    &#125;<br><br>    <span class="hljs-comment">//化妆，互相持有对方的锁</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">makeup</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">if</span> (choice == <span class="hljs-number">0</span>)<br>        &#123;<br>            <span class="hljs-keyword">synchronized</span> (lipStick) &#123;<br>                <span class="hljs-comment">// 获得口红的锁</span><br>                System.out.println(<span class="hljs-keyword">this</span>.girlName+<span class="hljs-string">&quot;获得口红的锁&quot;</span>);<br>                <span class="hljs-keyword">try</span> &#123;<br>                    Thread.sleep(<span class="hljs-number">1000</span>);<br>                &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>                    e.printStackTrace();<br>                &#125;<br>                <span class="hljs-keyword">synchronized</span> (mirror) &#123;<br>                    <span class="hljs-comment">//一秒钟后想要获得镜子</span><br>                    System.out.println(<span class="hljs-keyword">this</span>.girlName+<span class="hljs-string">&quot;获得镜子的锁&quot;</span>);<br>                &#125;<br>            &#125;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">synchronized</span> (mirror) &#123;<br>                <span class="hljs-comment">// 获得镜子的锁</span><br>                System.out.println(<span class="hljs-keyword">this</span>.girlName+<span class="hljs-string">&quot;获得镜子的锁&quot;</span>);<br>                <span class="hljs-keyword">try</span> &#123;<br>                    Thread.sleep(<span class="hljs-number">2000</span>);<br>                &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>                    e.printStackTrace();<br>                &#125;<br>                <span class="hljs-keyword">synchronized</span> (lipStick) &#123;<br>                    <span class="hljs-comment">//两秒钟后想要获得镜子</span><br>                    System.out.println(<span class="hljs-keyword">this</span>.girlName+<span class="hljs-string">&quot;获得口红的锁&quot;</span>);<br>                &#125;<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="解决">解决</h2>
+<figure>
+<img src="https://s2.loli.net/2022/07/15/nBF4oYs2OhGwtSr.png"
+alt="image-20220715092321508" />
+<figcaption aria-hidden="true">image-20220715092321508</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2022/07/15/2WTCHlyvpXYfZm5.png"
+alt="image-20220715092603663" />
+<figcaption aria-hidden="true">image-20220715092603663</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>岗前实训</category>
+      </categories>
+      <tags>
+        <tag>Java多线程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java面试题学习整理</title>
     <url>/2022/06/11/Java%E9%9D%A2%E8%AF%95%E9%A2%98%E5%AD%A6%E4%B9%A0%E6%95%B4%E7%90%86/</url>
     <content><![CDATA[<h1 id="第一模块java-基础">第一模块Java 基础</h1>
@@ -522,66 +585,44 @@ id="try-catch-finally-中如果-catch-中-return-了finally-还会执行吗">try
       </tags>
   </entry>
   <entry>
-    <title>Java多线程学习总结</title>
-    <url>/2022/07/15/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h1 id="多线程的实现方式">多线程的实现方式</h1>
-<h2 id="通过实现-runnable-接口">通过实现 Runnable 接口</h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.ruanyuan;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * TODO</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@ClassName</span> TestThread</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Author</span> Alfa</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Data</span> 2022/7/14 15:43</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Version</span> 1.0</span><br><span class="hljs-comment"> **/</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestThread</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        RunnableDemo demo = <span class="hljs-keyword">new</span> RunnableDemo();<br>        <span class="hljs-keyword">new</span> Thread(demo).start();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++) &#123;<br>            System.out.println(<span class="hljs-string">&quot;主线程&quot;</span>);<br>        &#125;<br>    &#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RunnableDemo</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Runnable</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++) &#123;<br>            System.out.println(<span class="hljs-string">&quot;子线程--&quot;</span>+Thread.currentThread().getName());<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-<blockquote>
-<p>推荐使用Runnable对象,因为Java单继承的局限性</p>
-</blockquote>
-<h2 id="通过继承-thread-类本身">通过继承 Thread 类本身</h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.ruanyuan;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * TODO</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@ClassName</span> TestThread</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Author</span> Alfa</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Data</span> 2022/7/14 15:43</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Version</span> 1.0</span><br><span class="hljs-comment"> **/</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestThread</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        ThreadRDemo demo = <span class="hljs-keyword">new</span> ThreadRDemo();<br>        demo.start();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++) &#123;<br>            System.out.println(<span class="hljs-string">&quot;主线程&quot;</span>);<br>        &#125;<br>    &#125;<br>&#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ThreadRDemo</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++) &#123;<br>            System.out.println(<span class="hljs-string">&quot;子线程--&quot;</span>+Thread.currentThread().getName());<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h1 id="线程同步">线程同步</h1>
-<h2 id="线程安全案例一">线程安全案例一</h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.ruanyuan;<br><br><span class="hljs-keyword">import</span> java.util.ArrayList;<br><span class="hljs-keyword">import</span> java.util.List;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * TODO</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@ClassName</span> TestThread</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Author</span> Alfa</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Data</span> 2022/7/14 15:43</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Version</span> 1.0</span><br><span class="hljs-comment"> **/</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestThread</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-comment">//ArrayList线程不安全案例</span><br>        List&lt;String&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>        <span class="hljs-comment">//开启一万个线程操作list</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10000</span>; i++) &#123;<br>            <span class="hljs-keyword">new</span> Thread(() -&gt; &#123;<br>                list.add(Thread.currentThread().getName());<br>            &#125;).start();<br>        &#125;<br>        <span class="hljs-comment">// 主线程睡眠三秒，等待一万个子线程执行完毕</span><br>        <span class="hljs-keyword">try</span> &#123;<br>            Thread.sleep(<span class="hljs-number">3000</span>);<br>        &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>            e.printStackTrace();<br>        &#125;<br>        System.out.println(list.size());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-<figure>
-<img src="https://s2.loli.net/2022/07/14/tOSoZzuWDVYLpRF.png"
-alt="image-20220714163801117" />
-<figcaption aria-hidden="true">image-20220714163801117</figcaption>
+    <title>Redis学习整理</title>
+    <url>/2022/06/09/Redis%20%E5%AD%A6%E4%B9%A0%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<h1 id="打开redis">打开redis</h1>
+<ol type="1">
+<li><figure>
+<img
+src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220620110123304.png"
+alt="image-20220620110123304" />
+<figcaption aria-hidden="true">image-20220620110123304</figcaption>
 </figure>
 <blockquote>
-<p>并发太快，对集合的操作有的重复在了一个位置。</p>
-</blockquote>
-<h3 id="同步代码块">同步代码块</h3>
+<p>这时候另启一个 cmd 窗口，原来的不要关闭，不然就无法访问服务端了。</p>
+</blockquote></li>
+<li><figure>
+<img
+src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220620110253220.png"
+alt="image-20220620110253220" />
+<figcaption aria-hidden="true">image-20220620110253220</figcaption>
+</figure></li>
+</ol>
+<h1
+id="我们可以通过以下命令查看是否设置了密码验证">我们可以通过以下命令查看是否设置了密码验证</h1>
+<figure class="highlight apache"><table><tr><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">127</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">1</span>:<span class="hljs-number">6379</span>&gt; CONFIG get requirepass<br><span class="hljs-attribute">1</span>) <span class="hljs-string">&quot;requirepass&quot;</span><br><span class="hljs-attribute">2</span>) <span class="hljs-string">&quot;&quot;</span><br></code></pre></td></tr></table></figure>
+<p>默认情况下 requirepass
+参数是空的，这就意味着你无需通过密码验证就可以连接到 redis 服务。</p>
+<h1
+id="rdm-redis可视化工具编辑redis连接信息">RDM-Redis可视化工具编辑Redis连接信息</h1>
 <figure>
-<img src="https://s2.loli.net/2022/07/14/RNAzUJGmtpivfFc.png"
-alt="image-20220714171307635" />
-<figcaption aria-hidden="true">image-20220714171307635</figcaption>
-</figure>
-<h2 id="线程安全案例二">线程安全案例二</h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.ruanyuan;<br><br><span class="hljs-comment">//不安全买票</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestThread</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        BuyTicket buyTicket = <span class="hljs-keyword">new</span> BuyTicket();<br>        <span class="hljs-keyword">new</span> Thread(buyTicket, <span class="hljs-string">&quot;张三&quot;</span>).start();<br>        <span class="hljs-keyword">new</span> Thread(buyTicket, <span class="hljs-string">&quot;李四&quot;</span>).start();<br>        <span class="hljs-keyword">new</span> Thread(buyTicket, <span class="hljs-string">&quot;王五&quot;</span>).start();<br>    &#125;<br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BuyTicket</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Runnable</span> </span>&#123;<br>    <span class="hljs-comment">//票</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> ticketNums = <span class="hljs-number">10</span>;<br>    <span class="hljs-keyword">boolean</span> flag = <span class="hljs-keyword">true</span>;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-comment">//买票</span><br>        <span class="hljs-keyword">while</span> (flag) &#123;<br>            <span class="hljs-keyword">try</span> &#123;<br>                buy();<br>            &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>                e.printStackTrace();<br>            &#125;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">//买票</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">buy</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-comment">//判断是否有票</span><br>        <span class="hljs-keyword">if</span> (ticketNums &lt;= <span class="hljs-number">0</span>) &#123;<br>            flag = <span class="hljs-keyword">false</span>;<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        <span class="hljs-comment">//延迟</span><br>        <span class="hljs-keyword">try</span> &#123;<br>            Thread.sleep(<span class="hljs-number">1</span>);<br>        &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>            e.printStackTrace();<br>        &#125;<br><br>        <span class="hljs-comment">//买票</span><br>        System.out.println(Thread.currentThread().getName() + <span class="hljs-string">&quot;拿到&quot;</span> + ticketNums--);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-<figure>
-<img src="https://s2.loli.net/2022/07/14/PONuIji8S3sJUqk.png"
-alt="image-20220714172648484" />
-<figcaption aria-hidden="true">image-20220714172648484</figcaption>
-</figure>
-<h3 id="同步方法">同步方法</h3>
-<figure>
-<img src="https://s2.loli.net/2022/07/14/sHcwK3rkeDSmxGA.png"
-alt="image-20220714173011580" />
-<figcaption aria-hidden="true">image-20220714173011580</figcaption>
-</figure>
-<h1 id="死锁">死锁</h1>
-<h2 id="案例">案例</h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.ruanyuan;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 死锁:多个线程互相抱着对方需要的资源,然后形成僵持</span><br><span class="hljs-comment"> * 解决:一个锁只锁一个对象</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DeadLock</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        MakeUp g1 = <span class="hljs-keyword">new</span> MakeUp(<span class="hljs-number">0</span>, <span class="hljs-string">&quot;灰姑娘&quot;</span>);<br>        MakeUp g2 = <span class="hljs-keyword">new</span> MakeUp(<span class="hljs-number">1</span>,<span class="hljs-string">&quot;白雪公主&quot;</span>);<br><br>        g1.start();<br>        g2.start();<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">//口红</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LipStick</span></span>&#123;<br><br>&#125;<br><br><span class="hljs-comment">//镜子</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Mirror</span></span>&#123;<br><br>&#125;<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MakeUp</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span></span>&#123;<br>	<span class="hljs-comment">//需要的资源只有一份,用static保证只有一份</span><br>    <span class="hljs-keyword">static</span> LipStick lipStick = <span class="hljs-keyword">new</span> LipStick();<br>    <span class="hljs-keyword">static</span> Mirror mirror = <span class="hljs-keyword">new</span> Mirror();<br>	<br>    <span class="hljs-comment">//选择</span><br>    <span class="hljs-keyword">int</span> choice;<br>    <span class="hljs-comment">//使用化妆品的人	</span><br>    String girlName;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MakeUp</span><span class="hljs-params">(<span class="hljs-keyword">int</span> choice, String girlName)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.choice = choice;<br>        <span class="hljs-keyword">this</span>.girlName = girlName;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-comment">//化妆</span><br>        makeup();<br>    &#125;<br><br>    <span class="hljs-comment">//化妆，互相持有对方的锁</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">makeup</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">if</span> (choice == <span class="hljs-number">0</span>)<br>        &#123;<br>            <span class="hljs-keyword">synchronized</span> (lipStick) &#123;<br>                <span class="hljs-comment">// 获得口红的锁</span><br>                System.out.println(<span class="hljs-keyword">this</span>.girlName+<span class="hljs-string">&quot;获得口红的锁&quot;</span>);<br>                <span class="hljs-keyword">try</span> &#123;<br>                    Thread.sleep(<span class="hljs-number">1000</span>);<br>                &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>                    e.printStackTrace();<br>                &#125;<br>                <span class="hljs-keyword">synchronized</span> (mirror) &#123;<br>                    <span class="hljs-comment">//一秒钟后想要获得镜子</span><br>                    System.out.println(<span class="hljs-keyword">this</span>.girlName+<span class="hljs-string">&quot;获得镜子的锁&quot;</span>);<br>                &#125;<br>            &#125;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">synchronized</span> (mirror) &#123;<br>                <span class="hljs-comment">// 获得镜子的锁</span><br>                System.out.println(<span class="hljs-keyword">this</span>.girlName+<span class="hljs-string">&quot;获得镜子的锁&quot;</span>);<br>                <span class="hljs-keyword">try</span> &#123;<br>                    Thread.sleep(<span class="hljs-number">2000</span>);<br>                &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>                    e.printStackTrace();<br>                &#125;<br>                <span class="hljs-keyword">synchronized</span> (lipStick) &#123;<br>                    <span class="hljs-comment">//两秒钟后想要获得镜子</span><br>                    System.out.println(<span class="hljs-keyword">this</span>.girlName+<span class="hljs-string">&quot;获得口红的锁&quot;</span>);<br>                &#125;<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h2 id="解决">解决</h2>
-<figure>
-<img src="https://s2.loli.net/2022/07/15/nBF4oYs2OhGwtSr.png"
-alt="image-20220715092321508" />
-<figcaption aria-hidden="true">image-20220715092321508</figcaption>
-</figure>
-<figure>
-<img src="https://s2.loli.net/2022/07/15/2WTCHlyvpXYfZm5.png"
-alt="image-20220715092603663" />
-<figcaption aria-hidden="true">image-20220715092603663</figcaption>
+<img src="https://s2.loli.net/2022/07/12/iwD3V6vFt5jzKuI.png"
+alt="image-20220712152846004" />
+<figcaption aria-hidden="true">image-20220712152846004</figcaption>
 </figure>
 ]]></content>
       <categories>
-        <category>岗前实训</category>
+        <category>大二生涯</category>
       </categories>
       <tags>
-        <tag>Java多线程</tag>
+        <tag>redis</tag>
       </tags>
   </entry>
   <entry>
@@ -697,62 +738,6 @@ id="mysql数据库中查看数据库的字符集">mysql数据库中,查看数据
       </categories>
       <tags>
         <tag>MySql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SpringAOP学习整理</title>
-    <url>/2022/05/14/SpringAOP%E5%AD%A6%E4%B9%A0%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<meta name="referrer" content="no-referrer"/>
-<h1 id="对aop的初印象">对AOP的初印象</h1>
-<p><img
-src="https://img-blog.csdn.net/20180530172528617?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3E5ODIxNTE3NTY=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" /></p>
-<h1 id="aop中的相关概念">AOP中的相关概念</h1>
-<ul>
-<li><p>Aspect（切面）： Aspect 声明类似于 Java 中的类声明，在 Aspect
-中会包含着一些 Pointcut 以及相应的 Advice。</p></li>
-<li><p>Joint
-point（连接点）：表示在程序中明确定义的点，典型的包括方法调用，对类成员的访问以及异常处理程序块的执行等等，它自身还可以嵌套其它
-joint point。</p></li>
-<li><p>Pointcut（切点）：表示一组 joint point，这些 joint point
-或是通过逻辑关系组合起来，或是通过通配、正则表达式等方式集中起来，它定义了相应的
-Advice 将要发生的地方。</p></li>
-<li><p>Advice（增强）：Advice 定义了在 Pointcut
-里面定义的程序点具体要做的操作，它通过 before、after 和 around
-来区别是在每个 joint point 之前、之后还是代替执行的代码。</p></li>
-<li><p>Target（目标对象）：织入 Advice 的目标对象.。</p></li>
-<li><p>Weaving（织入）：将 Aspect 和其他对象连接起来, 并创建 Adviced
-object 的过程</p>
-<p><img src="https://img-blog.csdn.net/20180530175605692?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3E5ODIxNTE3NTY=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" style="zoom: 67%;" /></p></li>
-</ul>
-<h1 id="advice-的类型">Advice 的类型</h1>
-<ul>
-<li>before advice, 在 join point 前被执行的 advice. 虽然 before advice
-是在 join point 前被执行, 但是它并不能够阻止 join point 的执行,
-除非发生了异常(即我们在 before advice 代码中, 不能人为地决定是否继续执行
-join point 中的代码)</li>
-<li>after return advice, 在一个 join point 正常返回后执行的 advice</li>
-<li>after throwing advice, 当一个 join point 抛出异常后执行的
-advice</li>
-<li>after(final) advice, 无论一个 join point 是正常退出还是发生了异常,
-都会被执行的 advice.</li>
-<li>around advice, 在 join point 前和 joint point 退出后都执行的 advice.
-这个是最常用的 advice.</li>
-<li>introduction，introduction可以为原有的对象增加新的属性和方法。</li>
-</ul>
-<h1
-id="在java平台上对于aop的织入有3种方式">在Java平台上，对于AOP的织入，有3种方式：</h1>
-<ol type="1">
-<li>编译期：在编译时，由编译器把切面调用编译进字节码，这种方式需要定义新的关键字并扩展编译器，AspectJ就扩展了Java编译器，使用关键字aspect来实现织入；</li>
-<li>类加载器：在目标类被装载到JVM时，通过一个特殊的类加载器，对目标类的字节码重新“增强”；</li>
-<li>运行期：目标对象和切面都是普通Java类，通过JVM的动态代理功能或者第三方库实现运行期动态织入。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>大二生涯</category>
-      </categories>
-      <tags>
-        <tag>spring</tag>
-        <tag>AOP</tag>
       </tags>
   </entry>
   <entry>
@@ -966,44 +951,122 @@ InternalResourceViewResolver 视图解析时，无需再单独指定 viewClass
       </tags>
   </entry>
   <entry>
-    <title>Redis学习整理</title>
-    <url>/2022/06/09/Redis%20%E5%AD%A6%E4%B9%A0%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<h1 id="打开redis">打开redis</h1>
+    <title>SpringAOP学习整理</title>
+    <url>/2022/05/14/SpringAOP%E5%AD%A6%E4%B9%A0%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<meta name="referrer" content="no-referrer"/>
+<h1 id="对aop的初印象">对AOP的初印象</h1>
+<p><img
+src="https://img-blog.csdn.net/20180530172528617?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3E5ODIxNTE3NTY=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" /></p>
+<h1 id="aop中的相关概念">AOP中的相关概念</h1>
+<ul>
+<li><p>Aspect（切面）： Aspect 声明类似于 Java 中的类声明，在 Aspect
+中会包含着一些 Pointcut 以及相应的 Advice。</p></li>
+<li><p>Joint
+point（连接点）：表示在程序中明确定义的点，典型的包括方法调用，对类成员的访问以及异常处理程序块的执行等等，它自身还可以嵌套其它
+joint point。</p></li>
+<li><p>Pointcut（切点）：表示一组 joint point，这些 joint point
+或是通过逻辑关系组合起来，或是通过通配、正则表达式等方式集中起来，它定义了相应的
+Advice 将要发生的地方。</p></li>
+<li><p>Advice（增强）：Advice 定义了在 Pointcut
+里面定义的程序点具体要做的操作，它通过 before、after 和 around
+来区别是在每个 joint point 之前、之后还是代替执行的代码。</p></li>
+<li><p>Target（目标对象）：织入 Advice 的目标对象.。</p></li>
+<li><p>Weaving（织入）：将 Aspect 和其他对象连接起来, 并创建 Adviced
+object 的过程</p>
+<p><img src="https://img-blog.csdn.net/20180530175605692?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3E5ODIxNTE3NTY=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" style="zoom: 67%;" /></p></li>
+</ul>
+<h1 id="advice-的类型">Advice 的类型</h1>
+<ul>
+<li>before advice, 在 join point 前被执行的 advice. 虽然 before advice
+是在 join point 前被执行, 但是它并不能够阻止 join point 的执行,
+除非发生了异常(即我们在 before advice 代码中, 不能人为地决定是否继续执行
+join point 中的代码)</li>
+<li>after return advice, 在一个 join point 正常返回后执行的 advice</li>
+<li>after throwing advice, 当一个 join point 抛出异常后执行的
+advice</li>
+<li>after(final) advice, 无论一个 join point 是正常退出还是发生了异常,
+都会被执行的 advice.</li>
+<li>around advice, 在 join point 前和 joint point 退出后都执行的 advice.
+这个是最常用的 advice.</li>
+<li>introduction，introduction可以为原有的对象增加新的属性和方法。</li>
+</ul>
+<h1
+id="在java平台上对于aop的织入有3种方式">在Java平台上，对于AOP的织入，有3种方式：</h1>
 <ol type="1">
-<li><figure>
-<img
-src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220620110123304.png"
-alt="image-20220620110123304" />
-<figcaption aria-hidden="true">image-20220620110123304</figcaption>
-</figure>
-<blockquote>
-<p>这时候另启一个 cmd 窗口，原来的不要关闭，不然就无法访问服务端了。</p>
-</blockquote></li>
-<li><figure>
-<img
-src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220620110253220.png"
-alt="image-20220620110253220" />
-<figcaption aria-hidden="true">image-20220620110253220</figcaption>
-</figure></li>
+<li>编译期：在编译时，由编译器把切面调用编译进字节码，这种方式需要定义新的关键字并扩展编译器，AspectJ就扩展了Java编译器，使用关键字aspect来实现织入；</li>
+<li>类加载器：在目标类被装载到JVM时，通过一个特殊的类加载器，对目标类的字节码重新“增强”；</li>
+<li>运行期：目标对象和切面都是普通Java类，通过JVM的动态代理功能或者第三方库实现运行期动态织入。</li>
 </ol>
-<h1
-id="我们可以通过以下命令查看是否设置了密码验证">我们可以通过以下命令查看是否设置了密码验证</h1>
-<figure class="highlight apache"><table><tr><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">127</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">1</span>:<span class="hljs-number">6379</span>&gt; CONFIG get requirepass<br><span class="hljs-attribute">1</span>) <span class="hljs-string">&quot;requirepass&quot;</span><br><span class="hljs-attribute">2</span>) <span class="hljs-string">&quot;&quot;</span><br></code></pre></td></tr></table></figure>
-<p>默认情况下 requirepass
-参数是空的，这就意味着你无需通过密码验证就可以连接到 redis 服务。</p>
-<h1
-id="rdm-redis可视化工具编辑redis连接信息">RDM-Redis可视化工具编辑Redis连接信息</h1>
-<figure>
-<img src="https://s2.loli.net/2022/07/12/iwD3V6vFt5jzKuI.png"
-alt="image-20220712152846004" />
-<figcaption aria-hidden="true">image-20220712152846004</figcaption>
-</figure>
 ]]></content>
       <categories>
         <category>大二生涯</category>
       </categories>
       <tags>
-        <tag>redis</tag>
+        <tag>spring</tag>
+        <tag>AOP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringMVC:文件上传和下载功能</title>
+    <url>/2022/05/14/SpringMVC%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%92%8C%E4%B8%8B%E8%BD%BD%E5%8A%9F%E8%83%BD%20-%20%E5%89%AF%E6%9C%AC/</url>
+    <content><![CDATA[<meta name="referrer" content="no-referrer"/>
+<h1 id="springmvc文件上传和下载功能">SpringMVC:文件上传和下载功能</h1>
+<p>前言 文件上传是项目开发中最常见的功能之一 ,springMVC
+可以很好的支持文件上传，但是SpringMVC上下文中默认没有装配MultipartResolver，因此默认情况下其不能处理文件上传工作。如果想使用Spring的文件上传功能，则需要在上下文中配置MultipartResolver。
+前端表单要求：为了能上传文件，必须将表单的method设置为POST，并将enctype设置为multipart/form-data。只有在这样的情况下，浏览器才会把用户选择的文件以二进制数据发送给服务器；</p>
+<hr />
+<ol type="1">
+<li><h2 id="对表单中的-enctype-属性做个详细的说明">对表单中的 enctype
+属性做个详细的说明：</h2>
+<ul>
+<li><p>application/x-www=form-urlencoded：默认方式，只处理表单域中的
+value 属性值，采用这种编码方式的表单会将表单域中的值处理成 URL
+编码方式。</p></li>
+<li><p>multipart/form-data：这种编码方式会以二进制流的方式来处理表单数据，这种编码方式会把文件域指定文件的内容也封装到请求参数中，不会对字符编码。</p></li>
+<li><p>text/plain：除了把空格转换为 “+”
+号外，其他字符都不做编码处理，这种方式适用直接通过表单发送邮件。</p></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">enctype</span>=<span class="hljs-string">&quot;multipart/form-data&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;file&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;file&quot;</span>/&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
+<li><h2 id="使用步骤">使用步骤</h2>
+<ul>
+<li><p>1.导入文件上传的jar包，commons-fileupload ， <a
+href="https://so.csdn.net/so/search?q=Maven&amp;spm=1001.2101.3001.7020">Maven</a>会自动帮我们导入他的依赖包
+commons-io包；</p>
+<p>代码如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">&lt;!--文件上传--&gt;<br>&lt;dependency&gt;<br>   &lt;groupId&gt;commons-fileupload&lt;/groupId&gt;<br>   &lt;artifactId&gt;commons-fileupload&lt;/artifactId&gt;<br>   &lt;version&gt;<span class="hljs-number">1.3</span><span class="hljs-number">.3</span>&lt;/version&gt;<br>&lt;/dependency&gt;<br>&lt;!--servlet-api导入高版本的--&gt;<br>&lt;dependency&gt;<br>   &lt;groupId&gt;javax.servlet&lt;/groupId&gt;<br>   &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;<br>   &lt;version&gt;<span class="hljs-number">4.0</span><span class="hljs-number">.1</span>&lt;/version&gt;<br>&lt;/dependency&gt;<br></code></pre></td></tr></table></figure></li>
+<li><p>2.配置bean：multipartResolver 代码如下（示例）：
+【注意！！！这个bena的id必须为：multipartResolver ，
+否则上传文件会报400的错误！在这里栽过坑,教训！】</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!--文件上传配置--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;multipartResolver&quot;</span>  <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;</span>&gt;</span><br>   <span class="hljs-comment">&lt;!-- 请求的编码格式，必须和jSP的pageEncoding属性一致，以便正确读取表单的内容，默认为ISO-8859-1 --&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;defaultEncoding&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;utf-8&quot;</span>/&gt;</span><br>   <span class="hljs-comment">&lt;!-- 上传文件大小上限，单位为字节（10485760=10M） --&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;maxUploadSize&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;10485760&quot;</span>/&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;maxInMemorySize&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;40960&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>CommonsMultipartFile 的 常用方法：</p>
+<p>String getOriginalFilename()：获取上传文件的原名</p>
+<p>InputStream getInputStream()：获取文件流</p>
+<p>void transferTo(File dest)：将上传文件保存到一个目录文件中</p></li>
+<li><p>3.编写前端页面</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;/upload&quot;</span> <span class="hljs-attr">enctype</span>=<span class="hljs-string">&quot;multipart/form-data&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;file&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;file&quot;</span>/&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;upload&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
+<li><p>4.Controller</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.kuang.controller;<br><br><span class="hljs-keyword">import</span> org.springframework.stereotype.Controller;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RequestParam;<br><span class="hljs-keyword">import</span> org.springframework.web.multipart.commons.CommonsMultipartFile;<br><br><span class="hljs-keyword">import</span> javax.servlet.http.HttpServletRequest;<br><span class="hljs-keyword">import</span> java.io.*;<br><br><span class="hljs-meta">@Controller</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FileController</span> </span>&#123;<br>   <span class="hljs-comment">//@RequestParam(&quot;file&quot;) 将name=file控件得到的文件封装成CommonsMultipartFile 对象</span><br>   <span class="hljs-comment">//批量上传CommonsMultipartFile则为数组即可</span><br>   <span class="hljs-meta">@RequestMapping(&quot;/upload&quot;)</span><br>   <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">fileUpload</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam(&quot;file&quot;)</span> CommonsMultipartFile file , HttpServletRequest request)</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;<br><br>​	 <span class="hljs-comment">//获取文件名 : file.getOriginalFilename();</span><br>   String uploadFileName = file.getOriginalFilename();<br><br>   <span class="hljs-comment">//如果文件名为空，直接回到首页！</span><br>   <span class="hljs-keyword">if</span> (<span class="hljs-string">&quot;&quot;</span>.equals(uploadFileName))&#123;<br>       <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;redirect:/index.jsp&quot;</span>;<br>  &#125;<br>   System.out.println(<span class="hljs-string">&quot;上传文件名 : &quot;</span>+uploadFileName);<br><br>   <span class="hljs-comment">//上传路径保存设置</span><br>   String path = request.getServletContext().getRealPath(<span class="hljs-string">&quot;/upload&quot;</span>);<br>   <span class="hljs-comment">//如果路径不存在，创建一个</span><br>   File realPath = <span class="hljs-keyword">new</span> File(path);<br>   <span class="hljs-keyword">if</span> (!realPath.exists())&#123;<br>       realPath.mkdir();<br>  &#125;<br>   System.out.println(<span class="hljs-string">&quot;上传文件保存地址：&quot;</span>+realPath);<br><br>   InputStream is = file.getInputStream(); <span class="hljs-comment">//文件输入流</span><br>   OutputStream os = <span class="hljs-keyword">new</span> FileOutputStream(<span class="hljs-keyword">new</span> File(realPath,uploadFileName)); <span class="hljs-comment">//文件输出流</span><br><br>   <span class="hljs-comment">//读取写出</span><br>   <span class="hljs-keyword">int</span> len=<span class="hljs-number">0</span>;<br>   <span class="hljs-keyword">byte</span>[] buffer = <span class="hljs-keyword">new</span> <span class="hljs-keyword">byte</span>[<span class="hljs-number">1024</span>];<br>   <span class="hljs-keyword">while</span> ((len=is.read(buffer))!=-<span class="hljs-number">1</span>)&#123;<br>       os.write(buffer,<span class="hljs-number">0</span>,len);<br>       os.flush();<br>  &#125;<br>   os.close();<br>   is.close();<br>   <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;redirect:/index.jsp&quot;</span>;<br><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ul></li>
+<li><h2 id="采用file.transto-来保存上传的文件">采用file.Transto
+来保存上传的文件</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/*</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">* 采用file.Transto 来保存上传的文件</span><br><span class="hljs-comment">  */</span><br>  <span class="hljs-meta">@RequestMapping(&quot;/upload2&quot;)</span><br>  <span class="hljs-function"><span class="hljs-keyword">public</span> String  <span class="hljs-title">fileUpload2</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam(&quot;file&quot;)</span> CommonsMultipartFile file, HttpServletRequest request)</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;<br><br>   <span class="hljs-comment">//上传路径保存设置</span><br>   String path = request.getServletContext().getRealPath(<span class="hljs-string">&quot;/upload&quot;</span>);<br>   File realPath = <span class="hljs-keyword">new</span> File(path);<br>   <span class="hljs-keyword">if</span> (!realPath.exists())&#123;<br>       realPath.mkdir();<br>  &#125;<br>   <span class="hljs-comment">//上传文件地址</span><br>   System.out.println(<span class="hljs-string">&quot;上传文件保存地址：&quot;</span>+realPath);<br><br>   <span class="hljs-comment">//通过CommonsMultipartFile的方法直接写文件（注意这个时候）</span><br>   file.transferTo(<span class="hljs-keyword">new</span> File(realPath +<span class="hljs-string">&quot;/&quot;</span>+ file.getOriginalFilename()));<br><br>   <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;redirect:/index.jsp&quot;</span>;<br>  &#125;<br></code></pre></td></tr></table></figure></li>
+<li><h2 id="文件下载">文件下载</h2>
+<p>文件下载步骤：</p>
+<p>1、设置 response 响应头</p>
+<p>2、读取文件 – InputStream</p>
+<p>3、写出文件 – OutputStream</p>
+<p>4、执行操作</p>
+<p>5、关闭流 （先开后关）</p>
+<p>代码实现：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping(value=&quot;/download&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">downloads</span><span class="hljs-params">(HttpServletResponse response ,HttpServletRequest request)</span> <span class="hljs-keyword">throws</span> Exception</span>&#123;<br>   <span class="hljs-comment">//要下载的图片地址</span><br>   String  path = request.getServletContext().getRealPath(<span class="hljs-string">&quot;/upload&quot;</span>);<br>   String  fileName = <span class="hljs-string">&quot;基础语法.jpg&quot;</span>;<br><br>   <span class="hljs-comment">//1、设置response 响应头</span><br>   response.reset(); <span class="hljs-comment">//设置页面不缓存,清空buffer</span><br>   response.setCharacterEncoding(<span class="hljs-string">&quot;UTF-8&quot;</span>); <span class="hljs-comment">//字符编码</span><br>   response.setContentType(<span class="hljs-string">&quot;multipart/form-data&quot;</span>); <span class="hljs-comment">//二进制传输数据</span><br>   <span class="hljs-comment">//设置响应头</span><br>   response.setHeader(<span class="hljs-string">&quot;Content-Disposition&quot;</span>,<br>           <span class="hljs-string">&quot;attachment;fileName=&quot;</span>+URLEncoder.encode(fileName, <span class="hljs-string">&quot;UTF-8&quot;</span>));<br><br>   File file = <span class="hljs-keyword">new</span> File(path,fileName);<br>   <span class="hljs-comment">//2、 读取文件--输入流</span><br>   InputStream input=<span class="hljs-keyword">new</span> FileInputStream(file);<br>   <span class="hljs-comment">//3、 写出文件--输出流</span><br>   OutputStream out = response.getOutputStream();<br><br>   <span class="hljs-keyword">byte</span>[] buff =<span class="hljs-keyword">new</span> <span class="hljs-keyword">byte</span>[<span class="hljs-number">1024</span>];<br>   <span class="hljs-keyword">int</span> index=<span class="hljs-number">0</span>;<br>   <span class="hljs-comment">//4、执行 写出操作</span><br>   <span class="hljs-keyword">while</span>((index= input.read(buff))!= -<span class="hljs-number">1</span>)&#123;<br>       out.write(buff, <span class="hljs-number">0</span>, index);<br>       out.flush();<br>  &#125;<br>   out.close();<br>   input.close();<br>   <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br>&#125;<br>————————————————<br>版权声明：本文为CSDN博主「南风<span class="hljs-number">1789</span>」的原创文章，遵循CC <span class="hljs-number">4.0</span> BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：https:<span class="hljs-comment">//blog.csdn.net/southwindpass/article/details/113980739</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>大二生涯</category>
+      </categories>
+      <tags>
+        <tag>spring</tag>
+        <tag>spring MVC</tag>
       </tags>
   </entry>
   <entry>
@@ -1170,69 +1233,6 @@ alt="image-20220718122953122" />
       </tags>
   </entry>
   <entry>
-    <title>SpringMVC:文件上传和下载功能</title>
-    <url>/2022/05/14/SpringMVC%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%92%8C%E4%B8%8B%E8%BD%BD%E5%8A%9F%E8%83%BD%20-%20%E5%89%AF%E6%9C%AC/</url>
-    <content><![CDATA[<meta name="referrer" content="no-referrer"/>
-<h1 id="springmvc文件上传和下载功能">SpringMVC:文件上传和下载功能</h1>
-<p>前言 文件上传是项目开发中最常见的功能之一 ,springMVC
-可以很好的支持文件上传，但是SpringMVC上下文中默认没有装配MultipartResolver，因此默认情况下其不能处理文件上传工作。如果想使用Spring的文件上传功能，则需要在上下文中配置MultipartResolver。
-前端表单要求：为了能上传文件，必须将表单的method设置为POST，并将enctype设置为multipart/form-data。只有在这样的情况下，浏览器才会把用户选择的文件以二进制数据发送给服务器；</p>
-<hr />
-<ol type="1">
-<li><h2 id="对表单中的-enctype-属性做个详细的说明">对表单中的 enctype
-属性做个详细的说明：</h2>
-<ul>
-<li><p>application/x-www=form-urlencoded：默认方式，只处理表单域中的
-value 属性值，采用这种编码方式的表单会将表单域中的值处理成 URL
-编码方式。</p></li>
-<li><p>multipart/form-data：这种编码方式会以二进制流的方式来处理表单数据，这种编码方式会把文件域指定文件的内容也封装到请求参数中，不会对字符编码。</p></li>
-<li><p>text/plain：除了把空格转换为 “+”
-号外，其他字符都不做编码处理，这种方式适用直接通过表单发送邮件。</p></li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">enctype</span>=<span class="hljs-string">&quot;multipart/form-data&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;file&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;file&quot;</span>/&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
-<li><h2 id="使用步骤">使用步骤</h2>
-<ul>
-<li><p>1.导入文件上传的jar包，commons-fileupload ， <a
-href="https://so.csdn.net/so/search?q=Maven&amp;spm=1001.2101.3001.7020">Maven</a>会自动帮我们导入他的依赖包
-commons-io包；</p>
-<p>代码如下：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java">&lt;!--文件上传--&gt;<br>&lt;dependency&gt;<br>   &lt;groupId&gt;commons-fileupload&lt;/groupId&gt;<br>   &lt;artifactId&gt;commons-fileupload&lt;/artifactId&gt;<br>   &lt;version&gt;<span class="hljs-number">1.3</span><span class="hljs-number">.3</span>&lt;/version&gt;<br>&lt;/dependency&gt;<br>&lt;!--servlet-api导入高版本的--&gt;<br>&lt;dependency&gt;<br>   &lt;groupId&gt;javax.servlet&lt;/groupId&gt;<br>   &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;<br>   &lt;version&gt;<span class="hljs-number">4.0</span><span class="hljs-number">.1</span>&lt;/version&gt;<br>&lt;/dependency&gt;<br></code></pre></td></tr></table></figure></li>
-<li><p>2.配置bean：multipartResolver 代码如下（示例）：
-【注意！！！这个bena的id必须为：multipartResolver ，
-否则上传文件会报400的错误！在这里栽过坑,教训！】</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!--文件上传配置--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;multipartResolver&quot;</span>  <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;</span>&gt;</span><br>   <span class="hljs-comment">&lt;!-- 请求的编码格式，必须和jSP的pageEncoding属性一致，以便正确读取表单的内容，默认为ISO-8859-1 --&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;defaultEncoding&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;utf-8&quot;</span>/&gt;</span><br>   <span class="hljs-comment">&lt;!-- 上传文件大小上限，单位为字节（10485760=10M） --&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;maxUploadSize&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;10485760&quot;</span>/&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;maxInMemorySize&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;40960&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span><br></code></pre></td></tr></table></figure>
-<p>CommonsMultipartFile 的 常用方法：</p>
-<p>String getOriginalFilename()：获取上传文件的原名</p>
-<p>InputStream getInputStream()：获取文件流</p>
-<p>void transferTo(File dest)：将上传文件保存到一个目录文件中</p></li>
-<li><p>3.编写前端页面</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;/upload&quot;</span> <span class="hljs-attr">enctype</span>=<span class="hljs-string">&quot;multipart/form-data&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span>&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;file&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;file&quot;</span>/&gt;</span><br> <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;upload&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
-<li><p>4.Controller</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.kuang.controller;<br><br><span class="hljs-keyword">import</span> org.springframework.stereotype.Controller;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RequestParam;<br><span class="hljs-keyword">import</span> org.springframework.web.multipart.commons.CommonsMultipartFile;<br><br><span class="hljs-keyword">import</span> javax.servlet.http.HttpServletRequest;<br><span class="hljs-keyword">import</span> java.io.*;<br><br><span class="hljs-meta">@Controller</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FileController</span> </span>&#123;<br>   <span class="hljs-comment">//@RequestParam(&quot;file&quot;) 将name=file控件得到的文件封装成CommonsMultipartFile 对象</span><br>   <span class="hljs-comment">//批量上传CommonsMultipartFile则为数组即可</span><br>   <span class="hljs-meta">@RequestMapping(&quot;/upload&quot;)</span><br>   <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">fileUpload</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam(&quot;file&quot;)</span> CommonsMultipartFile file , HttpServletRequest request)</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;<br><br>​	 <span class="hljs-comment">//获取文件名 : file.getOriginalFilename();</span><br>   String uploadFileName = file.getOriginalFilename();<br><br>   <span class="hljs-comment">//如果文件名为空，直接回到首页！</span><br>   <span class="hljs-keyword">if</span> (<span class="hljs-string">&quot;&quot;</span>.equals(uploadFileName))&#123;<br>       <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;redirect:/index.jsp&quot;</span>;<br>  &#125;<br>   System.out.println(<span class="hljs-string">&quot;上传文件名 : &quot;</span>+uploadFileName);<br><br>   <span class="hljs-comment">//上传路径保存设置</span><br>   String path = request.getServletContext().getRealPath(<span class="hljs-string">&quot;/upload&quot;</span>);<br>   <span class="hljs-comment">//如果路径不存在，创建一个</span><br>   File realPath = <span class="hljs-keyword">new</span> File(path);<br>   <span class="hljs-keyword">if</span> (!realPath.exists())&#123;<br>       realPath.mkdir();<br>  &#125;<br>   System.out.println(<span class="hljs-string">&quot;上传文件保存地址：&quot;</span>+realPath);<br><br>   InputStream is = file.getInputStream(); <span class="hljs-comment">//文件输入流</span><br>   OutputStream os = <span class="hljs-keyword">new</span> FileOutputStream(<span class="hljs-keyword">new</span> File(realPath,uploadFileName)); <span class="hljs-comment">//文件输出流</span><br><br>   <span class="hljs-comment">//读取写出</span><br>   <span class="hljs-keyword">int</span> len=<span class="hljs-number">0</span>;<br>   <span class="hljs-keyword">byte</span>[] buffer = <span class="hljs-keyword">new</span> <span class="hljs-keyword">byte</span>[<span class="hljs-number">1024</span>];<br>   <span class="hljs-keyword">while</span> ((len=is.read(buffer))!=-<span class="hljs-number">1</span>)&#123;<br>       os.write(buffer,<span class="hljs-number">0</span>,len);<br>       os.flush();<br>  &#125;<br>   os.close();<br>   is.close();<br>   <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;redirect:/index.jsp&quot;</span>;<br><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
-</ul></li>
-<li><h2 id="采用file.transto-来保存上传的文件">采用file.Transto
-来保存上传的文件</h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/*</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">* 采用file.Transto 来保存上传的文件</span><br><span class="hljs-comment">  */</span><br>  <span class="hljs-meta">@RequestMapping(&quot;/upload2&quot;)</span><br>  <span class="hljs-function"><span class="hljs-keyword">public</span> String  <span class="hljs-title">fileUpload2</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam(&quot;file&quot;)</span> CommonsMultipartFile file, HttpServletRequest request)</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;<br><br>   <span class="hljs-comment">//上传路径保存设置</span><br>   String path = request.getServletContext().getRealPath(<span class="hljs-string">&quot;/upload&quot;</span>);<br>   File realPath = <span class="hljs-keyword">new</span> File(path);<br>   <span class="hljs-keyword">if</span> (!realPath.exists())&#123;<br>       realPath.mkdir();<br>  &#125;<br>   <span class="hljs-comment">//上传文件地址</span><br>   System.out.println(<span class="hljs-string">&quot;上传文件保存地址：&quot;</span>+realPath);<br><br>   <span class="hljs-comment">//通过CommonsMultipartFile的方法直接写文件（注意这个时候）</span><br>   file.transferTo(<span class="hljs-keyword">new</span> File(realPath +<span class="hljs-string">&quot;/&quot;</span>+ file.getOriginalFilename()));<br><br>   <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;redirect:/index.jsp&quot;</span>;<br>  &#125;<br></code></pre></td></tr></table></figure></li>
-<li><h2 id="文件下载">文件下载</h2>
-<p>文件下载步骤：</p>
-<p>1、设置 response 响应头</p>
-<p>2、读取文件 – InputStream</p>
-<p>3、写出文件 – OutputStream</p>
-<p>4、执行操作</p>
-<p>5、关闭流 （先开后关）</p>
-<p>代码实现：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping(value=&quot;/download&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">downloads</span><span class="hljs-params">(HttpServletResponse response ,HttpServletRequest request)</span> <span class="hljs-keyword">throws</span> Exception</span>&#123;<br>   <span class="hljs-comment">//要下载的图片地址</span><br>   String  path = request.getServletContext().getRealPath(<span class="hljs-string">&quot;/upload&quot;</span>);<br>   String  fileName = <span class="hljs-string">&quot;基础语法.jpg&quot;</span>;<br><br>   <span class="hljs-comment">//1、设置response 响应头</span><br>   response.reset(); <span class="hljs-comment">//设置页面不缓存,清空buffer</span><br>   response.setCharacterEncoding(<span class="hljs-string">&quot;UTF-8&quot;</span>); <span class="hljs-comment">//字符编码</span><br>   response.setContentType(<span class="hljs-string">&quot;multipart/form-data&quot;</span>); <span class="hljs-comment">//二进制传输数据</span><br>   <span class="hljs-comment">//设置响应头</span><br>   response.setHeader(<span class="hljs-string">&quot;Content-Disposition&quot;</span>,<br>           <span class="hljs-string">&quot;attachment;fileName=&quot;</span>+URLEncoder.encode(fileName, <span class="hljs-string">&quot;UTF-8&quot;</span>));<br><br>   File file = <span class="hljs-keyword">new</span> File(path,fileName);<br>   <span class="hljs-comment">//2、 读取文件--输入流</span><br>   InputStream input=<span class="hljs-keyword">new</span> FileInputStream(file);<br>   <span class="hljs-comment">//3、 写出文件--输出流</span><br>   OutputStream out = response.getOutputStream();<br><br>   <span class="hljs-keyword">byte</span>[] buff =<span class="hljs-keyword">new</span> <span class="hljs-keyword">byte</span>[<span class="hljs-number">1024</span>];<br>   <span class="hljs-keyword">int</span> index=<span class="hljs-number">0</span>;<br>   <span class="hljs-comment">//4、执行 写出操作</span><br>   <span class="hljs-keyword">while</span>((index= input.read(buff))!= -<span class="hljs-number">1</span>)&#123;<br>       out.write(buff, <span class="hljs-number">0</span>, index);<br>       out.flush();<br>  &#125;<br>   out.close();<br>   input.close();<br>   <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br>&#125;<br>————————————————<br>版权声明：本文为CSDN博主「南风<span class="hljs-number">1789</span>」的原创文章，遵循CC <span class="hljs-number">4.0</span> BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：https:<span class="hljs-comment">//blog.csdn.net/southwindpass/article/details/113980739</span><br></code></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>大二生涯</category>
-      </categories>
-      <tags>
-        <tag>spring</tag>
-        <tag>spring MVC</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Typora使用问题</title>
     <url>/2022/07/18/Typora%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="markdown文件生成目录的方式">markdown文件生成目录的方式</h1>
@@ -1281,6 +1281,39 @@ alt="img" />
 <p>在KaTex中你可以用<code>$\pm</code>表示正负号(± ±)。</p>
 <h1 id="markdown乘号的代码">markdown乘号的代码</h1>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs mark">$\times$<br></code></pre></td></tr></table></figure>
+<h1 id="typora页内跳转">Typora页内跳转</h1>
+<ul>
+<li><p>跳转到标题所在位置</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown">[任意文字] (#标题名称)<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="在markdown中插入希腊字母">在markdown中插入希腊字母</h1>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/img_convert/55de9b1520d50bfb9231474f5959f0e5.png"
+alt="在这里插入图片描述" />
+<figcaption aria-hidden="true">在这里插入图片描述</figcaption>
+</figure>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/img_convert/0a897d9f8016f20c36f440bfed225cf1.png"
+alt="在这里插入图片描述" />
+<figcaption aria-hidden="true">在这里插入图片描述</figcaption>
+</figure>
+<h1 id="latex根式">Latex根式</h1>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown">\sqrt[a]b<br></code></pre></td></tr></table></figure>
+<p>其中，方括号内的值用来表示开几次方</p>
+<h1 id="latex-偏导符号">Latex 偏导符号 ∂</h1>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs markdwown">% 偏导符号 ∂<br>  \partial<br>% 举例<br>  \frac&#123; \partial a &#125;&#123; \partial c &#125;<br></code></pre></td></tr></table></figure>
+<p><span class="math display">\[
+\frac{ \partial a }{ \partial c }
+\]</span></p>
+<h1 id="latex大于等于和小于等于">latex大于等于和小于等于</h1>
+<ul>
+<li><p>```markdown <figure class="highlight autohotkey"><table><tr><td class="code"><pre><code class="hljs autohotkey"><br>  ⩾<br><br>- ```markdown<br>  \leqslant<br></code></pre></td></tr></table></figure></p>
+<p><span class="math inline">\(\leqslant\)</span></p></li>
+</ul>
+<h1 id="latex求和">Latex求和</h1>
+<p>，其下标表示求和下限，上标表示上限。</p>
 ]]></content>
       <categories>
         <category>岗前实训</category>
@@ -2319,6 +2352,26 @@ id="idea编辑器控制台显示中文乱码的解决方案">IDEA编辑器控制
       </tags>
   </entry>
   <entry>
+    <title>layui问题记录</title>
+    <url>/2022/07/29/layui%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h1
+id="layui中layer弹出层点击事件无效解决">layui中layer弹出层点击事件无效解决</h1>
+<figure class="highlight js"><table><tr><td class="code"><pre><code class="hljs js">$(<span class="hljs-built_in">document</span>).on(‘click’, ‘#test’, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;<br>	layer.msg(‘响应点击事件’);<br>&#125;);<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><a
+href="https://blog.csdn.net/sinat_27535209/article/details/79963736">原文链接</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>岗前实训</category>
+      </categories>
+      <tags>
+        <tag>HTML</tag>
+        <tag>layui</tag>
+        <tag>layer</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>mabatis-plus</title>
     <url>/2022/05/26/mabatis-plus/</url>
     <content><![CDATA[<h1 id="crud扩展">CRUD扩展</h1>
@@ -3087,6 +3140,11 @@ npm ERR! network reques...</h1>
 <blockquote>
 <p><a href="https://www.jianshu.com/p/5927e65e43f1">原文链接</a></p>
 </blockquote>
+<h1
+id="hexo-next主题配置mathjax遇到的问题pandoc-exited-with-code-null">Hexo
+Next主题配置Mathjax遇到的问题：pandoc exited with code null</h1>
+<p>请检查是否配置了环境变量</p>
+<p><img src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220729160611530.png" alt="image-20220729160611530" style="zoom:50%;" /></p>
 ]]></content>
       <categories>
         <category>大二生涯</category>
@@ -3098,13 +3156,13 @@ npm ERR! network reques...</h1>
   <entry>
     <title>微机原理学习记录</title>
     <url>/2022/07/27/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h1 id="微机原理与系统设计绪论一">微机原理与系统设计绪论（一）</h1>
+    <content><![CDATA[<h1 id="绪论一">绪论（一）</h1>
 <figure>
 <img src="https://s2.loli.net/2022/07/27/x7oDLf1HP2tZIEG.png"
 alt="image-20220727140717045" />
 <figcaption aria-hidden="true">image-20220727140717045</figcaption>
 </figure>
-<h1 id="微机原理与系统设计绪论二">微机原理与系统设计绪论（二）</h1>
+<h1 id="绪论二">绪论（二）</h1>
 <figure>
 <img src="https://s2.loli.net/2022/07/27/WbcIVX2eqtz6OwN.png"
 alt="image-20220727145027072" />
@@ -3120,7 +3178,7 @@ alt="image-20220727145302088" />
 alt="image-20220727145723680" />
 <figcaption aria-hidden="true">image-20220727145723680</figcaption>
 </figure>
-<h1 id="微机原理与系统设计绪论三">微机原理与系统设计绪论（三）</h1>
+<h1 id="绪论三">绪论（三）</h1>
 <ul>
 <li>芯片引脚OE，英文全称为Output
 Enable,中文意思为输出使能端、输出允许信号。</li>
@@ -3130,7 +3188,7 @@ Enable,中文意思为输出使能端、输出允许信号。</li>
 alt="image-20220727180422448" />
 <figcaption aria-hidden="true">image-20220727180422448</figcaption>
 </figure>
-<h1 id="微机原理与系统设计绪论四">微机原理与系统设计绪论（四）</h1>
+<h1 id="绪论四">绪论（四）</h1>
 <figure>
 <img src="https://s2.loli.net/2022/07/28/VBksfvCEeLotyXK.png"
 alt="image-20220728163052792" />
@@ -3146,6 +3204,222 @@ alt="image-20220728163311292" />
 alt="image-20220728163541839" />
 <figcaption aria-hidden="true">image-20220728163541839</figcaption>
 </figure>
+<h1 id="数制与码制一">数制与码制（一）</h1>
+<h2 id="进制转换">进制转换</h2>
+<p><em>二进制、八进制、十进制、十六进制之间相互转换</em></p>
+<ul>
+<li><p>其他进制转换为十进制</p>
+<p>某位上的数字乘上它的权，求其总和。</p>
+<ul>
+<li>二进制<span class="math inline">\(10010011\)</span>转换为十进制
+<span class="math display">\[
+\begin{align}
+1\times2^0+1\times2^1+0\times2^2+0\times2^3+1\times2^4+0\times2^5+0\times2^6+1\times2^7\\=1+2+16+128
+\\= 147
+\end{align}
+\]</span></li>
+</ul></li>
+<li><p>十进制转换成其他进制</p>
+<ul>
+<li><p>整数部分转换</p>
+<ul>
+<li><p>111转换成二进制数</p>
+<p><img src="https://s2.loli.net/2022/07/29/AkEBeFOac7huziv.png" alt="无标题" style="zoom:50%;" /></p></li>
+</ul></li>
+<li><p>小数部分转换</p>
+<ul>
+<li><p><span class="math inline">\(0.125\)</span>转换成二进制数</p>
+<figure>
+<img src="https://s2.loli.net/2022/07/29/6b2qiym5SRg8o9h.png"
+alt="无标题" />
+<figcaption aria-hidden="true">无标题</figcaption>
+</figure></li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="位置加权法">位置加权法</h2>
+<figure>
+<img src="https://s2.loli.net/2022/07/29/HuMXUWpclRDIv1n.png"
+alt="image-20220729165214184" />
+<figcaption aria-hidden="true">image-20220729165214184</figcaption>
+</figure>
+<h2 id="除十取余法">除十取余法</h2>
+<p><em>在程序设计中把二进制转化为十进制的一种算法，在手工运算时行不通</em></p>
+<figure>
+<img src="https://s2.loli.net/2022/07/30/KNFdRJrvw2hOMgm.png"
+alt="image-20220729165318908" />
+<figcaption aria-hidden="true">image-20220729165318908</figcaption>
+</figure>
+<h1 id="数制与码制二">数制与码制（二）</h1>
+<h2 id="比较法">比较法</h2>
+<p>在程序设计中把二进制转化为十进制的一种算法</p>
+<figure>
+<img src="https://s2.loli.net/2022/07/30/YX72gbLu5W4Z6Kn.png"
+alt="image-20220730143532008" />
+<figcaption aria-hidden="true">image-20220730143532008</figcaption>
+</figure>
+<h2
+id="数据寄存器axbxcxdx"><strong>数据寄存器（AX，BX，CX，DX）</strong></h2>
+<p>数据寄存器有 AX，BX，CX，DX 四个组成，由于在 8086 之前的 CPU 为 8 位
+CPU，所以为了兼容以前的 8 位程序，在 8086 CPU
+中，每一个数据寄存器都可以当做两个单独的寄存器来使用，由此，每一个 16
+位寄存器就可以当做 2 个独立的 8 位寄存器来使用了。</p>
+<p>AX 寄存器可以分为两个独立的 8 位的 AH 和 AL 寄存器；</p>
+<p>BX 寄存器可以分为两个独立的 8 位的 BH 和 BL 寄存器；</p>
+<p>CX 寄存器可以分为两个独立的 8 位的 CH 和 CL 寄存器；</p>
+<p>DX 寄存器可以分为两个独立的 8 位的 DH 和 DL 寄存器；</p>
+<p><strong>除了上面 4 个数据寄存器以外，其他寄存器均不可以分为两个独立的
+8 位寄存器 ；</strong></p>
+<figure>
+<img src="https://s2.loli.net/2022/07/30/RptGZXgzMqJrkLW.png"
+alt="image-20220730143819359" />
+<figcaption aria-hidden="true">image-20220730143819359</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2022/07/30/SHUvxjXPiMZkVwz.png"
+alt="image-20220730143927858" />
+<figcaption aria-hidden="true">image-20220730143927858</figcaption>
+</figure>
+<h1 id="数制与码制三">数制与码制（三）</h1>
+<h2 id="psw寄存器">PSW寄存器</h2>
+<p><strong>进位标志CF（Carry Flag）、奇偶标志PF（Parity
+Flag）、辅助进位标志AF（Auxiliary Carry Flag）、零标志ZF（Zero
+Flag）、符号标志SF（Sign Flag）、溢出标志（Overflow
+Flag）。</strong></p>
+<figure>
+<img src="https://s2.loli.net/2022/07/30/Or8mySnQI47b9RD.png"
+alt="image-20220730151946480" />
+<figcaption aria-hidden="true">image-20220730151946480</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2022/07/30/JdFYTCio6KscxV4.png"
+alt="image-20220730151600205" />
+<figcaption aria-hidden="true">image-20220730151600205</figcaption>
+</figure>
+<h1 id="数制与码制四">数制与码制（四）</h1>
+<figure>
+<img src="https://s2.loli.net/2022/07/30/rzlohYdXp2Z9SVM.png"
+alt="image-20220730154621911" />
+<figcaption aria-hidden="true">image-20220730154621911</figcaption>
+</figure>
+<h2
+id="汇编语言十六进制数据前加0规则">汇编语言——十六进制数据前加0规则</h2>
+<p>十六进制以A~F打头的数字出现在指令中时，前面一定要加一个数字0,以免与其它符号相混淆。</p>
+<figure>
+<img src="https://s2.loli.net/2022/07/30/IFt6KMWeVY8nzCi.png"
+alt="image-20220730155113470" />
+<figcaption aria-hidden="true">image-20220730155113470</figcaption>
+</figure>
+<h1 id="数制与码制五">数制与码制（五）</h1>
+<h2 id="原码">原码</h2>
+<figure>
+<img src="https://s2.loli.net/2022/07/30/Tq1Z2RjJWeIbMxt.png"
+alt="image-20220730163329049" />
+<figcaption aria-hidden="true">image-20220730163329049</figcaption>
+</figure>
+<h2 id="补码">补码</h2>
+<p><em>原码除符号位之外各位取反，最后加一就得到补码</em></p>
+<figure>
+<img src="https://s2.loli.net/2022/07/30/sAlDHWFJZPckj1I.png"
+alt="image-20220730163433370" />
+<figcaption aria-hidden="true">image-20220730163433370</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2022/07/30/BFAZkqDugSztrXl.png"
+alt="image-20220730163922775" />
+<figcaption aria-hidden="true">image-20220730163922775</figcaption>
+</figure>
+<h1 id="数制与码制六">数制与码制（六）</h1>
+<p><a href="#PSW寄存器">查看PSW寄存器详细内容</a></p>
+<p>PF：奇偶标志位 （用于数据发送时接收方校验所收数据真实性 ，
+发送方通过填充奇偶标志位使得发送数据的<a
+href="https://so.csdn.net/so/search?q=二进制&amp;spm=1001.2101.3001.7020">二进制</a>数的1的个数为奇或为偶）（8086为奇校验）</p>
+<figure>
+<img src="https://s2.loli.net/2022/07/30/pXtdMFSWx28P6nV.png"
+alt="image-20220730211256619" />
+<figcaption aria-hidden="true">image-20220730211256619</figcaption>
+</figure>
+<h2 id="补码运算规则">补码运算规则</h2>
+<p>在计算机中，通常总是用<a
+href="https://so.csdn.net/so/search?q=补码&amp;spm=1001.2101.3001.7020">补码</a>完成算术的加减法运算。其规则是：
+　　[X+Y]补= [X]补 + [Y]补 ，[X-Y]补= [X]补 - [Y]补 = [X]补 + [-Y]补</p>
+<figure>
+<img src="https://s2.loli.net/2022/07/30/pU85cSzXCdQxveG.png"
+alt="image-20220730213239797" />
+<figcaption aria-hidden="true">image-20220730213239797</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2022/07/30/WoZjiRytYhb7KPc.png"
+alt="image-20220730212513669" />
+<figcaption aria-hidden="true">image-20220730212513669</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2022/07/30/FC2eqQpvLJ1XiZk.png"
+alt="image-20220730213314250" />
+<figcaption aria-hidden="true">image-20220730213314250</figcaption>
+</figure>
+<h1 id="数制与码制七">数制与码制（七）</h1>
+<h2 id="补码运算规则补充">补码运算规则（补充）</h2>
+<p>补码的补码就是原码</p>
+<figure>
+<img src="https://s2.loli.net/2022/07/31/8FWhOltQcaDA2sY.png"
+alt="image-20220731154523496" />
+<figcaption aria-hidden="true">image-20220731154523496</figcaption>
+</figure>
+<h2 id="变补求负">变补（求负）</h2>
+<p>[X]变补 = [-X]补，变补类似补码，变补是全部取反再加1，无符号位一说</p>
+<figure>
+<img src="https://s2.loli.net/2022/07/31/EnuBC85w7sJaND1.png"
+alt="image-20220731154630963" />
+<figcaption aria-hidden="true">image-20220731154630963</figcaption>
+</figure>
+<h2 id="bcd码">BCD码</h2>
+<p>BCD码：用四个二进制位表示一个十进制数字；最常用的是8421 BCD码；</p>
+<ul>
+<li>压缩型BCD码</li>
+</ul>
+<p>一个字节可存放一个两位十进制数，其中高四位存放十位数字，低四位存放个位数字。如：56的压缩型8421
+BCD码是0101 0110；</p>
+<ul>
+<li>非压缩型BCD码</li>
+</ul>
+<p>一个字节可存放一个一位十进制数，其中高字节为0，低字节的低四位存放个位。如：5的非压缩型BCD码是0000
+0101，必须存放在一个字节中，56的非压缩型BCD码是00000101
+00000110，必须存放在一个字中。</p>
+<figure>
+<img
+src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220731155245450.png"
+alt="image-20220731155245450" />
+<figcaption aria-hidden="true">image-20220731155245450</figcaption>
+</figure>
+<h3 id="bcd码的修正">BCD码的修正</h3>
+<ul>
+<li>对低四位的修正
+<ul>
+<li>查看低四位的数值是否大于9，如果大于，就+6强制让其进位，低四位的就得到了正确值。</li>
+<li>查看低四位是否向高四位有进位，查看标志寄存器AF，如果有，就+6补上其进位多进走的6，低四位就得到了正确的值</li>
+</ul></li>
+<li>对高四位的修正
+<ul>
+<li>查看高四位的数值是否大于9，如果大于，就+6强制让其进位，高四位的就得到了正确值。</li>
+<li>查看高四位是否向不存在的第五位有进位，查看进位标志位CF，如果有，就+6补上其进位多进走的6，高四位就得到了正确的值</li>
+</ul></li>
+</ul>
+<h1 id="数制与码制八">数制与码制（八）</h1>
+<h2 id="ascii码">ASCII码</h2>
+<figure>
+<img src="https://s2.loli.net/2022/07/31/6wpJDCKMGNoBPk2.png"
+alt="image-20220731164019416" />
+<figcaption aria-hidden="true">image-20220731164019416</figcaption>
+</figure>
+<ul>
+<li><p>数字字符转数字</p>
+<p><code>-30H</code></p></li>
+<li><p>大写字符转小写</p>
+<p><code>OR 20H</code></p></li>
+<li><p>小写字符转大写</p>
+<p><code>AND 0DFH</code></p></li>
+</ul>
 ]]></content>
       <categories>
         <category>岗前实训</category>
@@ -3788,16 +4062,19 @@ SAVEPOINT -- 删除保存点</p>
 <ol type="1">
 <li><p>一阶微分方程</p>
 <ul>
-<li><p>齐次 <span class="math display">\[
+<li><p>齐次<span class="math inline">\(y^{&#39;}+p(x)y=0\)</span> <span
+class="math display">\[
 Ce^{-\int p(x)dx}
 \]</span></p></li>
-<li><p>非齐次 <span class="math display">\[
+<li><p>非齐次<span class="math inline">\(y^{&#39;}+p(x)y=q(x)\)</span>
+<span class="math display">\[
 e^{-\int p(x)dx}[\int q(x)e^{\int p(x)dx}dx + C]
 \]</span></p></li>
 </ul></li>
 <li><p>二阶微分方程</p>
 <ul>
-<li><p>齐次</p>
+<li><p>齐次<span
+class="math inline">\(y^{&#39;&#39;}+p(x)y^{&#39;}+q(x)y=0\)</span></p>
 <ul>
 <li><p>特征方程r1!=r2 <span class="math display">\[
 C_1e^{r_1x}+C_2e^{r_2x}
@@ -3810,7 +4087,8 @@ C_1e^{r_1x}+C_2e^{r_2x}
 e^{ax}(c_1\cos\beta+c_2\sin\beta)
 \]</span></p></li>
 </ul></li>
-<li><p>非齐次</p>
+<li><p>非齐次<span
+class="math inline">\(y^{&#39;&#39;}+p(x)y^{&#39;}+q(x)y=f(x)\)</span></p>
 <p>求解非齐次方程，需要求出其对应齐次方程的通解<span
 class="math inline">\(Y\)</span>，再加上特解<span
 class="math inline">\(y^*\)</span></p>
@@ -3937,6 +4215,55 @@ f(-x) = f(x)
 </tr>
 </tbody>
 </table>
+<h1 id="曲线积分">曲线积分</h1>
+<ul>
+<li><p>对弧长的曲线积分 <span class="math display">\[
+\int p(x,y)ds=\int p(\varphi(t),\psi
+(t))\sqrt[2]{\varphi^{&#39;2}(t)+\psi^{&#39;2}(t)}dt
+\]</span></p></li>
+<li><p>对坐标的曲线积分 <span class="math display">\[
+\int P(x,y)dx+Q(x,y)dy=\int
+[p(\varphi(t),\psi(t))\varphi^{&#39;}(t)+q(\varphi(t),\psi(t))\psi^{&#39;}(t)]dt
+\]</span></p></li>
+<li><p>格林公式 <span class="math display">\[
+\iint_D(\frac{\partial Q}{\partial y} - \frac{\partial P}{\partial
+x})dxdy = \int_LP(x,y)dx+Q(x,y)dy
+\]</span></p></li>
+</ul>
+<h1 id="无穷级数">无穷级数</h1>
+<ul>
+<li><p>等比级数 <span class="math display">\[
+\sum_{n=0}^{\infin} aq^n = a+aq+aq^2+aq^3+...+aq^n+...(a\neq0)
+\]</span> |q|&lt;1时，级数收敛；|q|$$1时，级数发散。</p></li>
+<li><p>P级数 <span class="math display">\[
+\sum_{n=1}^{\infin} \frac{1}{n^p}
+\]</span> p&gt;1，级数收敛；p$$1级数发散</p></li>
+<li><p>正项级数的审敛法</p>
+<ul>
+<li><p>比较判别法 <span class="math display">\[
+\lim_{n\rightarrow \infin}\frac{U_n}{V_n}=l
+\]</span> <span class="math inline">\(l\)</span>为一常数，则<span
+class="math inline">\(U_n，V_n\)</span>敛散性相同。</p></li>
+<li><p>比值判别法 <span class="math display">\[
+\lim_{n \rightarrow \infin}\frac{U_{n+1}}{U_{n}}=l
+\]</span> <span class="math inline">\(l&gt;1\)</span>发散，<span
+class="math inline">\(l&lt;1\)</span>收敛，<span
+class="math inline">\(l=1\)</span>无法判定。</p></li>
+</ul></li>
+<li><p>任意项级数的审敛法</p>
+<ul>
+<li><p>交错级数</p>
+<p>据莱布尼茨定理，若 <span class="math display">\[
+\lim_{n\rightarrow \infin}U_n = 0
+\]</span> 且<span class="math inline">\(U_{n+1}\leqslant
+U_{n}\)</span>则交错级数收敛。</p></li>
+</ul></li>
+<li><p>幂级数的收敛域 <span class="math display">\[
+\lim_{n\rightarrow \infin}\frac{|U_{n+1}|}{|U_n|}=l
+\]</span> 则函数的收敛半径为<span
+class="math inline">\(r=\frac{1}{l}\)</span>，收敛域为<span
+class="math inline">\((-r,r)\)</span>，端点代入验证。</p></li>
+</ul>
 ]]></content>
       <categories>
         <category>岗前实训</category>

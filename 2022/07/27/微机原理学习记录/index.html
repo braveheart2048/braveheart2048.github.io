@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2022/07/23/c4MHyGQfPRuODUJ.jpg">
 <meta property="article:published_time" content="2022-07-27T05:55:11.000Z">
-<meta property="article:modified_time" content="2022-07-28T12:31:09.685Z">
+<meta property="article:modified_time" content="2022-07-31T08:51:52.357Z">
 <meta property="article:author" content="Alfa">
 <meta property="article:tag" content="专升本">
 <meta property="article:tag" content="微机原理">
@@ -199,7 +199,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      283 字
+      2.3k 字
     </span>
   
 
@@ -208,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1 分钟
+      7 分钟
     </span>
   
 
@@ -249,18 +249,18 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：20 小时前
+                  本文最后更新于：21 小时前
                 
               </p>
             
             <div class="markdown-body">
-              <h1 id="微机原理与系统设计绪论一">微机原理与系统设计绪论（一）</h1>
+              <h1 id="绪论一">绪论（一）</h1>
 <figure>
 <img src="https://s2.loli.net/2022/07/27/x7oDLf1HP2tZIEG.png" srcset="/img/loading.gif" lazyload
 alt="image-20220727140717045" />
 <figcaption aria-hidden="true">image-20220727140717045</figcaption>
 </figure>
-<h1 id="微机原理与系统设计绪论二">微机原理与系统设计绪论（二）</h1>
+<h1 id="绪论二">绪论（二）</h1>
 <figure>
 <img src="https://s2.loli.net/2022/07/27/WbcIVX2eqtz6OwN.png" srcset="/img/loading.gif" lazyload
 alt="image-20220727145027072" />
@@ -276,7 +276,7 @@ alt="image-20220727145302088" />
 alt="image-20220727145723680" />
 <figcaption aria-hidden="true">image-20220727145723680</figcaption>
 </figure>
-<h1 id="微机原理与系统设计绪论三">微机原理与系统设计绪论（三）</h1>
+<h1 id="绪论三">绪论（三）</h1>
 <ul>
 <li>芯片引脚OE，英文全称为Output
 Enable,中文意思为输出使能端、输出允许信号。</li>
@@ -286,7 +286,7 @@ Enable,中文意思为输出使能端、输出允许信号。</li>
 alt="image-20220727180422448" />
 <figcaption aria-hidden="true">image-20220727180422448</figcaption>
 </figure>
-<h1 id="微机原理与系统设计绪论四">微机原理与系统设计绪论（四）</h1>
+<h1 id="绪论四">绪论（四）</h1>
 <figure>
 <img src="https://s2.loli.net/2022/07/28/VBksfvCEeLotyXK.png" srcset="/img/loading.gif" lazyload
 alt="image-20220728163052792" />
@@ -302,6 +302,222 @@ alt="image-20220728163311292" />
 alt="image-20220728163541839" />
 <figcaption aria-hidden="true">image-20220728163541839</figcaption>
 </figure>
+<h1 id="数制与码制一">数制与码制（一）</h1>
+<h2 id="进制转换">进制转换</h2>
+<p><em>二进制、八进制、十进制、十六进制之间相互转换</em></p>
+<ul>
+<li><p>其他进制转换为十进制</p>
+<p>某位上的数字乘上它的权，求其总和。</p>
+<ul>
+<li>二进制<span class="math inline">\(10010011\)</span>转换为十进制
+<span class="math display">\[
+\begin{align}
+1\times2^0+1\times2^1+0\times2^2+0\times2^3+1\times2^4+0\times2^5+0\times2^6+1\times2^7\\=1+2+16+128
+\\= 147
+\end{align}
+\]</span></li>
+</ul></li>
+<li><p>十进制转换成其他进制</p>
+<ul>
+<li><p>整数部分转换</p>
+<ul>
+<li><p>111转换成二进制数</p>
+<p><img src="https://s2.loli.net/2022/07/29/AkEBeFOac7huziv.png" srcset="/img/loading.gif" lazyload alt="无标题" style="zoom:50%;" /></p></li>
+</ul></li>
+<li><p>小数部分转换</p>
+<ul>
+<li><p><span class="math inline">\(0.125\)</span>转换成二进制数</p>
+<figure>
+<img src="https://s2.loli.net/2022/07/29/6b2qiym5SRg8o9h.png" srcset="/img/loading.gif" lazyload
+alt="无标题" />
+<figcaption aria-hidden="true">无标题</figcaption>
+</figure></li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="位置加权法">位置加权法</h2>
+<figure>
+<img src="https://s2.loli.net/2022/07/29/HuMXUWpclRDIv1n.png" srcset="/img/loading.gif" lazyload
+alt="image-20220729165214184" />
+<figcaption aria-hidden="true">image-20220729165214184</figcaption>
+</figure>
+<h2 id="除十取余法">除十取余法</h2>
+<p><em>在程序设计中把二进制转化为十进制的一种算法，在手工运算时行不通</em></p>
+<figure>
+<img src="https://s2.loli.net/2022/07/30/KNFdRJrvw2hOMgm.png" srcset="/img/loading.gif" lazyload
+alt="image-20220729165318908" />
+<figcaption aria-hidden="true">image-20220729165318908</figcaption>
+</figure>
+<h1 id="数制与码制二">数制与码制（二）</h1>
+<h2 id="比较法">比较法</h2>
+<p>在程序设计中把二进制转化为十进制的一种算法</p>
+<figure>
+<img src="https://s2.loli.net/2022/07/30/YX72gbLu5W4Z6Kn.png" srcset="/img/loading.gif" lazyload
+alt="image-20220730143532008" />
+<figcaption aria-hidden="true">image-20220730143532008</figcaption>
+</figure>
+<h2
+id="数据寄存器axbxcxdx"><strong>数据寄存器（AX，BX，CX，DX）</strong></h2>
+<p>数据寄存器有 AX，BX，CX，DX 四个组成，由于在 8086 之前的 CPU 为 8 位
+CPU，所以为了兼容以前的 8 位程序，在 8086 CPU
+中，每一个数据寄存器都可以当做两个单独的寄存器来使用，由此，每一个 16
+位寄存器就可以当做 2 个独立的 8 位寄存器来使用了。</p>
+<p>AX 寄存器可以分为两个独立的 8 位的 AH 和 AL 寄存器；</p>
+<p>BX 寄存器可以分为两个独立的 8 位的 BH 和 BL 寄存器；</p>
+<p>CX 寄存器可以分为两个独立的 8 位的 CH 和 CL 寄存器；</p>
+<p>DX 寄存器可以分为两个独立的 8 位的 DH 和 DL 寄存器；</p>
+<p><strong>除了上面 4 个数据寄存器以外，其他寄存器均不可以分为两个独立的
+8 位寄存器 ；</strong></p>
+<figure>
+<img src="https://s2.loli.net/2022/07/30/RptGZXgzMqJrkLW.png" srcset="/img/loading.gif" lazyload
+alt="image-20220730143819359" />
+<figcaption aria-hidden="true">image-20220730143819359</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2022/07/30/SHUvxjXPiMZkVwz.png" srcset="/img/loading.gif" lazyload
+alt="image-20220730143927858" />
+<figcaption aria-hidden="true">image-20220730143927858</figcaption>
+</figure>
+<h1 id="数制与码制三">数制与码制（三）</h1>
+<h2 id="psw寄存器">PSW寄存器</h2>
+<p><strong>进位标志CF（Carry Flag）、奇偶标志PF（Parity
+Flag）、辅助进位标志AF（Auxiliary Carry Flag）、零标志ZF（Zero
+Flag）、符号标志SF（Sign Flag）、溢出标志（Overflow
+Flag）。</strong></p>
+<figure>
+<img src="https://s2.loli.net/2022/07/30/Or8mySnQI47b9RD.png" srcset="/img/loading.gif" lazyload
+alt="image-20220730151946480" />
+<figcaption aria-hidden="true">image-20220730151946480</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2022/07/30/JdFYTCio6KscxV4.png" srcset="/img/loading.gif" lazyload
+alt="image-20220730151600205" />
+<figcaption aria-hidden="true">image-20220730151600205</figcaption>
+</figure>
+<h1 id="数制与码制四">数制与码制（四）</h1>
+<figure>
+<img src="https://s2.loli.net/2022/07/30/rzlohYdXp2Z9SVM.png" srcset="/img/loading.gif" lazyload
+alt="image-20220730154621911" />
+<figcaption aria-hidden="true">image-20220730154621911</figcaption>
+</figure>
+<h2
+id="汇编语言十六进制数据前加0规则">汇编语言——十六进制数据前加0规则</h2>
+<p>十六进制以A~F打头的数字出现在指令中时，前面一定要加一个数字0,以免与其它符号相混淆。</p>
+<figure>
+<img src="https://s2.loli.net/2022/07/30/IFt6KMWeVY8nzCi.png" srcset="/img/loading.gif" lazyload
+alt="image-20220730155113470" />
+<figcaption aria-hidden="true">image-20220730155113470</figcaption>
+</figure>
+<h1 id="数制与码制五">数制与码制（五）</h1>
+<h2 id="原码">原码</h2>
+<figure>
+<img src="https://s2.loli.net/2022/07/30/Tq1Z2RjJWeIbMxt.png" srcset="/img/loading.gif" lazyload
+alt="image-20220730163329049" />
+<figcaption aria-hidden="true">image-20220730163329049</figcaption>
+</figure>
+<h2 id="补码">补码</h2>
+<p><em>原码除符号位之外各位取反，最后加一就得到补码</em></p>
+<figure>
+<img src="https://s2.loli.net/2022/07/30/sAlDHWFJZPckj1I.png" srcset="/img/loading.gif" lazyload
+alt="image-20220730163433370" />
+<figcaption aria-hidden="true">image-20220730163433370</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2022/07/30/BFAZkqDugSztrXl.png" srcset="/img/loading.gif" lazyload
+alt="image-20220730163922775" />
+<figcaption aria-hidden="true">image-20220730163922775</figcaption>
+</figure>
+<h1 id="数制与码制六">数制与码制（六）</h1>
+<p><a href="#PSW寄存器">查看PSW寄存器详细内容</a></p>
+<p>PF：奇偶标志位 （用于数据发送时接收方校验所收数据真实性 ，
+发送方通过填充奇偶标志位使得发送数据的<a
+target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=二进制&amp;spm=1001.2101.3001.7020">二进制</a>数的1的个数为奇或为偶）（8086为奇校验）</p>
+<figure>
+<img src="https://s2.loli.net/2022/07/30/pXtdMFSWx28P6nV.png" srcset="/img/loading.gif" lazyload
+alt="image-20220730211256619" />
+<figcaption aria-hidden="true">image-20220730211256619</figcaption>
+</figure>
+<h2 id="补码运算规则">补码运算规则</h2>
+<p>在计算机中，通常总是用<a
+target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=补码&amp;spm=1001.2101.3001.7020">补码</a>完成算术的加减法运算。其规则是：
+　　[X+Y]补= [X]补 + [Y]补 ，[X-Y]补= [X]补 - [Y]补 = [X]补 + [-Y]补</p>
+<figure>
+<img src="https://s2.loli.net/2022/07/30/pU85cSzXCdQxveG.png" srcset="/img/loading.gif" lazyload
+alt="image-20220730213239797" />
+<figcaption aria-hidden="true">image-20220730213239797</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2022/07/30/WoZjiRytYhb7KPc.png" srcset="/img/loading.gif" lazyload
+alt="image-20220730212513669" />
+<figcaption aria-hidden="true">image-20220730212513669</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2022/07/30/FC2eqQpvLJ1XiZk.png" srcset="/img/loading.gif" lazyload
+alt="image-20220730213314250" />
+<figcaption aria-hidden="true">image-20220730213314250</figcaption>
+</figure>
+<h1 id="数制与码制七">数制与码制（七）</h1>
+<h2 id="补码运算规则补充">补码运算规则（补充）</h2>
+<p>补码的补码就是原码</p>
+<figure>
+<img src="https://s2.loli.net/2022/07/31/8FWhOltQcaDA2sY.png" srcset="/img/loading.gif" lazyload
+alt="image-20220731154523496" />
+<figcaption aria-hidden="true">image-20220731154523496</figcaption>
+</figure>
+<h2 id="变补求负">变补（求负）</h2>
+<p>[X]变补 = [-X]补，变补类似补码，变补是全部取反再加1，无符号位一说</p>
+<figure>
+<img src="https://s2.loli.net/2022/07/31/EnuBC85w7sJaND1.png" srcset="/img/loading.gif" lazyload
+alt="image-20220731154630963" />
+<figcaption aria-hidden="true">image-20220731154630963</figcaption>
+</figure>
+<h2 id="bcd码">BCD码</h2>
+<p>BCD码：用四个二进制位表示一个十进制数字；最常用的是8421 BCD码；</p>
+<ul>
+<li>压缩型BCD码</li>
+</ul>
+<p>一个字节可存放一个两位十进制数，其中高四位存放十位数字，低四位存放个位数字。如：56的压缩型8421
+BCD码是0101 0110；</p>
+<ul>
+<li>非压缩型BCD码</li>
+</ul>
+<p>一个字节可存放一个一位十进制数，其中高字节为0，低字节的低四位存放个位。如：5的非压缩型BCD码是0000
+0101，必须存放在一个字节中，56的非压缩型BCD码是00000101
+00000110，必须存放在一个字中。</p>
+<figure>
+<img
+src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220731155245450.png" srcset="/img/loading.gif" lazyload
+alt="image-20220731155245450" />
+<figcaption aria-hidden="true">image-20220731155245450</figcaption>
+</figure>
+<h3 id="bcd码的修正">BCD码的修正</h3>
+<ul>
+<li>对低四位的修正
+<ul>
+<li>查看低四位的数值是否大于9，如果大于，就+6强制让其进位，低四位的就得到了正确值。</li>
+<li>查看低四位是否向高四位有进位，查看标志寄存器AF，如果有，就+6补上其进位多进走的6，低四位就得到了正确的值</li>
+</ul></li>
+<li>对高四位的修正
+<ul>
+<li>查看高四位的数值是否大于9，如果大于，就+6强制让其进位，高四位的就得到了正确值。</li>
+<li>查看高四位是否向不存在的第五位有进位，查看进位标志位CF，如果有，就+6补上其进位多进走的6，高四位就得到了正确的值</li>
+</ul></li>
+</ul>
+<h1 id="数制与码制八">数制与码制（八）</h1>
+<h2 id="ascii码">ASCII码</h2>
+<figure>
+<img src="https://s2.loli.net/2022/07/31/6wpJDCKMGNoBPk2.png" srcset="/img/loading.gif" lazyload
+alt="image-20220731164019416" />
+<figcaption aria-hidden="true">image-20220731164019416</figcaption>
+</figure>
+<ul>
+<li><p>数字字符转数字</p>
+<p><code>-30H</code></p></li>
+<li><p>大写字符转小写</p>
+<p><code>OR 20H</code></p></li>
+<li><p>小写字符转大写</p>
+<p><code>AND 0DFH</code></p></li>
+</ul>
 
             </div>
             <hr>
