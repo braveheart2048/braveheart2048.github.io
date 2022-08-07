@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.4.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/autumn.svg" color="#222">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -149,7 +149,7 @@
     <link itemprop="mainEntityOfPage" href="http://idealstars.space/2022/05/27/springboot%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar-castle.jpg">
       <meta itemprop="name" content="alfa">
       <meta itemprop="description" content="">
     </span>
@@ -160,7 +160,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/05/27/springboot%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/" class="post-title-link" itemprop="url">springboot学习时遇到的问题</a>
+            <a href="/2022/05/27/springboot%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/" class="post-title-link" itemprop="url">springboot问题整理</a>
         </h2>
 
         <div class="post-meta">
@@ -177,7 +177,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-07-14 15:39:22" itemprop="dateModified" datetime="2022-07-14T15:39:22+08:00">2022-07-14</time>
+                <time title="修改时间：2022-08-07 16:12:21" itemprop="dateModified" datetime="2022-08-07T16:12:21+08:00">2022-08-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -200,175 +200,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="springboot项目搭建">SpringBoot项目搭建</h1>
-<ol type="1">
-<li><p>新建Empty Project</p></li>
-<li><p><img src="https://s2.loli.net/2022/05/30/Cyv4Y3HZrsSbFQe.png" alt="image-20220530115230389" style="zoom:50%;" /></p></li>
-<li><p>新建module，Spring initializer创建springboot项目，</p>
-<p><img src="https://s2.loli.net/2022/05/27/3VM5HAjuWw4zXvg.png" alt="image-20220527161537443" style="zoom:50%;" /></p>
-<p><img src="https://s2.loli.net/2022/05/27/gYOQfCuxW25Sjri.png" alt="image-20220527161624866" style="zoom:50%;" /></p></li>
-<li><p>导入jar包</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-jdbc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis.spring.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--导入lombok--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--引入外部tomcat的支持--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.tomcat.embed<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>tomcat-embed-jasper<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--引入标签库的支持--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>jstl<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jstl<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 不引入这个访问jsp页面会报404错误--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>taglibs<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>standard<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--热部署依赖--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--pagehelper分页的依赖--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.pagehelper<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>pagehelper<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li><p>生成webApp文件夹和Web.xml文件</p></li>
-<li><p>配置application.properties</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">spring.datasource.username=root</span><br><span class="line">spring.datasource.password=</span><br><span class="line">spring.datasource.url=jdbc:mysql://localhost:3306/userManager?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC</span><br><span class="line">spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver</span><br><span class="line"></span><br><span class="line">spring.mvc.view.prefix=/WEB-INF/jsp/</span><br><span class="line">spring.mvc.view.suffix=.jsp</span><br></pre></td></tr></table></figure>
-<p>或者选择application.yml</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#配置数据源</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> </span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/movie?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line">  <span class="comment">#配置视图解析器</span></span><br><span class="line">  <span class="attr">mvc:</span></span><br><span class="line">    <span class="attr">view:</span></span><br><span class="line">      <span class="attr">suffix:</span> <span class="string">.jsp</span></span><br><span class="line">      <span class="attr">prefix:</span> <span class="string">/jsp/</span></span><br><span class="line"><span class="comment">#配置mapper的存放路径以及实体类别名</span></span><br><span class="line"><span class="attr">mybatis:</span></span><br><span class="line">  <span class="attr">mapper-locations:</span> <span class="string">classpath:mapper/*.xml</span></span><br><span class="line">  <span class="attr">type-aliases-package:</span> <span class="string">com.ruanyuan.pojo</span></span><br><span class="line">  <span class="attr">config-location:</span> <span class="string">classpath:mybatis-config.xml</span></span><br></pre></td></tr></table></figure></li>
-<li><p>环境配置基本完毕。</p></li>
-</ol>
-<h1 id="怎么将html转换为jsp">怎么将html转换为jsp</h1>
-<ol type="1">
-<li><p>直接在原testPage.html页面最顶端添加如下代码：</p>
-<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">&quot;java&quot;</span> contentType=<span class="string">&quot;text/html; charset=UTF-8&quot;</span> pageEncoding=<span class="string">&quot;UTF-8&quot;</span>%&gt;</span><br></pre></td></tr></table></figure></li>
-<li><p>修改文件后缀名： 修改后缀名为<code>.jsp</code>，Ok即可。</p></li>
-</ol>
-<h1
-id="springbootthymeleaf配置与使用">Springboot+Thymeleaf配置与使用</h1>
-<ol type="1">
-<li><p>在application.properties文件中增加Thymeleaf模板的配置。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spring.thymeleaf.cache=false</span><br></pre></td></tr></table></figure>
-<p>在开发时建议将spring.thymeleaf.cache设置为false，否则会有缓存，导致页面没法及时看到更新后的效果。
-比如你修改了一个文件，已经update到tomcat，但刷新页面还是之前的页面，就是因为缓存引起的。</p></li>
-<li><p>在pom.xml中添加thymeleaf的依赖</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-thymeleaf<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li><p>```html</p>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># driver-class-name: com.mysql.cj.jdbc.Driver 报错的几种解决办法</span><br><span class="line"></span><br><span class="line">`pom.xml`文件中</span><br><span class="line"></span><br><span class="line">```xml</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;mysql&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="pathvariable注解使用"><span class="citation"
-data-cites="PathVariable注解使用">@PathVariable注解使用</span></h1>
-<p><strong><span class="citation"
-data-cites="PathVariable是spring3.0的一个新功能">@PathVariable是spring3.0的一个新功能</span>：接收请求路径中占位符的值</strong></p>
-<p><strong>语法：</strong></p>
-<blockquote>
-<p><span class="citation"
-data-cites="PathVariable">@PathVariable</span>("xxx") 通过 <span
-class="citation" data-cites="PathVariable">@PathVariable</span>
-可以将URL中占位符参数{xxx}绑定到处理器类的方法形参中@PathVariable(“xxx“)</p>
-<p><span class="citation"
-data-cites="RequestMapping">@RequestMapping</span>(value=”user/{id}/{name}”)
-请求路径：http://localhost:8080/hello/show5/1/james</p>
-</blockquote>
-<h1 id="requestparam注解的详细介绍"><span class="citation"
-data-cites="RequestParam注解的详细介绍">@RequestParam注解的详细介绍</span></h1>
-<p><span class="citation" data-cites="RequestParam">@RequestParam</span>
-（org.springframework.web.bind.annotation.RequestParam）用于将指定的请求参数赋值给方法中的形参。</p>
-<p>有三个属性：</p>
-<ol type="1">
-<li>value：请求参数名（必须配置）</li>
-<li>required：是否必需，默认为 true，即
-请求中必须包含该参数，如果没有包含，将会抛出异常（可选配置）</li>
-<li>defaultValue：默认值，如果设置了该值，required 将自动设为
-false，无论你是否配置了required，配置了什么值，都是
-false（可选配置）</li>
-</ol>
-<h1
-id="mybatismapper文件详解mapper文件样例">mybatis——mapper文件详解，mapper文件样例</h1>
-<blockquote>
-<p>mapper文件样例</p>
-</blockquote>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">mapper</span> <span class="meta-keyword">PUBLIC</span> <span class="meta-string">&quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span> <span class="meta-string">&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">  namespace绑定了与之对应的接口,值是该接口的全限定名;这个参数有且只有一个</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">&quot;com.ruanyuan.dao.AuthorDao&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="mybatis一对一关联查询">MyBatis一对一关联查询</h2>
-<h3 id="单步查询">单步查询</h3>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">id</span>=<span class="string">&quot;BookWithAuthorAndCategoryAndPublisher&quot;</span> <span class="attr">type</span>=<span class="string">&quot;com.ruanyuan.pojo.Book&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span> <span class="attr">property</span>=<span class="string">&quot;bookCode&quot;</span> <span class="attr">column</span>=<span class="string">&quot;bookCode&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;bookName&quot;</span> <span class="attr">column</span>=<span class="string">&quot;bookName&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;unitPrice&quot;</span> <span class="attr">column</span>=<span class="string">&quot;unitPrice&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;picture&quot;</span> <span class="attr">column</span>=<span class="string">&quot;picture&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;description&quot;</span> <span class="attr">column</span>=<span class="string">&quot;bookdesc&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;quantity&quot;</span> <span class="attr">column</span>=<span class="string">&quot;quantity&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 一对一级联查询 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">&quot;author&quot;</span> <span class="attr">javaType</span>=<span class="string">&quot;com.ruanyuan.pojo.Author&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">property</span>=<span class="string">&quot;authorId&quot;</span> <span class="attr">column</span>=<span class="string">&quot;authorId&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;authorName&quot;</span> <span class="attr">column</span>=<span class="string">&quot;authorName&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">column</span>=<span class="string">&quot;sex&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;birthday&quot;</span> <span class="attr">column</span>=<span class="string">&quot;birthday&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;email&quot;</span> <span class="attr">column</span>=<span class="string">&quot;email&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;telPhone&quot;</span> <span class="attr">column</span>=<span class="string">&quot;authortel&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;city&quot;</span> <span class="attr">column</span>=<span class="string">&quot;city&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;description&quot;</span> <span class="attr">column</span>=<span class="string">&quot;authordesc&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">association</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 一对一级联查询 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">&quot;category&quot;</span> <span class="attr">javaType</span>=<span class="string">&quot;com.ruanyuan.pojo.Category&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">property</span>=<span class="string">&quot;categoryId&quot;</span> <span class="attr">column</span>=<span class="string">&quot;categoryId&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;categoryName&quot;</span> <span class="attr">column</span>=<span class="string">&quot;categoryName&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;description&quot;</span> <span class="attr">column</span>=<span class="string">&quot;categorydesc&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">association</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 一对一级联查询 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">&quot;publisher&quot;</span> <span class="attr">javaType</span>=<span class="string">&quot;com.ruanyuan.pojo.Publisher&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">property</span>=<span class="string">&quot;publisherId&quot;</span> <span class="attr">column</span>=<span class="string">&quot;publisherId&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;publisherName&quot;</span> <span class="attr">column</span>=<span class="string">&quot;publisherName&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;address&quot;</span> <span class="attr">column</span>=<span class="string">&quot;address&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;telPhone&quot;</span> <span class="attr">column</span>=<span class="string">&quot;publishertel&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;fax&quot;</span> <span class="attr">column</span>=<span class="string">&quot;fax&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">association</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;getAllBook&quot;</span> <span class="attr">resultMap</span>=<span class="string">&quot;BookWithAuthorAndCategoryAndPublisher&quot;</span>&gt;</span></span><br><span class="line">    select bookcode, bookname, unitprice, picture, books.description as bookdesc, quantity, a.authorid, authorname, sex, birthday, email, a.telphone as authortel, city, a.description as authordesc, c.categoryid, categoryname, c.descripition as categorydesc, p.publisherid, publishername, address, p.telphone as publishertel, fax from books</span><br><span class="line">    join authors a on books.AuthorID = a.AuthorID</span><br><span class="line">    join categorys c on books.CategoryID = c.CategoryID</span><br><span class="line">    join publisher p on books.PublisherID = p.PublisherID</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="mybatis-select标签">MyBatis select标签</h2>
-<p>select 示例语句如下。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;selectAllWebsite&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;net.biancheng.po.Website&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;string&quot;</span>&gt;</span></span><br><span class="line">    SELECT id,NAME,url FROM website WHERE NAME LIKE CONCAT (&#x27;%&#x27;,#&#123;name&#125;,&#x27;%&#x27;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>下面介绍 select 标签中常用的属性。</p>
-</blockquote>
-<table>
-<colgroup>
-<col style="width: 13%" />
-<col style="width: 81%" />
-<col style="width: 5%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>属性名称</th>
-<th>描 述</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>resultType</td>
-<td>SQL
-语句执行后返回的类型（全限定名或者别名）。如果是集合类型，返回的是集合元素的类型，返回时可以使用
-resultType 或 resultMap 之一</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h2 id="sql-delete-语句">SQL DELETE 语句</h2>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> 表名称 <span class="keyword">WHERE</span> 列名称 <span class="operator">=</span> 值</span><br></pre></td></tr></table></figure>
-<h1
-id="thymeleaf模板中html如何获取前台的session中的值干货">thymeleaf模板中，html如何获取前台的session中的值（干货）</h1>
-<blockquote>
-<p>前端代码</p>
-</blockquote>
-<figure>
-<img
-src="https://img-blog.csdnimg.cn/20181114144338606.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01yX1poYW5nQWRk,size_16,color_FFFFFF,t_70"
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
-</figure>
-<h1 id="拦截器配置不生效">拦截器配置不生效</h1>
-<blockquote>
-<p>检查是否添加了@Configuration注解</p>
-</blockquote>
-<figure>
-<img src="https://s2.loli.net/2022/07/06/FYXe2cZbu1IlRWU.png"
-alt="image-20220706120007266" />
-<figcaption aria-hidden="true">image-20220706120007266</figcaption>
-</figure>
-<h1
-id="springboot连接数据库报错access-denied-for-user-rootlocalhost-using-password-yes">SpringBoot连接数据库报错：Access
-denied for user ‘root‘@‘localhost‘ (using password: YES)</h1>
-<p>SpringBoot连接数据库报错：Access denied for user ‘***’@‘localhost’
-(using password: YES)
-它报三个***，这个就很恶心了！找了很久，大多数都说是权限问题，刚开始我也以为是权限，后面弄得数据库都连接不上了！！！后面才发现和那些没有一点关系！
-原因是因为我们在创建springboot的时候它自动给我们在properties中创建了连接对象！</p>
-<figure>
-<img src="https://s2.loli.net/2022/07/09/e6Aq2w5dnMGDJaX.png"
-alt="在这里插入图片描述" />
-<figcaption aria-hidden="true">在这里插入图片描述</figcaption>
-</figure>
-<p>这个时候只需要选择一个配置就OK了！！！</p>
-<h1
-id="druid控制台无法监控sql问题druid登录配置完了还是不需要账号密码">druid控制台无法监控sql问题，druid登录配置完了还是不需要账号密码</h1>
-<ol type="1">
-<li><p>在Spring的数据库配置参数里开启监控并配置druid(yml形式)</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="comment"># 假如时区报错了，就增加一个时区的配置就ok了 serverTimezone=UTC</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/mybatis_plus?useUnicode=true&amp;characterEncoding=utf8&amp;characterSetResults=utf8&amp;useSSL=false</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">asd123</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">com.alibaba.druid.pool.DruidDataSource</span></span><br><span class="line">	<span class="comment">#没有这条druid控制台无法监控sql</span></span><br><span class="line">    <span class="comment">#用于SQL状态监控,stat代表状态,wall代表防火墙</span></span><br><span class="line">    <span class="attr">filters:</span> <span class="string">stat,wall</span></span><br><span class="line">    <span class="comment">#Spring Boot 默认是不注入这些属性值的，需要自己绑定</span></span><br><span class="line">    <span class="comment">#druid 数据源专有配置</span></span><br><span class="line">    <span class="attr">initialSize:</span> <span class="number">5</span></span><br><span class="line">    <span class="attr">minIdle:</span> <span class="number">5</span></span><br><span class="line">    <span class="attr">maxActive:</span> <span class="number">20</span></span><br><span class="line">    <span class="attr">maxWait:</span> <span class="number">60000</span></span><br><span class="line">    <span class="attr">timeBetweenEvictionRunsMillis:</span> <span class="number">60000</span></span><br><span class="line">    <span class="attr">minEvictableIdleTimeMillis:</span> <span class="number">300000</span></span><br><span class="line">    <span class="attr">validationQuery:</span> <span class="string">SELECT</span> <span class="number">1</span> <span class="string">FROM</span> <span class="string">DUAL</span></span><br><span class="line">    <span class="attr">testWhileIdle:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">testOnBorrow:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">testOnReturn:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">poolPreparedStatements:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment">#配置监控统计拦截的filters，stat:监控统计、log4j：日志记录、wall：防御sql注入</span></span><br><span class="line">    <span class="comment">#如果允许时报错 java.lang.ClassNotFoundException: org.apache.log4j.Priority</span></span><br><span class="line">    <span class="comment">#则导入 log4j 依赖即可，Maven 地址：https://mvnrepository.com/artifact/log4j/</span></span><br><span class="line">    <span class="attr">log4j filters:</span> <span class="string">stat,wall,log4j</span></span><br><span class="line">    <span class="attr">maxPoolPreparedStatementPerConnectionSize:</span> <span class="number">20</span></span><br><span class="line">    <span class="attr">useGlobalDataSourceStat:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">connectionProperties:</span> <span class="string">druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500</span></span><br><span class="line">    <span class="comment">#配置监控统计拦截的filters,去掉后监控界面sql将无法统计</span></span><br><span class="line">    <span class="attr">spring.datasource.filters:</span> <span class="string">stat</span></span><br></pre></td></tr></table></figure></li>
-<li><p>加入druid配置类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.kuang.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.alibaba.druid.pool.DruidDataSource;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.druid.support.http.ResourceServlet;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.druid.support.http.StatViewServlet;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.druid.support.http.WebStatFilter;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.context.properties.ConfigurationProperties;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.web.servlet.FilterRegistrationBean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.web.servlet.ServletRegistrationBean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.Filter;</span><br><span class="line"><span class="keyword">import</span> javax.sql.DataSource;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * TODO</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span> DruidConfig</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> Alfa</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Data</span> 2022/7/11 9:24</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Version</span> 1.0</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DruidConfig</span> </span>&#123;</span><br><span class="line">    <span class="meta">@ConfigurationProperties(prefix = &quot;spring.datasource&quot;)</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> DataSource <span class="title">druid</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> DruidDataSource();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 配置一个druid的监控</span></span><br><span class="line"><span class="comment">     * 1、配置一个druid的后台  管理servlet</span></span><br><span class="line"><span class="comment">     * 2、配置一个druid的filter</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="comment">//1、配置一个druid的后台  管理servlet</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ServletRegistrationBean <span class="title">servletRegistrationBean</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//注意，请求时 /druid/*</span></span><br><span class="line">        ServletRegistrationBean&lt;StatViewServlet&gt; bean = <span class="keyword">new</span> ServletRegistrationBean(<span class="keyword">new</span> StatViewServlet(),<span class="string">&quot;/druid/*&quot;</span>);</span><br><span class="line">        Map&lt;String,String&gt; initParm= <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="comment">//登陆页面账户与密码</span></span><br><span class="line">        initParm.put(ResourceServlet.PARAM_NAME_USERNAME,<span class="string">&quot;root&quot;</span>);</span><br><span class="line">        initParm.put(ResourceServlet.PARAM_NAME_PASSWORD,<span class="string">&quot;aabbcc&quot;</span>);</span><br><span class="line">        <span class="comment">//监控后台 允许ip</span></span><br><span class="line">        initParm.put(ResourceServlet.PARAM_NAME_ALLOW,<span class="string">&quot;&quot;</span>);</span><br><span class="line">        <span class="comment">//黑名单</span></span><br><span class="line">        initParm.put(ResourceServlet.PARAM_NAME_DENY,<span class="string">&quot;192.168.0.1&quot;</span>);</span><br><span class="line"></span><br><span class="line">        bean.setInitParameters(initParm);</span><br><span class="line">        <span class="keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//    2、配置一个druid的filter</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> FilterRegistrationBean <span class="title">webStatFilter</span><span class="params">()</span></span>&#123;</span><br><span class="line">        FilterRegistrationBean&lt;Filter&gt; bean = <span class="keyword">new</span> FilterRegistrationBean&lt;&gt;();</span><br><span class="line">        bean.setFilter(<span class="keyword">new</span> WebStatFilter());</span><br><span class="line"></span><br><span class="line"><span class="comment">//        可以过滤那些请求？</span></span><br><span class="line">        Map&lt;String, String&gt; initPrams = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"><span class="comment">//        这些东西不进行统计</span></span><br><span class="line">        initPrams.put(WebStatFilter.PARAM_NAME_EXCLUSIONS,<span class="string">&quot;*.js,*.css,/druid/*&quot;</span>);</span><br><span class="line">        bean.setInitParameters(initPrams);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//设置拦截器请求</span></span><br><span class="line">        bean.setUrlPatterns(Arrays.asList(<span class="string">&quot;/&quot;</span>));</span><br><span class="line">        <span class="keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<blockquote>
-<p><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/danhua8381/article/details/107318641">原文链接</a></p>
-</blockquote>
-<h1
-id="springboot有关type-aliases-package设置xml别名爆红错误">springboot有关type-aliases-package设置，xml别名爆红错误</h1>
-<p><img src="https://img-blog.csdnimg.cn/20210707121800150.png"
-alt="img" /><img
-src="https://img-blog.csdnimg.cn/20210707121902596.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzUzMDc5MTU2,size_16,color_FFFFFF,t_70"
-alt="img" /></p>
-<figure>
-<img
-src="https://img-blog.csdnimg.cn/20210707121918629.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzUzMDc5MTU2,size_16,color_FFFFFF,t_70"
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
-</figure>
-<p>把IDEA设置的检查级别调低，默认是inspections，这个词的意思是检查的意思，就是会对你的代码进行静态检查，就像findbugs那样，如果你能把代码改进到消除inspections级别的所有警告，那么你的代码质量已经相当好了。</p>
-<p>但是很难把这个级别的警告消除干净，例如最常见的代码重复就很难消除，Intellij
-甚至把不同modules的代码都会检查重复，而不同modules的重复代码难以合并。</p>
-<p>当你嫌警告太多，可以设置为syntax也就是语法级别。这个级别只会检查语法是否正确，这个级别和eclipse或myeclipse是一样的，提前发现你代码的编译错误。</p>
-<p>平时可以使用这个级别保持界面清爽，而审查代码的时候开开inspections级别进行更严格的代码质量检查。</p>
-<blockquote>
-<p><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/qq_53079156/article/details/118544027">原文链接</a></p>
-</blockquote>
-
+          <p>springboot问题整理</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/05/27/springboot%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -390,7 +230,7 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/qq_53079156/article/d
     <link itemprop="mainEntityOfPage" href="http://idealstars.space/2022/05/26/sql%E7%BB%8F%E5%85%B8%E4%BA%94%E5%8D%81%E9%A2%98%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar-castle.jpg">
       <meta itemprop="name" content="alfa">
       <meta itemprop="description" content="">
     </span>
@@ -410,10 +250,16 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/qq_53079156/article/d
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-05-26 15:53:04 / 修改时间：15:53:37" itemprop="dateCreated datePublished" datetime="2022-05-26T15:53:04+08:00">2022-05-26</time>
+              <time title="创建时间：2022-05-26 15:53:04" itemprop="dateCreated datePublished" datetime="2022-05-26T15:53:04+08:00">2022-05-26</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-08-07 16:12:30" itemprop="dateModified" datetime="2022-08-07T16:12:30+08:00">2022-08-07</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -435,355 +281,15 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/qq_53079156/article/d
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/GodSuzzZ/article/details/106930311">MySQL
-经典练习 50 题（完美解答版）</a></p>
-<h1 id="sql中的join和inner-join的区别">sql中的join和inner
-join的区别</h1>
-<p>join等同于inner join等同于where</p>
-<h1 id="sql-round-函数">SQL ROUND() 函数</h1>
-<p>ROUND 函数用于把数值字段舍入为指定的小数位数。</p>
-<p><strong>语法</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT ROUND(column_name,decimals) FROM table_name</span><br></pre></td></tr></table></figure>
-<p><strong>实例</strong></p>
-<ol type="1">
-<li><p>我们拥有下面这个 "Products" 表：</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Prod_Id</th>
-<th style="text-align: left;">ProductName</th>
-<th style="text-align: left;">Unit</th>
-<th style="text-align: left;">UnitPrice</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">gold</td>
-<td style="text-align: left;">1000 g</td>
-<td style="text-align: left;">32.35</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">silver</td>
-<td style="text-align: left;">1000 g</td>
-<td style="text-align: left;">11.56</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">copper</td>
-<td style="text-align: left;">1000 g</td>
-<td style="text-align: left;">6.85</td>
-</tr>
-</tbody>
-</table></li>
-<li><p>现在，我们希望把名称和价格舍入为最接近的整数。</p>
-<p>我们使用如下 SQL 语句：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ProductName, ROUND(UnitPrice,<span class="number">0</span>) <span class="keyword">as</span> UnitPrice <span class="keyword">FROM</span> Products</span><br></pre></td></tr></table></figure></li>
-<li><p>结果集类似这样：</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">ProductName</th>
-<th style="text-align: left;">UnitPrice</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">gold</td>
-<td style="text-align: left;">32</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">silver</td>
-<td style="text-align: left;">12</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">copper</td>
-<td style="text-align: left;">7</td>
-</tr>
-</tbody>
-</table></li>
-</ol>
-<hr />
-<h1 id="mysql-ifnull函数简介">MySQL IFNULL函数简介</h1>
-<p>它接受两个参数，如果不是<code>NULL</code>，则返回第一个参数。
-否则，<code>IFNULL</code>函数返回第二个参数。</p>
-<p><strong>语法</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IFNULL(expression_1,expression_2);</span><br></pre></td></tr></table></figure>
-<p><strong>实例</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> IFNULL(<span class="number">1</span>,<span class="number">0</span>); </span><br></pre></td></tr></table></figure>
-<hr />
-<h1 id="笛卡尔积">笛卡尔积</h1>
-<p>笛卡尔积在SQL中的实现方式既是交叉连接(Cross
-Join)。所有连接方式都会先生成临时笛卡尔积表，笛卡尔积是关系代数里的一个概念，表示两个表中的每一行数据任意组合。</p>
-<h1 id="sql-order-by-关键字">SQL ORDER BY 关键字</h1>
-<p>ORDER BY
-关键字默认按照升序对记录进行排序。如果需要按照降序对记录进行排序，您可以使用
-DESC 关键字。</p>
-<p><strong>语法</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name,column_name</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> column_name,column_name <span class="keyword">ASC</span><span class="operator">|</span><span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
-<p><strong>演示数据库</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">+</span><span class="comment">----+--------------+---------------------------+-------+---------+</span></span><br><span class="line"><span class="operator">|</span> id <span class="operator">|</span> name         <span class="operator">|</span> url                       <span class="operator">|</span> alexa <span class="operator">|</span> country <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">----+--------------+---------------------------+-------+---------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">1</span>  <span class="operator">|</span> Google       <span class="operator">|</span> https:<span class="operator">/</span><span class="operator">/</span>www.google.cm<span class="operator">/</span>    <span class="operator">|</span> <span class="number">1</span>     <span class="operator">|</span> USA     <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">2</span>  <span class="operator">|</span> 淘宝          <span class="operator">|</span> https:<span class="operator">/</span><span class="operator">/</span>www.taobao.com<span class="operator">/</span>   <span class="operator">|</span> <span class="number">13</span>    <span class="operator">|</span> CN      <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">3</span>  <span class="operator">|</span> 菜鸟教程      <span class="operator">|</span> http:<span class="operator">/</span><span class="operator">/</span>www.runoob.com<span class="operator">/</span>    <span class="operator">|</span> <span class="number">4689</span>  <span class="operator">|</span> CN      <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">4</span>  <span class="operator">|</span> 微博          <span class="operator">|</span> http:<span class="operator">/</span><span class="operator">/</span>weibo.com<span class="operator">/</span>         <span class="operator">|</span> <span class="number">20</span>    <span class="operator">|</span> CN      <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span> <span class="number">5</span>  <span class="operator">|</span> Facebook     <span class="operator">|</span> https:<span class="operator">/</span><span class="operator">/</span>www.facebook.com<span class="operator">/</span> <span class="operator">|</span> <span class="number">3</span>     <span class="operator">|</span> USA     <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">----+--------------+---------------------------+-------+---------+</span></span><br></pre></td></tr></table></figure>
-<p><strong>实例</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> Websites</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> alexa;</span><br></pre></td></tr></table></figure>
-<p><strong><em>asc和desc的英文全称</em></strong></p>
-<ol type="1">
-<li><p>asc：英文全称是ascend，含义如下：</p>
-<p><img
-src="https://s2.loli.net/2022/05/17/FPXkeh5qNLinIO1.png" /></p></li>
-<li><p>desc：英文全称是descend，含义如下：</p>
-<p><img
-src="https://s2.loli.net/2022/05/17/PviDw8norjdzb7y.png" /></p></li>
-</ol>
-<hr />
-<h1 id="sql之case-when用法详解">SQL之CASE WHEN用法详解</h1>
-<p>简单CASE WHEN函数：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CASE</span> SCORE <span class="keyword">WHEN</span> <span class="string">&#x27;A&#x27;</span> <span class="keyword">THEN</span> <span class="string">&#x27;优&#x27;</span> <span class="keyword">ELSE</span> <span class="string">&#x27;不及格&#x27;</span> <span class="keyword">END</span></span><br><span class="line"><span class="keyword">CASE</span> SCORE <span class="keyword">WHEN</span> <span class="string">&#x27;B&#x27;</span> <span class="keyword">THEN</span> <span class="string">&#x27;良&#x27;</span> <span class="keyword">ELSE</span> <span class="string">&#x27;不及格&#x27;</span> <span class="keyword">END</span></span><br><span class="line"><span class="keyword">CASE</span> SCORE <span class="keyword">WHEN</span> <span class="string">&#x27;C&#x27;</span> <span class="keyword">THEN</span> <span class="string">&#x27;中&#x27;</span> <span class="keyword">ELSE</span> <span class="string">&#x27;不及格&#x27;</span> <span class="keyword">END</span></span><br></pre></td></tr></table></figure>
-<p>等同于，使用CASE WHEN条件表达式函数实现：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CASE</span> <span class="keyword">WHEN</span> SCORE <span class="operator">=</span> <span class="string">&#x27;A&#x27;</span> <span class="keyword">THEN</span> <span class="string">&#x27;优&#x27;</span></span><br><span class="line">     <span class="keyword">WHEN</span> SCORE <span class="operator">=</span> <span class="string">&#x27;B&#x27;</span> <span class="keyword">THEN</span> <span class="string">&#x27;良&#x27;</span></span><br><span class="line">     <span class="keyword">WHEN</span> SCORE <span class="operator">=</span> <span class="string">&#x27;C&#x27;</span> <span class="keyword">THEN</span> <span class="string">&#x27;中&#x27;</span> <span class="keyword">ELSE</span> <span class="string">&#x27;不及格&#x27;</span> <span class="keyword">END</span></span><br></pre></td></tr></table></figure>
-<p><strong>场景：</strong>有分数score，score&lt;60返回不及格，score&gt;=60返回及格，score&gt;=80返回优秀</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    STUDENT_NAME,</span><br><span class="line">    (<span class="keyword">CASE</span> <span class="keyword">WHEN</span> score <span class="operator">&lt;</span> <span class="number">60</span> <span class="keyword">THEN</span> <span class="string">&#x27;不及格&#x27;</span></span><br><span class="line">        <span class="keyword">WHEN</span> score <span class="operator">&gt;=</span> <span class="number">60</span> <span class="keyword">AND</span> score <span class="operator">&lt;</span> <span class="number">80</span> <span class="keyword">THEN</span> <span class="string">&#x27;及格&#x27;</span></span><br><span class="line">        <span class="keyword">WHEN</span> score <span class="operator">&gt;=</span> <span class="number">80</span> <span class="keyword">THEN</span> <span class="string">&#x27;优秀&#x27;</span></span><br><span class="line">        <span class="keyword">ELSE</span> <span class="string">&#x27;异常&#x27;</span> <span class="keyword">END</span>) <span class="keyword">AS</span> REMARK</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    <span class="keyword">TABLE</span></span><br></pre></td></tr></table></figure>
-<p><strong>注意：</strong>如果你想判断score是否<strong>null</strong>的情况写法应为：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CASE</span> <span class="keyword">WHEN</span> score <span class="keyword">IS</span> <span class="keyword">NULL</span> <span class="keyword">THEN</span> <span class="string">&#x27;缺席考试&#x27;</span> <span class="keyword">ELSE</span> <span class="string">&#x27;正常&#x27;</span> <span class="keyword">END</span></span><br></pre></td></tr></table></figure>
-<h1 id="sql-concat函数">SQL CONCAT()函数</h1>
-<p>SQL CONCAT函数用于连接两个字符串，形成一个字符串。</p>
-<p><strong>例子</strong>：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SQL</span><span class="operator">&gt;</span> <span class="keyword">SELECT</span> CONCAT(<span class="string">&#x27;FIRST &#x27;</span>, <span class="string">&#x27;SECOND&#x27;</span>);</span><br><span class="line"><span class="operator">+</span><span class="comment">----------------------------+</span></span><br><span class="line"><span class="operator">|</span> CONCAT(<span class="string">&#x27;FIRST &#x27;</span>, <span class="string">&#x27;SECOND&#x27;</span>) <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">----------------------------+</span></span><br><span class="line"><span class="operator">|</span> <span class="keyword">FIRST</span> <span class="keyword">SECOND</span>               <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">----------------------------+</span></span><br></pre></td></tr></table></figure>
-<hr />
-<h1 id="sql-between-操作符">SQL BETWEEN 操作符</h1>
-<p>操作符 BETWEEN ... AND
-会选取介于两个值之间的数据范围。这些值可以是数值、文本或者日期。</p>
-<p><strong>原始的表 (在实例中使用：)</strong></p>
-<p>Persons 表:</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Id</th>
-<th style="text-align: left;">LastName</th>
-<th style="text-align: left;">FirstName</th>
-<th style="text-align: left;">Address</th>
-<th style="text-align: left;">City</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">Adams</td>
-<td style="text-align: left;">John</td>
-<td style="text-align: left;">Oxford Street</td>
-<td style="text-align: left;">London</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">Bush</td>
-<td style="text-align: left;">George</td>
-<td style="text-align: left;">Fifth Avenue</td>
-<td style="text-align: left;">New York</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">Carter</td>
-<td style="text-align: left;">Thomas</td>
-<td style="text-align: left;">Changan Street</td>
-<td style="text-align: left;">Beijing</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">Gates</td>
-<td style="text-align: left;">Bill</td>
-<td style="text-align: left;">Xuanwumen 10</td>
-<td style="text-align: left;">Beijing</td>
-</tr>
-</tbody>
-</table>
-<ol type="1">
-<li><p><strong>实例</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> Persons</span><br><span class="line"><span class="keyword">WHERE</span> LastName</span><br><span class="line"><span class="keyword">BETWEEN</span> <span class="string">&#x27;Adams&#x27;</span> <span class="keyword">AND</span> <span class="string">&#x27;Carter&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>结果集：</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Id</th>
-<th style="text-align: left;">LastName</th>
-<th style="text-align: left;">FirstName</th>
-<th style="text-align: left;">Address</th>
-<th style="text-align: left;">City</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">Adams</td>
-<td style="text-align: left;">John</td>
-<td style="text-align: left;">Oxford Street</td>
-<td style="text-align: left;">London</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">Bush</td>
-<td style="text-align: left;">George</td>
-<td style="text-align: left;">Fifth Avenue</td>
-<td style="text-align: left;">New York</td>
-</tr>
-</tbody>
-</table></li>
-<li><p><strong>实例</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> Persons</span><br><span class="line"><span class="keyword">WHERE</span> LastName</span><br><span class="line"><span class="keyword">NOT</span> <span class="keyword">BETWEEN</span> <span class="string">&#x27;Adams&#x27;</span> <span class="keyword">AND</span> <span class="string">&#x27;Carter&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>结果集：</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Id</th>
-<th style="text-align: left;">LastName</th>
-<th style="text-align: left;">FirstName</th>
-<th style="text-align: left;">Address</th>
-<th style="text-align: left;">City</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">Carter</td>
-<td style="text-align: left;">Thomas</td>
-<td style="text-align: left;">Changan Street</td>
-<td style="text-align: left;">Beijing</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">Gates</td>
-<td style="text-align: left;">Bill</td>
-<td style="text-align: left;">Xuanwumen 10</td>
-<td style="text-align: left;">Beijing</td>
-</tr>
-</tbody>
-</table></li>
-</ol>
-<hr />
-<h1 id="mysql-分组-group-by-多个字段">MYSQL 分组 group by 多个字段</h1>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Subject, Semester, <span class="built_in">Count</span>(<span class="operator">*</span>)</span><br><span class="line"><span class="keyword">FROM</span> Subject_Selection</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Subject, Semester</span><br></pre></td></tr></table></figure>
-<p><em>GROUP BY X,
-Y意思是将所有具有相同X字段值和Y字段值的记录放到一个分组里</em></p>
-<hr />
-<h1 id="mysql应用之cross-join用法简介教程">MySQL应用之CROSS
-JOIN用法简介教程</h1>
-<h2 id="cross-join简介">cross join简介</h2>
-<p>在MySQL中，当CROSS JOIN不使用WHERE子句时，CROSS
-JOIN产生了一个结果集，该结果集是两个关联表的行的乘积。</p>
-<p><img src="https://s2.loli.net/2022/05/18/4DsiHSFrORbnj8h.png" /></p>
-<h2 id="cross-join用法">cross join用法</h2>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> t1</span><br><span class="line"><span class="keyword">CROSS</span> <span class="keyword">JOIN</span> t2;</span><br></pre></td></tr></table></figure>
-<p><em>注意：cross
-join的时候是不需要on或者using关键字的，这个是区别于inner
-join和join的</em></p>
-<hr />
-<h1 id="mysql-year函数获取年份">MySQL YEAR函数：获取年份</h1>
-<p>MySQL YEAR() 函数可以从指定日期值中来获取年份值。</p>
-<p>语法格式如下：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">YEAR</span>(<span class="type">date</span>);</span><br></pre></td></tr></table></figure>
-<p>实例:</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> <span class="keyword">YEAR</span>(NOW());</span><br><span class="line"><span class="operator">+</span><span class="comment">-------------+</span></span><br><span class="line"><span class="operator">|</span> <span class="keyword">YEAR</span>(NOW()) <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------------+</span></span><br><span class="line"><span class="operator">|</span>        <span class="number">2019</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">-------------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
-<hr />
-<h1 id="mysql-if函数判断">MySQL IF函数：判断</h1>
-<p>语法结构如下：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IF(expr,v1,v2)</span><br></pre></td></tr></table></figure>
-<p>其中：表达式 expr 得到不同的结果，当 expr 为真是返回 v1
-的值，否则返回 v2.</p>
-<p>实例:</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> IF(<span class="number">1</span><span class="operator">&lt;</span><span class="number">2</span>,<span class="number">1</span>,<span class="number">0</span>) c1,IF(<span class="number">1</span><span class="operator">&gt;</span><span class="number">5</span>,<span class="string">&#x27;√&#x27;</span>,<span class="string">&#x27;×&#x27;</span>) c2,IF(STRCMP(<span class="string">&#x27;abc&#x27;</span>,<span class="string">&#x27;ab&#x27;</span>),<span class="string">&#x27;yes&#x27;</span>,<span class="string">&#x27;no&#x27;</span>) c3;</span><br><span class="line"><span class="operator">+</span><span class="comment">----+----+-----+</span></span><br><span class="line"><span class="operator">|</span> c1 <span class="operator">|</span> c2 <span class="operator">|</span> c3  <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">----+----+-----+</span></span><br><span class="line"><span class="operator">|</span>  <span class="number">1</span> <span class="operator">|</span> × <span class="operator">|</span> yes <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">----+----+-----+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> <span class="keyword">in</span> <span class="keyword">set</span>, <span class="number">2</span> warnings (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
-<hr />
-<h1 id="mysql-curdate和current_date函数获取系统当前日期">MySQL
-CURDATE和CURRENT_DATE函数：获取系统当前日期</h1>
-<p>MySQL 中 CURDATE() 和 CURRENT_DATE()
-函数的作用相同，将当前日期按照“YYYY-MM-DD”或“YYYYMMDD”格式的值返回，具体格式根据函数用在字符串或数字语境中而定。</p>
-<p>实例:</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> CURDATE(),<span class="built_in">CURRENT_DATE</span>(),<span class="built_in">CURRENT_DATE</span>()<span class="operator">+</span><span class="number">0</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">------------+----------------+------------------+</span></span><br><span class="line"><span class="operator">|</span> CURDATE()  <span class="operator">|</span> <span class="built_in">CURRENT_DATE</span>() <span class="operator">|</span> <span class="built_in">CURRENT_DATE</span>()<span class="operator">+</span><span class="number">0</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------------+----------------+------------------+</span></span><br><span class="line"><span class="operator">|</span> <span class="number">2017</span><span class="number">-04</span><span class="number">-01</span> <span class="operator">|</span> <span class="number">2017</span><span class="number">-04</span><span class="number">-01</span>     <span class="operator">|</span>         <span class="number">20170401</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------------+----------------+------------------+</span></span><br><span class="line"><span class="number">1</span> <span class="type">row</span> <span class="keyword">in</span> <span class="keyword">set</span> (<span class="number">0.03</span> sec)</span><br></pre></td></tr></table></figure>
-<hr />
-<h1 id="难题分析">难题分析</h1>
-<h2
-id="按各科成绩进行排序并显示排名">19、按各科成绩进行排序，并显示排名</h2>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">	(<span class="variable">@i</span> :<span class="operator">=</span> <span class="keyword">case</span> <span class="keyword">when</span> <span class="variable">@pre</span>_group_id <span class="operator">=</span> c_id <span class="keyword">then</span> <span class="variable">@i</span> <span class="operator">+</span> <span class="number">1</span> <span class="keyword">else</span> <span class="number">1</span> <span class="keyword">end</span>) <span class="keyword">as</span> rank,</span><br><span class="line">	(<span class="variable">@pre</span>_group_id :<span class="operator">=</span> c_id) <span class="keyword">as</span> c_id,</span><br><span class="line">	c_name,s_id,s_name,s_score</span><br><span class="line"><span class="keyword">from</span> (<span class="keyword">select</span> <span class="variable">@i</span> :<span class="operator">=</span> <span class="number">0</span>, <span class="variable">@pre</span>_group_id :<span class="operator">=</span> <span class="number">1</span>) var</span><br><span class="line"><span class="keyword">cross</span> <span class="keyword">join</span> (</span><br><span class="line">	<span class="keyword">select</span> c.c_id,c.c_name,s.s_id,s.s_name,s_score</span><br><span class="line">	<span class="keyword">from</span> score sc</span><br><span class="line">	<span class="keyword">inner</span> <span class="keyword">join</span> student s <span class="keyword">on</span> sc.s_id <span class="operator">=</span> s.s_id</span><br><span class="line">	<span class="keyword">inner</span> <span class="keyword">join</span> course c <span class="keyword">on</span> sc.c_id <span class="operator">=</span> c.c_id</span><br><span class="line">	<span class="keyword">group</span> <span class="keyword">by</span> c.c_id,s.s_id</span><br><span class="line">	<span class="keyword">order</span> <span class="keyword">by</span> c.c_id,s_score <span class="keyword">desc</span></span><br><span class="line">) t1;</span><br></pre></td></tr></table></figure>
-<h3 id="user-defined-variables">User-Defined Variables</h3>
-<p>User variables are written as <code>@*</code>var_name<code>*</code>,
-where the variable name <em><code>var_name</code></em> consists of
-alphanumeric characters, <code>.</code>, <code>_</code>, and
-<code>$</code>. A user variable name can contain other characters if you
-quote it as a string or identifier (for example, <code>@'my-var'</code>,
-<code>@"my-var"</code>, or <code>@</code>my-var``).</p>
-<p>You can store a value in a user-defined variable in one statement and
-refer to it later in another statement. This enables you to pass values
-from one statement to another.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SET</span> <span class="variable">@t1</span><span class="operator">=</span><span class="number">1</span>, <span class="variable">@t2</span><span class="operator">=</span><span class="number">2</span>, <span class="variable">@t3</span>:<span class="operator">=</span><span class="number">4</span>;</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> <span class="variable">@t1</span>, <span class="variable">@t2</span>, <span class="variable">@t3</span>, <span class="variable">@t4</span> :<span class="operator">=</span> <span class="variable">@t1</span><span class="operator">+</span><span class="variable">@t2</span><span class="operator">+</span><span class="variable">@t3</span>;</span><br><span class="line"><span class="operator">+</span><span class="comment">------+------+------+--------------------+</span></span><br><span class="line"><span class="operator">|</span> <span class="variable">@t1</span>  <span class="operator">|</span> <span class="variable">@t2</span>  <span class="operator">|</span> <span class="variable">@t3</span>  <span class="operator">|</span> <span class="variable">@t4</span> :<span class="operator">=</span> <span class="variable">@t1</span><span class="operator">+</span><span class="variable">@t2</span><span class="operator">+</span><span class="variable">@t3</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------+------+------+--------------------+</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">1</span> <span class="operator">|</span>    <span class="number">2</span> <span class="operator">|</span>    <span class="number">4</span> <span class="operator">|</span>                  <span class="number">7</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------+------+------+--------------------+</span></span><br></pre></td></tr></table></figure>
-<p>It is also possible to assign a value to a user variable in
-statements other than <code>SET</code>. (This functionality is
-deprecated in MySQL 8.0 and subject to removal in a subsequent release.)
-When making an assignment in this way, the assignment operator must be
-<code>:=</code> and not <code>=</code>because the latter is treated as
-the comparison operator <code>=</code> in statements other than
-<code>SET</code>:</p>
-<p>从mysql官方文档中找到的解释，<span class="citation"
-data-cites="定义用户变量">@定义用户变量</span>，定义方法有两种：</p>
-<ol type="1">
-<li><code>set</code>运算符定义</li>
-<li>在sql语句中用<code>:=</code>定义</li>
-</ol>
-<p>定义用户变量能让用户在不同sql语句中传递数据。</p>
-<hr />
-<h2 id="查询各科成绩前三名的记录">25、查询各科成绩前三名的记录</h2>
-<p>内外关联</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> c.c_id,c.c_name,s.s_id,s.s_name,s_score</span><br><span class="line"><span class="keyword">from</span> (</span><br><span class="line">	<span class="keyword">select</span> <span class="operator">*</span></span><br><span class="line">	<span class="keyword">from</span> score sc</span><br><span class="line">	<span class="keyword">where</span> (</span><br><span class="line">		<span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>)</span><br><span class="line">		<span class="keyword">from</span> score sc1</span><br><span class="line">		<span class="keyword">where</span> sc.c_id <span class="operator">=</span> sc1.c_id</span><br><span class="line">		<span class="keyword">and</span> sc.s_score <span class="operator">&lt;</span> sc1.s_score</span><br><span class="line">	) <span class="operator">&lt;</span> <span class="number">3</span></span><br><span class="line">)</span><br><span class="line">t1</span><br><span class="line"><span class="keyword">inner</span> <span class="keyword">join</span> student s <span class="keyword">on</span> t1.s_id <span class="operator">=</span> s.s_id </span><br><span class="line"><span class="keyword">inner</span> <span class="keyword">join</span> course c <span class="keyword">on</span> t1.c_id <span class="operator">=</span> c.c_id </span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> c.c_id,s_score <span class="keyword">desc</span>;</span><br></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">+</span><span class="comment">------+--------+------+--------+---------+</span></span><br><span class="line"><span class="operator">|</span> c_id <span class="operator">|</span> c_name <span class="operator">|</span> s_id <span class="operator">|</span> s_name <span class="operator">|</span> s_score <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------+--------+------+--------+---------+</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">1</span> <span class="operator">|</span> 语文   <span class="operator">|</span>    <span class="number">1</span> <span class="operator">|</span> 赵雷   <span class="operator">|</span>      <span class="number">80</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">1</span> <span class="operator">|</span> 语文   <span class="operator">|</span>    <span class="number">3</span> <span class="operator">|</span> 孙风   <span class="operator">|</span>      <span class="number">80</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">1</span> <span class="operator">|</span> 语文   <span class="operator">|</span>    <span class="number">5</span> <span class="operator">|</span> 周梅   <span class="operator">|</span>      <span class="number">76</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">2</span> <span class="operator">|</span> 数学   <span class="operator">|</span>    <span class="number">1</span> <span class="operator">|</span> 赵雷   <span class="operator">|</span>      <span class="number">90</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">2</span> <span class="operator">|</span> 数学   <span class="operator">|</span>    <span class="number">7</span> <span class="operator">|</span> 郑竹   <span class="operator">|</span>      <span class="number">89</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">2</span> <span class="operator">|</span> 数学   <span class="operator">|</span>    <span class="number">5</span> <span class="operator">|</span> 周梅   <span class="operator">|</span>      <span class="number">87</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">3</span> <span class="operator">|</span> 英语   <span class="operator">|</span>    <span class="number">1</span> <span class="operator">|</span> 赵雷   <span class="operator">|</span>      <span class="number">99</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">3</span> <span class="operator">|</span> 英语   <span class="operator">|</span>    <span class="number">7</span> <span class="operator">|</span> 郑竹   <span class="operator">|</span>      <span class="number">98</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">|</span>    <span class="number">3</span> <span class="operator">|</span> 英语   <span class="operator">|</span>    <span class="number">3</span> <span class="operator">|</span> 孙风   <span class="operator">|</span>      <span class="number">80</span> <span class="operator">|</span></span><br><span class="line"><span class="operator">+</span><span class="comment">------+--------+------+--------+---------+</span></span><br></pre></td></tr></table></figure>
-<hr />
-<h2 id="查询本周过生日的学生">47、查询本周过生日的学生</h2>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">from</span> student</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">	datediff(concat(<span class="keyword">year</span>(<span class="built_in">current_date</span>()), date_format(s_birth, <span class="string">&#x27;-%m-%d&#x27;</span>)), <span class="built_in">current_date</span>())</span><br><span class="line">	<span class="keyword">between</span> <span class="number">0</span> <span class="keyword">and</span> <span class="number">7</span></span><br><span class="line"><span class="keyword">or</span></span><br><span class="line">	datediff(concat(<span class="keyword">year</span>(<span class="built_in">current_date</span>()) <span class="operator">+</span> <span class="number">1</span>, date_format(s_birth, <span class="string">&#x27;-%m-%d&#x27;</span>)), <span class="built_in">current_date</span>())</span><br><span class="line">	<span class="keyword">between</span> <span class="number">0</span> <span class="keyword">and</span> <span class="number">7</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="mysql-datediff-函数">MySQL DATEDIFF() 函数</h3>
-<p>DATEDIFF() 函数返回两个日期之间的天数。</p>
-<p><strong>语法</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DATEDIFF(date1,date2)</span><br></pre></td></tr></table></figure>
-<p><strong>实例</strong></p>
-<ol type="1">
-<li><p>```sql SELECT DATEDIFF('2008-12-30','2008-12-29') AS DiffDate
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   结果：</span><br><span class="line"></span><br><span class="line">   | DiffDate |</span><br><span class="line">   | :------- |</span><br><span class="line">   | 1        |</span><br><span class="line"></span><br><span class="line">2. ```sql</span><br><span class="line">   SELECT DATEDIFF(&#x27;2008-12-29&#x27;,&#x27;2008-12-30&#x27;) AS DiffDate</span><br></pre></td></tr></table></figure></p>
-<p>结果：</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">DiffDate</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">-1</td>
-</tr>
-</tbody>
-</table></li>
-</ol>
-<hr />
-<h3 id="mysql-date_format-函数">MySQL DATE_FORMAT() 函数</h3>
-<p>DATE_FORMAT() 函数用于以不同的格式显示日期/时间数据。</p>
-<p><strong>语法</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DATE_FORMAT(<span class="type">date</span>,format)</span><br></pre></td></tr></table></figure>
-<p><em>date</em> 参数是合法的日期。<em>format</em>
-规定日期/时间的输出格式。</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">格式</th>
-<th style="text-align: left;">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">%m</td>
-<td style="text-align: left;">月，数值(00-12)</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">%d</td>
-<td style="text-align: left;">月的天，数值(00-31)</td>
-</tr>
-</tbody>
-</table>
-
+          <p>sql经典五十题相关问题</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/05/26/sql%E7%BB%8F%E5%85%B8%E4%BA%94%E5%8D%81%E9%A2%98%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -805,7 +311,7 @@ data-cites="定义用户变量">@定义用户变量</span>，定义方法有两�
     <link itemprop="mainEntityOfPage" href="http://idealstars.space/2022/05/21/chrome%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar-castle.jpg">
       <meta itemprop="name" content="alfa">
       <meta itemprop="description" content="">
     </span>
@@ -833,7 +339,7 @@ data-cites="定义用户变量">@定义用户变量</span>，定义方法有两�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-07-17 14:06:26" itemprop="dateModified" datetime="2022-07-17T14:06:26+08:00">2022-07-17</time>
+                <time title="修改时间：2022-08-07 16:08:49" itemprop="dateModified" datetime="2022-08-07T16:08:49+08:00">2022-08-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -856,32 +362,15 @@ data-cites="定义用户变量">@定义用户变量</span>，定义方法有两�
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="chrome浏览页面常用快捷键">chrome浏览页面常用快捷键</h1>
-<p><strong><em><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_35319943/article/details/111955799#:~:text=Ctrl%20%2B%20F4%20%E5%85%B3%E9%97%ADchrome%E6%B5%8F%E8%A7%88%E5%99%A8%20Ctrl%2BTab%20%E6%88%96%20Ctrl%2BPgDown%20%E5%88%87%E6%8D%A2%E5%88%B0%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%A0%87%E7%AD%BE%E9%A1%B5%E3%80%82,Ctrl%2BPgUp%20%E5%88%87%E6%8D%A2%E5%88%B0%E4%B8%8A%E4%B8%80%E4%B8%AA%E6%A0%87%E7%AD%BE%E9%A1%B5%E3%80%82%20Ctrl%2B1%20%E5%88%B0%20Ctrl%2B8%20%E5%88%87%E6%8D%A2%E5%88%B0%E6%A0%87%E7%AD%BE%E6%A0%8F%E4%B8%AD%E6%8C%87%E5%AE%9A%E5%9C%B0%E4%BD%8D%E7%BC%96%E5%8F%B7%E6%89%80%E5%AF%B9%E5%BA%94%E7%9A%84%E6%A0%87%E7%AD%BE%E9%A1%B5%E3%80%82%20Ctrl%2B9%20%E5%88%87%E6%8D%A2%E5%88%B0%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E6%A0%87%E7%AD%BE%E9%A1%B5%E3%80%82">原文链接</a></em></strong></p>
-<ol type="1">
-<li>Ctrl+N 打开新窗口</li>
-<li>Ctrl+T 打开新标签页</li>
-<li>Ctrl+W关闭当前标签</li>
-<li>Ctrl+Tab 或 Ctrl+PgDown 切换到下一个标签页</li>
-<li>Ctrl+Shift+Tab 或 Ctrl+PgUp 切换到上一个标签页</li>
-<li>Ctrl+1 到 Ctrl+8 切换到标签栏中指定地位编号所对应的标签页</li>
-<li>Ctrl+Shift+T 从头打开前次封闭的标签页。谷歌浏览器可记住比来封闭的 10
-个标签页</li>
-<li>Ctrl+Shift+Delete:用于显示“清除浏览数据”界面</li>
-</ol>
-<h1 id="chrome-如何删除对某一个网站的缓存">chrome
-如何删除对某一个网站的缓存</h1>
-<blockquote>
-<p>点击F12即可</p>
-</blockquote>
-<figure>
-<img
-src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220717140536975.png"
-alt="image-20220717140536975" />
-<figcaption aria-hidden="true">image-20220717140536975</figcaption>
-</figure>
-
+          <p>chrome使用问题</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/05/21/chrome%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -903,7 +392,7 @@ alt="image-20220717140536975" />
     <link itemprop="mainEntityOfPage" href="http://idealstars.space/2022/05/20/idea%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar-castle.jpg">
       <meta itemprop="name" content="alfa">
       <meta itemprop="description" content="">
     </span>
@@ -931,7 +420,7 @@ alt="image-20220717140536975" />
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-05 11:39:12" itemprop="dateModified" datetime="2022-08-05T11:39:12+08:00">2022-08-05</time>
+                <time title="修改时间：2022-08-07 16:09:35" itemprop="dateModified" datetime="2022-08-07T16:09:35+08:00">2022-08-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -954,313 +443,15 @@ alt="image-20220717140536975" />
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="idea快捷键">idea快捷键</h1>
-<p><strong><em><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38963960/article/details/89552704">原文链接</a></em></strong></p>
-<ol type="1">
-<li><h2 id="ctrl">Ctrl</h2>
-<table>
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 85%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">快捷键</th>
-<th style="text-align: left;">介绍</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Ctrl + Z</td>
-<td style="text-align: left;">撤销</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ctrl + Tab</td>
-<td
-style="text-align: left;">编辑窗口切换，如果在切换的过程又加按上delete，则是关闭对应选中的窗口</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ctrl + W</td>
-<td
-style="text-align: left;">递进式选择代码块。可选中光标所在的单词或段落，连续按会在原有选中的基础上再扩展选中范围</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ctrl + Q</td>
-<td style="text-align: left;">光标所在的变量 / 类名 /
-方法名等上面（也可以在提示补充的时候按），显示文档内容</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ctrl + B</td>
-<td
-style="text-align: left;">进入光标所在的方法/变量的接口或是定义出，等效于
-<code>Ctrl + 左键单击</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ctrl + [</td>
-<td
-style="text-align: left;">移动光标到当前所在代码的花括号开始位置</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ctrl + ]</td>
-<td
-style="text-align: left;">移动光标到当前所在代码的花括号结束位置</td>
-</tr>
-</tbody>
-</table></li>
-<li><h2 id="alt">Alt</h2>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">快捷键</th>
-<th style="text-align: left;">介绍</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Alt + 1,2,3...9</td>
-<td style="text-align: left;">显示对应数值的选项卡，其中 1 是 Project
-用得最多</td>
-</tr>
-</tbody>
-</table></li>
-<li><h2 id="shift">Shift</h2>
-<table>
-<colgroup>
-<col style="width: 27%" />
-<col style="width: 72%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">快捷键</th>
-<th style="text-align: left;">介绍</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Shift + F6</td>
-<td style="text-align: left;">对文件 / 文件夹 重命名</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Shift + Enter</td>
-<td
-style="text-align: left;">开始新一行。光标所在行下空出一行，光标定位到新行位置</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Shift + 滚轮前后滚动</td>
-<td style="text-align: left;">当前文件的横向滚动轴滚动</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">shift + F11</td>
-<td style="text-align: left;">编辑书签</td>
-</tr>
-</tbody>
-</table></li>
-<li><h2 id="ctrl-alt">Ctrl + Alt</h2>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">快捷键</th>
-<th style="text-align: left;">介绍</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Ctrl + Alt + L</td>
-<td
-style="text-align: left;">格式化代码，可以对当前文件和整个包目录使用</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ctrl + Alt + O</td>
-<td
-style="text-align: left;">优化导入的类，可以对当前文件和整个包目录使用</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ctrl + Alt + Enter</td>
-<td style="text-align: left;">光标所在行上空出一行，光标定位到新行</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ctrl + Alt + 左方向键</td>
-<td style="text-align: left;">退回到上一个操作的地方</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ctrl + Alt + 右方向键</td>
-<td style="text-align: left;">前进到上一个操作的地方</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">ctrl + alt + B</td>
-<td style="text-align: left;">查找接口的实现类</td>
-</tr>
-</tbody>
-</table></li>
-<li><h2 id="ctrl-shift">Ctrl + Shift</h2>
-<table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 75%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">快捷键</th>
-<th style="text-align: left;">介绍</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Ctrl + Shift + Z</td>
-<td style="text-align: left;">取消撤销</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ctrl + Shift + W</td>
-<td
-style="text-align: left;">递进式取消选择代码块。可选中光标所在的单词或段落，连续按会在原有选中的基础上再扩展取消选中范围</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ctrl + Shift + U</td>
-<td style="text-align: left;">对选中的代码进行大 / 小写轮流转换</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ctrl + Shift + Enter</td>
-<td style="text-align: left;">自动结束代码，行末自动添加分号</td>
-</tr>
-</tbody>
-</table></li>
-<li><h2 id="alt-shift">Alt + Shift</h2>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">快捷键</th>
-<th style="text-align: left;">介绍</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Alt + Shift + 前方向键</td>
-<td style="text-align: left;">移动光标所在行向上移动</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Alt + Shift + 后方向键</td>
-<td style="text-align: left;">移动光标所在行向下移动</td>
-</tr>
-</tbody>
-</table></li>
-<li><h2 id="其他">其他</h2>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">快捷键</th>
-<th style="text-align: left;">介绍</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">F2</td>
-<td style="text-align: left;">跳转到下一个高亮错误 或 警告位置</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">F11</td>
-<td style="text-align: left;">创建书签</td>
-</tr>
-</tbody>
-</table></li>
-</ol>
-<h1
-id="如何使用idea中自带的数据库database">如何使用IDEA中自带的数据库database！</h1>
-<blockquote>
-<p>打开后自己填入信息 点击确定后会下载相应驱动，等待即可！</p>
-</blockquote>
-<p><img src="https://s2.loli.net/2022/05/26/FiRzKcaf1AEWUV6.png" style="zoom:50%;" /></p>
-<h1
-id="idea连接数据库-the-specified-database-userpassword-combination-is-rejected-com.mysql.cj报错">idea连接数据库
-The specified database user/password combination is rejected:
-com.mysql.cj报错</h1>
-<blockquote>
-<p>报错如下图：</p>
-</blockquote>
-<p><img src="https://s2.loli.net/2022/05/26/vyXs1GZLY7REqrh.png" style="zoom:50%;" /></p>
-<blockquote>
-<p>解决方法：更换链接地址</p>
-</blockquote>
-<p><strong><em>jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=UTF8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</em></strong></p>
-<h1 id="idea配置外部tomcat访问路径">idea配置外部tomcat访问路径</h1>
-<blockquote>
-<p>需要配置两个地方，改一处就行</p>
-</blockquote>
-<figure>
-<img src="https://s2.loli.net/2022/07/06/OoTDIkaBSur1zCn.png"
-alt="image-20220704104127339" />
-<figcaption aria-hidden="true">image-20220704104127339</figcaption>
-</figure>
-<figure>
-<img src="https://s2.loli.net/2022/07/06/BUlqtnYXDePopVW.png"
-alt="image-20220704104218184" />
-<figcaption aria-hidden="true">image-20220704104218184</figcaption>
-</figure>
-<h1 id="解决-spring-boot-devtool-热部署后出现访问404问题">解决 spring
-boot devtool 热部署后出现访问404问题</h1>
-<p>DevTools的检测时间和idea的编译所需时间存在差异。在idea还没完成编译工作前，DevTools就开始进行重启和加载，导致@RequestMapping没有被全部正常处理。其他方法没试，就直接用了看起来最简单的方法：牺牲一点时间，去加长devtools的轮询时间，增大等待时间。</p>
-<figure>
-<img src="https://s2.loli.net/2022/07/06/pfZChkat4lKXr2G.png"
-alt="image-20220705170634571" />
-<figcaption aria-hidden="true">image-20220705170634571</figcaption>
-</figure>
-<h1
-id="解决idea中-could-not-autowire.-no-beans-of-xxxx-type-found-的错误提示">解决IDEA中
-Could not autowire. No beans of 'xxxx' type found 的错误提示</h1>
-<p>修改IDEA设置,降低Autowired检测的级别，将Severity的级别由之前的error改成warning或其它可以忽略的级别。</p>
-<figure>
-<img src="https://s2.loli.net/2022/07/06/DtFU3sXykqIdnVC.png"
-alt="image-20220706095122340" />
-<figcaption aria-hidden="true">image-20220706095122340</figcaption>
-</figure>
-<h1
-id="idea报错cannot-download-httpsstart.spring.io-connect-timed-out">idea报错：Cannot
-download ‘https://start.spring.io‘: connect timed out</h1>
-<blockquote>
-<p><strong>报错问题描述</strong></p>
-</blockquote>
-<figure>
-<img src="https://s2.loli.net/2022/07/08/54lTGrXnIviHENg.png"
-alt="在这里插入图片描述" />
-<figcaption aria-hidden="true">在这里插入图片描述</figcaption>
-</figure>
-<blockquote>
-<p><strong>解决方法</strong></p>
-</blockquote>
-<p>添加aliyun地址，将默认的地址更改为aliyun地址</p>
-<p><strong>https://start.aliyun.com/</strong></p>
-<figure>
-<img src="https://s2.loli.net/2022/07/15/TW7G4lwkJ3APQrY.png"
-alt="在这里插入图片描述" />
-<figcaption aria-hidden="true">在这里插入图片描述</figcaption>
-</figure>
-<h1 id="idea注释有空格">IDEA注释有空格</h1>
-<p>问题描述</p>
-<figure>
-<img src="https://s2.loli.net/2022/07/15/c4VQ2NtPThO1RaB.png"
-alt="在这里插入图片描述" />
-<figcaption aria-hidden="true">在这里插入图片描述</figcaption>
-</figure>
-<p>解决方法</p>
-<p><strong>setting-&gt;Editor-&gt;Code Style-&gt;HTML-&gt;Code
-Gerneration</strong> 取消掉 <strong>Comments</strong> 下面 两个选项
-就可以了,要是不放心,把Code Style下面的每个格式的文件的Code
-Generation都取消掉,如下图所示:</p>
-<figure>
-<img src="https://s2.loli.net/2022/07/15/XhY4xn5NU3qwJAy.png"
-alt="在这里插入图片描述" />
-<figcaption aria-hidden="true">在这里插入图片描述</figcaption>
-</figure>
-<blockquote>
-<p><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37844454/article/details/112795620">原文链接</a></p>
-</blockquote>
-<h1
-id="idea编辑器控制台显示中文乱码的解决方案">IDEA编辑器控制台显示中文乱码的解决方案</h1>
-<p>解决办法是：<strong>找到 .idea
-文件夹（</strong>每个idea项目，都会有一个.idea的目录的<strong>），里面有个<code>encodings.xml</code>
-的文件，然后除了<code>UTF-8</code> 的都删了。</strong></p>
-
+          <p>idea使用问题</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/05/20/idea%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1282,7 +473,7 @@ id="idea编辑器控制台显示中文乱码的解决方案">IDEA编辑器控制
     <link itemprop="mainEntityOfPage" href="http://idealstars.space/2022/05/14/Windows%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar-castle.jpg">
       <meta itemprop="name" content="alfa">
       <meta itemprop="description" content="">
     </span>
@@ -1293,7 +484,7 @@ id="idea编辑器控制台显示中文乱码的解决方案">IDEA编辑器控制
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/05/14/Windows%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">如何方便的在任意目录下运行Windows命令行</a>
+            <a href="/2022/05/14/Windows%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">Windows相关问题</a>
         </h2>
 
         <div class="post-meta">
@@ -1310,7 +501,7 @@ id="idea编辑器控制台显示中文乱码的解决方案">IDEA编辑器控制
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-07-28 14:39:52" itemprop="dateModified" datetime="2022-07-28T14:39:52+08:00">2022-07-28</time>
+                <time title="修改时间：2022-08-07 16:12:53" itemprop="dateModified" datetime="2022-08-07T16:12:53+08:00">2022-08-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1333,66 +524,15 @@ id="idea编辑器控制台显示中文乱码的解决方案">IDEA编辑器控制
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="windows系统下使用cd命令">windows系统下使用cd命令</h1>
-<ol type="1">
-<li><p>输入D: 回车</p>
-<p><img src="https://s2.loli.net/2022/05/26/vocCuYsR7WiVwQt.png" style="zoom:50%;" /></p></li>
-<li><p>输入cd Program Files 回车</p>
-<p><img src="https://s2.loli.net/2022/05/26/T2UDK9ou3MfJrs7.png" style="zoom:50%;" /></p></li>
-</ol>
-<hr />
-<h1 id="windows10---在当前文件夹下打开cmd命令行的方法">Windows10 -
-在当前文件夹下打开cmd（命令行）的方法</h1>
-<p>清除文件路径输入cmd</p>
-<figure>
-<img src="https://s2.loli.net/2022/06/28/MGTy3sqFHmfELN2.gif"
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
-</figure>
-<h1 id="windows-10任务管理器在哪怎么打开">Windows
-10任务管理器在哪?怎么打开?</h1>
-<ol type="1">
-<li>先打开Windows 10运行命令框，可以直接使用 Win + R
-组合快捷键打开;</li>
-<li>在运行命令操作中，在打开后面键入命名：taskmgr
-然后点击底部的“确定”就可以打开任务管理器了。</li>
-</ol>
-<h1
-id="使用管理员权限打开cmd命令提示符的方法-windows10">使用管理员权限打开cmd（命令提示符）的方法
-（Windows10）</h1>
-<p>Step1 在任务栏搜索框里输入“cmd”</p>
-<figure>
-<img src="https://s2.loli.net/2022/06/28/Pua2RmC7J6zgGro.png"
-alt="在这里插入图片描述" />
-<figcaption aria-hidden="true">在这里插入图片描述</figcaption>
-</figure>
-<p>Step2 鼠标左键点击“以管理员身份运行”</p>
-<figure>
-<img src="https://s2.loli.net/2022/06/28/PYaxTcECewG1K6k.png"
-alt="在这里插入图片描述" />
-<figcaption aria-hidden="true">在这里插入图片描述</figcaption>
-</figure>
-<h1
-id="如何在windows的dos窗口中正常显示中文utf-8字符">如何在windows的DOS窗口中正常显示中文(UTF-8字符)</h1>
-<p>打开CMD.exe命令行窗口,通过 chcp命令改变代码页</p>
-<blockquote>
-<p>UTF-8的代码页为65001,ANSI/OEM - 简体中文 GBK为936,window default OEM
-- 美国为437</p>
-</blockquote>
-<h1
-id="win10设置防火墙端口开放及检测开放端口">win10设置防火墙端口开放及检测开放端口</h1>
-<blockquote>
-<p><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43567345/article/details/105323795">原文链接</a></p>
-</blockquote>
-<h1 id="在-cmd-里根据进程名杀掉进程">在 CMD 里根据进程名杀掉进程</h1>
-<p>taskkill 命令</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">taskkill /pid 要杀死的processId，taskList命令查看</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/WPwalter/article/details/107034597">原文链接</a></p>
-</blockquote>
-
+          <p>Windows相关问题</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/05/14/Windows%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1414,7 +554,7 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/WPwalter/article/deta
     <link itemprop="mainEntityOfPage" href="http://idealstars.space/2022/05/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar-castle.jpg">
       <meta itemprop="name" content="alfa">
       <meta itemprop="description" content="">
     </span>
@@ -1442,7 +582,7 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/WPwalter/article/deta
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-07 14:45:12" itemprop="dateModified" datetime="2022-08-07T14:45:12+08:00">2022-08-07</time>
+                <time title="修改时间：2022-08-07 16:07:36" itemprop="dateModified" datetime="2022-08-07T16:07:36+08:00">2022-08-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1465,71 +605,15 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/WPwalter/article/deta
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="发布文章">发布文章</h1>
-<ol type="1">
-<li><p>进入博客所在目录，右键打开 Git Bash Here，创建博文：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>写完后运行下面代码将文章渲染并部署到 GitHub Pages 上完成发布。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g   <span class="comment"># 生成页面</span></span><br><span class="line">hexo d   <span class="comment"># 部署发布</span></span><br></pre></td></tr></table></figure></li>
-<li><p>也可以不使用命令自己创建 .md 文件，只需在文件开头手动加入如下格式
-Front-matter 即可，写完后运行 <code>hexo g</code> 和 <code>hexo d</code>
-发布。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hello World <span class="comment"># 标题</span></span><br><span class="line">date: 2019/3/26 hh:mm:ss <span class="comment"># 时间</span></span><br><span class="line">categories: <span class="comment"># 分类</span></span><br><span class="line">- Diary</span><br><span class="line">tags: <span class="comment"># 标签</span></span><br><span class="line">- PS3</span><br><span class="line">- Games</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">摘要</span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line">正文</span><br></pre></td></tr></table></figure></li>
-</ol>
-<hr />
-<h1 id="typora图床设置">typora图床设置</h1>
-<p>在配置typora图床并设置自动上传时，遇到了如下问题</p>
-<ol type="1">
-<li><p>typora图片上传验证按钮报错</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chcp<span class="string">&#x27; is not recognized as an internal or external command, operable program or batch file</span></span><br></pre></td></tr></table></figure>
-<p>解决办法：</p>
-<p>需要在环境变量的系统变量的path后面加;C:</p>
-<p><img src="https://s2.loli.net/2022/05/15/RVk4TQdihegAE1P.png" /></p>
-<p><em>要根据电脑上的system32文件夹的具体路径填入地址，区分大小写。</em></p></li>
-</ol>
-<h1 id="hexo-更新之后总需要重新设置custom-domin">hexo
-更新之后总需要重新设置custom domin</h1>
-<p>在source目录下（不是hexo根目录下），创建一个CNAME文件，可以用sublime创建，然后保存成（All
-files格式，即不加文件后缀名） CNAME文件里写自己新的域名。</p>
-<p><img src="https://s2.loli.net/2022/06/08/uv1ZtGXEqWHYl2A.png" /></p>
-<h1 id="查看nodejs版本">查看nodejs版本</h1>
-<blockquote>
-<p>打开cmd命令窗口执行<code>node -v</code>命令即可查看版本。</p>
-</blockquote>
-<figure>
-<img src="https://s2.loli.net/2022/07/17/wBKkvPS9jT7AfMs.png"
-alt="image-20220717131420742" />
-<figcaption aria-hidden="true">image-20220717131420742</figcaption>
-</figure>
-<h1
-id="npm-err-code-etimedout-npm-err-syscall-connect-npm-err-errno-etimedout-npm-err-network-reques...">npm
-ERR! code ETIMEDOUT npm ERR! syscall connect npm ERR! errno ETIMEDOUT
-npm ERR! network reques...</h1>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/5927e65e43f1">原文链接</a></p>
-</blockquote>
-<h1
-id="hexo-next主题配置mathjax遇到的问题pandoc-exited-with-code-null">Hexo
-Next主题配置Mathjax遇到的问题：pandoc exited with code null</h1>
-<p>请检查是否配置了环境变量</p>
-<p><img src="https://s2.loli.net/2022/08/02/cNPGrv2u5RCxXEd.png" alt="image-20220729160611530" style="zoom:50%;" /></p>
-<h1
-id="解决git拒绝连接问题fatal-unable-to-access-xxxx-failed-to-connect-to-xxxx-connection-refused">解决git拒绝连接问题fatal:
-unable to access xxxx: Failed to connect to xxxx : Connection
-refused</h1>
-<ol type="1">
-<li><p>查看代理：</p>
-<p><code>git config --global http.proxy</code></p></li>
-<li><p>取消代理：</p>
-<p><code>git config --global --unset http.proxy</code></p></li>
-</ol>
-<figure>
-<img
-src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220807144235387.png"
-alt="image-20220807144235387" />
-<figcaption aria-hidden="true">image-20220807144235387</figcaption>
-</figure>
-
+          <p>个人博客相关问题</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/05/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1605,6 +689,8 @@ alt="image-20220807144235387" />
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="alfa"
+      src="/images/avatar-castle.jpg">
   <p class="site-author-name" itemprop="name">alfa</p>
   <div class="site-description" itemprop="description"></div>
 </div>

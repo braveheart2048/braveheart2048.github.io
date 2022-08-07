@@ -128,35 +128,6 @@ href="https://blog.csdn.net/TTTZZZTTTZZZ/article/details/87015708">原文链接<
       </tags>
   </entry>
   <entry>
-    <title>MySql问题整理</title>
-    <url>/2022/07/09/MySql%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<h1
-id="mysql数据库中查看数据库的字符集">mysql数据库中,查看数据库的字符集</h1>
-<ul>
-<li><p>查看实例中所有数据库的字符集</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> schema_name,default_character_set_name <span class="keyword">from</span> information_schema.schemata;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="mysql修改数据库字符集的方法">MySQL修改数据库字符集的方法</h1>
-<ul>
-<li><p>修改库的字符集</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">alter</span> database 库名 <span class="keyword">default</span> <span class="type">character</span> <span class="keyword">set</span> 字符集;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="控制台进入mysql">控制台进入mysql</h1>
-<p><strong>连接mysql数据库</strong></p>
-<ol type="1">
-<li>首先打开cmd进入dos窗口</li>
-<li>键入命令：<code>mysql -uroot -p</code>
-回车，提示输入密码，输入密码回车就可以了</li>
-</ol>
-]]></content>
-      <categories>
-        <category>岗前实训</category>
-      </categories>
-      <tags>
-        <tag>MySql</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Typora使用问题</title>
     <url>/2022/07/18/Typora%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="markdown文件生成目录的方式">markdown文件生成目录的方式</h1>
@@ -256,7 +227,36 @@ href="https://blog.csdn.net/weixin_43031092/article/details/105322677">原文链
       </tags>
   </entry>
   <entry>
-    <title>如何方便的在任意目录下运行Windows命令行</title>
+    <title>MySql问题整理</title>
+    <url>/2022/07/09/MySql%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<h1
+id="mysql数据库中查看数据库的字符集">mysql数据库中,查看数据库的字符集</h1>
+<ul>
+<li><p>查看实例中所有数据库的字符集</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> schema_name,default_character_set_name <span class="keyword">from</span> information_schema.schemata;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="mysql修改数据库字符集的方法">MySQL修改数据库字符集的方法</h1>
+<ul>
+<li><p>修改库的字符集</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">alter</span> database 库名 <span class="keyword">default</span> <span class="type">character</span> <span class="keyword">set</span> 字符集;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="控制台进入mysql">控制台进入mysql</h1>
+<p><strong>连接mysql数据库</strong></p>
+<ol type="1">
+<li>首先打开cmd进入dos窗口</li>
+<li>键入命令：<code>mysql -uroot -p</code>
+回车，提示输入密码，输入密码回车就可以了</li>
+</ol>
+]]></content>
+      <categories>
+        <category>岗前实训</category>
+      </categories>
+      <tags>
+        <tag>MySql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Windows相关问题</title>
     <url>/2022/05/14/Windows%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="windows系统下使用cd命令">windows系统下使用cd命令</h1>
 <ol type="1">
@@ -323,43 +323,6 @@ href="https://blog.csdn.net/WPwalter/article/details/107034597">原文链接</a>
       </categories>
       <tags>
         <tag>windows</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>chrome使用问题</title>
-    <url>/2022/05/21/chrome%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="chrome浏览页面常用快捷键">chrome浏览页面常用快捷键</h1>
-<p><strong><em><a
-href="https://blog.csdn.net/weixin_35319943/article/details/111955799#:~:text=Ctrl%20%2B%20F4%20%E5%85%B3%E9%97%ADchrome%E6%B5%8F%E8%A7%88%E5%99%A8%20Ctrl%2BTab%20%E6%88%96%20Ctrl%2BPgDown%20%E5%88%87%E6%8D%A2%E5%88%B0%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%A0%87%E7%AD%BE%E9%A1%B5%E3%80%82,Ctrl%2BPgUp%20%E5%88%87%E6%8D%A2%E5%88%B0%E4%B8%8A%E4%B8%80%E4%B8%AA%E6%A0%87%E7%AD%BE%E9%A1%B5%E3%80%82%20Ctrl%2B1%20%E5%88%B0%20Ctrl%2B8%20%E5%88%87%E6%8D%A2%E5%88%B0%E6%A0%87%E7%AD%BE%E6%A0%8F%E4%B8%AD%E6%8C%87%E5%AE%9A%E5%9C%B0%E4%BD%8D%E7%BC%96%E5%8F%B7%E6%89%80%E5%AF%B9%E5%BA%94%E7%9A%84%E6%A0%87%E7%AD%BE%E9%A1%B5%E3%80%82%20Ctrl%2B9%20%E5%88%87%E6%8D%A2%E5%88%B0%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E6%A0%87%E7%AD%BE%E9%A1%B5%E3%80%82">原文链接</a></em></strong></p>
-<ol type="1">
-<li>Ctrl+N 打开新窗口</li>
-<li>Ctrl+T 打开新标签页</li>
-<li>Ctrl+W关闭当前标签</li>
-<li>Ctrl+Tab 或 Ctrl+PgDown 切换到下一个标签页</li>
-<li>Ctrl+Shift+Tab 或 Ctrl+PgUp 切换到上一个标签页</li>
-<li>Ctrl+1 到 Ctrl+8 切换到标签栏中指定地位编号所对应的标签页</li>
-<li>Ctrl+Shift+T 从头打开前次封闭的标签页。谷歌浏览器可记住比来封闭的 10
-个标签页</li>
-<li>Ctrl+Shift+Delete:用于显示“清除浏览数据”界面</li>
-</ol>
-<h1 id="chrome-如何删除对某一个网站的缓存">chrome
-如何删除对某一个网站的缓存</h1>
-<blockquote>
-<p>点击F12即可</p>
-</blockquote>
-<figure>
-<img
-src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220717140536975.png"
-alt="image-20220717140536975" />
-<figcaption aria-hidden="true">image-20220717140536975</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>大二生涯</category>
-      </categories>
-      <tags>
-        <tag>chrome</tag>
-        <tag>快捷键</tag>
       </tags>
   </entry>
   <entry>
@@ -462,6 +425,63 @@ JSTL标签。引用核心标签库的语法如下：</h1>
       <tags>
         <tag>el表达式</tag>
         <tag>jstl表达式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>chrome使用问题</title>
+    <url>/2022/05/21/chrome%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="chrome浏览页面常用快捷键">chrome浏览页面常用快捷键</h1>
+<p><strong><em><a
+href="https://blog.csdn.net/weixin_35319943/article/details/111955799#:~:text=Ctrl%20%2B%20F4%20%E5%85%B3%E9%97%ADchrome%E6%B5%8F%E8%A7%88%E5%99%A8%20Ctrl%2BTab%20%E6%88%96%20Ctrl%2BPgDown%20%E5%88%87%E6%8D%A2%E5%88%B0%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%A0%87%E7%AD%BE%E9%A1%B5%E3%80%82,Ctrl%2BPgUp%20%E5%88%87%E6%8D%A2%E5%88%B0%E4%B8%8A%E4%B8%80%E4%B8%AA%E6%A0%87%E7%AD%BE%E9%A1%B5%E3%80%82%20Ctrl%2B1%20%E5%88%B0%20Ctrl%2B8%20%E5%88%87%E6%8D%A2%E5%88%B0%E6%A0%87%E7%AD%BE%E6%A0%8F%E4%B8%AD%E6%8C%87%E5%AE%9A%E5%9C%B0%E4%BD%8D%E7%BC%96%E5%8F%B7%E6%89%80%E5%AF%B9%E5%BA%94%E7%9A%84%E6%A0%87%E7%AD%BE%E9%A1%B5%E3%80%82%20Ctrl%2B9%20%E5%88%87%E6%8D%A2%E5%88%B0%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E6%A0%87%E7%AD%BE%E9%A1%B5%E3%80%82">原文链接</a></em></strong></p>
+<ol type="1">
+<li>Ctrl+N 打开新窗口</li>
+<li>Ctrl+T 打开新标签页</li>
+<li>Ctrl+W关闭当前标签</li>
+<li>Ctrl+Tab 或 Ctrl+PgDown 切换到下一个标签页</li>
+<li>Ctrl+Shift+Tab 或 Ctrl+PgUp 切换到上一个标签页</li>
+<li>Ctrl+1 到 Ctrl+8 切换到标签栏中指定地位编号所对应的标签页</li>
+<li>Ctrl+Shift+T 从头打开前次封闭的标签页。谷歌浏览器可记住比来封闭的 10
+个标签页</li>
+<li>Ctrl+Shift+Delete:用于显示“清除浏览数据”界面</li>
+</ol>
+<h1 id="chrome-如何删除对某一个网站的缓存">chrome
+如何删除对某一个网站的缓存</h1>
+<blockquote>
+<p>点击F12即可</p>
+</blockquote>
+<figure>
+<img
+src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220717140536975.png"
+alt="image-20220717140536975" />
+<figcaption aria-hidden="true">image-20220717140536975</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>大二生涯</category>
+      </categories>
+      <tags>
+        <tag>chrome</tag>
+        <tag>快捷键</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>layui问题记录</title>
+    <url>/2022/07/29/layui%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h1
+id="layui中layer弹出层点击事件无效解决">layui中layer弹出层点击事件无效解决</h1>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).on(‘click’, ‘#test’, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	layer.msg(‘响应点击事件’);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><a
+href="https://blog.csdn.net/sinat_27535209/article/details/79963736">原文链接</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>岗前实训</category>
+      </categories>
+      <tags>
+        <tag>HTML</tag>
+        <tag>layui</tag>
+        <tag>layer</tag>
       </tags>
   </entry>
   <entry>
@@ -783,23 +803,258 @@ id="idea编辑器控制台显示中文乱码的解决方案">IDEA编辑器控制
       </tags>
   </entry>
   <entry>
-    <title>layui问题记录</title>
-    <url>/2022/07/29/layui%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h1
-id="layui中layer弹出层点击事件无效解决">layui中layer弹出层点击事件无效解决</h1>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).on(‘click’, ‘#test’, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	layer.msg(‘响应点击事件’);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+    <title>springboot问题整理</title>
+    <url>/2022/05/27/springboot%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<h1 id="springboot项目搭建">SpringBoot项目搭建</h1>
+<ol type="1">
+<li><p>新建Empty Project</p></li>
+<li><p><img src="https://s2.loli.net/2022/05/30/Cyv4Y3HZrsSbFQe.png" alt="image-20220530115230389" style="zoom:50%;" /></p></li>
+<li><p>新建module，Spring initializer创建springboot项目，</p>
+<p><img src="https://s2.loli.net/2022/05/27/3VM5HAjuWw4zXvg.png" alt="image-20220527161537443" style="zoom:50%;" /></p>
+<p><img src="https://s2.loli.net/2022/05/27/gYOQfCuxW25Sjri.png" alt="image-20220527161624866" style="zoom:50%;" /></p></li>
+<li><p>导入jar包</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-jdbc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis.spring.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--导入lombok--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--引入外部tomcat的支持--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.tomcat.embed<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>tomcat-embed-jasper<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--引入标签库的支持--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>jstl<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jstl<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 不引入这个访问jsp页面会报404错误--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>taglibs<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>standard<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--热部署依赖--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--pagehelper分页的依赖--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.pagehelper<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>pagehelper<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>生成webApp文件夹和Web.xml文件</p></li>
+<li><p>配置application.properties</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">spring.datasource.username=root</span><br><span class="line">spring.datasource.password=</span><br><span class="line">spring.datasource.url=jdbc:mysql://localhost:3306/userManager?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC</span><br><span class="line">spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver</span><br><span class="line"></span><br><span class="line">spring.mvc.view.prefix=/WEB-INF/jsp/</span><br><span class="line">spring.mvc.view.suffix=.jsp</span><br></pre></td></tr></table></figure>
+<p>或者选择application.yml</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment">#配置数据源</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> </span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/movie?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line">  <span class="comment">#配置视图解析器</span></span><br><span class="line">  <span class="attr">mvc:</span></span><br><span class="line">    <span class="attr">view:</span></span><br><span class="line">      <span class="attr">suffix:</span> <span class="string">.jsp</span></span><br><span class="line">      <span class="attr">prefix:</span> <span class="string">/jsp/</span></span><br><span class="line"><span class="comment">#配置mapper的存放路径以及实体类别名</span></span><br><span class="line"><span class="attr">mybatis:</span></span><br><span class="line">  <span class="attr">mapper-locations:</span> <span class="string">classpath:mapper/*.xml</span></span><br><span class="line">  <span class="attr">type-aliases-package:</span> <span class="string">com.ruanyuan.pojo</span></span><br><span class="line">  <span class="attr">config-location:</span> <span class="string">classpath:mybatis-config.xml</span></span><br></pre></td></tr></table></figure></li>
+<li><p>环境配置基本完毕。</p></li>
+</ol>
+<h1 id="怎么将html转换为jsp">怎么将html转换为jsp</h1>
+<ol type="1">
+<li><p>直接在原testPage.html页面最顶端添加如下代码：</p>
+<figure class="highlight jsp"><table><tr><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">&quot;java&quot;</span> contentType=<span class="string">&quot;text/html; charset=UTF-8&quot;</span> pageEncoding=<span class="string">&quot;UTF-8&quot;</span>%&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>修改文件后缀名： 修改后缀名为<code>.jsp</code>，Ok即可。</p></li>
+</ol>
+<h1
+id="springbootthymeleaf配置与使用">Springboot+Thymeleaf配置与使用</h1>
+<ol type="1">
+<li><p>在application.properties文件中增加Thymeleaf模板的配置。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">spring.thymeleaf.cache=false</span><br></pre></td></tr></table></figure>
+<p>在开发时建议将spring.thymeleaf.cache设置为false，否则会有缓存，导致页面没法及时看到更新后的效果。
+比如你修改了一个文件，已经update到tomcat，但刷新页面还是之前的页面，就是因为缓存引起的。</p></li>
+<li><p>在pom.xml中添加thymeleaf的依赖</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-thymeleaf<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>```html</p>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># driver-class-name: com.mysql.cj.jdbc.Driver 报错的几种解决办法</span><br><span class="line"></span><br><span class="line">`pom.xml`文件中</span><br><span class="line"></span><br><span class="line">```xml</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;mysql&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="pathvariable注解使用"><span class="citation"
+data-cites="PathVariable注解使用">@PathVariable注解使用</span></h1>
+<p><strong><span class="citation"
+data-cites="PathVariable是spring3.0的一个新功能">@PathVariable是spring3.0的一个新功能</span>：接收请求路径中占位符的值</strong></p>
+<p><strong>语法：</strong></p>
+<blockquote>
+<p><span class="citation"
+data-cites="PathVariable">@PathVariable</span>("xxx") 通过 <span
+class="citation" data-cites="PathVariable">@PathVariable</span>
+可以将URL中占位符参数{xxx}绑定到处理器类的方法形参中@PathVariable(“xxx“)</p>
+<p><span class="citation"
+data-cites="RequestMapping">@RequestMapping</span>(value=”user/{id}/{name}”)
+请求路径：http://localhost:8080/hello/show5/1/james</p>
+</blockquote>
+<h1 id="requestparam注解的详细介绍"><span class="citation"
+data-cites="RequestParam注解的详细介绍">@RequestParam注解的详细介绍</span></h1>
+<p><span class="citation" data-cites="RequestParam">@RequestParam</span>
+（org.springframework.web.bind.annotation.RequestParam）用于将指定的请求参数赋值给方法中的形参。</p>
+<p>有三个属性：</p>
+<ol type="1">
+<li>value：请求参数名（必须配置）</li>
+<li>required：是否必需，默认为 true，即
+请求中必须包含该参数，如果没有包含，将会抛出异常（可选配置）</li>
+<li>defaultValue：默认值，如果设置了该值，required 将自动设为
+false，无论你是否配置了required，配置了什么值，都是
+false（可选配置）</li>
+</ol>
+<h1
+id="mybatismapper文件详解mapper文件样例">mybatis——mapper文件详解，mapper文件样例</h1>
+<blockquote>
+<p>mapper文件样例</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">mapper</span> <span class="meta-keyword">PUBLIC</span> <span class="meta-string">&quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span> <span class="meta-string">&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">  namespace绑定了与之对应的接口,值是该接口的全限定名;这个参数有且只有一个</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">&quot;com.ruanyuan.dao.AuthorDao&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="mybatis一对一关联查询">MyBatis一对一关联查询</h2>
+<h3 id="单步查询">单步查询</h3>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">id</span>=<span class="string">&quot;BookWithAuthorAndCategoryAndPublisher&quot;</span> <span class="attr">type</span>=<span class="string">&quot;com.ruanyuan.pojo.Book&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span> <span class="attr">property</span>=<span class="string">&quot;bookCode&quot;</span> <span class="attr">column</span>=<span class="string">&quot;bookCode&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;bookName&quot;</span> <span class="attr">column</span>=<span class="string">&quot;bookName&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;unitPrice&quot;</span> <span class="attr">column</span>=<span class="string">&quot;unitPrice&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;picture&quot;</span> <span class="attr">column</span>=<span class="string">&quot;picture&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;description&quot;</span> <span class="attr">column</span>=<span class="string">&quot;bookdesc&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;quantity&quot;</span> <span class="attr">column</span>=<span class="string">&quot;quantity&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 一对一级联查询 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">&quot;author&quot;</span> <span class="attr">javaType</span>=<span class="string">&quot;com.ruanyuan.pojo.Author&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">property</span>=<span class="string">&quot;authorId&quot;</span> <span class="attr">column</span>=<span class="string">&quot;authorId&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;authorName&quot;</span> <span class="attr">column</span>=<span class="string">&quot;authorName&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">column</span>=<span class="string">&quot;sex&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;birthday&quot;</span> <span class="attr">column</span>=<span class="string">&quot;birthday&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;email&quot;</span> <span class="attr">column</span>=<span class="string">&quot;email&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;telPhone&quot;</span> <span class="attr">column</span>=<span class="string">&quot;authortel&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;city&quot;</span> <span class="attr">column</span>=<span class="string">&quot;city&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;description&quot;</span> <span class="attr">column</span>=<span class="string">&quot;authordesc&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">association</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 一对一级联查询 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">&quot;category&quot;</span> <span class="attr">javaType</span>=<span class="string">&quot;com.ruanyuan.pojo.Category&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">property</span>=<span class="string">&quot;categoryId&quot;</span> <span class="attr">column</span>=<span class="string">&quot;categoryId&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;categoryName&quot;</span> <span class="attr">column</span>=<span class="string">&quot;categoryName&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;description&quot;</span> <span class="attr">column</span>=<span class="string">&quot;categorydesc&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">association</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 一对一级联查询 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">&quot;publisher&quot;</span> <span class="attr">javaType</span>=<span class="string">&quot;com.ruanyuan.pojo.Publisher&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">property</span>=<span class="string">&quot;publisherId&quot;</span> <span class="attr">column</span>=<span class="string">&quot;publisherId&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;publisherName&quot;</span> <span class="attr">column</span>=<span class="string">&quot;publisherName&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;address&quot;</span> <span class="attr">column</span>=<span class="string">&quot;address&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;telPhone&quot;</span> <span class="attr">column</span>=<span class="string">&quot;publishertel&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;fax&quot;</span> <span class="attr">column</span>=<span class="string">&quot;fax&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">association</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;getAllBook&quot;</span> <span class="attr">resultMap</span>=<span class="string">&quot;BookWithAuthorAndCategoryAndPublisher&quot;</span>&gt;</span></span><br><span class="line">    select bookcode, bookname, unitprice, picture, books.description as bookdesc, quantity, a.authorid, authorname, sex, birthday, email, a.telphone as authortel, city, a.description as authordesc, c.categoryid, categoryname, c.descripition as categorydesc, p.publisherid, publishername, address, p.telphone as publishertel, fax from books</span><br><span class="line">    join authors a on books.AuthorID = a.AuthorID</span><br><span class="line">    join categorys c on books.CategoryID = c.CategoryID</span><br><span class="line">    join publisher p on books.PublisherID = p.PublisherID</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="mybatis-select标签">MyBatis select标签</h2>
+<p>select 示例语句如下。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;selectAllWebsite&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;net.biancheng.po.Website&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;string&quot;</span>&gt;</span></span><br><span class="line">    SELECT id,NAME,url FROM website WHERE NAME LIKE CONCAT (&#x27;%&#x27;,#&#123;name&#125;,&#x27;%&#x27;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>下面介绍 select 标签中常用的属性。</p>
+</blockquote>
+<table>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 81%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>属性名称</th>
+<th>描 述</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>resultType</td>
+<td>SQL
+语句执行后返回的类型（全限定名或者别名）。如果是集合类型，返回的是集合元素的类型，返回时可以使用
+resultType 或 resultMap 之一</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="sql-delete-语句">SQL DELETE 语句</h2>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> 表名称 <span class="keyword">WHERE</span> 列名称 <span class="operator">=</span> 值</span><br></pre></td></tr></table></figure>
+<h1
+id="thymeleaf模板中html如何获取前台的session中的值干货">thymeleaf模板中，html如何获取前台的session中的值（干货）</h1>
+<blockquote>
+<p>前端代码</p>
+</blockquote>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/20181114144338606.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01yX1poYW5nQWRk,size_16,color_FFFFFF,t_70"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<h1 id="拦截器配置不生效">拦截器配置不生效</h1>
+<blockquote>
+<p>检查是否添加了@Configuration注解</p>
+</blockquote>
+<figure>
+<img src="https://s2.loli.net/2022/07/06/FYXe2cZbu1IlRWU.png"
+alt="image-20220706120007266" />
+<figcaption aria-hidden="true">image-20220706120007266</figcaption>
+</figure>
+<h1
+id="springboot连接数据库报错access-denied-for-user-rootlocalhost-using-password-yes">SpringBoot连接数据库报错：Access
+denied for user ‘root‘@‘localhost‘ (using password: YES)</h1>
+<p>SpringBoot连接数据库报错：Access denied for user ‘***’@‘localhost’
+(using password: YES)
+它报三个***，这个就很恶心了！找了很久，大多数都说是权限问题，刚开始我也以为是权限，后面弄得数据库都连接不上了！！！后面才发现和那些没有一点关系！
+原因是因为我们在创建springboot的时候它自动给我们在properties中创建了连接对象！</p>
+<figure>
+<img src="https://s2.loli.net/2022/07/09/e6Aq2w5dnMGDJaX.png"
+alt="在这里插入图片描述" />
+<figcaption aria-hidden="true">在这里插入图片描述</figcaption>
+</figure>
+<p>这个时候只需要选择一个配置就OK了！！！</p>
+<h1
+id="druid控制台无法监控sql问题druid登录配置完了还是不需要账号密码">druid控制台无法监控sql问题，druid登录配置完了还是不需要账号密码</h1>
+<ol type="1">
+<li><p>在Spring的数据库配置参数里开启监控并配置druid(yml形式)</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="comment"># 假如时区报错了，就增加一个时区的配置就ok了 serverTimezone=UTC</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/mybatis_plus?useUnicode=true&amp;characterEncoding=utf8&amp;characterSetResults=utf8&amp;useSSL=false</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">asd123</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">com.alibaba.druid.pool.DruidDataSource</span></span><br><span class="line">	<span class="comment">#没有这条druid控制台无法监控sql</span></span><br><span class="line">    <span class="comment">#用于SQL状态监控,stat代表状态,wall代表防火墙</span></span><br><span class="line">    <span class="attr">filters:</span> <span class="string">stat,wall</span></span><br><span class="line">    <span class="comment">#Spring Boot 默认是不注入这些属性值的，需要自己绑定</span></span><br><span class="line">    <span class="comment">#druid 数据源专有配置</span></span><br><span class="line">    <span class="attr">initialSize:</span> <span class="number">5</span></span><br><span class="line">    <span class="attr">minIdle:</span> <span class="number">5</span></span><br><span class="line">    <span class="attr">maxActive:</span> <span class="number">20</span></span><br><span class="line">    <span class="attr">maxWait:</span> <span class="number">60000</span></span><br><span class="line">    <span class="attr">timeBetweenEvictionRunsMillis:</span> <span class="number">60000</span></span><br><span class="line">    <span class="attr">minEvictableIdleTimeMillis:</span> <span class="number">300000</span></span><br><span class="line">    <span class="attr">validationQuery:</span> <span class="string">SELECT</span> <span class="number">1</span> <span class="string">FROM</span> <span class="string">DUAL</span></span><br><span class="line">    <span class="attr">testWhileIdle:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">testOnBorrow:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">testOnReturn:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">poolPreparedStatements:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment">#配置监控统计拦截的filters，stat:监控统计、log4j：日志记录、wall：防御sql注入</span></span><br><span class="line">    <span class="comment">#如果允许时报错 java.lang.ClassNotFoundException: org.apache.log4j.Priority</span></span><br><span class="line">    <span class="comment">#则导入 log4j 依赖即可，Maven 地址：https://mvnrepository.com/artifact/log4j/</span></span><br><span class="line">    <span class="attr">log4j filters:</span> <span class="string">stat,wall,log4j</span></span><br><span class="line">    <span class="attr">maxPoolPreparedStatementPerConnectionSize:</span> <span class="number">20</span></span><br><span class="line">    <span class="attr">useGlobalDataSourceStat:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">connectionProperties:</span> <span class="string">druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500</span></span><br><span class="line">    <span class="comment">#配置监控统计拦截的filters,去掉后监控界面sql将无法统计</span></span><br><span class="line">    <span class="attr">spring.datasource.filters:</span> <span class="string">stat</span></span><br></pre></td></tr></table></figure></li>
+<li><p>加入druid配置类</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.kuang.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.alibaba.druid.pool.DruidDataSource;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.druid.support.http.ResourceServlet;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.druid.support.http.StatViewServlet;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.druid.support.http.WebStatFilter;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.context.properties.ConfigurationProperties;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.web.servlet.FilterRegistrationBean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.web.servlet.ServletRegistrationBean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.Filter;</span><br><span class="line"><span class="keyword">import</span> javax.sql.DataSource;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * TODO</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span> DruidConfig</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> Alfa</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Data</span> 2022/7/11 9:24</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Version</span> 1.0</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DruidConfig</span> </span>&#123;</span><br><span class="line">    <span class="meta">@ConfigurationProperties(prefix = &quot;spring.datasource&quot;)</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> DataSource <span class="title">druid</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> DruidDataSource();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 配置一个druid的监控</span></span><br><span class="line"><span class="comment">     * 1、配置一个druid的后台  管理servlet</span></span><br><span class="line"><span class="comment">     * 2、配置一个druid的filter</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="comment">//1、配置一个druid的后台  管理servlet</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ServletRegistrationBean <span class="title">servletRegistrationBean</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//注意，请求时 /druid/*</span></span><br><span class="line">        ServletRegistrationBean&lt;StatViewServlet&gt; bean = <span class="keyword">new</span> ServletRegistrationBean(<span class="keyword">new</span> StatViewServlet(),<span class="string">&quot;/druid/*&quot;</span>);</span><br><span class="line">        Map&lt;String,String&gt; initParm= <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="comment">//登陆页面账户与密码</span></span><br><span class="line">        initParm.put(ResourceServlet.PARAM_NAME_USERNAME,<span class="string">&quot;root&quot;</span>);</span><br><span class="line">        initParm.put(ResourceServlet.PARAM_NAME_PASSWORD,<span class="string">&quot;aabbcc&quot;</span>);</span><br><span class="line">        <span class="comment">//监控后台 允许ip</span></span><br><span class="line">        initParm.put(ResourceServlet.PARAM_NAME_ALLOW,<span class="string">&quot;&quot;</span>);</span><br><span class="line">        <span class="comment">//黑名单</span></span><br><span class="line">        initParm.put(ResourceServlet.PARAM_NAME_DENY,<span class="string">&quot;192.168.0.1&quot;</span>);</span><br><span class="line"></span><br><span class="line">        bean.setInitParameters(initParm);</span><br><span class="line">        <span class="keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//    2、配置一个druid的filter</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> FilterRegistrationBean <span class="title">webStatFilter</span><span class="params">()</span></span>&#123;</span><br><span class="line">        FilterRegistrationBean&lt;Filter&gt; bean = <span class="keyword">new</span> FilterRegistrationBean&lt;&gt;();</span><br><span class="line">        bean.setFilter(<span class="keyword">new</span> WebStatFilter());</span><br><span class="line"></span><br><span class="line"><span class="comment">//        可以过滤那些请求？</span></span><br><span class="line">        Map&lt;String, String&gt; initPrams = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"><span class="comment">//        这些东西不进行统计</span></span><br><span class="line">        initPrams.put(WebStatFilter.PARAM_NAME_EXCLUSIONS,<span class="string">&quot;*.js,*.css,/druid/*&quot;</span>);</span><br><span class="line">        bean.setInitParameters(initPrams);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//设置拦截器请求</span></span><br><span class="line">        bean.setUrlPatterns(Arrays.asList(<span class="string">&quot;/&quot;</span>));</span><br><span class="line">        <span class="keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
 <blockquote>
 <p><a
-href="https://blog.csdn.net/sinat_27535209/article/details/79963736">原文链接</a></p>
+href="https://blog.csdn.net/danhua8381/article/details/107318641">原文链接</a></p>
+</blockquote>
+<h1
+id="springboot有关type-aliases-package设置xml别名爆红错误">springboot有关type-aliases-package设置，xml别名爆红错误</h1>
+<p><img src="https://img-blog.csdnimg.cn/20210707121800150.png"
+alt="img" /><img
+src="https://img-blog.csdnimg.cn/20210707121902596.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzUzMDc5MTU2,size_16,color_FFFFFF,t_70"
+alt="img" /></p>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/20210707121918629.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzUzMDc5MTU2,size_16,color_FFFFFF,t_70"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>把IDEA设置的检查级别调低，默认是inspections，这个词的意思是检查的意思，就是会对你的代码进行静态检查，就像findbugs那样，如果你能把代码改进到消除inspections级别的所有警告，那么你的代码质量已经相当好了。</p>
+<p>但是很难把这个级别的警告消除干净，例如最常见的代码重复就很难消除，Intellij
+甚至把不同modules的代码都会检查重复，而不同modules的重复代码难以合并。</p>
+<p>当你嫌警告太多，可以设置为syntax也就是语法级别。这个级别只会检查语法是否正确，这个级别和eclipse或myeclipse是一样的，提前发现你代码的编译错误。</p>
+<p>平时可以使用这个级别保持界面清爽，而审查代码的时候开开inspections级别进行更严格的代码质量检查。</p>
+<blockquote>
+<p><a
+href="https://blog.csdn.net/qq_53079156/article/details/118544027">原文链接</a></p>
 </blockquote>
 ]]></content>
       <categories>
-        <category>岗前实训</category>
+        <category>大二生涯</category>
       </categories>
       <tags>
-        <tag>HTML</tag>
-        <tag>layui</tag>
-        <tag>layer</tag>
+        <tag>springboot</tag>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>个人博客相关问题</title>
+    <url>/2022/05/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="发布文章">发布文章</h1>
+<ol type="1">
+<li><p>进入博客所在目录，右键打开 Git Bash Here，创建博文：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>写完后运行下面代码将文章渲染并部署到 GitHub Pages 上完成发布。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g   <span class="comment"># 生成页面</span></span><br><span class="line">hexo d   <span class="comment"># 部署发布</span></span><br></pre></td></tr></table></figure></li>
+<li><p>也可以不使用命令自己创建 .md 文件，只需在文件开头手动加入如下格式
+Front-matter 即可，写完后运行 <code>hexo g</code> 和 <code>hexo d</code>
+发布。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hello World <span class="comment"># 标题</span></span><br><span class="line">date: 2019/3/26 hh:mm:ss <span class="comment"># 时间</span></span><br><span class="line">categories: <span class="comment"># 分类</span></span><br><span class="line">- Diary</span><br><span class="line">tags: <span class="comment"># 标签</span></span><br><span class="line">- PS3</span><br><span class="line">- Games</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">摘要</span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line">正文</span><br></pre></td></tr></table></figure></li>
+</ol>
+<hr />
+<h1 id="typora图床设置">typora图床设置</h1>
+<p>在配置typora图床并设置自动上传时，遇到了如下问题</p>
+<ol type="1">
+<li><p>typora图片上传验证按钮报错</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chcp<span class="string">&#x27; is not recognized as an internal or external command, operable program or batch file</span></span><br></pre></td></tr></table></figure>
+<p>解决办法：</p>
+<p>需要在环境变量的系统变量的path后面加;C:</p>
+<p><img src="https://s2.loli.net/2022/05/15/RVk4TQdihegAE1P.png" /></p>
+<p><em>要根据电脑上的system32文件夹的具体路径填入地址，区分大小写。</em></p></li>
+</ol>
+<h1 id="hexo-更新之后总需要重新设置custom-domin">hexo
+更新之后总需要重新设置custom domin</h1>
+<p>在source目录下（不是hexo根目录下），创建一个CNAME文件，可以用sublime创建，然后保存成（All
+files格式，即不加文件后缀名） CNAME文件里写自己新的域名。</p>
+<p><img src="https://s2.loli.net/2022/06/08/uv1ZtGXEqWHYl2A.png" /></p>
+<h1 id="查看nodejs版本">查看nodejs版本</h1>
+<blockquote>
+<p>打开cmd命令窗口执行<code>node -v</code>命令即可查看版本。</p>
+</blockquote>
+<figure>
+<img src="https://s2.loli.net/2022/07/17/wBKkvPS9jT7AfMs.png"
+alt="image-20220717131420742" />
+<figcaption aria-hidden="true">image-20220717131420742</figcaption>
+</figure>
+<h1
+id="npm-err-code-etimedout-npm-err-syscall-connect-npm-err-errno-etimedout-npm-err-network-reques...">npm
+ERR! code ETIMEDOUT npm ERR! syscall connect npm ERR! errno ETIMEDOUT
+npm ERR! network reques...</h1>
+<blockquote>
+<p><a href="https://www.jianshu.com/p/5927e65e43f1">原文链接</a></p>
+</blockquote>
+<h1
+id="hexo-next主题配置mathjax遇到的问题pandoc-exited-with-code-null">Hexo
+Next主题配置Mathjax遇到的问题：pandoc exited with code null</h1>
+<p>请检查是否配置了环境变量</p>
+<p><img src="https://s2.loli.net/2022/08/02/cNPGrv2u5RCxXEd.png" alt="image-20220729160611530" style="zoom:50%;" /></p>
+<h1
+id="解决git拒绝连接问题fatal-unable-to-access-xxxx-failed-to-connect-to-xxxx-connection-refused">解决git拒绝连接问题fatal:
+unable to access xxxx: Failed to connect to xxxx : Connection
+refused</h1>
+<ol type="1">
+<li><p>查看代理：</p>
+<p><code>git config --global http.proxy</code></p></li>
+<li><p>取消代理：</p>
+<p><code>git config --global --unset http.proxy</code></p></li>
+</ol>
+<figure>
+<img
+src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220807144235387.png"
+alt="image-20220807144235387" />
+<figcaption aria-hidden="true">image-20220807144235387</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>大二生涯</category>
+      </categories>
+      <tags>
+        <tag>博客建设</tag>
       </tags>
   </entry>
   <entry>
@@ -1163,186 +1418,6 @@ data-cites="定义用户变量">@定义用户变量</span>，定义方法有两�
       </tags>
   </entry>
   <entry>
-    <title>springboot学习时遇到的问题</title>
-    <url>/2022/05/27/springboot%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<h1 id="springboot项目搭建">SpringBoot项目搭建</h1>
-<ol type="1">
-<li><p>新建Empty Project</p></li>
-<li><p><img src="https://s2.loli.net/2022/05/30/Cyv4Y3HZrsSbFQe.png" alt="image-20220530115230389" style="zoom:50%;" /></p></li>
-<li><p>新建module，Spring initializer创建springboot项目，</p>
-<p><img src="https://s2.loli.net/2022/05/27/3VM5HAjuWw4zXvg.png" alt="image-20220527161537443" style="zoom:50%;" /></p>
-<p><img src="https://s2.loli.net/2022/05/27/gYOQfCuxW25Sjri.png" alt="image-20220527161624866" style="zoom:50%;" /></p></li>
-<li><p>导入jar包</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-jdbc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis.spring.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--导入lombok--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--引入外部tomcat的支持--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.tomcat.embed<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>tomcat-embed-jasper<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--引入标签库的支持--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>jstl<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jstl<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 不引入这个访问jsp页面会报404错误--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>taglibs<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>standard<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--热部署依赖--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--pagehelper分页的依赖--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.pagehelper<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>pagehelper<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li><p>生成webApp文件夹和Web.xml文件</p></li>
-<li><p>配置application.properties</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">spring.datasource.username=root</span><br><span class="line">spring.datasource.password=</span><br><span class="line">spring.datasource.url=jdbc:mysql://localhost:3306/userManager?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC</span><br><span class="line">spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver</span><br><span class="line"></span><br><span class="line">spring.mvc.view.prefix=/WEB-INF/jsp/</span><br><span class="line">spring.mvc.view.suffix=.jsp</span><br></pre></td></tr></table></figure>
-<p>或者选择application.yml</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment">#配置数据源</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> </span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/movie?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line">  <span class="comment">#配置视图解析器</span></span><br><span class="line">  <span class="attr">mvc:</span></span><br><span class="line">    <span class="attr">view:</span></span><br><span class="line">      <span class="attr">suffix:</span> <span class="string">.jsp</span></span><br><span class="line">      <span class="attr">prefix:</span> <span class="string">/jsp/</span></span><br><span class="line"><span class="comment">#配置mapper的存放路径以及实体类别名</span></span><br><span class="line"><span class="attr">mybatis:</span></span><br><span class="line">  <span class="attr">mapper-locations:</span> <span class="string">classpath:mapper/*.xml</span></span><br><span class="line">  <span class="attr">type-aliases-package:</span> <span class="string">com.ruanyuan.pojo</span></span><br><span class="line">  <span class="attr">config-location:</span> <span class="string">classpath:mybatis-config.xml</span></span><br></pre></td></tr></table></figure></li>
-<li><p>环境配置基本完毕。</p></li>
-</ol>
-<h1 id="怎么将html转换为jsp">怎么将html转换为jsp</h1>
-<ol type="1">
-<li><p>直接在原testPage.html页面最顶端添加如下代码：</p>
-<figure class="highlight jsp"><table><tr><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">&quot;java&quot;</span> contentType=<span class="string">&quot;text/html; charset=UTF-8&quot;</span> pageEncoding=<span class="string">&quot;UTF-8&quot;</span>%&gt;</span><br></pre></td></tr></table></figure></li>
-<li><p>修改文件后缀名： 修改后缀名为<code>.jsp</code>，Ok即可。</p></li>
-</ol>
-<h1
-id="springbootthymeleaf配置与使用">Springboot+Thymeleaf配置与使用</h1>
-<ol type="1">
-<li><p>在application.properties文件中增加Thymeleaf模板的配置。</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">spring.thymeleaf.cache=false</span><br></pre></td></tr></table></figure>
-<p>在开发时建议将spring.thymeleaf.cache设置为false，否则会有缓存，导致页面没法及时看到更新后的效果。
-比如你修改了一个文件，已经update到tomcat，但刷新页面还是之前的页面，就是因为缓存引起的。</p></li>
-<li><p>在pom.xml中添加thymeleaf的依赖</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-thymeleaf<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li><p>```html</p>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># driver-class-name: com.mysql.cj.jdbc.Driver 报错的几种解决办法</span><br><span class="line"></span><br><span class="line">`pom.xml`文件中</span><br><span class="line"></span><br><span class="line">```xml</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;mysql&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="pathvariable注解使用"><span class="citation"
-data-cites="PathVariable注解使用">@PathVariable注解使用</span></h1>
-<p><strong><span class="citation"
-data-cites="PathVariable是spring3.0的一个新功能">@PathVariable是spring3.0的一个新功能</span>：接收请求路径中占位符的值</strong></p>
-<p><strong>语法：</strong></p>
-<blockquote>
-<p><span class="citation"
-data-cites="PathVariable">@PathVariable</span>("xxx") 通过 <span
-class="citation" data-cites="PathVariable">@PathVariable</span>
-可以将URL中占位符参数{xxx}绑定到处理器类的方法形参中@PathVariable(“xxx“)</p>
-<p><span class="citation"
-data-cites="RequestMapping">@RequestMapping</span>(value=”user/{id}/{name}”)
-请求路径：http://localhost:8080/hello/show5/1/james</p>
-</blockquote>
-<h1 id="requestparam注解的详细介绍"><span class="citation"
-data-cites="RequestParam注解的详细介绍">@RequestParam注解的详细介绍</span></h1>
-<p><span class="citation" data-cites="RequestParam">@RequestParam</span>
-（org.springframework.web.bind.annotation.RequestParam）用于将指定的请求参数赋值给方法中的形参。</p>
-<p>有三个属性：</p>
-<ol type="1">
-<li>value：请求参数名（必须配置）</li>
-<li>required：是否必需，默认为 true，即
-请求中必须包含该参数，如果没有包含，将会抛出异常（可选配置）</li>
-<li>defaultValue：默认值，如果设置了该值，required 将自动设为
-false，无论你是否配置了required，配置了什么值，都是
-false（可选配置）</li>
-</ol>
-<h1
-id="mybatismapper文件详解mapper文件样例">mybatis——mapper文件详解，mapper文件样例</h1>
-<blockquote>
-<p>mapper文件样例</p>
-</blockquote>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">mapper</span> <span class="meta-keyword">PUBLIC</span> <span class="meta-string">&quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span> <span class="meta-string">&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">  namespace绑定了与之对应的接口,值是该接口的全限定名;这个参数有且只有一个</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">&quot;com.ruanyuan.dao.AuthorDao&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="mybatis一对一关联查询">MyBatis一对一关联查询</h2>
-<h3 id="单步查询">单步查询</h3>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">id</span>=<span class="string">&quot;BookWithAuthorAndCategoryAndPublisher&quot;</span> <span class="attr">type</span>=<span class="string">&quot;com.ruanyuan.pojo.Book&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span> <span class="attr">property</span>=<span class="string">&quot;bookCode&quot;</span> <span class="attr">column</span>=<span class="string">&quot;bookCode&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;bookName&quot;</span> <span class="attr">column</span>=<span class="string">&quot;bookName&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;unitPrice&quot;</span> <span class="attr">column</span>=<span class="string">&quot;unitPrice&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;picture&quot;</span> <span class="attr">column</span>=<span class="string">&quot;picture&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;description&quot;</span> <span class="attr">column</span>=<span class="string">&quot;bookdesc&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;quantity&quot;</span> <span class="attr">column</span>=<span class="string">&quot;quantity&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 一对一级联查询 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">&quot;author&quot;</span> <span class="attr">javaType</span>=<span class="string">&quot;com.ruanyuan.pojo.Author&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">property</span>=<span class="string">&quot;authorId&quot;</span> <span class="attr">column</span>=<span class="string">&quot;authorId&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;authorName&quot;</span> <span class="attr">column</span>=<span class="string">&quot;authorName&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">column</span>=<span class="string">&quot;sex&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;birthday&quot;</span> <span class="attr">column</span>=<span class="string">&quot;birthday&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;email&quot;</span> <span class="attr">column</span>=<span class="string">&quot;email&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;telPhone&quot;</span> <span class="attr">column</span>=<span class="string">&quot;authortel&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;city&quot;</span> <span class="attr">column</span>=<span class="string">&quot;city&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;description&quot;</span> <span class="attr">column</span>=<span class="string">&quot;authordesc&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">association</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 一对一级联查询 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">&quot;category&quot;</span> <span class="attr">javaType</span>=<span class="string">&quot;com.ruanyuan.pojo.Category&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">property</span>=<span class="string">&quot;categoryId&quot;</span> <span class="attr">column</span>=<span class="string">&quot;categoryId&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;categoryName&quot;</span> <span class="attr">column</span>=<span class="string">&quot;categoryName&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;description&quot;</span> <span class="attr">column</span>=<span class="string">&quot;categorydesc&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">association</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 一对一级联查询 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">&quot;publisher&quot;</span> <span class="attr">javaType</span>=<span class="string">&quot;com.ruanyuan.pojo.Publisher&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">property</span>=<span class="string">&quot;publisherId&quot;</span> <span class="attr">column</span>=<span class="string">&quot;publisherId&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;publisherName&quot;</span> <span class="attr">column</span>=<span class="string">&quot;publisherName&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;address&quot;</span> <span class="attr">column</span>=<span class="string">&quot;address&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;telPhone&quot;</span> <span class="attr">column</span>=<span class="string">&quot;publishertel&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;fax&quot;</span> <span class="attr">column</span>=<span class="string">&quot;fax&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">association</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;getAllBook&quot;</span> <span class="attr">resultMap</span>=<span class="string">&quot;BookWithAuthorAndCategoryAndPublisher&quot;</span>&gt;</span></span><br><span class="line">    select bookcode, bookname, unitprice, picture, books.description as bookdesc, quantity, a.authorid, authorname, sex, birthday, email, a.telphone as authortel, city, a.description as authordesc, c.categoryid, categoryname, c.descripition as categorydesc, p.publisherid, publishername, address, p.telphone as publishertel, fax from books</span><br><span class="line">    join authors a on books.AuthorID = a.AuthorID</span><br><span class="line">    join categorys c on books.CategoryID = c.CategoryID</span><br><span class="line">    join publisher p on books.PublisherID = p.PublisherID</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="mybatis-select标签">MyBatis select标签</h2>
-<p>select 示例语句如下。</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;selectAllWebsite&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;net.biancheng.po.Website&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;string&quot;</span>&gt;</span></span><br><span class="line">    SELECT id,NAME,url FROM website WHERE NAME LIKE CONCAT (&#x27;%&#x27;,#&#123;name&#125;,&#x27;%&#x27;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>下面介绍 select 标签中常用的属性。</p>
-</blockquote>
-<table>
-<colgroup>
-<col style="width: 13%" />
-<col style="width: 81%" />
-<col style="width: 5%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>属性名称</th>
-<th>描 述</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>resultType</td>
-<td>SQL
-语句执行后返回的类型（全限定名或者别名）。如果是集合类型，返回的是集合元素的类型，返回时可以使用
-resultType 或 resultMap 之一</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h2 id="sql-delete-语句">SQL DELETE 语句</h2>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> 表名称 <span class="keyword">WHERE</span> 列名称 <span class="operator">=</span> 值</span><br></pre></td></tr></table></figure>
-<h1
-id="thymeleaf模板中html如何获取前台的session中的值干货">thymeleaf模板中，html如何获取前台的session中的值（干货）</h1>
-<blockquote>
-<p>前端代码</p>
-</blockquote>
-<figure>
-<img
-src="https://img-blog.csdnimg.cn/20181114144338606.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01yX1poYW5nQWRk,size_16,color_FFFFFF,t_70"
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
-</figure>
-<h1 id="拦截器配置不生效">拦截器配置不生效</h1>
-<blockquote>
-<p>检查是否添加了@Configuration注解</p>
-</blockquote>
-<figure>
-<img src="https://s2.loli.net/2022/07/06/FYXe2cZbu1IlRWU.png"
-alt="image-20220706120007266" />
-<figcaption aria-hidden="true">image-20220706120007266</figcaption>
-</figure>
-<h1
-id="springboot连接数据库报错access-denied-for-user-rootlocalhost-using-password-yes">SpringBoot连接数据库报错：Access
-denied for user ‘root‘@‘localhost‘ (using password: YES)</h1>
-<p>SpringBoot连接数据库报错：Access denied for user ‘***’@‘localhost’
-(using password: YES)
-它报三个***，这个就很恶心了！找了很久，大多数都说是权限问题，刚开始我也以为是权限，后面弄得数据库都连接不上了！！！后面才发现和那些没有一点关系！
-原因是因为我们在创建springboot的时候它自动给我们在properties中创建了连接对象！</p>
-<figure>
-<img src="https://s2.loli.net/2022/07/09/e6Aq2w5dnMGDJaX.png"
-alt="在这里插入图片描述" />
-<figcaption aria-hidden="true">在这里插入图片描述</figcaption>
-</figure>
-<p>这个时候只需要选择一个配置就OK了！！！</p>
-<h1
-id="druid控制台无法监控sql问题druid登录配置完了还是不需要账号密码">druid控制台无法监控sql问题，druid登录配置完了还是不需要账号密码</h1>
-<ol type="1">
-<li><p>在Spring的数据库配置参数里开启监控并配置druid(yml形式)</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="comment"># 假如时区报错了，就增加一个时区的配置就ok了 serverTimezone=UTC</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/mybatis_plus?useUnicode=true&amp;characterEncoding=utf8&amp;characterSetResults=utf8&amp;useSSL=false</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">asd123</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">com.alibaba.druid.pool.DruidDataSource</span></span><br><span class="line">	<span class="comment">#没有这条druid控制台无法监控sql</span></span><br><span class="line">    <span class="comment">#用于SQL状态监控,stat代表状态,wall代表防火墙</span></span><br><span class="line">    <span class="attr">filters:</span> <span class="string">stat,wall</span></span><br><span class="line">    <span class="comment">#Spring Boot 默认是不注入这些属性值的，需要自己绑定</span></span><br><span class="line">    <span class="comment">#druid 数据源专有配置</span></span><br><span class="line">    <span class="attr">initialSize:</span> <span class="number">5</span></span><br><span class="line">    <span class="attr">minIdle:</span> <span class="number">5</span></span><br><span class="line">    <span class="attr">maxActive:</span> <span class="number">20</span></span><br><span class="line">    <span class="attr">maxWait:</span> <span class="number">60000</span></span><br><span class="line">    <span class="attr">timeBetweenEvictionRunsMillis:</span> <span class="number">60000</span></span><br><span class="line">    <span class="attr">minEvictableIdleTimeMillis:</span> <span class="number">300000</span></span><br><span class="line">    <span class="attr">validationQuery:</span> <span class="string">SELECT</span> <span class="number">1</span> <span class="string">FROM</span> <span class="string">DUAL</span></span><br><span class="line">    <span class="attr">testWhileIdle:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">testOnBorrow:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">testOnReturn:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">poolPreparedStatements:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment">#配置监控统计拦截的filters，stat:监控统计、log4j：日志记录、wall：防御sql注入</span></span><br><span class="line">    <span class="comment">#如果允许时报错 java.lang.ClassNotFoundException: org.apache.log4j.Priority</span></span><br><span class="line">    <span class="comment">#则导入 log4j 依赖即可，Maven 地址：https://mvnrepository.com/artifact/log4j/</span></span><br><span class="line">    <span class="attr">log4j filters:</span> <span class="string">stat,wall,log4j</span></span><br><span class="line">    <span class="attr">maxPoolPreparedStatementPerConnectionSize:</span> <span class="number">20</span></span><br><span class="line">    <span class="attr">useGlobalDataSourceStat:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">connectionProperties:</span> <span class="string">druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500</span></span><br><span class="line">    <span class="comment">#配置监控统计拦截的filters,去掉后监控界面sql将无法统计</span></span><br><span class="line">    <span class="attr">spring.datasource.filters:</span> <span class="string">stat</span></span><br></pre></td></tr></table></figure></li>
-<li><p>加入druid配置类</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.kuang.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.alibaba.druid.pool.DruidDataSource;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.druid.support.http.ResourceServlet;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.druid.support.http.StatViewServlet;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.druid.support.http.WebStatFilter;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.context.properties.ConfigurationProperties;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.web.servlet.FilterRegistrationBean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.web.servlet.ServletRegistrationBean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.Filter;</span><br><span class="line"><span class="keyword">import</span> javax.sql.DataSource;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * TODO</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span> DruidConfig</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> Alfa</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Data</span> 2022/7/11 9:24</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Version</span> 1.0</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DruidConfig</span> </span>&#123;</span><br><span class="line">    <span class="meta">@ConfigurationProperties(prefix = &quot;spring.datasource&quot;)</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> DataSource <span class="title">druid</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> DruidDataSource();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 配置一个druid的监控</span></span><br><span class="line"><span class="comment">     * 1、配置一个druid的后台  管理servlet</span></span><br><span class="line"><span class="comment">     * 2、配置一个druid的filter</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="comment">//1、配置一个druid的后台  管理servlet</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ServletRegistrationBean <span class="title">servletRegistrationBean</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//注意，请求时 /druid/*</span></span><br><span class="line">        ServletRegistrationBean&lt;StatViewServlet&gt; bean = <span class="keyword">new</span> ServletRegistrationBean(<span class="keyword">new</span> StatViewServlet(),<span class="string">&quot;/druid/*&quot;</span>);</span><br><span class="line">        Map&lt;String,String&gt; initParm= <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="comment">//登陆页面账户与密码</span></span><br><span class="line">        initParm.put(ResourceServlet.PARAM_NAME_USERNAME,<span class="string">&quot;root&quot;</span>);</span><br><span class="line">        initParm.put(ResourceServlet.PARAM_NAME_PASSWORD,<span class="string">&quot;aabbcc&quot;</span>);</span><br><span class="line">        <span class="comment">//监控后台 允许ip</span></span><br><span class="line">        initParm.put(ResourceServlet.PARAM_NAME_ALLOW,<span class="string">&quot;&quot;</span>);</span><br><span class="line">        <span class="comment">//黑名单</span></span><br><span class="line">        initParm.put(ResourceServlet.PARAM_NAME_DENY,<span class="string">&quot;192.168.0.1&quot;</span>);</span><br><span class="line"></span><br><span class="line">        bean.setInitParameters(initParm);</span><br><span class="line">        <span class="keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//    2、配置一个druid的filter</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> FilterRegistrationBean <span class="title">webStatFilter</span><span class="params">()</span></span>&#123;</span><br><span class="line">        FilterRegistrationBean&lt;Filter&gt; bean = <span class="keyword">new</span> FilterRegistrationBean&lt;&gt;();</span><br><span class="line">        bean.setFilter(<span class="keyword">new</span> WebStatFilter());</span><br><span class="line"></span><br><span class="line"><span class="comment">//        可以过滤那些请求？</span></span><br><span class="line">        Map&lt;String, String&gt; initPrams = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"><span class="comment">//        这些东西不进行统计</span></span><br><span class="line">        initPrams.put(WebStatFilter.PARAM_NAME_EXCLUSIONS,<span class="string">&quot;*.js,*.css,/druid/*&quot;</span>);</span><br><span class="line">        bean.setInitParameters(initPrams);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//设置拦截器请求</span></span><br><span class="line">        bean.setUrlPatterns(Arrays.asList(<span class="string">&quot;/&quot;</span>));</span><br><span class="line">        <span class="keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<blockquote>
-<p><a
-href="https://blog.csdn.net/danhua8381/article/details/107318641">原文链接</a></p>
-</blockquote>
-<h1
-id="springboot有关type-aliases-package设置xml别名爆红错误">springboot有关type-aliases-package设置，xml别名爆红错误</h1>
-<p><img src="https://img-blog.csdnimg.cn/20210707121800150.png"
-alt="img" /><img
-src="https://img-blog.csdnimg.cn/20210707121902596.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzUzMDc5MTU2,size_16,color_FFFFFF,t_70"
-alt="img" /></p>
-<figure>
-<img
-src="https://img-blog.csdnimg.cn/20210707121918629.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzUzMDc5MTU2,size_16,color_FFFFFF,t_70"
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
-</figure>
-<p>把IDEA设置的检查级别调低，默认是inspections，这个词的意思是检查的意思，就是会对你的代码进行静态检查，就像findbugs那样，如果你能把代码改进到消除inspections级别的所有警告，那么你的代码质量已经相当好了。</p>
-<p>但是很难把这个级别的警告消除干净，例如最常见的代码重复就很难消除，Intellij
-甚至把不同modules的代码都会检查重复，而不同modules的重复代码难以合并。</p>
-<p>当你嫌警告太多，可以设置为syntax也就是语法级别。这个级别只会检查语法是否正确，这个级别和eclipse或myeclipse是一样的，提前发现你代码的编译错误。</p>
-<p>平时可以使用这个级别保持界面清爽，而审查代码的时候开开inspections级别进行更严格的代码质量检查。</p>
-<blockquote>
-<p><a
-href="https://blog.csdn.net/qq_53079156/article/details/118544027">原文链接</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>大二生涯</category>
-      </categories>
-      <tags>
-        <tag>springboot</tag>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>微机原理相关问题</title>
     <url>/2022/08/06/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[
@@ -1356,85 +1431,10 @@ href="https://blog.csdn.net/qq_53079156/article/details/118544027">原文链接<
       </tags>
   </entry>
   <entry>
-    <title>个人博客相关问题</title>
-    <url>/2022/05/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="发布文章">发布文章</h1>
-<ol type="1">
-<li><p>进入博客所在目录，右键打开 Git Bash Here，创建博文：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>写完后运行下面代码将文章渲染并部署到 GitHub Pages 上完成发布。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g   <span class="comment"># 生成页面</span></span><br><span class="line">hexo d   <span class="comment"># 部署发布</span></span><br></pre></td></tr></table></figure></li>
-<li><p>也可以不使用命令自己创建 .md 文件，只需在文件开头手动加入如下格式
-Front-matter 即可，写完后运行 <code>hexo g</code> 和 <code>hexo d</code>
-发布。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hello World <span class="comment"># 标题</span></span><br><span class="line">date: 2019/3/26 hh:mm:ss <span class="comment"># 时间</span></span><br><span class="line">categories: <span class="comment"># 分类</span></span><br><span class="line">- Diary</span><br><span class="line">tags: <span class="comment"># 标签</span></span><br><span class="line">- PS3</span><br><span class="line">- Games</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">摘要</span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line">正文</span><br></pre></td></tr></table></figure></li>
-</ol>
-<hr />
-<h1 id="typora图床设置">typora图床设置</h1>
-<p>在配置typora图床并设置自动上传时，遇到了如下问题</p>
-<ol type="1">
-<li><p>typora图片上传验证按钮报错</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chcp<span class="string">&#x27; is not recognized as an internal or external command, operable program or batch file</span></span><br></pre></td></tr></table></figure>
-<p>解决办法：</p>
-<p>需要在环境变量的系统变量的path后面加;C:</p>
-<p><img src="https://s2.loli.net/2022/05/15/RVk4TQdihegAE1P.png" /></p>
-<p><em>要根据电脑上的system32文件夹的具体路径填入地址，区分大小写。</em></p></li>
-</ol>
-<h1 id="hexo-更新之后总需要重新设置custom-domin">hexo
-更新之后总需要重新设置custom domin</h1>
-<p>在source目录下（不是hexo根目录下），创建一个CNAME文件，可以用sublime创建，然后保存成（All
-files格式，即不加文件后缀名） CNAME文件里写自己新的域名。</p>
-<p><img src="https://s2.loli.net/2022/06/08/uv1ZtGXEqWHYl2A.png" /></p>
-<h1 id="查看nodejs版本">查看nodejs版本</h1>
-<blockquote>
-<p>打开cmd命令窗口执行<code>node -v</code>命令即可查看版本。</p>
-</blockquote>
-<figure>
-<img src="https://s2.loli.net/2022/07/17/wBKkvPS9jT7AfMs.png"
-alt="image-20220717131420742" />
-<figcaption aria-hidden="true">image-20220717131420742</figcaption>
-</figure>
-<h1
-id="npm-err-code-etimedout-npm-err-syscall-connect-npm-err-errno-etimedout-npm-err-network-reques...">npm
-ERR! code ETIMEDOUT npm ERR! syscall connect npm ERR! errno ETIMEDOUT
-npm ERR! network reques...</h1>
-<blockquote>
-<p><a href="https://www.jianshu.com/p/5927e65e43f1">原文链接</a></p>
-</blockquote>
-<h1
-id="hexo-next主题配置mathjax遇到的问题pandoc-exited-with-code-null">Hexo
-Next主题配置Mathjax遇到的问题：pandoc exited with code null</h1>
-<p>请检查是否配置了环境变量</p>
-<p><img src="https://s2.loli.net/2022/08/02/cNPGrv2u5RCxXEd.png" alt="image-20220729160611530" style="zoom:50%;" /></p>
-<h1
-id="解决git拒绝连接问题fatal-unable-to-access-xxxx-failed-to-connect-to-xxxx-connection-refused">解决git拒绝连接问题fatal:
-unable to access xxxx: Failed to connect to xxxx : Connection
-refused</h1>
-<ol type="1">
-<li><p>查看代理：</p>
-<p><code>git config --global http.proxy</code></p></li>
-<li><p>取消代理：</p>
-<p><code>git config --global --unset http.proxy</code></p></li>
-</ol>
-<figure>
-<img
-src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220807144235387.png"
-alt="image-20220807144235387" />
-<figcaption aria-hidden="true">image-20220807144235387</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>大二生涯</category>
-      </categories>
-      <tags>
-        <tag>博客建设</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>思政考试模拟题</title>
     <url>/2022/05/30/%E6%80%9D%E6%94%BF%E8%80%83%E8%AF%95%E6%A8%A1%E6%8B%9F%E9%A2%98/</url>
     <content><![CDATA[<ol type="1">
-<li>中国特色社会主义进入新时代，我国社会主要矛盾已经转化为人民日益增长的<strong><em>美好生活需要和不平衡不充分的发展</em></strong>之间的矛盾。</li>
+<li>中国特色社会主义进入新时代，我国社会主要矛盾已经转化为人民日益增长的<strong><em>美好生活需要和不平衡不充分的发展</em></strong>之间的矛盾。<span id="more"></span></li>
 <li>新时代推进中国特色社会主义事业的总体布局是“<strong><em>五位一体</em></strong>”</li>
 <li>战略布局是“<strong><em>四个全面</em>”</strong></li>
 <li><strong><em>战略思维</em></strong>是高瞻远瞩、统揽全局、善于把握事物发展总体趋势和方向的思维方法</li>
@@ -1468,84 +1468,6 @@ alt="image-20220807144235387" />
       <tags>
         <tag>思政</tag>
         <tag>考试题</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>毕业项目问题整理</title>
-    <url>/2022/08/05/%E6%AF%95%E4%B8%9A%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[
-]]></content>
-      <categories>
-        <category>岗前实训</category>
-      </categories>
-      <tags>
-        <tag>请输入标签</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>汇编语言学习问题</title>
-    <url>/2022/08/04/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="如何运行汇编程序">如何运行汇编程序</h1>
-<ol type="1">
-<li><p>编译 mul.asm 文件：</p>
-<p><code>masm mul.asm</code></p></li>
-<li><p>链接 mul.obj 文件：</p>
-<p><code>link mul</code> 或者 <code>link mul.obj</code></p></li>
-<li><p>运行 mul.exe 文件：</p>
-<p><code>mul</code> 或者 <code>mul.exe</code></p></li>
-</ol>
-<h1 id="设置vscode中调试汇编程序">设置vscode中调试汇编程序</h1>
-<p><img src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220806180441031.png" alt="image-20220806180441031"  /></p>
-<h1 id="dosbox中debug常用指令的使用">DOSBOX中debug常用指令的使用</h1>
-<table>
-<thead>
-<tr class="header">
-<th>操作符</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>r</td>
-<td>查看寄存器中的内容</td>
-</tr>
-<tr class="even">
-<td>d</td>
-<td>查看内存中的内容</td>
-</tr>
-<tr class="odd">
-<td>t</td>
-<td>执行CS:IP处的指令</td>
-</tr>
-<tr class="even">
-<td>q</td>
-<td>退出debug</td>
-</tr>
-</tbody>
-</table>
-<h2 id="用d命令查看内存中的内容">用D命令查看内存中的内容</h2>
-<p>以内存<strong>10000H</strong>处的内容为例，用“<strong>d
-段地址：偏移地址</strong>”的格式来查看</p>
-<figure>
-<img
-src="https://img-blog.csdnimg.cn/bb9b8bd6d4914b899512813e9ebd9942.png#pic_center"
-alt="D命令" />
-<figcaption aria-hidden="true">D命令</figcaption>
-</figure>
-<p>图中 左边，是每行的起始地址。
-中间，是指定地址开始的128个单元的内容，用16进制的格式输出，每行输出从16的整数倍的地址开始，最多输出16个单元的内容。
-右边，是每个单元中的数据对应的ASCII码字符，当数据没有对应的ASCII字符时，Debug就会用
-“ . ” 代替。</p>
-<p>若查看指定内存处的内容，可以用“d 段地址：起始偏移地址
-结尾偏移地址”的格式来查看。</p>
-<p>按Enter键，D命令操作结束。</p>
-]]></content>
-      <categories>
-        <category>岗前实训</category>
-      </categories>
-      <tags>
-        <tag>专升本</tag>
-        <tag>汇编语言</tag>
       </tags>
   </entry>
   <entry>
@@ -1797,6 +1719,84 @@ y=\frac{1}{2}gt^2
       <tags>
         <tag>专升本</tag>
         <tag>高等数学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>毕业项目问题整理</title>
+    <url>/2022/08/05/%E6%AF%95%E4%B8%9A%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[
+]]></content>
+      <categories>
+        <category>岗前实训</category>
+      </categories>
+      <tags>
+        <tag>请输入标签</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>汇编语言学习问题</title>
+    <url>/2022/08/04/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="如何运行汇编程序">如何运行汇编程序</h1>
+<ol type="1">
+<li><p>编译 mul.asm 文件：</p>
+<p><code>masm mul.asm</code></p></li>
+<li><p>链接 mul.obj 文件：</p>
+<p><code>link mul</code> 或者 <code>link mul.obj</code></p></li>
+<li><p>运行 mul.exe 文件：</p>
+<p><code>mul</code> 或者 <code>mul.exe</code></p></li>
+</ol>
+<h1 id="设置vscode中调试汇编程序">设置vscode中调试汇编程序</h1>
+<p><img src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220806180441031.png" alt="image-20220806180441031"  /></p>
+<h1 id="dosbox中debug常用指令的使用">DOSBOX中debug常用指令的使用</h1>
+<table>
+<thead>
+<tr class="header">
+<th>操作符</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>r</td>
+<td>查看寄存器中的内容</td>
+</tr>
+<tr class="even">
+<td>d</td>
+<td>查看内存中的内容</td>
+</tr>
+<tr class="odd">
+<td>t</td>
+<td>执行CS:IP处的指令</td>
+</tr>
+<tr class="even">
+<td>q</td>
+<td>退出debug</td>
+</tr>
+</tbody>
+</table>
+<h2 id="用d命令查看内存中的内容">用D命令查看内存中的内容</h2>
+<p>以内存<strong>10000H</strong>处的内容为例，用“<strong>d
+段地址：偏移地址</strong>”的格式来查看</p>
+<figure>
+<img
+src="https://img-blog.csdnimg.cn/bb9b8bd6d4914b899512813e9ebd9942.png#pic_center"
+alt="D命令" />
+<figcaption aria-hidden="true">D命令</figcaption>
+</figure>
+<p>图中 左边，是每行的起始地址。
+中间，是指定地址开始的128个单元的内容，用16进制的格式输出，每行输出从16的整数倍的地址开始，最多输出16个单元的内容。
+右边，是每个单元中的数据对应的ASCII码字符，当数据没有对应的ASCII字符时，Debug就会用
+“ . ” 代替。</p>
+<p>若查看指定内存处的内容，可以用“d 段地址：起始偏移地址
+结尾偏移地址”的格式来查看。</p>
+<p>按Enter键，D命令操作结束。</p>
+]]></content>
+      <categories>
+        <category>岗前实训</category>
+      </categories>
+      <tags>
+        <tag>专升本</tag>
+        <tag>汇编语言</tag>
       </tags>
   </entry>
 </search>
