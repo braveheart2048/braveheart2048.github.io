@@ -128,6 +128,39 @@ href="https://blog.csdn.net/TTTZZZTTTZZZ/article/details/87015708">原文链接<
       </tags>
   </entry>
   <entry>
+    <title>MySql问题整理</title>
+    <url>/2022/07/09/MySql%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<h1
+id="mysql数据库中查看数据库的字符集">mysql数据库中,查看数据库的字符集</h1>
+<ul>
+<li><p>查看实例中所有数据库的字符集</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> schema_name,default_character_set_name <span class="keyword">from</span> information_schema.schemata;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="mysql修改数据库字符集的方法">MySQL修改数据库字符集的方法</h1>
+<ul>
+<li><p>修改库的字符集</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">alter</span> database 库名 <span class="keyword">default</span> <span class="type">character</span> <span class="keyword">set</span> 字符集;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="控制台进入mysql">控制台进入mysql</h1>
+<p><strong>连接mysql数据库</strong></p>
+<ol type="1">
+<li>首先打开cmd进入dos窗口</li>
+<li>键入命令：<code>mysql -uroot -p</code>
+回车，提示输入密码，输入密码回车就可以了</li>
+</ol>
+<h1
+id="启动springboot项目发生errorcode-1045-state-28000">启动springboot项目发生：errorCode
+1045, state 28000</h1>
+<p>数据库的<code>1045</code>通常是密码或者用户名错误导致</p>
+]]></content>
+      <categories>
+        <category>岗前实训</category>
+      </categories>
+      <tags>
+        <tag>MySql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Typora使用问题</title>
     <url>/2022/07/18/Typora%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="markdown文件生成目录的方式">markdown文件生成目录的方式</h1>
@@ -218,41 +251,33 @@ id="markdown如何实现多文档之间的跳转">Markdown如何实现多文档�
 <p><a
 href="https://blog.csdn.net/weixin_43031092/article/details/105322677">原文链接</a></p>
 </blockquote>
+<h1 id="latex-大括号">Latex 大括号</h1>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">$$ f(x)=\left\&#123;</span><br><span class="line">\begin&#123;aligned&#125;</span><br><span class="line">x &amp; =  \cos(t) \\</span><br><span class="line">y &amp; =  \sin(t) \\</span><br><span class="line">z &amp; =  \frac xy</span><br><span class="line">\end&#123;aligned&#125;</span><br><span class="line">\right.</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
+<p><span class="math display">\[
+f(x)=\left\{
+\begin{aligned}
+x &amp; =  \cos(t) \\
+y &amp; =  \sin(t) \\
+z &amp; =  \frac xy
+\end{aligned}
+\right.
+\]</span></p>
+<h1 id="latex行列式-矩阵">LaTeX行列式 | 矩阵</h1>
+<p>其中 | 和 | 表示左右定界符</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$$</span><br><span class="line">\left |\begin&#123;array&#125;\\</span><br><span class="line">1 &amp;6   &amp; 9 \\</span><br><span class="line">7 &amp;90 &amp; f(x)  \\</span><br><span class="line">9 &amp; \psi(x) &amp;g(x) \\</span><br><span class="line">\end&#123;array&#125;\right|</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
+<p><span class="math display">\[
+\left |\begin{array}\\
+1 &amp;6   &amp; 9 \\
+7 &amp;90 &amp; f(x)  \\
+9 &amp; \psi(x) &amp;g(x) \\
+\end{array}\right|
+\]</span></p>
 ]]></content>
       <categories>
         <category>岗前实训</category>
       </categories>
       <tags>
         <tag>Typora</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MySql问题整理</title>
-    <url>/2022/07/09/MySql%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<h1
-id="mysql数据库中查看数据库的字符集">mysql数据库中,查看数据库的字符集</h1>
-<ul>
-<li><p>查看实例中所有数据库的字符集</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> schema_name,default_character_set_name <span class="keyword">from</span> information_schema.schemata;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="mysql修改数据库字符集的方法">MySQL修改数据库字符集的方法</h1>
-<ul>
-<li><p>修改库的字符集</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">alter</span> database 库名 <span class="keyword">default</span> <span class="type">character</span> <span class="keyword">set</span> 字符集;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="控制台进入mysql">控制台进入mysql</h1>
-<p><strong>连接mysql数据库</strong></p>
-<ol type="1">
-<li>首先打开cmd进入dos窗口</li>
-<li>键入命令：<code>mysql -uroot -p</code>
-回车，提示输入密码，输入密码回车就可以了</li>
-</ol>
-]]></content>
-      <categories>
-        <category>岗前实训</category>
-      </categories>
-      <tags>
-        <tag>MySql</tag>
       </tags>
   </entry>
   <entry>
@@ -450,8 +475,7 @@ href="https://blog.csdn.net/weixin_35319943/article/details/111955799#:~:text=Ct
 <p>点击F12即可</p>
 </blockquote>
 <figure>
-<img
-src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220717140536975.png"
+<img src="https://s2.loli.net/2022/08/10/QtcamyRNVzDChA8.png"
 alt="image-20220717140536975" />
 <figcaption aria-hidden="true">image-20220717140536975</figcaption>
 </figure>
@@ -462,26 +486,6 @@ alt="image-20220717140536975" />
       <tags>
         <tag>chrome</tag>
         <tag>快捷键</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>layui问题记录</title>
-    <url>/2022/07/29/layui%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h1
-id="layui中layer弹出层点击事件无效解决">layui中layer弹出层点击事件无效解决</h1>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).on(‘click’, ‘#test’, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	layer.msg(‘响应点击事件’);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><a
-href="https://blog.csdn.net/sinat_27535209/article/details/79963736">原文链接</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>岗前实训</category>
-      </categories>
-      <tags>
-        <tag>HTML</tag>
-        <tag>layui</tag>
-        <tag>layer</tag>
       </tags>
   </entry>
   <entry>
@@ -913,8 +917,7 @@ id="thymeleaf模板中html如何获取前台的session中的值干货">thymeleaf
 <p>前端代码</p>
 </blockquote>
 <figure>
-<img
-src="https://img-blog.csdnimg.cn/20181114144338606.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L01yX1poYW5nQWRk,size_16,color_FFFFFF,t_70"
+<img src="https://s2.loli.net/2022/08/10/lnVgTW7xsI1oiq3.png"
 alt="img" />
 <figcaption aria-hidden="true">img</figcaption>
 </figure>
@@ -954,13 +957,12 @@ href="https://blog.csdn.net/danhua8381/article/details/107318641">原文链接</
 </blockquote>
 <h1
 id="springboot有关type-aliases-package设置xml别名爆红错误">springboot有关type-aliases-package设置，xml别名爆红错误</h1>
-<p><img src="https://img-blog.csdnimg.cn/20210707121800150.png"
+<p><img src="https://s2.loli.net/2022/08/10/k4jVhXetAbUYCuE.png"
 alt="img" /><img
-src="https://img-blog.csdnimg.cn/20210707121902596.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzUzMDc5MTU2,size_16,color_FFFFFF,t_70"
+src="https://s2.loli.net/2022/08/10/HDOtApYhyxVoUIs.png"
 alt="img" /></p>
 <figure>
-<img
-src="https://img-blog.csdnimg.cn/20210707121918629.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzUzMDc5MTU2,size_16,color_FFFFFF,t_70"
+<img src="https://s2.loli.net/2022/08/10/KGuowNLxITyvtCr.png"
 alt="img" />
 <figcaption aria-hidden="true">img</figcaption>
 </figure>
@@ -983,78 +985,46 @@ href="https://blog.csdn.net/qq_53079156/article/details/118544027">原文链接<
       </tags>
   </entry>
   <entry>
-    <title>个人博客相关问题</title>
-    <url>/2022/05/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="发布文章">发布文章</h1>
-<ol type="1">
-<li><p>进入博客所在目录，右键打开 Git Bash Here，创建博文：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>写完后运行下面代码将文章渲染并部署到 GitHub Pages 上完成发布。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g   <span class="comment"># 生成页面</span></span><br><span class="line">hexo d   <span class="comment"># 部署发布</span></span><br></pre></td></tr></table></figure></li>
-<li><p>也可以不使用命令自己创建 .md 文件，只需在文件开头手动加入如下格式
-Front-matter 即可，写完后运行 <code>hexo g</code> 和 <code>hexo d</code>
-发布。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hello World <span class="comment"># 标题</span></span><br><span class="line">date: 2019/3/26 hh:mm:ss <span class="comment"># 时间</span></span><br><span class="line">categories: <span class="comment"># 分类</span></span><br><span class="line">- Diary</span><br><span class="line">tags: <span class="comment"># 标签</span></span><br><span class="line">- PS3</span><br><span class="line">- Games</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">摘要</span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line">正文</span><br></pre></td></tr></table></figure></li>
-</ol>
-<hr />
-<h1 id="typora图床设置">typora图床设置</h1>
-<p>在配置typora图床并设置自动上传时，遇到了如下问题</p>
-<ol type="1">
-<li><p>typora图片上传验证按钮报错</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chcp<span class="string">&#x27; is not recognized as an internal or external command, operable program or batch file</span></span><br></pre></td></tr></table></figure>
-<p>解决办法：</p>
-<p>需要在环境变量的系统变量的path后面加;C:</p>
-<p><img src="https://s2.loli.net/2022/05/15/RVk4TQdihegAE1P.png" /></p>
-<p><em>要根据电脑上的system32文件夹的具体路径填入地址，区分大小写。</em></p></li>
-</ol>
-<h1 id="hexo-更新之后总需要重新设置custom-domin">hexo
-更新之后总需要重新设置custom domin</h1>
-<p>在source目录下（不是hexo根目录下），创建一个CNAME文件，可以用sublime创建，然后保存成（All
-files格式，即不加文件后缀名） CNAME文件里写自己新的域名。</p>
-<p><img src="https://s2.loli.net/2022/06/08/uv1ZtGXEqWHYl2A.png" /></p>
-<h1 id="查看nodejs版本">查看nodejs版本</h1>
+    <title>layui问题记录</title>
+    <url>/2022/07/29/layui%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h1
+id="layui中layer弹出层点击事件无效解决">layui中layer弹出层点击事件无效解决</h1>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).on(‘click’, ‘#test’, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	layer.msg(‘响应点击事件’);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>打开cmd命令窗口执行<code>node -v</code>命令即可查看版本。</p>
-</blockquote>
-<figure>
-<img src="https://s2.loli.net/2022/07/17/wBKkvPS9jT7AfMs.png"
-alt="image-20220717131420742" />
-<figcaption aria-hidden="true">image-20220717131420742</figcaption>
-</figure>
-<h1
-id="npm-err-code-etimedout-npm-err-syscall-connect-npm-err-errno-etimedout-npm-err-network-reques...">npm
-ERR! code ETIMEDOUT npm ERR! syscall connect npm ERR! errno ETIMEDOUT
-npm ERR! network reques...</h1>
-<blockquote>
-<p><a href="https://www.jianshu.com/p/5927e65e43f1">原文链接</a></p>
+<p><a
+href="https://blog.csdn.net/sinat_27535209/article/details/79963736">原文链接</a></p>
 </blockquote>
 <h1
-id="hexo-next主题配置mathjax遇到的问题pandoc-exited-with-code-null">Hexo
-Next主题配置Mathjax遇到的问题：pandoc exited with code null</h1>
-<p>请检查是否配置了环境变量</p>
-<p><img src="https://s2.loli.net/2022/08/02/cNPGrv2u5RCxXEd.png" alt="image-20220729160611530" style="zoom:50%;" /></p>
-<h1
-id="解决git拒绝连接问题fatal-unable-to-access-xxxx-failed-to-connect-to-xxxx-connection-refused">解决git拒绝连接问题fatal:
-unable to access xxxx: Failed to connect to xxxx : Connection
-refused</h1>
-<ol type="1">
-<li><p>查看代理：</p>
-<p><code>git config --global http.proxy</code></p></li>
-<li><p>取消代理：</p>
-<p><code>git config --global --unset http.proxy</code></p></li>
-</ol>
-<figure>
-<img
-src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220807144235387.png"
-alt="image-20220807144235387" />
-<figcaption aria-hidden="true">image-20220807144235387</figcaption>
-</figure>
+id="thymeleaf报错org.thymeleaf.exceptions.templateprocessingexception-could-not-parse-as-expression">Thymeleaf报错org.thymeleaf.exceptions.TemplateProcessingException
+Could not parse as expression</h1>
+<p>在使用layui初始化table的时候，报错</p>
+<p>把<code>[[</code>和<code>]]</code>之间加个空格，如<code>[ [</code>。这个问题就莫名其妙的解决了！</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">cols: [ [</span><br><span class="line">    &#123;field: &#x27;name&#x27;, title: &#x27;角色名称&#x27;, align: &#x27;center&#x27;&#125;,</span><br><span class="line">    &#123;field: &#x27;remark&#x27;, title: &#x27;角色备注&#x27;, align: &#x27;center&#x27;&#125;,</span><br><span class="line">    &#123;field: &#x27;createTime&#x27;, title: &#x27;创建时间&#x27;, align: &#x27;center&#x27;&#125;,</span><br><span class="line">    &#123;fixed: &#x27;right&#x27;, title: &#x27;操作&#x27;, toolbar: &#x27;#roleRowBar&#x27;, align: &#x27;center&#x27;, width: 280&#125;</span><br><span class="line">] ]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><a
+href="https://blog.csdn.net/SleepNot_Need/article/details/114688838">原文链接</a></p>
+</blockquote>
 ]]></content>
       <categories>
-        <category>大二生涯</category>
+        <category>岗前实训</category>
       </categories>
       <tags>
-        <tag>博客建设</tag>
+        <tag>HTML</tag>
+        <tag>layui</tag>
+        <tag>layer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>微机原理相关问题</title>
+    <url>/2022/08/06/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[
+]]></content>
+      <categories>
+        <category>岗前实训</category>
+      </categories>
+      <tags>
+        <tag>专升本</tag>
+        <tag>微机原理</tag>
       </tags>
   </entry>
   <entry>
@@ -1418,16 +1388,185 @@ data-cites="定义用户变量">@定义用户变量</span>，定义方法有两�
       </tags>
   </entry>
   <entry>
-    <title>微机原理相关问题</title>
-    <url>/2022/08/06/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[
+    <title>个人博客相关问题</title>
+    <url>/2022/05/14/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="发布文章">发布文章</h1>
+<ol type="1">
+<li><p>进入博客所在目录，右键打开 Git Bash Here，创建博文：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>写完后运行下面代码将文章渲染并部署到 GitHub Pages 上完成发布。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo g   <span class="comment"># 生成页面</span></span><br><span class="line">hexo d   <span class="comment"># 部署发布</span></span><br></pre></td></tr></table></figure></li>
+<li><p>也可以不使用命令自己创建 .md 文件，只需在文件开头手动加入如下格式
+Front-matter 即可，写完后运行 <code>hexo g</code> 和 <code>hexo d</code>
+发布。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hello World <span class="comment"># 标题</span></span><br><span class="line">date: 2019/3/26 hh:mm:ss <span class="comment"># 时间</span></span><br><span class="line">categories: <span class="comment"># 分类</span></span><br><span class="line">- Diary</span><br><span class="line">tags: <span class="comment"># 标签</span></span><br><span class="line">- PS3</span><br><span class="line">- Games</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">摘要</span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line">正文</span><br></pre></td></tr></table></figure></li>
+</ol>
+<hr />
+<h1 id="typora图床设置">typora图床设置</h1>
+<p>在配置typora图床并设置自动上传时，遇到了如下问题</p>
+<ol type="1">
+<li><p>typora图片上传验证按钮报错</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chcp<span class="string">&#x27; is not recognized as an internal or external command, operable program or batch file</span></span><br></pre></td></tr></table></figure>
+<p>解决办法：</p>
+<p>需要在环境变量的系统变量的path后面加;C:</p>
+<p><img src="https://s2.loli.net/2022/05/15/RVk4TQdihegAE1P.png" /></p>
+<p><em>要根据电脑上的system32文件夹的具体路径填入地址，区分大小写。</em></p></li>
+</ol>
+<h1 id="hexo-更新之后总需要重新设置custom-domin">hexo
+更新之后总需要重新设置custom domin</h1>
+<p>在source目录下（不是hexo根目录下），创建一个CNAME文件，可以用sublime创建，然后保存成（All
+files格式，即不加文件后缀名） CNAME文件里写自己新的域名。</p>
+<p><img src="https://s2.loli.net/2022/06/08/uv1ZtGXEqWHYl2A.png" /></p>
+<h1 id="查看nodejs版本">查看nodejs版本</h1>
+<blockquote>
+<p>打开cmd命令窗口执行<code>node -v</code>命令即可查看版本。</p>
+</blockquote>
+<figure>
+<img src="https://s2.loli.net/2022/07/17/wBKkvPS9jT7AfMs.png"
+alt="image-20220717131420742" />
+<figcaption aria-hidden="true">image-20220717131420742</figcaption>
+</figure>
+<h1
+id="npm-err-code-etimedout-npm-err-syscall-connect-npm-err-errno-etimedout-npm-err-network-reques...">npm
+ERR! code ETIMEDOUT npm ERR! syscall connect npm ERR! errno ETIMEDOUT
+npm ERR! network reques...</h1>
+<blockquote>
+<p><a href="https://www.jianshu.com/p/5927e65e43f1">原文链接</a></p>
+</blockquote>
+<h1
+id="hexo-next主题配置mathjax遇到的问题pandoc-exited-with-code-null">Hexo
+Next主题配置Mathjax遇到的问题：pandoc exited with code null</h1>
+<p>请检查是否配置了环境变量</p>
+<p><img src="https://s2.loli.net/2022/08/02/cNPGrv2u5RCxXEd.png" alt="image-20220729160611530" style="zoom:50%;" /></p>
+<h1
+id="解决git拒绝连接问题fatal-unable-to-access-xxxx-failed-to-connect-to-xxxx-connection-refused">解决git拒绝连接问题fatal:
+unable to access xxxx: Failed to connect to xxxx : Connection
+refused</h1>
+<ol type="1">
+<li><p>查看代理：</p>
+<p><code>git config --global http.proxy</code></p></li>
+<li><p>取消代理：</p>
+<p><code>git config --global --unset http.proxy</code></p></li>
+</ol>
+<figure>
+<img
+src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220807144235387.png"
+alt="image-20220807144235387" />
+<figcaption aria-hidden="true">image-20220807144235387</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>大二生涯</category>
+      </categories>
+      <tags>
+        <tag>博客建设</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>毕业项目问题整理</title>
+    <url>/2022/08/05/%E6%AF%95%E4%B8%9A%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<h1 id="寻找订单信息的后台业务代码">寻找订单信息的后台业务代码</h1>
+<ul>
+<li><p>HTML页面</p>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/gnl81kSpVM7WHxw.png"
+alt="image-20220810104953511" />
+<figcaption aria-hidden="true">image-20220810104953511</figcaption>
+</figure></li>
+<li><p>Controller层</p>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/21yhsE7DFvowgrf.png"
+alt="image-20220810105139980" />
+<figcaption aria-hidden="true">image-20220810105139980</figcaption>
+</figure></li>
+<li><p>HTML代码，发现layui的异步请求数据路径</p>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/4hVOC6bTG28fknt.png"
+alt="image-20220810105445531" />
+<figcaption aria-hidden="true">image-20220810105445531</figcaption>
+</figure></li>
+<li><p>后台全局搜索不到，去页面找到更准确的路径</p>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/Dr9ZsmlohAgOdNc.png"
+alt="image-20220810110405550" />
+<figcaption aria-hidden="true">image-20220810110405550</figcaption>
+</figure></li>
+<li><p>依然搜索不到，依次点开后台的controller，发现对应的controller</p>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/2rofxJvagdtCS8Q.png"
+alt="image-20220810110627507" />
+<figcaption aria-hidden="true">image-20220810110627507</figcaption>
+</figure></li>
+</ul>
+<h1 id="寻找session中当前登录用户">寻找session中当前登录用户</h1>
+<ul>
+<li><p>前台登录页</p>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/KEsOWP28g4afvJ7.png"
+alt="image-20220810113323938" />
+<figcaption aria-hidden="true">image-20220810113323938</figcaption>
+</figure></li>
+<li><p>controller层</p>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/VckUB1K52NvLA4s.png"
+alt="image-20220810113443332" />
+<figcaption aria-hidden="true">image-20220810113443332</figcaption>
+</figure></li>
+<li><p>HTML代码</p>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/Js4Ap9xrMIBdqCK.png"
+alt="image-20220810113652738" />
+<figcaption aria-hidden="true">image-20220810113652738</figcaption>
+</figure></li>
+<li><p>找到登录方法</p>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/p2HIoGcCa7ZPTOr.png"
+alt="image-20220810113845147" />
+<figcaption aria-hidden="true">image-20220810113845147</figcaption>
+</figure></li>
+</ul>
+<h1
+id="错误org.apache.ibatis.reflection.reflectionexception-there-is-no-setter-for-property-named-creationtime-in-class-com.backstage.pojo.orderfrom">【错误】org.apache.ibatis.reflection.ReflectionException:
+There is no setter for property named 'creationTime' in 'class
+com.backstage.pojo.OrderFrom'</h1>
+<p>网上有一些解决方案是检查实体类映射类以及注解@Data</p>
+<p><img src="https://s2.loli.net/2022/08/10/ZQPlcs4W96gjqKU.png" alt="image-20220810124820526" style="zoom:50%;" /></p>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/DB6CR8KnfgMmiqP.png"
+alt="image-20220810124955083" />
+<figcaption aria-hidden="true">image-20220810124955083</figcaption>
+</figure>
+<p>调整大小写使之对应之后，问题顺利解决。</p>
+<h1
+id="错误org.apache.ibatis.binding.bindingexception-parameter-type-not-found.-available-parameters-are-orderfrom-page-param1-param2">【错误】org.apache.ibatis.binding.BindingException:
+Parameter 'type' not found. Available parameters are [orderFrom, page,
+param1, param2]</h1>
+<ul>
+<li><p>检查controller发现传入的不是type，而是orderFrom</p>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/yogRtfmPIMebpUW.png"
+alt="image-20220810145114407" />
+<figcaption aria-hidden="true">image-20220810145114407</figcaption>
+</figure></li>
+<li><p>发现是底层mapper的原因，修改之后运行成功</p>
+<p><img src="https://s2.loli.net/2022/08/10/zgO3CBjpnr1uPTJ.png" alt="image-20220810145400332" style="zoom:80%;" /></p></li>
+</ul>
+<h1
+id="解决idea版svn冲突问题-svn-e155015-commit-failed-details-follow-svn-e155015-aborting-commit">解决idea版svn冲突问题
+svn: E155015: Commit failed (details follow): svn: E155015: Aborting
+commit:</h1>
+<p>先备份，选择版本回退，再把自己的代码copy进去</p>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/G6FjId7L8NWwiln.png"
+alt="image-20220810151404488" />
+<figcaption aria-hidden="true">image-20220810151404488</figcaption>
+</figure>
 ]]></content>
       <categories>
         <category>岗前实训</category>
       </categories>
       <tags>
-        <tag>专升本</tag>
-        <tag>微机原理</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -1468,6 +1607,169 @@ data-cites="定义用户变量">@定义用户变量</span>，定义方法有两�
       <tags>
         <tag>思政</tag>
         <tag>考试题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>汇编语言大作业</title>
+    <url>/2022/08/11/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%A4%A7%E4%BD%9C%E4%B8%9A/</url>
+    <content><![CDATA[<h1 id="汇编语言大作业">汇编语言大作业</h1>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/EpQsvnAF3tUc7lb.png"
+alt="image-20220810164610514" />
+<figcaption aria-hidden="true">image-20220810164610514</figcaption>
+</figure>
+<h2 id="程序片段">程序片段</h2>
+<h3 id="等待用户输入指令">等待用户输入指令</h3>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/6k9LKcIrFR28Ehf.png"
+alt="image-20220810165859761" />
+<figcaption aria-hidden="true">image-20220810165859761</figcaption>
+</figure>
+<h3 id="跳转表法实现多分支程序">跳转表法实现多分支程序</h3>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/L53UjeNSoX8apGJ.png"
+alt="image-20220810170049916" />
+<figcaption aria-hidden="true">image-20220810170049916</figcaption>
+</figure>
+<h3 id="几个ascii码">几个ASCII码</h3>
+<table>
+<thead>
+<tr class="header">
+<th>按键</th>
+<th>ASCII码</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>回车</td>
+<td>0DH</td>
+</tr>
+<tr class="even">
+<td>换行</td>
+<td>0AH</td>
+</tr>
+<tr class="odd">
+<td>空格</td>
+<td>20H</td>
+</tr>
+<tr class="even">
+<td>ESC</td>
+<td>1BH</td>
+</tr>
+<tr class="odd">
+<td>$</td>
+<td>24H</td>
+</tr>
+</tbody>
+</table>
+<h2 id="相关dos命令">相关DOS命令</h2>
+<h3 id="程序框架相关dos命令">程序框架相关DOS命令</h3>
+<h4
+id="h等待用户从键盘输入一个字符回显检测ctrlbreak"><code>01H</code>等待用户从键盘输入一个字符，回显，检测<code>ctrl+break</code></h4>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/UFvhqNaX5i3P4AH.png"
+alt="image-20220810165527942" />
+<figcaption aria-hidden="true">image-20220810165527942</figcaption>
+</figure>
+<h4
+id="h等待用户从键盘输入一个字符不回显不检测ctrlbreak"><code>07H</code>等待用户从键盘输入一个字符，不回显，不检测<code>ctrl+break</code></h4>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/dkI5Vf9J6iln1vL.png"
+alt="image-20220810170228527" />
+<figcaption aria-hidden="true">image-20220810170228527</figcaption>
+</figure>
+<h4
+id="h等待用户从键盘输入一个字符不回显检测ctrlbreak"><code>08H</code>等待用户从键盘输入一个字符，不回显，检测<code>ctrl+break</code></h4>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/3T2ex8Y7LJFrwSa.png"
+alt="image-20220810170339157" />
+<figcaption aria-hidden="true">image-20220810170339157</figcaption>
+</figure>
+<h4 id="h向屏幕输出一个字符"><code>02H</code>向屏幕输出一个字符</h4>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/Q5hFuVBZnwTY9eL.png"
+alt="image-20220810170748947" />
+<figcaption aria-hidden="true">image-20220810170748947</figcaption>
+</figure>
+<h4 id="h控制台输入输出"><code>06H</code>控制台输入输出</h4>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/mr8pIiql25K7TSG.png"
+alt="image-20220810172607014" />
+<figcaption aria-hidden="true">image-20220810172607014</figcaption>
+</figure>
+<h4 id="h向屏幕输出一串字符"><code>09H</code>向屏幕输出一串字符</h4>
+<figure>
+<img src="https://s2.loli.net/2022/08/11/9ElWKT2ae7hCZkY.png"
+alt="image-20220810173320786" />
+<figcaption aria-hidden="true">image-20220810173320786</figcaption>
+</figure>
+<p>字符串末尾用$符号</p>
+<h4 id="a从键盘输入一串字符"><code>0A</code>从键盘输入一串字符</h4>
+<figure>
+<img src="https://s2.loli.net/2022/08/11/PZxSGQLeIDU4jc5.png"
+alt="image-20220810174256580" />
+<figcaption aria-hidden="true">image-20220810174256580</figcaption>
+</figure>
+<h5 id="键盘输入缓冲区的定义规则">键盘输入缓冲区的定义规则</h5>
+<figure>
+<img src="https://s2.loli.net/2022/08/11/OuoafYM1ZG7FBXr.png"
+alt="image-20220810174632512" />
+<figcaption aria-hidden="true">image-20220810174632512</figcaption>
+</figure>
+<h3 id="第四问相关dos命令">第四问相关DOS命令</h3>
+<h4 id="dh时间设置"><code>2DH</code>时间设置</h4>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/hk6PbMX97qDY18L.png"
+alt="image-20220810160005849" />
+<figcaption aria-hidden="true">image-20220810160005849</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/Igoj8srcQpXb6Lh.png"
+alt="image-20220810160117622" />
+<figcaption aria-hidden="true">image-20220810160117622</figcaption>
+</figure>
+<h4 id="ch时间获取"><code>2CH</code>时间获取</h4>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/wAWcQFmJbKklSrB.png"
+alt="image-20220810160411169" />
+<figcaption aria-hidden="true">image-20220810160411169</figcaption>
+</figure>
+<h2 id="相关bios命令">相关BIOS命令</h2>
+<p>BIOS（Basic input/output system）固化在 ROM 中，包括 I/O
+设备的处理程序和许多常用的例行程序。</p>
+<p>对用户程序来说，可由特定指令 INT n（n
+为中断号）通过软终端的方式调用。不管 DOS
+是否装入系统，这些调用可以直接控制 I/O 设备。</p>
+<h3 id="h设置显示器清屏"><code>00H</code>设置显示器，清屏</h3>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/HyEvQ3pk5JL1GUF.png"
+alt="image-20220810163621943" />
+<figcaption aria-hidden="true">image-20220810163621943</figcaption>
+</figure>
+<ul>
+<li>BL中设置分页，一共有四页，一般用第0页，可以实现分屏功能。</li>
+</ul>
+<h3 id="h设置光标位置"><code>02H</code>设置光标位置</h3>
+<blockquote>
+<p>字符模式的光标位置，列是x，行是y</p>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/bJLnrPSTuGa7q8h.png"
+alt="image-20220810163847716" />
+<figcaption aria-hidden="true">image-20220810163847716</figcaption>
+</figure>
+</blockquote>
+<h2 id="第三问解法">第三问解法</h2>
+<ul>
+<li>用0AH号DOS命令依次接收用户键入的数字，注意把ASCII码转换成数值</li>
+<li>用0AH号DOS命令统计到的用户键入字符数，作为用户输入数值的位数，利用位置加权法计算结果。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>岗前实训</category>
+      </categories>
+      <tags>
+        <tag>专升本</tag>
+        <tag>汇编语言</tag>
       </tags>
   </entry>
   <entry>
@@ -1711,6 +2013,69 @@ x=v_0t
 <li><p>平抛运动垂直方向位移量 <span class="math display">\[
 y=\frac{1}{2}gt^2
 \]</span></p></li>
+<li></li>
+</ul>
+<h1 id="空间直线和向量运算">空间直线和向量运算</h1>
+<ul>
+<li><p>给出直线的一般式方程 <span class="math display">\[
+\left\{
+\begin{aligned}
+x-5y+2z=1\\
+5y-z=-2
+\end{aligned}
+\right.
+\]</span> 则直线的方向向量为 <span class="math display">\[
+\left |\begin{array}\\
+i &amp;j   &amp;k \\
+1 &amp;-5 &amp;2  \\
+0 &amp;5 &amp;1 \\
+\end{array}\right|
+= \left|\begin{array}\\
+-5 &amp;2\\
+5 &amp;1
+\end{array}
+\right|i
+\space-\left|\begin{array}\\
+1&amp;2\\
+0&amp;1
+\end{array}\right|j
+\space+\left|\begin{array}\\
+1 &amp;-5\\
+0 &amp;5
+\end{array}\right|k
+\]</span></p></li>
+<li><p>给出两个向量，求垂直于两向量的方向向量 <span
+class="math display">\[
+\left\{
+\begin{align}
+\overrightarrow{a}=(1,0,1)\\
+\overrightarrow{b}=(2,1,3)
+\end{align}
+\right.
+\]</span> 则作向量积 <span class="math display">\[
+\left|
+\begin{array}\\
+i &amp;j &amp;k\\
+1 &amp;0 &amp;1\\
+2 &amp;1 &amp;3
+\end{array}
+\right|
+=\left|\begin{array}\\
+0 &amp;1\\
+1 &amp;3
+\end{array}
+\right|i
+-\left|\begin{array}\\
+1 &amp;1\\
+2 &amp;3
+\end{array}
+\right|j
++\left|\begin{array}\\
+1 &amp;0\\
+2 &amp;1
+\end{array}
+\right|k
+\]</span></p></li>
 </ul>
 ]]></content>
       <categories>
@@ -1719,18 +2084,6 @@ y=\frac{1}{2}gt^2
       <tags>
         <tag>专升本</tag>
         <tag>高等数学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>毕业项目问题整理</title>
-    <url>/2022/08/05/%E6%AF%95%E4%B8%9A%E9%A1%B9%E7%9B%AE%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[
-]]></content>
-      <categories>
-        <category>岗前实训</category>
-      </categories>
-      <tags>
-        <tag>请输入标签</tag>
       </tags>
   </entry>
   <entry>
@@ -1746,7 +2099,7 @@ y=\frac{1}{2}gt^2
 <p><code>mul</code> 或者 <code>mul.exe</code></p></li>
 </ol>
 <h1 id="设置vscode中调试汇编程序">设置vscode中调试汇编程序</h1>
-<p><img src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220806180441031.png" alt="image-20220806180441031"  /></p>
+<p><img src="https://s2.loli.net/2022/08/09/9LWKpTZxiFyu4hb.png" alt="image-20220806180441031"  /></p>
 <h1 id="dosbox中debug常用指令的使用">DOSBOX中debug常用指令的使用</h1>
 <table>
 <thead>
@@ -1778,8 +2131,7 @@ y=\frac{1}{2}gt^2
 <p>以内存<strong>10000H</strong>处的内容为例，用“<strong>d
 段地址：偏移地址</strong>”的格式来查看</p>
 <figure>
-<img
-src="https://img-blog.csdnimg.cn/bb9b8bd6d4914b899512813e9ebd9942.png#pic_center"
+<img src="https://s2.loli.net/2022/08/10/il9zwfmvHNs23Dr.png"
 alt="D命令" />
 <figcaption aria-hidden="true">D命令</figcaption>
 </figure>
@@ -1790,6 +2142,14 @@ alt="D命令" />
 <p>若查看指定内存处的内容，可以用“d 段地址：起始偏移地址
 结尾偏移地址”的格式来查看。</p>
 <p>按Enter键，D命令操作结束。</p>
+<h1 id="汇编中的assume的使用">汇编中的ASSUME的使用</h1>
+<p>assume 最典型的用法：是指明变量与段寄存器的联系,比如 assume
+ds:data,它是告诉编译器以后所有在data段中定义的变量寻址时，使用ds作为段地址，但是它不对程序作任何事，你必须自己对ds赋值</p>
+<h1 id="为什么stack-segment-stack-后面要多加一个stack">为什么stack
+segment stack 后面要多加一个stack</h1>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">stack segment</span><br><span class="line">    dw 80h dup(0)</span><br><span class="line">stack ends</span><br><span class="line">code segment</span><br><span class="line">    mov ax,stack</span><br><span class="line">    mov ss,ax</span><br><span class="line">    mov sp,100h</span><br><span class="line">. . . . . .</span><br></pre></td></tr></table></figure>
+<p>如果有了这个 stack，代码中就不再需要专门为堆栈段和堆栈指针赋值的那 3
+条语句了，汇编程序会自动识别并把这两个寄存器初始化为正确的值。</p>
 ]]></content>
       <categories>
         <category>岗前实训</category>

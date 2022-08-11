@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/autumn.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"idealstars.space","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="汇编语言大作业">
+<meta property="og:type" content="article">
+<meta property="og:title" content="汇编语言大作业">
+<meta property="og:url" content="http://idealstars.space/2022/08/11/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%A4%A7%E4%BD%9C%E4%B8%9A/index.html">
+<meta property="og:site_name" content="小蜗">
+<meta property="og:description" content="汇编语言大作业">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/08/10/EpQsvnAF3tUc7lb.png">
+<meta property="og:image" content="https://s2.loli.net/2022/08/10/6k9LKcIrFR28Ehf.png">
+<meta property="og:image" content="https://s2.loli.net/2022/08/10/L53UjeNSoX8apGJ.png">
+<meta property="og:image" content="https://s2.loli.net/2022/08/10/UFvhqNaX5i3P4AH.png">
+<meta property="og:image" content="https://s2.loli.net/2022/08/10/dkI5Vf9J6iln1vL.png">
+<meta property="og:image" content="https://s2.loli.net/2022/08/10/3T2ex8Y7LJFrwSa.png">
+<meta property="og:image" content="https://s2.loli.net/2022/08/10/Q5hFuVBZnwTY9eL.png">
+<meta property="og:image" content="https://s2.loli.net/2022/08/10/mr8pIiql25K7TSG.png">
+<meta property="og:image" content="https://s2.loli.net/2022/08/11/9ElWKT2ae7hCZkY.png">
+<meta property="og:image" content="https://s2.loli.net/2022/08/11/PZxSGQLeIDU4jc5.png">
+<meta property="og:image" content="https://s2.loli.net/2022/08/11/OuoafYM1ZG7FBXr.png">
+<meta property="og:image" content="https://s2.loli.net/2022/08/10/hk6PbMX97qDY18L.png">
+<meta property="og:image" content="https://s2.loli.net/2022/08/10/Igoj8srcQpXb6Lh.png">
+<meta property="og:image" content="https://s2.loli.net/2022/08/10/wAWcQFmJbKklSrB.png">
+<meta property="og:image" content="https://s2.loli.net/2022/08/10/HyEvQ3pk5JL1GUF.png">
+<meta property="og:image" content="https://s2.loli.net/2022/08/10/bJLnrPSTuGa7q8h.png">
+<meta property="article:published_time" content="2022-08-11T03:16:58.000Z">
+<meta property="article:modified_time" content="2022-08-11T03:18:18.337Z">
+<meta property="article:author" content="alfa">
+<meta property="article:tag" content="专升本">
+<meta property="article:tag" content="汇编语言">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/08/10/EpQsvnAF3tUc7lb.png">
+
+<link rel="canonical" href="http://idealstars.space/2022/08/11/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%A4%A7%E4%BD%9C%E4%B8%9A/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>汇编语言大作业 | 小蜗</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">小蜗</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://idealstars.space/2022/08/11/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%A4%A7%E4%BD%9C%E4%B8%9A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-castle.jpg">
+      <meta itemprop="name" content="alfa">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小蜗">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          汇编语言大作业
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-08-11 11:16:58 / 修改时间：11:18:18" itemprop="dateCreated datePublished" datetime="2022-08-11T11:16:58+08:00">2022-08-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B2%97%E5%89%8D%E5%AE%9E%E8%AE%AD/" itemprop="url" rel="index"><span itemprop="name">岗前实训</span></a>
+                </span>
+            </span>
+
+          
+            <div class="post-description">汇编语言大作业</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="汇编语言大作业">汇编语言大作业</h1>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/EpQsvnAF3tUc7lb.png"
+alt="image-20220810164610514" />
+<figcaption aria-hidden="true">image-20220810164610514</figcaption>
+</figure>
+<h2 id="程序片段">程序片段</h2>
+<h3 id="等待用户输入指令">等待用户输入指令</h3>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/6k9LKcIrFR28Ehf.png"
+alt="image-20220810165859761" />
+<figcaption aria-hidden="true">image-20220810165859761</figcaption>
+</figure>
+<h3 id="跳转表法实现多分支程序">跳转表法实现多分支程序</h3>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/L53UjeNSoX8apGJ.png"
+alt="image-20220810170049916" />
+<figcaption aria-hidden="true">image-20220810170049916</figcaption>
+</figure>
+<h3 id="几个ascii码">几个ASCII码</h3>
+<table>
+<thead>
+<tr class="header">
+<th>按键</th>
+<th>ASCII码</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>回车</td>
+<td>0DH</td>
+</tr>
+<tr class="even">
+<td>换行</td>
+<td>0AH</td>
+</tr>
+<tr class="odd">
+<td>空格</td>
+<td>20H</td>
+</tr>
+<tr class="even">
+<td>ESC</td>
+<td>1BH</td>
+</tr>
+<tr class="odd">
+<td>$</td>
+<td>24H</td>
+</tr>
+</tbody>
+</table>
+<h2 id="相关dos命令">相关DOS命令</h2>
+<h3 id="程序框架相关dos命令">程序框架相关DOS命令</h3>
+<h4
+id="h等待用户从键盘输入一个字符回显检测ctrlbreak"><code>01H</code>等待用户从键盘输入一个字符，回显，检测<code>ctrl+break</code></h4>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/UFvhqNaX5i3P4AH.png"
+alt="image-20220810165527942" />
+<figcaption aria-hidden="true">image-20220810165527942</figcaption>
+</figure>
+<h4
+id="h等待用户从键盘输入一个字符不回显不检测ctrlbreak"><code>07H</code>等待用户从键盘输入一个字符，不回显，不检测<code>ctrl+break</code></h4>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/dkI5Vf9J6iln1vL.png"
+alt="image-20220810170228527" />
+<figcaption aria-hidden="true">image-20220810170228527</figcaption>
+</figure>
+<h4
+id="h等待用户从键盘输入一个字符不回显检测ctrlbreak"><code>08H</code>等待用户从键盘输入一个字符，不回显，检测<code>ctrl+break</code></h4>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/3T2ex8Y7LJFrwSa.png"
+alt="image-20220810170339157" />
+<figcaption aria-hidden="true">image-20220810170339157</figcaption>
+</figure>
+<h4 id="h向屏幕输出一个字符"><code>02H</code>向屏幕输出一个字符</h4>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/Q5hFuVBZnwTY9eL.png"
+alt="image-20220810170748947" />
+<figcaption aria-hidden="true">image-20220810170748947</figcaption>
+</figure>
+<h4 id="h控制台输入输出"><code>06H</code>控制台输入输出</h4>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/mr8pIiql25K7TSG.png"
+alt="image-20220810172607014" />
+<figcaption aria-hidden="true">image-20220810172607014</figcaption>
+</figure>
+<h4 id="h向屏幕输出一串字符"><code>09H</code>向屏幕输出一串字符</h4>
+<figure>
+<img src="https://s2.loli.net/2022/08/11/9ElWKT2ae7hCZkY.png"
+alt="image-20220810173320786" />
+<figcaption aria-hidden="true">image-20220810173320786</figcaption>
+</figure>
+<p>字符串末尾用$符号</p>
+<h4 id="a从键盘输入一串字符"><code>0A</code>从键盘输入一串字符</h4>
+<figure>
+<img src="https://s2.loli.net/2022/08/11/PZxSGQLeIDU4jc5.png"
+alt="image-20220810174256580" />
+<figcaption aria-hidden="true">image-20220810174256580</figcaption>
+</figure>
+<h5 id="键盘输入缓冲区的定义规则">键盘输入缓冲区的定义规则</h5>
+<figure>
+<img src="https://s2.loli.net/2022/08/11/OuoafYM1ZG7FBXr.png"
+alt="image-20220810174632512" />
+<figcaption aria-hidden="true">image-20220810174632512</figcaption>
+</figure>
+<h3 id="第四问相关dos命令">第四问相关DOS命令</h3>
+<h4 id="dh时间设置"><code>2DH</code>时间设置</h4>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/hk6PbMX97qDY18L.png"
+alt="image-20220810160005849" />
+<figcaption aria-hidden="true">image-20220810160005849</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/Igoj8srcQpXb6Lh.png"
+alt="image-20220810160117622" />
+<figcaption aria-hidden="true">image-20220810160117622</figcaption>
+</figure>
+<h4 id="ch时间获取"><code>2CH</code>时间获取</h4>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/wAWcQFmJbKklSrB.png"
+alt="image-20220810160411169" />
+<figcaption aria-hidden="true">image-20220810160411169</figcaption>
+</figure>
+<h2 id="相关bios命令">相关BIOS命令</h2>
+<p>BIOS（Basic input/output system）固化在 ROM 中，包括 I/O
+设备的处理程序和许多常用的例行程序。</p>
+<p>对用户程序来说，可由特定指令 INT n（n
+为中断号）通过软终端的方式调用。不管 DOS
+是否装入系统，这些调用可以直接控制 I/O 设备。</p>
+<h3 id="h设置显示器清屏"><code>00H</code>设置显示器，清屏</h3>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/HyEvQ3pk5JL1GUF.png"
+alt="image-20220810163621943" />
+<figcaption aria-hidden="true">image-20220810163621943</figcaption>
+</figure>
+<ul>
+<li>BL中设置分页，一共有四页，一般用第0页，可以实现分屏功能。</li>
+</ul>
+<h3 id="h设置光标位置"><code>02H</code>设置光标位置</h3>
+<blockquote>
+<p>字符模式的光标位置，列是x，行是y</p>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/bJLnrPSTuGa7q8h.png"
+alt="image-20220810163847716" />
+<figcaption aria-hidden="true">image-20220810163847716</figcaption>
+</figure>
+</blockquote>
+<h2 id="第三问解法">第三问解法</h2>
+<ul>
+<li>用0AH号DOS命令依次接收用户键入的数字，注意把ASCII码转换成数值</li>
+<li>用0AH号DOS命令统计到的用户键入字符数，作为用户输入数值的位数，利用位置加权法计算结果。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E4%B8%93%E5%8D%87%E6%9C%AC/" rel="tag"># 专升本</a>
+              <a href="/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/" rel="tag"># 汇编语言</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/08/06/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/" rel="prev" title="微机原理相关问题">
+      <i class="fa fa-chevron-left"></i> 微机原理相关问题
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%A4%A7%E4%BD%9C%E4%B8%9A"><span class="nav-number">1.</span> <span class="nav-text">汇编语言大作业</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E7%89%87%E6%AE%B5"><span class="nav-number">1.1.</span> <span class="nav-text">程序片段</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%89%E5%BE%85%E7%94%A8%E6%88%B7%E8%BE%93%E5%85%A5%E6%8C%87%E4%BB%A4"><span class="nav-number">1.1.1.</span> <span class="nav-text">等待用户输入指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%B3%E8%BD%AC%E8%A1%A8%E6%B3%95%E5%AE%9E%E7%8E%B0%E5%A4%9A%E5%88%86%E6%94%AF%E7%A8%8B%E5%BA%8F"><span class="nav-number">1.1.2.</span> <span class="nav-text">跳转表法实现多分支程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%A0%E4%B8%AAascii%E7%A0%81"><span class="nav-number">1.1.3.</span> <span class="nav-text">几个ASCII码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3dos%E5%91%BD%E4%BB%A4"><span class="nav-number">1.2.</span> <span class="nav-text">相关DOS命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E6%A1%86%E6%9E%B6%E7%9B%B8%E5%85%B3dos%E5%91%BD%E4%BB%A4"><span class="nav-number">1.2.1.</span> <span class="nav-text">程序框架相关DOS命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#h%E7%AD%89%E5%BE%85%E7%94%A8%E6%88%B7%E4%BB%8E%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E5%9B%9E%E6%98%BE%E6%A3%80%E6%B5%8Bctrlbreak"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">01H等待用户从键盘输入一个字符，回显，检测ctrl+break</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#h%E7%AD%89%E5%BE%85%E7%94%A8%E6%88%B7%E4%BB%8E%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%8D%E5%9B%9E%E6%98%BE%E4%B8%8D%E6%A3%80%E6%B5%8Bctrlbreak"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">07H等待用户从键盘输入一个字符，不回显，不检测ctrl+break</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#h%E7%AD%89%E5%BE%85%E7%94%A8%E6%88%B7%E4%BB%8E%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%8D%E5%9B%9E%E6%98%BE%E6%A3%80%E6%B5%8Bctrlbreak"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">08H等待用户从键盘输入一个字符，不回显，检测ctrl+break</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#h%E5%90%91%E5%B1%8F%E5%B9%95%E8%BE%93%E5%87%BA%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">02H向屏幕输出一个字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#h%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="nav-number">1.2.1.5.</span> <span class="nav-text">06H控制台输入输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#h%E5%90%91%E5%B1%8F%E5%B9%95%E8%BE%93%E5%87%BA%E4%B8%80%E4%B8%B2%E5%AD%97%E7%AC%A6"><span class="nav-number">1.2.1.6.</span> <span class="nav-text">09H向屏幕输出一串字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#a%E4%BB%8E%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5%E4%B8%80%E4%B8%B2%E5%AD%97%E7%AC%A6"><span class="nav-number">1.2.1.7.</span> <span class="nav-text">0A从键盘输入一串字符</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5%E7%BC%93%E5%86%B2%E5%8C%BA%E7%9A%84%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99"><span class="nav-number">1.2.1.7.1.</span> <span class="nav-text">键盘输入缓冲区的定义规则</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E9%97%AE%E7%9B%B8%E5%85%B3dos%E5%91%BD%E4%BB%A4"><span class="nav-number">1.2.2.</span> <span class="nav-text">第四问相关DOS命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#dh%E6%97%B6%E9%97%B4%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">2DH时间设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ch%E6%97%B6%E9%97%B4%E8%8E%B7%E5%8F%96"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">2CH时间获取</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3bios%E5%91%BD%E4%BB%A4"><span class="nav-number">1.3.</span> <span class="nav-text">相关BIOS命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#h%E8%AE%BE%E7%BD%AE%E6%98%BE%E7%A4%BA%E5%99%A8%E6%B8%85%E5%B1%8F"><span class="nav-number">1.3.1.</span> <span class="nav-text">00H设置显示器，清屏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#h%E8%AE%BE%E7%BD%AE%E5%85%89%E6%A0%87%E4%BD%8D%E7%BD%AE"><span class="nav-number">1.3.2.</span> <span class="nav-text">02H设置光标位置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E9%97%AE%E8%A7%A3%E6%B3%95"><span class="nav-number">1.4.</span> <span class="nav-text">第三问解法</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="alfa"
+      src="/images/avatar-castle.jpg">
+  <p class="site-author-name" itemprop="name">alfa</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">alfa</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
