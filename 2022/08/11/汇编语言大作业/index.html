@@ -27,6 +27,7 @@
 <meta property="og:site_name" content="小蜗">
 <meta property="og:description" content="汇编语言大作业">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/08/12/BioLRG36ylVnXCH.png">
 <meta property="og:image" content="https://s2.loli.net/2022/08/10/EpQsvnAF3tUc7lb.png">
 <meta property="og:image" content="https://s2.loli.net/2022/08/10/6k9LKcIrFR28Ehf.png">
 <meta property="og:image" content="https://s2.loli.net/2022/08/10/L53UjeNSoX8apGJ.png">
@@ -43,13 +44,16 @@
 <meta property="og:image" content="https://s2.loli.net/2022/08/10/wAWcQFmJbKklSrB.png">
 <meta property="og:image" content="https://s2.loli.net/2022/08/10/HyEvQ3pk5JL1GUF.png">
 <meta property="og:image" content="https://s2.loli.net/2022/08/10/bJLnrPSTuGa7q8h.png">
+<meta property="og:image" content="https://s2.loli.net/2022/08/12/mvuXSn8pETFyY2J.png">
+<meta property="og:image" content="https://s2.loli.net/2022/08/12/O1fATvc63VjqSsw.png">
+<meta property="og:image" content="c:/Users/cheng/Downloads/未命名文件.png">
 <meta property="article:published_time" content="2022-08-11T03:16:58.000Z">
-<meta property="article:modified_time" content="2022-08-11T03:18:18.337Z">
+<meta property="article:modified_time" content="2022-08-14T08:05:38.302Z">
 <meta property="article:author" content="alfa">
 <meta property="article:tag" content="专升本">
 <meta property="article:tag" content="汇编语言">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.loli.net/2022/08/10/EpQsvnAF3tUc7lb.png">
+<meta name="twitter:image" content="https://s2.loli.net/2022/08/12/BioLRG36ylVnXCH.png">
 
 <link rel="canonical" href="http://idealstars.space/2022/08/11/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%A4%A7%E4%BD%9C%E4%B8%9A/">
 
@@ -191,10 +195,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-08-11 11:16:58 / 修改时间：11:18:18" itemprop="dateCreated datePublished" datetime="2022-08-11T11:16:58+08:00">2022-08-11</time>
+              <time title="创建时间：2022-08-11 11:16:58" itemprop="dateCreated datePublished" datetime="2022-08-11T11:16:58+08:00">2022-08-11</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-08-14 16:05:38" itemprop="dateModified" datetime="2022-08-14T16:05:38+08:00">2022-08-14</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -217,7 +227,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="汇编语言大作业">汇编语言大作业</h1>
+        <h1
+id="疑问dos调用会修改al寄存器的值">【疑问】DOS调用会修改AL寄存器的值？</h1>
+<ul>
+<li>代码部分<img
+src="https://s2.loli.net/2022/08/12/wHUbvkV9aBxzTOj.png"
+alt="image-20220812115824403" /></li>
+<li>debug<img src="https://s2.loli.net/2022/08/12/BioLRG36ylVnXCH.png"
+alt="image-20220812115614391" /></li>
+</ul>
+<p><strong>图中可见，在上下两句代码指令之间，并没有对al进行任何操作，可是在经过09h号dos功能调用之后，al中的值却发生了改变。</strong></p>
+<h1 id="汇编语言大作业">汇编语言大作业</h1>
 <figure>
 <img src="https://s2.loli.net/2022/08/10/EpQsvnAF3tUc7lb.png"
 alt="image-20220810164610514" />
@@ -363,11 +383,46 @@ alt="image-20220810163847716" />
 <figcaption aria-hidden="true">image-20220810163847716</figcaption>
 </figure>
 </blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov dx, 0100h  ; DH=row 1, DL=column 0</span><br><span class="line">mov bh, 0      ; display page</span><br><span class="line">mov ah, 02h    ; SetCursor</span><br><span class="line">int 10h</span><br></pre></td></tr></table></figure>
 <h2 id="第三问解法">第三问解法</h2>
 <ul>
 <li>用0AH号DOS命令依次接收用户键入的数字，注意把ASCII码转换成数值</li>
 <li>用0AH号DOS命令统计到的用户键入字符数，作为用户输入数值的位数，利用位置加权法计算结果。</li>
+<li><img src="https://s2.loli.net/2022/08/12/mvuXSn8pETFyY2J.png"
+title="fig:" alt="image-20220812122042134" /></li>
 </ul>
+<h1 id="汇编09h输出乱码">汇编<code>09h</code>输出乱码</h1>
+<p>必须要在程序开始时初始化ds寄存器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">;初始化ds寄存器</span><br><span class="line">    mov ax,data</span><br><span class="line">    mov ds,ax</span><br></pre></td></tr></table></figure>
+<h1 id="汇编子程序调用问题">汇编子程序调用问题</h1>
+<figure>
+<img src="https://s2.loli.net/2022/08/12/O1fATvc63VjqSsw.png"
+alt="image-20220811135427091" />
+<figcaption aria-hidden="true">image-20220811135427091</figcaption>
+</figure>
+<p>子程序无论定义在了什么位置，程序走到这个位置之后，都会自动调用一次子程序。</p>
+<h1 id="汇编断点子程序">汇编断点子程序</h1>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code</span><br><span class="line"></span><br><span class="line">stack segment</span><br><span class="line">db 30h dup(0)</span><br><span class="line">stack ends</span><br><span class="line"></span><br><span class="line">code segment</span><br><span class="line">start:     </span><br><span class="line">    mov ax,3</span><br><span class="line">    mov bx,1</span><br><span class="line">    mov cx,5</span><br><span class="line">    s0:</span><br><span class="line">    add ax,bx</span><br><span class="line">    call breakPoint     ;在此处设置断点暂停</span><br><span class="line">    loop s0</span><br><span class="line">    mov ax,4c00h</span><br><span class="line">    int 21h</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">breakPoint:</span><br><span class="line">    push bx ;bx压栈，保护起来</span><br><span class="line">    pushf	;psw压栈</span><br><span class="line">    pop bx	;上一条保存的psw内容弹出到bx</span><br><span class="line">    or bh,3	;TF、IF置1，开中断，单步调试</span><br><span class="line">    push bx	;bx压栈</span><br><span class="line">    popf	;上一条压栈的bx内容弹出到psw</span><br><span class="line">    pop bx	;最开始压栈的bx弹出，恢复数据</span><br><span class="line">    ret	;退出子程序</span><br></pre></td></tr></table></figure>
+<h1 id="ascii大小写转换">ASCII大小写转换</h1>
+<p>大写转小写：<code>|20h</code></p>
+<p>小写转大写：<code>&amp;0DFh</code></p>
+<h1 id="汇编基址变址寻址格式">汇编基址变址寻址格式</h1>
+<p><code>MOV AL,BX</code> 或<code>MOV AL,[BX＋SI]</code></p>
+<h1 id="汇编语言中loop指令">汇编语言中loop指令</h1>
+<p>要注意<strong>cx</strong>中保存的是循环次数，循环次数保存在<strong>cx</strong>中。</p>
+<h1 id="dos命令0ah">DOS命令0AH</h1>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">keybuf1        db 0ffh</span><br><span class="line">                   db ?</span><br><span class="line">    keybuf1content db 0ffh dup(?)</span><br></pre></td></tr></table></figure>
+<p>这是定义最多能输入255个字符，但包括最后的回车字符（所以有效输入字符为254个），因为最后一个字节存放回车字符，所以不必担心向最后一个字节写入$时会发生溢出。</p>
+<h1 id="ascii字符型数字转整型数字">ASCII字符型数字转整型数字</h1>
+<p>ASCII码字符型数字转换为整型数字：字符型数字 - ‘0’ 或者 字符型数字 -
+48</p>
+<h1
+id="dos窗口输出存储单元中的十六进制数">DOS窗口输出存储单元中的十六进制数</h1>
+<h2 id="程序流程图">程序流程图</h2>
+<figure>
+<img src="C:\Users\cheng\Downloads\未命名文件.png" alt="未命名文件" />
+<figcaption aria-hidden="true">未命名文件</figcaption>
+</figure>
 
     </div>
 
@@ -390,7 +445,10 @@ alt="image-20220810163847716" />
     <a href="/2022/08/06/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/" rel="prev" title="微机原理相关问题">
       <i class="fa fa-chevron-left"></i> 微机原理相关问题
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2022/08/13/BubbleSort/" rel="next" title="BubbleSort">
+      BubbleSort <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -449,7 +507,7 @@ alt="image-20220810163847716" />
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%A4%A7%E4%BD%9C%E4%B8%9A"><span class="nav-number">1.</span> <span class="nav-text">汇编语言大作业</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E7%89%87%E6%AE%B5"><span class="nav-number">1.1.</span> <span class="nav-text">程序片段</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%89%E5%BE%85%E7%94%A8%E6%88%B7%E8%BE%93%E5%85%A5%E6%8C%87%E4%BB%A4"><span class="nav-number">1.1.1.</span> <span class="nav-text">等待用户输入指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%B3%E8%BD%AC%E8%A1%A8%E6%B3%95%E5%AE%9E%E7%8E%B0%E5%A4%9A%E5%88%86%E6%94%AF%E7%A8%8B%E5%BA%8F"><span class="nav-number">1.1.2.</span> <span class="nav-text">跳转表法实现多分支程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%A0%E4%B8%AAascii%E7%A0%81"><span class="nav-number">1.1.3.</span> <span class="nav-text">几个ASCII码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3dos%E5%91%BD%E4%BB%A4"><span class="nav-number">1.2.</span> <span class="nav-text">相关DOS命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E6%A1%86%E6%9E%B6%E7%9B%B8%E5%85%B3dos%E5%91%BD%E4%BB%A4"><span class="nav-number">1.2.1.</span> <span class="nav-text">程序框架相关DOS命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#h%E7%AD%89%E5%BE%85%E7%94%A8%E6%88%B7%E4%BB%8E%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E5%9B%9E%E6%98%BE%E6%A3%80%E6%B5%8Bctrlbreak"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">01H等待用户从键盘输入一个字符，回显，检测ctrl+break</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#h%E7%AD%89%E5%BE%85%E7%94%A8%E6%88%B7%E4%BB%8E%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%8D%E5%9B%9E%E6%98%BE%E4%B8%8D%E6%A3%80%E6%B5%8Bctrlbreak"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">07H等待用户从键盘输入一个字符，不回显，不检测ctrl+break</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#h%E7%AD%89%E5%BE%85%E7%94%A8%E6%88%B7%E4%BB%8E%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%8D%E5%9B%9E%E6%98%BE%E6%A3%80%E6%B5%8Bctrlbreak"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">08H等待用户从键盘输入一个字符，不回显，检测ctrl+break</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#h%E5%90%91%E5%B1%8F%E5%B9%95%E8%BE%93%E5%87%BA%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">02H向屏幕输出一个字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#h%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="nav-number">1.2.1.5.</span> <span class="nav-text">06H控制台输入输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#h%E5%90%91%E5%B1%8F%E5%B9%95%E8%BE%93%E5%87%BA%E4%B8%80%E4%B8%B2%E5%AD%97%E7%AC%A6"><span class="nav-number">1.2.1.6.</span> <span class="nav-text">09H向屏幕输出一串字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#a%E4%BB%8E%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5%E4%B8%80%E4%B8%B2%E5%AD%97%E7%AC%A6"><span class="nav-number">1.2.1.7.</span> <span class="nav-text">0A从键盘输入一串字符</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5%E7%BC%93%E5%86%B2%E5%8C%BA%E7%9A%84%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99"><span class="nav-number">1.2.1.7.1.</span> <span class="nav-text">键盘输入缓冲区的定义规则</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E9%97%AE%E7%9B%B8%E5%85%B3dos%E5%91%BD%E4%BB%A4"><span class="nav-number">1.2.2.</span> <span class="nav-text">第四问相关DOS命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#dh%E6%97%B6%E9%97%B4%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">2DH时间设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ch%E6%97%B6%E9%97%B4%E8%8E%B7%E5%8F%96"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">2CH时间获取</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3bios%E5%91%BD%E4%BB%A4"><span class="nav-number">1.3.</span> <span class="nav-text">相关BIOS命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#h%E8%AE%BE%E7%BD%AE%E6%98%BE%E7%A4%BA%E5%99%A8%E6%B8%85%E5%B1%8F"><span class="nav-number">1.3.1.</span> <span class="nav-text">00H设置显示器，清屏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#h%E8%AE%BE%E7%BD%AE%E5%85%89%E6%A0%87%E4%BD%8D%E7%BD%AE"><span class="nav-number">1.3.2.</span> <span class="nav-text">02H设置光标位置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E9%97%AE%E8%A7%A3%E6%B3%95"><span class="nav-number">1.4.</span> <span class="nav-text">第三问解法</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%96%91%E9%97%AEdos%E8%B0%83%E7%94%A8%E4%BC%9A%E4%BF%AE%E6%94%B9al%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%84%E5%80%BC"><span class="nav-number">1.</span> <span class="nav-text">【疑问】DOS调用会修改AL寄存器的值？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%A4%A7%E4%BD%9C%E4%B8%9A"><span class="nav-number">2.</span> <span class="nav-text">汇编语言大作业</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E7%89%87%E6%AE%B5"><span class="nav-number">2.1.</span> <span class="nav-text">程序片段</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%89%E5%BE%85%E7%94%A8%E6%88%B7%E8%BE%93%E5%85%A5%E6%8C%87%E4%BB%A4"><span class="nav-number">2.1.1.</span> <span class="nav-text">等待用户输入指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%B3%E8%BD%AC%E8%A1%A8%E6%B3%95%E5%AE%9E%E7%8E%B0%E5%A4%9A%E5%88%86%E6%94%AF%E7%A8%8B%E5%BA%8F"><span class="nav-number">2.1.2.</span> <span class="nav-text">跳转表法实现多分支程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%A0%E4%B8%AAascii%E7%A0%81"><span class="nav-number">2.1.3.</span> <span class="nav-text">几个ASCII码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3dos%E5%91%BD%E4%BB%A4"><span class="nav-number">2.2.</span> <span class="nav-text">相关DOS命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E6%A1%86%E6%9E%B6%E7%9B%B8%E5%85%B3dos%E5%91%BD%E4%BB%A4"><span class="nav-number">2.2.1.</span> <span class="nav-text">程序框架相关DOS命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#h%E7%AD%89%E5%BE%85%E7%94%A8%E6%88%B7%E4%BB%8E%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E5%9B%9E%E6%98%BE%E6%A3%80%E6%B5%8Bctrlbreak"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">01H等待用户从键盘输入一个字符，回显，检测ctrl+break</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#h%E7%AD%89%E5%BE%85%E7%94%A8%E6%88%B7%E4%BB%8E%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%8D%E5%9B%9E%E6%98%BE%E4%B8%8D%E6%A3%80%E6%B5%8Bctrlbreak"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">07H等待用户从键盘输入一个字符，不回显，不检测ctrl+break</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#h%E7%AD%89%E5%BE%85%E7%94%A8%E6%88%B7%E4%BB%8E%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%8D%E5%9B%9E%E6%98%BE%E6%A3%80%E6%B5%8Bctrlbreak"><span class="nav-number">2.2.1.3.</span> <span class="nav-text">08H等待用户从键盘输入一个字符，不回显，检测ctrl+break</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#h%E5%90%91%E5%B1%8F%E5%B9%95%E8%BE%93%E5%87%BA%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6"><span class="nav-number">2.2.1.4.</span> <span class="nav-text">02H向屏幕输出一个字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#h%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="nav-number">2.2.1.5.</span> <span class="nav-text">06H控制台输入输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#h%E5%90%91%E5%B1%8F%E5%B9%95%E8%BE%93%E5%87%BA%E4%B8%80%E4%B8%B2%E5%AD%97%E7%AC%A6"><span class="nav-number">2.2.1.6.</span> <span class="nav-text">09H向屏幕输出一串字符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#a%E4%BB%8E%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5%E4%B8%80%E4%B8%B2%E5%AD%97%E7%AC%A6"><span class="nav-number">2.2.1.7.</span> <span class="nav-text">0A从键盘输入一串字符</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5%E7%BC%93%E5%86%B2%E5%8C%BA%E7%9A%84%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99"><span class="nav-number">2.2.1.7.1.</span> <span class="nav-text">键盘输入缓冲区的定义规则</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E9%97%AE%E7%9B%B8%E5%85%B3dos%E5%91%BD%E4%BB%A4"><span class="nav-number">2.2.2.</span> <span class="nav-text">第四问相关DOS命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#dh%E6%97%B6%E9%97%B4%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">2DH时间设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ch%E6%97%B6%E9%97%B4%E8%8E%B7%E5%8F%96"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">2CH时间获取</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3bios%E5%91%BD%E4%BB%A4"><span class="nav-number">2.3.</span> <span class="nav-text">相关BIOS命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#h%E8%AE%BE%E7%BD%AE%E6%98%BE%E7%A4%BA%E5%99%A8%E6%B8%85%E5%B1%8F"><span class="nav-number">2.3.1.</span> <span class="nav-text">00H设置显示器，清屏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#h%E8%AE%BE%E7%BD%AE%E5%85%89%E6%A0%87%E4%BD%8D%E7%BD%AE"><span class="nav-number">2.3.2.</span> <span class="nav-text">02H设置光标位置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E9%97%AE%E8%A7%A3%E6%B3%95"><span class="nav-number">2.4.</span> <span class="nav-text">第三问解法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B1%87%E7%BC%9609h%E8%BE%93%E5%87%BA%E4%B9%B1%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">汇编09h输出乱码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B1%87%E7%BC%96%E5%AD%90%E7%A8%8B%E5%BA%8F%E8%B0%83%E7%94%A8%E9%97%AE%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">汇编子程序调用问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B1%87%E7%BC%96%E6%96%AD%E7%82%B9%E5%AD%90%E7%A8%8B%E5%BA%8F"><span class="nav-number">5.</span> <span class="nav-text">汇编断点子程序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ascii%E5%A4%A7%E5%B0%8F%E5%86%99%E8%BD%AC%E6%8D%A2"><span class="nav-number">6.</span> <span class="nav-text">ASCII大小写转换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B1%87%E7%BC%96%E5%9F%BA%E5%9D%80%E5%8F%98%E5%9D%80%E5%AF%BB%E5%9D%80%E6%A0%BC%E5%BC%8F"><span class="nav-number">7.</span> <span class="nav-text">汇编基址变址寻址格式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E4%B8%ADloop%E6%8C%87%E4%BB%A4"><span class="nav-number">8.</span> <span class="nav-text">汇编语言中loop指令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dos%E5%91%BD%E4%BB%A40ah"><span class="nav-number">9.</span> <span class="nav-text">DOS命令0AH</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ascii%E5%AD%97%E7%AC%A6%E5%9E%8B%E6%95%B0%E5%AD%97%E8%BD%AC%E6%95%B4%E5%9E%8B%E6%95%B0%E5%AD%97"><span class="nav-number">10.</span> <span class="nav-text">ASCII字符型数字转整型数字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dos%E7%AA%97%E5%8F%A3%E8%BE%93%E5%87%BA%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83%E4%B8%AD%E7%9A%84%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E6%95%B0"><span class="nav-number">11.</span> <span class="nav-text">DOS窗口输出存储单元中的十六进制数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="nav-number">11.1.</span> <span class="nav-text">程序流程图</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -465,7 +523,7 @@ alt="image-20220810163847716" />
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">35</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -474,7 +532,7 @@ alt="image-20220810163847716" />
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">45</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>

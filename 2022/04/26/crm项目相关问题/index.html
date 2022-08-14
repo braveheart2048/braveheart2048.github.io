@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/autumn.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"idealstars.space","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="crm项目相关问题">
+<meta property="og:url" content="http://idealstars.space/2022/04/26/crm%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:site_name" content="小蜗">
+<meta property="og:description" content="...">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://c.biancheng.net/uploads/allimg/190906/6-1ZZ6130204N8.gif">
+<meta property="article:published_time" content="2022-04-26T07:53:04.000Z">
+<meta property="article:modified_time" content="2022-08-14T09:11:26.896Z">
+<meta property="article:author" content="alfa">
+<meta property="article:tag" content="crm">
+<meta property="article:tag" content="crm项目">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://c.biancheng.net/uploads/allimg/190906/6-1ZZ6130204N8.gif">
+
+<link rel="canonical" href="http://idealstars.space/2022/04/26/crm%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>crm项目相关问题 | 小蜗</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">小蜗</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://idealstars.space/2022/04/26/crm%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-castle.jpg">
+      <meta itemprop="name" content="alfa">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小蜗">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          crm项目相关问题
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-04-26 15:53:04" itemprop="dateCreated datePublished" datetime="2022-04-26T15:53:04+08:00">2022-04-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-08-14 17:11:26" itemprop="dateModified" datetime="2022-08-14T17:11:26+08:00">2022-08-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%A7%E4%BA%8C%E7%94%9F%E6%B6%AF/" itemprop="url" rel="index"><span itemprop="name">大二生涯</span></a>
+                </span>
+            </span>
+
+          
+            <div class="post-description">...</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="ssm框架中应用el和jstl">SSM框架中应用el和jstl</h1>
+<p>el即Expression Language，用来在jsp页面上显示内容，jstl是JSP Standard
+Tag Library的缩写，包含多种标签，el和jstl结合使用，页面渲染更方便。</p>
+<hr />
+<h2 id="el内置对象">EL内置对象</h2>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 78%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">内置对象</th>
+<th style="text-align: left;">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">pageScope</td>
+<td style="text-align: left;">获取 page 范围的变量</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">requestScope</td>
+<td style="text-align: left;">获取 request 范围的变量</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sessionScope</td>
+<td style="text-align: left;">获取 session 范围的变量</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">applicationScope</td>
+<td style="text-align: left;">获取 application 范围的变量</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">param</td>
+<td style="text-align: left;">相当于 request.getParameter(String
+name)，获取单个参数的值</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">paramValues</td>
+<td style="text-align: left;">相当于 request.getParameterValues(String
+name)，获取参数集合中的变量值</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">header</td>
+<td style="text-align: left;">相当于 request.getHeader(String
+name)，获取 HTTP 请求头信息</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">headerValues</td>
+<td style="text-align: left;">相当于 request.getHeaders(String
+name)，获取 HTTP 请求头数组信息</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">initParam</td>
+<td style="text-align: left;">相当于 application.getInitParameter(String
+name)，获取 web.xml 文件中的参数值</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">cookie</td>
+<td style="text-align: left;">相当于 request.getCookies()，获取 cookie
+中的值</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">pageContext</td>
+<td style="text-align: left;">表示当前 JSP 页面的 pageContext 对象</td>
+</tr>
+</tbody>
+</table>
+<p>EL 表达式获取 4 种不同范围的属性，代码如下：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">&quot;java&quot;</span> contentType=<span class="string">&quot;text/html; charset=UTF-8&quot;</span></span><br><span class="line">    pageEncoding=<span class="string">&quot;UTF-8&quot;</span>%&gt;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;title&gt;编程帮(www.biancheng.net)&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;%</span><br><span class="line">        pageContext.setAttribute(<span class="string">&quot;info&quot;</span>, <span class="string">&quot;page属性范围&quot;</span>);</span><br><span class="line">        request.setAttribute(<span class="string">&quot;info&quot;</span>, <span class="string">&quot;request属性范围&quot;</span>);</span><br><span class="line">        session.setAttribute(<span class="string">&quot;info&quot;</span>, <span class="string">&quot;session属性范围&quot;</span>);</span><br><span class="line">        application.setAttribute(<span class="string">&quot;info&quot;</span>, <span class="string">&quot;application属性范围&quot;</span>);</span><br><span class="line">    %&gt;</span><br><span class="line">    &lt;h2&gt;不同属性范围的值&lt;/h2&gt;</span><br><span class="line">    &lt;hr /&gt;</span><br><span class="line">    不指定范围：$&#123;info&#125;</span><br><span class="line">    &lt;br&gt; page 属性内容：$&#123;pageScope.info&#125;</span><br><span class="line">    &lt;br&gt; request 属性内容：$&#123;requestScope.info&#125;</span><br><span class="line">    &lt;br&gt;session 属性内容：$&#123;sessionScope.info&#125;</span><br><span class="line">    &lt;br&gt;application 属性内容：$&#123;applicationScope.info&#125;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<hr />
+<h2
+id="jstl标签很多笔记一下我常用到的标签">jstl标签很多，笔记一下我常用到的标签</h2>
+<p><strong>if</strong></p>
+<p>语法：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:<span class="keyword">if</span> test=<span class="string">&quot;$&#123;one.name eq &#x27;nick&#x27;&#125;&quot;</span>&gt;</span><br><span class="line">                &lt;tr&gt;</span><br><span class="line">                    &lt;td&gt;nick&lt;/td&gt;</span><br><span class="line">                &lt;/tr&gt;</span><br><span class="line">&lt;/c:<span class="keyword">if</span>&gt;</span><br></pre></td></tr></table></figure>
+<hr />
+<h1
+id="java.sql.sqlexception-value-0000-00-00-000000-can-not-be-represented-as-java.sql.timestamp">java.sql.SQLException:
+Value ‘0000-00-00 00:00:00’ can not be represented as
+java.sql.Timestamp</h1>
+<hr />
+<p>完整的异常信息如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.executor.result.ResultMapException: Error attempting to get column <span class="string">&#x27;audit_time&#x27;</span> from result set.  Cause: org.apache.ibatis.executor.result.ResultMapException: Error attempting to get column <span class="string">&#x27;audit_time&#x27;</span> from result set.  Cause: java.sql.SQLException: Value <span class="string">&#x27;0000-00-00 00:00:00&#x27;</span> can not be represented as java.sql.Timestamp</span><br><span class="line">    at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:<span class="number">77</span>)</span><br><span class="line">    at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:<span class="number">446</span>)</span><br><span class="line">    at com.sun.proxy.$Proxy127.selectOne(Unknown Source)</span><br><span class="line">    at org.mybatis.spring.SqlSessionTemplate.selectOne(SqlSessionTemplate.java:<span class="number">166</span>)</span><br><span class="line">    at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:<span class="number">82</span>)</span><br><span class="line">    at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:<span class="number">59</span>)</span><br><span class="line">    at com.sun.proxy.$Proxy134.findOrderInfo(Unknown Source)</span><br></pre></td></tr></table></figure>
+<p>根据异常信息，大概意思是说，'0000-00-00 00:00:00' 这个时间不能用 Java
+来表示。虽然数据库中可以存放这个值，但是 Java 中的时间都是从 1970
+年开始的。格林威治时间
+1970年01月01日00时00分00秒（UTC+8北京时间1970年01月01日08时00分00秒），所以你这个
+'0000-00-00 00:00:00' 的时间，Java 表示不了，所以就抛出了这个异常。</p>
+<hr />
+<p>可以使用下面的方式连接数据库来解决：</p>
+<p>根据 stackoverflow
+上一部分人的回答，我得出可以使用下面的方式连接数据库来解决：</p>
+<p><code>jdbc:mysql:``//www.xttblog.com:3306/xttblog?zeroDateTimeBehavior=convertToNull</code></p>
+<hr />
+<h1 id="matis相关问题">Matis相关问题</h1>
+<h2
+id="mybatis中的resulttype和resultmap">Mybatis中的resultType和resultMap</h2>
+<hr />
+<p>MyBatis中在查询进行select映射的时候，返回类型可以用resultType，也可以用resultMap，resultType是直接表示返回类型的，而resultMap则是对外部ResultMap的引用，但是resultType跟resultMap不能同时存在。</p>
+<hr />
+<h2 id="mybatis-foreach标签">MyBatis foreach标签</h2>
+<p>语法格式如下。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;foreach item=&quot;item&quot; index=&quot;index&quot; collection=&quot;list|array|map key&quot; open=&quot;(&quot; separator=&quot;,&quot; close=&quot;)&quot;&gt;</span><br><span class="line">    参数值</span><br><span class="line">&lt;/foreach&gt;</span><br></pre></td></tr></table></figure>
+<p>foreach 标签主要有以下属性，说明如下。</p>
+<ul>
+<li>item：表示集合中每一个元素进行迭代时的别名。</li>
+<li>index：指定一个名字，表示在迭代过程中每次迭代到的位置。</li>
+<li>open：表示该语句以什么开始（既然是 in
+条件语句，所以必然以<code>(</code>开始）。</li>
+<li>separator：表示在每次进行迭代之间以什么符号作为分隔符（既然是 in
+条件语句，所以必然以<code>,</code>作为分隔符）。</li>
+<li>close：表示该语句以什么结束（既然是 in
+条件语句，所以必然以<code>)</code>开始）。</li>
+</ul>
+<p>使用 foreach 标签时，最关键、最容易出错的是 collection
+属性，该属性是必选的，但在不同情况下该属性的值是不一样的.</p>
+<p>WebsiteMapper.xml 中代码如下。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=&quot;selectWebsite&quot;</span><br><span class="line">    parameterType=&quot;net.biancheng.po.Website&quot;</span><br><span class="line">    resultType=&quot;net.biancheng.po.Website&quot;&gt;</span><br><span class="line">    SELECT id,name,url,age,country</span><br><span class="line">    FROM website WHERE age in</span><br><span class="line">    &lt;foreach item=&quot;age&quot; index=&quot;index&quot; collection=&quot;list&quot; open=&quot;(&quot;</span><br><span class="line">        separator=&quot;,&quot; close=&quot;)&quot;&gt;</span><br><span class="line">        #&#123;age&#125;</span><br><span class="line">    &lt;/foreach&gt;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+<p>WebsiteMapper 类中相应方法如下。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public List&lt;Website&gt; selectWebsite(List&lt;Integer&gt; ageList);</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="mybatis分布查询">MyBatis分布查询</h2>
+<p>association 分步查询</p>
+<ol type="1">
+<li><p>先通过员工的id查询员工信息</p></li>
+<li><p>再通过查询出来的员工信息中的外键(部门id)查询对应的部门信息.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=&quot;getEmployeeAndDeptStep&quot; resultMap=&quot;myEmpAndDeptStep&quot;&gt;</span><br><span class="line">		 select id, last_name, email,gender,d_id  from tbl_employee where id =#&#123;id&#125;</span><br><span class="line">&lt;/select&gt;</span><br><span class="line">	</span><br><span class="line">&lt;resultMap type=&quot;com.atguigu.mybatis.beans.Employee&quot; id=&quot;myEmpAndDeptStep&quot;&gt;</span><br><span class="line">		&lt;id column=&quot;id&quot;  property=&quot;id&quot; /&gt;</span><br><span class="line">		&lt;result column=&quot;last_name&quot; property=&quot;lastName&quot;/&gt;</span><br><span class="line">		&lt;result column=&quot;email&quot; property=&quot;email&quot;/&gt;</span><br><span class="line">		&lt;result column=&quot;gender&quot; property=&quot;gender&quot;/&gt;</span><br><span class="line">		&lt;association property=&quot;dept&quot; 			select=&quot;com.atguigu.mybatis.dao.DepartmentMapper.getDeptById&quot; </span><br><span class="line">				column=&quot;d_id&quot;&gt;</span><br><span class="line">		&lt;/association&gt;</span><br><span class="line">&lt;/resultMap&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<hr />
+<h2
+id="mybatis在xml文件中处理大于号小于号的方法">mybatis在xml文件中处理大于号小于号的方法</h2>
+<p>因为这个是xml格式的，所以不允许出现类似“&gt;”这样的字符，但是都可以使用&lt;[CDATA[
+]]&gt;符号进行说明，将此类符号不进行解析 你的可以写成这个：</p>
+<p>mapper文件示例代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;![CDATA[ when min(starttime)&lt;=&#x27;12:00&#x27; and max(endtime)&lt;=&#x27;12:00&#x27; ]]&gt;</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="mybatis一对一关联查询">MyBatis一对一关联查询</h2>
+<p>在 MyBatis 中，通过 <resultMap> 元素的子元素 <association>
+处理一对一级联关系。示例代码如下。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;association property=&quot;studentCard&quot; column=&quot;cardId&quot;</span><br><span class="line">            javaType=&quot;net.biancheng.po.StudentCard&quot;</span><br><span class="line">            select=&quot;net.biancheng.mapper.StudentCardMapper.selectStuCardById&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<p>在 <association> 元素中通常使用以下属性。</p>
+<ul>
+<li>property：指定映射到实体类的对象属性。</li>
+<li>column：指定表中对应的字段（即查询返回的列名）。</li>
+<li>javaType：指定映射到实体对象属性的类型。</li>
+<li>select：指定引入嵌套查询的子 SQL
+语句，该属性用于关联映射中的嵌套查询。</li>
+</ul>
+<hr />
+<h1 id="js相关问题">JS相关问题</h1>
+<h2 id="js-ajax提交form表单">JS ajax提交form表单</h2>
+<h3 id="通用处理">通用处理</h3>
+<p>在使用 Ajax 提交 form 表单时，需要对 form
+表单进行特殊的处理，包括以下几点：</p>
+<ul>
+<li>将 form 标签的 action 属性和 method 属性去掉。</li>
+<li>将提交 form 表单按钮的 type="submit" 改为 type="button"。</li>
+</ul>
+<h3 id="使用原生-ajax-提交-form-表单包含以下过程">使用原生 Ajax 提交
+form 表单包含以下过程：</h3>
+<ul>
+<li><p>绑定提交按钮事件。</p>
+<p>在单击提交按钮时，触发 Ajax 请求的操作，将整个 Ajax 操作封装在
+ajaxSubmitForm() 函数里。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> submitBtn = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;submit&#x27;</span>);</span><br><span class="line">submitBtn.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    ajaxSubmitForm();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+<li><p>创建 XMLHttpRequest 对象。</p>
+<p>XMLHttpRequest 对象的创建直接使用封装的函数即可。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createXMLHttp</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// code for IE7+, Firefox, Chrome, Opera, Safari</span></span><br><span class="line">    <span class="keyword">var</span> xmlhttp;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.XMLHttpRequest) &#123;</span><br><span class="line">        xmlhttp = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// code for IE6, IE5</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.ActiveXObject) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            xmlhttp = <span class="keyword">new</span> ActiveXObject(<span class="string">&quot;Microsoft.XMLHTTP&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                xmlhttp = <span class="keyword">new</span> ActiveXObject(<span class="string">&quot;msxml2.XMLHTTP&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">catch</span> (ex) &#123; &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> xmlhttp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> xhr = createXMLHttp()</span><br></pre></td></tr></table></figure></li>
+<li><p>建立连接。</p>
+<p>本实例可以理解为一个用户的注册操作，发送的请求为 POST
+请求，使用异步处理的方式。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xhr.open(<span class="string">&#x27;post&#x27;</span>, <span class="string">&#x27;/saveUser&#x27;</span>, <span class="literal">true</span>);</span><br></pre></td></tr></table></figure></li>
+<li><p>设置请求头。</p>
+<p>由于本实例中发送的是 POST 请求，需要设置数据传输格式，即设置
+Content-type 属性值。可以通过 setRequestHeader()
+函数对其进行设置，将其值设置为比较普遍的 JSON 数据格式。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xhr.setRequestHeader(<span class="string">&#x27;Content-type&#x27;</span>, <span class="string">&#x27;application/json;charset=UTF-8&#x27;</span>);</span><br></pre></td></tr></table></figure></li>
+<li><p>获取数据。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> username = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;username&#x27;</span>).value;</span><br><span class="line"><span class="keyword">var</span> password = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;password&#x27;</span>).value;</span><br><span class="line"><span class="keyword">var</span> telphone = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;telphone&#x27;</span>).value;</span><br><span class="line"><span class="keyword">var</span> email = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;email&#x27;</span>).value;</span><br><span class="line"><span class="keyword">var</span> content = &#123;</span><br><span class="line">    <span class="attr">username</span>: username,</span><br><span class="line">    <span class="attr">password</span>: password,</span><br><span class="line">    <span class="attr">telphone</span>: telphone,</span><br><span class="line">    <span class="attr">email</span>: email</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>因为在请求头中设置了数据传输格式为 json，所以需要将 content
+对象处理为 json 字符串。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">content = <span class="built_in">JSON</span>.stringify(content);</span><br></pre></td></tr></table></figure></li>
+<li><p>发送请求。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xhr.send(content);</span><br></pre></td></tr></table></figure></li>
+<li><p>处理响应。</p>
+<p>设置 onreadystatechange 属性对应的回调函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 当readyStatew为4，且状态码为200时代表请求成功</span></span><br><span class="line">    <span class="keyword">if</span> (xhr.readyState === <span class="number">4</span> &amp;&amp; xhr.status === <span class="number">200</span>) &#123;</span><br><span class="line">        <span class="comment">// 处理响应值</span></span><br><span class="line">        <span class="built_in">document</span>.write(xhr.responseText);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr />
+<h2 id="使用js操作checkbox">使用js操作checkbox</h2>
+<h3
+id="使用原生javascript判断是否选中checkbox框">使用原生JavaScript判断是否选中checkbox框</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">&quot;checkbox&quot;</span> id=<span class="string">&quot;test&quot;</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;test&quot;</span>&gt;同意</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="comment">// 获取checkbox元素</span></span><br><span class="line">    <span class="keyword">var</span> box=<span class="built_in">document</span>.getElementById(<span class="string">&quot;test&quot;</span>);      </span><br><span class="line">    <span class="comment">// 判断是否被拒选中，选中返回true，未选中返回false</span></span><br><span class="line">    alert(box.checked);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="javascript怎么实现页面跳转">javascript怎么实现页面跳转</h2>
+<ol type="1">
+<li><p>使用“location.href="URL"”；</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span> </span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">body</span>&gt;</span> </span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>这是<span class="tag">&lt;<span class="name">i</span>&gt;</span>location.href<span class="tag">&lt;/<span class="name">i</span>&gt;</span>方式的示例<span class="tag">&lt;/<span class="name">p</span>&gt;</span> </span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;myFunc()&quot;</span>&gt;</span>点击这里<span class="tag">&lt;/<span class="name">button</span>&gt;</span> </span></span><br><span class="line"><span class="xml">      <span class="comment">&lt;!--重定向到其他网页的脚本--&gt;</span>   </span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"> </span></span></span><br><span class="line"><span class="javascript"><span class="xml">         <span class="function"><span class="keyword">function</span> <span class="title">myFunc</span>(<span class="params"></span>) </span>&#123; </span></span></span><br><span class="line"><span class="javascript"><span class="xml">           <span class="built_in">window</span>.location.href=<span class="string">&quot;https://www.php.cn&quot;</span>; </span></span></span><br><span class="line"><span class="javascript"><span class="xml">         &#125; </span></span></span><br><span class="line"><span class="javascript"><span class="xml">      </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span> </span></span><br><span class="line"><span class="xml">   <span class="tag">&lt;/<span class="name">body</span>&gt;</span> </span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure></li>
+<li><p>使用“location.replace("URL")”；</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span> </span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">body</span>&gt;</span> </span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>这是<span class="tag">&lt;<span class="name">i</span>&gt;</span>location.replace()<span class="tag">&lt;/<span class="name">i</span>&gt;</span>方式的示例<span class="tag">&lt;/<span class="name">p</span>&gt;</span> </span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;myFunc()&quot;</span>&gt;</span>点击这里<span class="tag">&lt;/<span class="name">button</span>&gt;</span> </span></span><br><span class="line"><span class="xml">      <span class="comment">&lt;!--重定向到其他网页的脚本--&gt;</span>   </span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"> </span></span></span><br><span class="line"><span class="javascript"><span class="xml">         <span class="function"><span class="keyword">function</span> <span class="title">myFunc</span>(<span class="params"></span>) </span>&#123; </span></span></span><br><span class="line"><span class="javascript"><span class="xml">          location.replace(<span class="string">&quot;https://www.php.cn&quot;</span>); </span></span></span><br><span class="line"><span class="javascript"><span class="xml">         &#125; </span></span></span><br><span class="line"><span class="javascript"><span class="xml">      </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span> </span></span><br><span class="line"><span class="xml">   <span class="tag">&lt;/<span class="name">body</span>&gt;</span> </span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure></li>
+<li><p>使用“location.assign("URL")”;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span> </span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">body</span>&gt;</span> </span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>这是<span class="tag">&lt;<span class="name">i</span>&gt;</span>location.assign()<span class="tag">&lt;/<span class="name">i</span>&gt;</span>方式的示例<span class="tag">&lt;/<span class="name">p</span>&gt;</span> </span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;myFunc()&quot;</span>&gt;</span>点击这里<span class="tag">&lt;/<span class="name">button</span>&gt;</span> </span></span><br><span class="line"><span class="xml">      <span class="comment">&lt;!--重定向到其他网页的脚本--&gt;</span>   </span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"> </span></span></span><br><span class="line"><span class="javascript"><span class="xml">         <span class="function"><span class="keyword">function</span> <span class="title">myFunc</span>(<span class="params"></span>) </span>&#123; </span></span></span><br><span class="line"><span class="javascript"><span class="xml">          location.assign(<span class="string">&quot;https://www.php.cn&quot;</span>); </span></span></span><br><span class="line"><span class="javascript"><span class="xml">         &#125; </span></span></span><br><span class="line"><span class="javascript"><span class="xml">      </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span> </span></span><br><span class="line"><span class="xml">   <span class="tag">&lt;/<span class="name">body</span>&gt;</span> </span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure></li>
+<li><p>使用“window.open("URL")”;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span> </span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">body</span>&gt;</span> </span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>这是<span class="tag">&lt;<span class="name">i</span>&gt;</span>window.open()<span class="tag">&lt;/<span class="name">i</span>&gt;</span>方式的示例<span class="tag">&lt;/<span class="name">p</span>&gt;</span> </span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;myFunc()&quot;</span>&gt;</span>点击这里<span class="tag">&lt;/<span class="name">button</span>&gt;</span> </span></span><br><span class="line"><span class="xml">      <span class="comment">&lt;!--重定向到其他网页的脚本--&gt;</span>   </span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"> </span></span></span><br><span class="line"><span class="javascript"><span class="xml">         <span class="function"><span class="keyword">function</span> <span class="title">myFunc</span>(<span class="params"></span>) </span>&#123; </span></span></span><br><span class="line"><span class="javascript"><span class="xml">          <span class="built_in">window</span>.open(<span class="string">&quot;https://www.php.cn&quot;</span>); </span></span></span><br><span class="line"><span class="javascript"><span class="xml">         &#125; </span></span></span><br><span class="line"><span class="javascript"><span class="xml">      </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span> </span></span><br><span class="line"><span class="xml">   <span class="tag">&lt;/<span class="name">body</span>&gt;</span> </span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<hr />
+<h2 id="js中相对路径写法">js中相对路径写法</h2>
+<ol type="1">
+<li>"../" 表示上一级目录开始；</li>
+<li>"./" 表示同级目录开始</li>
+<li>"/" 表示根目录开始</li>
+</ol>
+<hr />
+<h2
+id="js中对象与数组大括号与中括号">JS中对象与数组(大括号{}与中括号[])</h2>
+<ol type="1">
+<li><p>{ }
+大括号，表示定义一个对象，大部分情况下要有成对的属性和值，或是函数.</p></li>
+<li><p>[ ]中括号，表示一个数组，也可以理解为一个数组对象。</p></li>
+<li><p>{ } 和[ ] 一起使用，我们前面说到，{ } 是一个对象，[ ]
+是一个数组，我们可以组成一个对象数组</p>
+<p><strong>对象的属性名可以为数字，但是不能正常读取，可以以数组下标形式读取。</strong></p></li>
+</ol>
+<hr />
+<h2 id="js创建对象3种方式">JS创建对象（3种方式）</h2>
+<ol type="1">
+<li><p>构造对象</p>
+<p>使用 new 运算符调用构造函数，可以构造一个实例对象。具体用法如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> objectName = <span class="keyword">new</span> functionName(args);</span><br></pre></td></tr></table></figure></li>
+<li><p>对象直接量</p>
+<p>使用直接量可以快速创建对象，也是最高效、最简便的方法。具体用法如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> objectName = &#123;</span><br><span class="line">    属性名<span class="number">1</span> : 属性值<span class="number">1</span>,</span><br><span class="line">    属性名<span class="number">2</span> : 属性值<span class="number">2</span>,</span><br><span class="line">    ...</span><br><span class="line">    属性名n : 属性值n</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><em>示例1</em></p>
+<p>下面代码使用对象直接量定义两个对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;  <span class="comment">//对象直接量</span></span><br><span class="line">    <span class="attr">a</span> : <span class="number">1</span>,  <span class="comment">//定义属性</span></span><br><span class="line">    <span class="attr">b</span> : <span class="literal">true</span>  <span class="comment">//定义属性</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o1 = &#123;  <span class="comment">//对象直接量</span></span><br><span class="line">    <span class="string">&quot;a&quot;</span> : <span class="number">1</span>,  <span class="comment">//定义属性</span></span><br><span class="line">    <span class="string">&quot;b&quot;</span> : <span class="literal">true</span>  <span class="comment">//定义属性</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em>示例2</em></p>
+<p>如果不包含任何属性，则可以定义一个空对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;&#125;  <span class="comment">//定义一个空对象直接量</span></span><br></pre></td></tr></table></figure></li>
+<li><p>使用 Object.create</p>
+<p>Object.create 是 ECMAScript 5
+新增的一个静态方法，用来创建一个实例对象。该方法可以指定对象的原型和对象特性。具体用法如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.create(prototype, descriptors)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<hr />
+<h2
+id="数组对象中每个对象添加一个字段">数组对象中每个对象添加一个字段</h2>
+<p>使用Array forEach()方法</p>
+<p>forEach() 方法用于调用数组的每个元素，并将元素传递给回调函数。</p>
+<ol type="1">
+<li><p><strong>currentValue</strong> 必须。当前元素的值</p></li>
+<li><p><strong>index</strong> 可选。当前元素的索引值</p></li>
+<li><p><strong>index</strong> 可选。当前元素属于的数组</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [</span><br><span class="line">    &#123;<span class="attr">name</span>: <span class="string">&#x27;lilei&#x27;</span>,<span class="attr">age</span>: <span class="string">&#x27;25&#x27;</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">name</span>: <span class="string">&#x27;nike&#x27;</span>,<span class="attr">age</span>: <span class="string">&#x27;23&#x27;</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">name</span>: <span class="string">&#x27;alisa&#x27;</span>,<span class="attr">age</span>: <span class="string">&#x27;23&#x27;</span>&#125;</span><br><span class="line">]</span><br><span class="line">arr.forEach(<span class="function">(<span class="params">value , index</span>) =&gt;</span> &#123;</span><br><span class="line">	value[<span class="string">&#x27;sex&#x27;</span>] = <span class="string">&#x27;men&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//  返回原数组arr</span></span><br><span class="line">[</span><br><span class="line">   &#123;<span class="attr">name</span>: <span class="string">&#x27;lilei&#x27;</span>,<span class="attr">age</span>: <span class="string">&#x27;25&#x27;</span>,<span class="attr">sex</span>: <span class="string">&#x27;men&#x27;</span>&#125;,</span><br><span class="line">   &#123;<span class="attr">name</span>: <span class="string">&#x27;nike&#x27;</span>,<span class="attr">age</span>: <span class="string">&#x27;23&#x27;</span>,<span class="attr">sex</span>: <span class="string">&#x27;men&#x27;</span>&#125;,</span><br><span class="line">   &#123;<span class="attr">name</span>: <span class="string">&#x27;alisa&#x27;</span>,<span class="attr">age</span>: <span class="string">&#x27;23&#x27;</span>,<span class="attr">sex</span>: <span class="string">&#x27;men&#x27;</span>&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure></li>
+</ol>
+<hr />
+<ol type="1">
+<li></li>
+</ol>
+<h2 id="js遍历数组for-in和foreach循环">JS遍历数组（for
+in和forEach循环）</h2>
+<ol type="1">
+<li><p>使用 for 和 for in遍历数组</p>
+<p>下面示例使用 for 语句迭代数组，过滤出所有数字元素。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, ,,,,,,<span class="literal">true</span>,,,,,,, <span class="string">&quot;a&quot;</span>,,,,,,,,,,,,,,,<span class="number">4</span>,,,,,<span class="number">56</span>,,,,,,<span class="string">&quot;b&quot;</span>];  <span class="comment">//定义数组</span></span><br><span class="line"><span class="keyword">var</span> b = [], num = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; a.length; i ++) &#123;  <span class="comment">//遍历数组</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> a[i] == <span class="string">&quot;number&quot;</span>)  <span class="comment">//如果为数字，则返回该元素的值</span></span><br><span class="line">        b.push(a[i]);</span><br><span class="line">    num ++;  <span class="comment">//计数器</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(num);  <span class="comment">//返回42，说明循环了42次</span></span><br><span class="line"><span class="built_in">console</span>.log(b);  <span class="comment">//返回[1,2,4,56]</span></span><br></pre></td></tr></table></figure>
+<p>下面代码使用 for/in 语句迭代示例 1 中的数组 a。在 for/in
+循环结构中，变量 i 表示数组的下标，而 a[i]
+为可以读取指定下标的元素值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b = [], num = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> a) &#123;  <span class="comment">//遍历数组</span></span><br><span class="line">    <span class="keyword">if</span>（<span class="keyword">typeof</span> a[i] == <span class="string">&quot;number&quot;</span>)  <span class="comment">//如果为数字，则返回该元素的值</span></span><br><span class="line">        b.push(a[i]);</span><br><span class="line">    num ++;  <span class="comment">//计数器</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(num);   <span class="comment">//返回7，说明循环了7次</span></span><br><span class="line"><span class="built_in">console</span>.log(b);  <span class="comment">//返回[1,2,4,56]</span></span><br></pre></td></tr></table></figure></li>
+<li><p>使用 forEach 遍历数组</p>
+<p>Array 类型为每个数组定义了 forEach()
+原型方法，使用该方法可以为数组执行迭代操作。具体说明如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array.forEach(callbackfn[, thisArg]);</span><br></pre></td></tr></table></figure>
+<p>参数说明如下：</p>
+<ul>
+<li>array：一个数组对象。</li>
+<li>callbackfn：必需参数，最多可以接收三个参数的函数。forEach
+将为数组中的每个元素调用 callbackfn 函数一次。</li>
+<li>thisArg：可选参数，callbackfn 函数中的 this 可引用的对象。如果省略
+thisArg，则 this 的值为 undefined。</li>
+</ul>
+<p>回调函数语法如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">funtion callbackfn(value, index, array);</span><br></pre></td></tr></table></figure>
+<p>最多可以使用三个参数来声明回调函数。回调函数的参数说明如下。</p>
+<ul>
+<li>value：数组元素的值。</li>
+<li>index：数组元素的数字索引。</li>
+<li>array：包含该元素的数组对象。</li>
+</ul>
+<p>下面示例使用 forEach 迭代数组
+a，然后把每个元素的值和下标索引输出显示，代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">value,index,array</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;a[&quot;</span> + index + <span class="string">&quot;] = &quot;</span> + value);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>];</span><br><span class="line">a.forEach(f);</span><br></pre></td></tr></table></figure>
+<p><img src="http://c.biancheng.net/uploads/allimg/190906/6-1ZZ6130204N8.gif" style="zoom: 80%;" /></p></li>
+</ol>
+<hr />
+<h2 id="js-清空array数组">js-清空array数组</h2>
+<ol type="1">
+<li><p>splice</p>
+<p>删除元素并添加新元素，直接对数组进行修改，返回含有被删除元素的数组。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arrayObject.splice(index,howmany,element1,.....,elementX)</span><br></pre></td></tr></table></figure>
+<p>index：必选，规定从何处添加/删除元素。</p>
+<p>howmany：必选，规定应该删除多少元素。未规定此参数，则删除从 index
+开始到原数组结尾的所有元素。</p>
+<p>element1:可选，规定要添加到数组的新元素。</p>
+<p>Js代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type =<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line">    <span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</span><br><span class="line">    arr.splice(<span class="number">0</span>,arr.length);</span><br><span class="line">    <span class="built_in">document</span>.write(arr);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>赋值为[]</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ary = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</span><br><span class="line">ary = []; <span class="comment">// 赋值为一个空数组以达到清空原数组</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<hr />
+<h1 id="layui相关问题">Layui相关问题</h1>
+<h2
+id="layui中弹出层关闭后但是弹出层中的内容依然显示在页面上没有消失">Layui中弹出层关闭后但是弹出层中的内容依然显示在页面上，没有消失</h2>
+<p>原因：jquery 冲突
+解决方法：将你html页面引入的jquery删掉，直接使用layui内置的jquery</p>
+<ol type="1">
+<li><p>删除页面引入的jquery</p>
+<p><img
+src="https://img-blog.csdnimg.cn/20190702182323215.png" /></p></li>
+<li><p>使用layui自带的jquery</p>
+<p><img
+src="https://img-blog.csdnimg.cn/20190702182505828.png" /></p></li>
+</ol>
+<hr />
+<h2 id="layui-form-表单验证lay-verify的使用">Layui form
+表单验证lay-verify的使用</h2>
+<p>lay-verify：表单验证的关键字有以下值供选择：</p>
+<ol type="1">
+<li>required (必填项)</li>
+<li>phone（手机号）</li>
+<li>email（邮箱）</li>
+<li>url（网址）</li>
+<li>number（数字）</li>
+<li>date（日期）</li>
+<li>identify(身份证)</li>
+</ol>
+<p><strong>layui支持多条规则的验证：格式：lay-verify=”验证1|验证2”
+如：lay-verify=”required|phone|number”</strong></p>
+<p>自定义验证 ：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">密码：&lt;input id=<span class="string">&quot;password&quot;</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;lauui-input&quot;</span>&gt;&lt;/input&gt;</span><br><span class="line">确认密码：&lt;input <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;lauui-input&quot;</span> lay-verify=<span class="string">&quot;required|pwd&quot;</span>&gt;&lt;/input&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> <span class="comment">//form自定义验证</span></span><br><span class="line"> 			</span><br><span class="line">form.verify(&#123;</span><br><span class="line">	<span class="comment">//密码的验证</span></span><br><span class="line">    <span class="attr">pwd</span>: <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">debugger</span></span><br><span class="line">        <span class="keyword">var</span> pwd = $(<span class="string">&#x27;#password&#x27;</span>).val();</span><br><span class="line">        <span class="keyword">if</span>(pwd !=value)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;两次输入密码不一致&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="layui-form禁止编辑">layui Form禁止编辑</h2>
+<ol type="1">
+<li><p>设置样式,鼠标点击输入框出现禁用图标（不可编辑，不可复制，不可选择，不能接收焦点）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;layui-disabled&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>通过设置disabled属性实现：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;layui-input&quot;</span> disabled&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<hr />
+<h2
+id="使用layui框架时select监听的那些坑无法监听change事件">使用layui框架时select监听的那些坑：无法监听change事件</h2>
+<p>layui框架对select表单代码又进行了二次渲柒，所以无法使用普通的监听。</p>
+<p>那要怎么监听呢？</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;select lay-filter=<span class="string">&quot;demo&quot;</span>&gt;</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">option</span>&gt;</span>......<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span></span><br><span class="line">&lt;/select&gt;</span><br><span class="line"> </span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span></span><br><span class="line"><span class="javascript"><span class="xml">	layui.use([<span class="string">&#x27;layer&#x27;</span>, <span class="string">&#x27;jquery&#x27;</span>, <span class="string">&#x27;form&#x27;</span>], <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">			<span class="keyword">var</span> layer = layui.layer,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">					$ = layui.jquery,</span></span></span><br><span class="line"><span class="javascript"><span class="xml">					form = layui.form;</span></span></span><br><span class="line"><span class="javascript"><span class="xml"> </span></span></span><br><span class="line"><span class="javascript"><span class="xml">			form.on(<span class="string">&#x27;select(demo)&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span></span></span><br><span class="line"><span class="javascript"><span class="xml">				<span class="comment">//这里做自己想做的事情</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">                <span class="built_in">console</span>.log(data.elem); <span class="comment">//得到select原始DOM对象</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">                <span class="built_in">console</span>.log(data.value); <span class="comment">//得到被选中的值</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">                <span class="built_in">console</span>.log(data.othis); <span class="comment">//得到美化后的DOM对象</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">                <span class="comment">//最后再渲柒一次</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">                form.render(<span class="string">&#x27;select&#x27;</span>);<span class="comment">//select是固定写法 不是选择器</span></span></span></span><br><span class="line"><span class="javascript"><span class="xml">			&#125;);</span></span></span><br><span class="line"><span class="javascript"><span class="xml">		&#125;);</span></span></span><br><span class="line"><span class="javascript"><span class="xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<hr />
+<h2
+id="layui按钮动态设置禁用与取消禁用">Layui按钮动态设置禁用与取消禁用</h2>
+<p>按钮：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;layui-btn layui-btn-sm&quot;</span> lay-filter=<span class="string">&quot;formDemo&quot;</span> type=<span class="string">&quot;submit&quot;</span> id=<span class="string">&quot;formDemo&quot;</span> lay-submit=<span class="string">&quot;&quot;</span>&gt;保存&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+<p>禁用按钮：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&#x27;#formDemo&#x27;</span>).attr(<span class="string">&quot;disabled&quot;</span>,<span class="literal">true</span>).addClass(<span class="string">&quot;layui-btn-disabled&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>取消禁用按钮：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&#x27;#formDemo&#x27;</span>).attr(<span class="string">&quot;disabled&quot;</span>,<span class="literal">false</span>).removeClass(<span class="string">&quot;layui-btn-disabled&quot;</span>);</span><br></pre></td></tr></table></figure>
+<hr />
+<h2
+id="layui如何自定义弹出层关闭事件">layui如何自定义弹出层关闭事件</h2>
+<p>代码示例如下:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">layui.use(<span class="string">&#x27;layer&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> layer = layui.layer;</span><br><span class="line"></span><br><span class="line">        layer.open(&#123;</span><br><span class="line">            <span class="attr">skin</span>: <span class="string">&#x27;demo-class&#x27;</span>,</span><br><span class="line">            <span class="attr">type</span>: <span class="number">1</span>,</span><br><span class="line">            <span class="attr">title</span>: <span class="string">&#x27;登录&#x27;</span>,</span><br><span class="line">            <span class="attr">area</span>: [<span class="string">&#x27;600px&#x27;</span>, <span class="string">&#x27;700px&#x27;</span>],</span><br><span class="line">            <span class="attr">closeBtn</span> :<span class="number">0</span>,</span><br><span class="line">            <span class="attr">content</span>: $(<span class="string">&#x27;.login&#x27;</span>), <span class="comment">//这里content是一个普通的String</span></span><br><span class="line">            <span class="attr">cancel</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                vscode.postMessage(&#123;</span><br><span class="line">                    <span class="attr">command</span>: <span class="string">&#x27;close&#x27;</span></span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<hr />
+<h1 id="http相关问题">HTTP相关问题</h1>
+<h2 id="http-状态码">HTTP 状态码</h2>
+<p>下面是常见的 HTTP 状态码：</p>
+<ol type="1">
+<li>200 - 请求成功</li>
+<li>301 - 资源（网页等）被永久转移到其它URL</li>
+<li>404 - 请求的资源（网页等）不存在</li>
+<li>500 - 内部服务器错误</li>
+</ol>
+<hr />
+<h1 id="eclipse使用相关问题">Eclipse使用相关问题</h1>
+<h2 id="eclipse添加gbk编码">Eclipse添加GBK编码</h2>
+<p>首先Windows-&gt;Preferences, 然后选择General下面的Workspace. Text
+file encoding选择Other GBK， 如果没有GBK的选项， 没关系，
+直接输入GBK三个字母， Apply， GBK编码的中文， 已经不是乱码了</p>
+<hr />
+<h1 id="javaweb相关问题">JAVAWEB相关问题</h1>
+<h2 id="javaweb转发和重定向">JavaWeb——转发和重定向</h2>
+<ol type="1">
+<li><p>转发和重定向的比较：</p>
+<table>
+<thead>
+<tr class="header">
+<th>比较内容</th>
+<th>转发</th>
+<th>重定向</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>浏览器发送请求的次数</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>发生的位置</td>
+<td>服务器</td>
+<td>浏览器</td>
+</tr>
+<tr class="odd">
+<td>地址栏变化</td>
+<td>不发生变化</td>
+<td>发生改变</td>
+</tr>
+<tr class="even">
+<td>浏览器感知</td>
+<td>无感知</td>
+<td>有感知</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>示例代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//转发</span></span><br><span class="line">request.getRequestDispatcher(<span class="string">&quot;login-success.html&quot;</span>).forward(request,response);</span><br><span class="line"><span class="comment">//重定向</span></span><br><span class="line">response.sendRedirect(<span class="string">&quot;login-error.html&quot;</span>);</span><br></pre></td></tr></table></figure></li>
+</ol>
+<hr />
+<h2
+id="用java来获取访问者真实的ip地址">用Java来获取访问者真实的IP地址</h2>
+<p>在JSP里，获取客户端的IP地址的方法是：request.getRemoteAddr()</p>
+<hr />
+<h1 id="springaop相关问题">SpringAOP相关问题</h1>
+<h2 id="spring-aop中获取session方法">Spring AOP中获取session方法</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ServletRequestAttributes attr = (ServletRequestAttributes)RequestContextHolder.currentRequestAttributes();</span><br><span class="line">HttpSession session=attr.getRequest().getSession(<span class="literal">true</span>);</span><br><span class="line">UserModel user = (UserModel)session.getAttribute(<span class="string">&quot;loginUser&quot;</span>);</span><br></pre></td></tr></table></figure>
+<hr />
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/crm/" rel="tag"># crm</a>
+              <a href="/tags/crm%E9%A1%B9%E7%9B%AE/" rel="tag"># crm项目</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2022/05/14/%E7%94%A8%E4%BE%8B%E5%9B%BE%E6%80%8E%E4%B9%88%E7%94%BB%EF%BC%9F%E9%99%844%E5%A4%A7%E5%85%B3%E7%B3%BB%E8%AF%A6%E8%A7%A3/" rel="next" title="用例图怎么画？附4大关系详解">
+      用例图怎么画？附4大关系详解 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ssm%E6%A1%86%E6%9E%B6%E4%B8%AD%E5%BA%94%E7%94%A8el%E5%92%8Cjstl"><span class="nav-number">1.</span> <span class="nav-text">SSM框架中应用el和jstl</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#el%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.1.</span> <span class="nav-text">EL内置对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jstl%E6%A0%87%E7%AD%BE%E5%BE%88%E5%A4%9A%E7%AC%94%E8%AE%B0%E4%B8%80%E4%B8%8B%E6%88%91%E5%B8%B8%E7%94%A8%E5%88%B0%E7%9A%84%E6%A0%87%E7%AD%BE"><span class="nav-number">1.2.</span> <span class="nav-text">jstl标签很多，笔记一下我常用到的标签</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#java.sql.sqlexception-value-0000-00-00-000000-can-not-be-represented-as-java.sql.timestamp"><span class="nav-number">2.</span> <span class="nav-text">java.sql.SQLException:
+Value ‘0000-00-00 00:00:00’ can not be represented as
+java.sql.Timestamp</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#matis%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">Matis相关问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#mybatis%E4%B8%AD%E7%9A%84resulttype%E5%92%8Cresultmap"><span class="nav-number">3.1.</span> <span class="nav-text">Mybatis中的resultType和resultMap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mybatis-foreach%E6%A0%87%E7%AD%BE"><span class="nav-number">3.2.</span> <span class="nav-text">MyBatis foreach标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mybatis%E5%88%86%E5%B8%83%E6%9F%A5%E8%AF%A2"><span class="nav-number">3.3.</span> <span class="nav-text">MyBatis分布查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mybatis%E5%9C%A8xml%E6%96%87%E4%BB%B6%E4%B8%AD%E5%A4%84%E7%90%86%E5%A4%A7%E4%BA%8E%E5%8F%B7%E5%B0%8F%E4%BA%8E%E5%8F%B7%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">3.4.</span> <span class="nav-text">mybatis在xml文件中处理大于号小于号的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mybatis%E4%B8%80%E5%AF%B9%E4%B8%80%E5%85%B3%E8%81%94%E6%9F%A5%E8%AF%A2"><span class="nav-number">3.5.</span> <span class="nav-text">MyBatis一对一关联查询</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#js%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">JS相关问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#js-ajax%E6%8F%90%E4%BA%A4form%E8%A1%A8%E5%8D%95"><span class="nav-number">4.1.</span> <span class="nav-text">JS ajax提交form表单</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E7%94%A8%E5%A4%84%E7%90%86"><span class="nav-number">4.1.1.</span> <span class="nav-text">通用处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%8E%9F%E7%94%9F-ajax-%E6%8F%90%E4%BA%A4-form-%E8%A1%A8%E5%8D%95%E5%8C%85%E5%90%AB%E4%BB%A5%E4%B8%8B%E8%BF%87%E7%A8%8B"><span class="nav-number">4.1.2.</span> <span class="nav-text">使用原生 Ajax 提交
+form 表单包含以下过程：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8js%E6%93%8D%E4%BD%9Ccheckbox"><span class="nav-number">4.2.</span> <span class="nav-text">使用js操作checkbox</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%8E%9F%E7%94%9Fjavascript%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E9%80%89%E4%B8%ADcheckbox%E6%A1%86"><span class="nav-number">4.2.1.</span> <span class="nav-text">使用原生JavaScript判断是否选中checkbox框</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#javascript%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BD%AC"><span class="nav-number">4.3.</span> <span class="nav-text">javascript怎么实现页面跳转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js%E4%B8%AD%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%E5%86%99%E6%B3%95"><span class="nav-number">4.4.</span> <span class="nav-text">js中相对路径写法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js%E4%B8%AD%E5%AF%B9%E8%B1%A1%E4%B8%8E%E6%95%B0%E7%BB%84%E5%A4%A7%E6%8B%AC%E5%8F%B7%E4%B8%8E%E4%B8%AD%E6%8B%AC%E5%8F%B7"><span class="nav-number">4.5.</span> <span class="nav-text">JS中对象与数组(大括号{}与中括号[])</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A13%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="nav-number">4.6.</span> <span class="nav-text">JS创建对象（3种方式）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1%E4%B8%AD%E6%AF%8F%E4%B8%AA%E5%AF%B9%E8%B1%A1%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%AA%E5%AD%97%E6%AE%B5"><span class="nav-number">4.7.</span> <span class="nav-text">数组对象中每个对象添加一个字段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js%E9%81%8D%E5%8E%86%E6%95%B0%E7%BB%84for-in%E5%92%8Cforeach%E5%BE%AA%E7%8E%AF"><span class="nav-number">4.8.</span> <span class="nav-text">JS遍历数组（for
+in和forEach循环）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js-%E6%B8%85%E7%A9%BAarray%E6%95%B0%E7%BB%84"><span class="nav-number">4.9.</span> <span class="nav-text">js-清空array数组</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#layui%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98"><span class="nav-number">5.</span> <span class="nav-text">Layui相关问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#layui%E4%B8%AD%E5%BC%B9%E5%87%BA%E5%B1%82%E5%85%B3%E9%97%AD%E5%90%8E%E4%BD%86%E6%98%AF%E5%BC%B9%E5%87%BA%E5%B1%82%E4%B8%AD%E7%9A%84%E5%86%85%E5%AE%B9%E4%BE%9D%E7%84%B6%E6%98%BE%E7%A4%BA%E5%9C%A8%E9%A1%B5%E9%9D%A2%E4%B8%8A%E6%B2%A1%E6%9C%89%E6%B6%88%E5%A4%B1"><span class="nav-number">5.1.</span> <span class="nav-text">Layui中弹出层关闭后但是弹出层中的内容依然显示在页面上，没有消失</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#layui-form-%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81lay-verify%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">5.2.</span> <span class="nav-text">Layui form
+表单验证lay-verify的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#layui-form%E7%A6%81%E6%AD%A2%E7%BC%96%E8%BE%91"><span class="nav-number">5.3.</span> <span class="nav-text">layui Form禁止编辑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8layui%E6%A1%86%E6%9E%B6%E6%97%B6select%E7%9B%91%E5%90%AC%E7%9A%84%E9%82%A3%E4%BA%9B%E5%9D%91%E6%97%A0%E6%B3%95%E7%9B%91%E5%90%ACchange%E4%BA%8B%E4%BB%B6"><span class="nav-number">5.4.</span> <span class="nav-text">使用layui框架时select监听的那些坑：无法监听change事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#layui%E6%8C%89%E9%92%AE%E5%8A%A8%E6%80%81%E8%AE%BE%E7%BD%AE%E7%A6%81%E7%94%A8%E4%B8%8E%E5%8F%96%E6%B6%88%E7%A6%81%E7%94%A8"><span class="nav-number">5.5.</span> <span class="nav-text">Layui按钮动态设置禁用与取消禁用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#layui%E5%A6%82%E4%BD%95%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%B9%E5%87%BA%E5%B1%82%E5%85%B3%E9%97%AD%E4%BA%8B%E4%BB%B6"><span class="nav-number">5.6.</span> <span class="nav-text">layui如何自定义弹出层关闭事件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#http%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98"><span class="nav-number">6.</span> <span class="nav-text">HTTP相关问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#http-%E7%8A%B6%E6%80%81%E7%A0%81"><span class="nav-number">6.1.</span> <span class="nav-text">HTTP 状态码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#eclipse%E4%BD%BF%E7%94%A8%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98"><span class="nav-number">7.</span> <span class="nav-text">Eclipse使用相关问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#eclipse%E6%B7%BB%E5%8A%A0gbk%E7%BC%96%E7%A0%81"><span class="nav-number">7.1.</span> <span class="nav-text">Eclipse添加GBK编码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#javaweb%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98"><span class="nav-number">8.</span> <span class="nav-text">JAVAWEB相关问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#javaweb%E8%BD%AC%E5%8F%91%E5%92%8C%E9%87%8D%E5%AE%9A%E5%90%91"><span class="nav-number">8.1.</span> <span class="nav-text">JavaWeb——转发和重定向</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8java%E6%9D%A5%E8%8E%B7%E5%8F%96%E8%AE%BF%E9%97%AE%E8%80%85%E7%9C%9F%E5%AE%9E%E7%9A%84ip%E5%9C%B0%E5%9D%80"><span class="nav-number">8.2.</span> <span class="nav-text">用Java来获取访问者真实的IP地址</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#springaop%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98"><span class="nav-number">9.</span> <span class="nav-text">SpringAOP相关问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#spring-aop%E4%B8%AD%E8%8E%B7%E5%8F%96session%E6%96%B9%E6%B3%95"><span class="nav-number">9.1.</span> <span class="nav-text">Spring AOP中获取session方法</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="alfa"
+      src="/images/avatar-castle.jpg">
+  <p class="site-author-name" itemprop="name">alfa</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">alfa</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

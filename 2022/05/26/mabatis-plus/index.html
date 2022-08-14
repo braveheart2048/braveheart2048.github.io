@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/autumn.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"idealstars.space","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mabatis-plus">
+<meta property="og:url" content="http://idealstars.space/2022/05/26/mabatis-plus/index.html">
+<meta property="og:site_name" content="小蜗">
+<meta property="og:description" content="...">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/05/27/qIduXc571lmPBMH.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/27/tfSCJKvGoemMRV8.png">
+<meta property="og:image" content="https://s2.loli.net/2022/05/27/V6ONAyHMzBngIcf.png">
+<meta property="og:image" content="https://s2.loli.net/2022/07/09/uTP7o38ZfdKkMWy.png">
+<meta property="article:published_time" content="2022-05-26T07:53:04.000Z">
+<meta property="article:modified_time" content="2022-08-14T09:11:36.520Z">
+<meta property="article:author" content="alfa">
+<meta property="article:tag" content="mybatis-plus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/05/27/qIduXc571lmPBMH.png">
+
+<link rel="canonical" href="http://idealstars.space/2022/05/26/mabatis-plus/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>mabatis-plus | 小蜗</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">小蜗</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://idealstars.space/2022/05/26/mabatis-plus/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar-castle.jpg">
+      <meta itemprop="name" content="alfa">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小蜗">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          mabatis-plus
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-05-26 15:53:04" itemprop="dateCreated datePublished" datetime="2022-05-26T15:53:04+08:00">2022-05-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-08-14 17:11:36" itemprop="dateModified" datetime="2022-08-14T17:11:36+08:00">2022-08-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%A7%E4%BA%8C%E7%94%9F%E6%B6%AF/" itemprop="url" rel="index"><span itemprop="name">大二生涯</span></a>
+                </span>
+            </span>
+
+          
+            <div class="post-description">...</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="crud扩展">CRUD扩展</h1>
+<h3 id="不同的主键策略测试">不同的主键策略测试</h3>
+<blockquote>
+<p>主键自增</p>
+</blockquote>
+<ul>
+<li><p>实体类上添加代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@TableId(type = IdType.AUTO)</span></span><br></pre></td></tr></table></figure></li>
+<li><p>数据库字段设置自增</p></li>
+</ul>
+<blockquote>
+<p>其他主键策略</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">IdType</span> </span>&#123;</span><br><span class="line">    AUTO(<span class="number">0</span>),</span><br><span class="line">    NONE(<span class="number">1</span>), <span class="comment">// 无主键</span></span><br><span class="line">    INPUT(<span class="number">2</span>), <span class="comment">// 手动输入主键</span></span><br><span class="line">    ID_WORKER(<span class="number">3</span>), <span class="comment">//默认</span></span><br><span class="line">    UUID(<span class="number">4</span>),</span><br><span class="line">    ID_WORKER_STR(<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> key;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">IdType</span><span class="params">(<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.key = key;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getKey</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.key;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="乐观锁处理讲解">乐观锁处理讲解</h3>
+<blockquote>
+<p>乐观锁，一般不锁</p>
+<p>悲观锁，一直锁着</p>
+</blockquote>
+<ol type="1">
+<li><p>给数据库中添加version字段</p>
+<p><img
+src="https://s2.loli.net/2022/05/26/LIlJoiUDq9s2w3H.png" /></p></li>
+<li><p>实体类加对应的字段</p>
+<p><img
+src="https://s2.loli.net/2022/05/26/7F6Ufhc4iLJaGw3.png" /></p></li>
+<li><p>注册组件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@MapperScan(&quot;com.kuang.mapper&quot;)</span></span><br><span class="line"><span class="meta">@EnableTransactionManagement</span></span><br><span class="line"><span class="meta">@Configuration</span> <span class="comment">//配置类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyBatisPlusConfig</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 注册乐观锁插件</span></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 旧版</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> OptimisticLockerInterceptor <span class="title">optimisticLockerInterceptor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> OptimisticLockerInterceptor();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="多条件查询">多条件查询</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//tiao条件查询map</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSelectByHashMap</span><span class="params">()</span></span>&#123;</span><br><span class="line">    HashMap&lt;String, Object&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    <span class="comment">//自定义查询</span></span><br><span class="line">    map.put(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;狂神说JAVA&quot;</span>);</span><br><span class="line">    map.put(<span class="string">&quot;age&quot;</span>, <span class="number">3</span>);</span><br><span class="line"></span><br><span class="line">    List&lt;User&gt; users = userMapper.selectByMap(map);</span><br><span class="line">    users.forEach(System.out::println);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="分页查询操作">分页查询操作</h2>
+<blockquote>
+<p>mybatis_plus其实内置了分页插件</p>
+</blockquote>
+<ol type="1">
+<li><p>配置拦截器组件即可</p></li>
+<li><p>```java // 旧版 // 分页插件 <span class="citation"
+data-cites="Bean">@Bean</span> public PaginationInterceptor
+paginationInterceptor() { return new PaginationInterceptor(); }
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. ```java</span><br><span class="line">   // 测试分页查询</span><br><span class="line">       @Test</span><br><span class="line">       public void testPage() &#123;</span><br><span class="line">   //        IPage接口实现类</span><br><span class="line">   //        参数一：当前页</span><br><span class="line">   //        参数二：页面大小</span><br><span class="line">           Page&lt;User&gt; page = new Page&lt;&gt;(1,5);</span><br><span class="line">   //        IPage&lt;T&gt; selectPage(IPage&lt;T&gt; var1, @Param(&quot;ew&quot;) Wrapper&lt;T&gt; var2);</span><br><span class="line">           userMapper.selectPage(page, null);</span><br><span class="line">           page.getRecords().forEach(System.out::println);</span><br><span class="line">   </span><br><span class="line">           // 获取数据总量</span><br><span class="line">           System.out.println(page.getTotal());</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure></p>
+<p><img
+src="https://s2.loli.net/2022/05/27/JTRysxuviroW26q.png" /></p></li>
+</ol>
+<h2 id="删除操作">删除操作</h2>
+<h3 id="根据id删除记录">根据ID删除记录</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 测试删除</span></span><br><span class="line">   <span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testDeleteById</span><span class="params">()</span></span>&#123;</span><br><span class="line">       userMapper.deleteById(<span class="number">1L</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2022/05/27/qIduXc571lmPBMH.png" /></p>
+<h3 id="批量删除">批量删除</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 测试通过ID批量删除</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testDeleteByIds</span><span class="params">()</span></span>&#123;</span><br><span class="line">    userMapper.deleteBatchIds(Arrays.asList(<span class="number">1L</span>, <span class="number">2L</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2022/05/27/tfSCJKvGoemMRV8.png" /></p>
+<h3 id="根据条件删除">根据条件删除</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 通过map删除</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testDeleteByMap</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    HashMap&lt;String, Object&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    map.put(<span class="string">&quot;name&quot;</span>,<span class="string">&quot;Tom&quot;</span>);</span><br><span class="line">    userMapper.deleteByMap(map);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://s2.loli.net/2022/05/27/V6ONAyHMzBngIcf.png" /></p>
+<h1 id="条件构造器">条件构造器</h1>
+<p>wrapper，替代复杂sql语句</p>
+<ol type="1">
+<li><p>```java <span class="citation" data-cites="Test">@Test</span>
+void contextLoads() { //查询name和email不为空的用户，年龄大于等于12
+QueryWrapper<User> wrapper = new QueryWrapper&lt;&gt;();
+wrapper.isNotNull("name") .isNotNull("email") .ge("age",12);
+userMapper.selectList(wrapper); } <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. ```java</span><br><span class="line">   @Test</span><br><span class="line">   void test2()&#123;</span><br><span class="line">       // 查询名字狂神说</span><br><span class="line">       QueryWrapper&lt;User&gt; wrapper = new QueryWrapper&lt;&gt;();</span><br><span class="line">       wrapper.eq(&quot;name&quot;, &quot;Tom&quot;);</span><br><span class="line">       User user = userMapper.selectOne(wrapper);</span><br><span class="line">       System.out.println(user);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>```java <span class="citation" data-cites="Test">@Test</span>
+void test3(){ // 查询年龄在20~30之间的用户 QueryWrapper<User> wrapper =
+new QueryWrapper&lt;&gt;(); wrapper.between("age", 20, 30); Integer
+count = userMapper.selectCount(wrapper); System.out.println(count); }
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">4. ```java</span><br><span class="line">   // 模糊查询</span><br><span class="line">   @Test</span><br><span class="line">   void test4()&#123;</span><br><span class="line">       // 邮箱t开头，名字中不含字母e的用户</span><br><span class="line">       QueryWrapper&lt;User&gt; wrapper = new QueryWrapper&lt;&gt;();</span><br><span class="line">       wrapper.notLike(&quot;name&quot;, &quot;e&quot;)</span><br><span class="line">           .likeRight(&quot;email&quot;, &quot;t&quot;);</span><br><span class="line">       List&lt;Map&lt;String,Object&gt;&gt; maps = userMapper.selectMaps(wrapper);</span><br><span class="line">       maps.forEach(System.out::println);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p></li>
+</ol>
+<h1 id="代码生成器">代码生成器</h1>
+<ol type="1">
+<li><p>3.0.7版本移除 对 mybatis-plus-generator
+包的依赖,自己按需引入，尽在还需要导入模板依赖，</p>
+<!-- 模板引擎 -->
+<p><dependency> <groupId>org.apache.velocity</groupId>
+<artifactId>velocity-engine-core</artifactId> <version>2.0</version>
+</dependency></p></li>
+<li><p>```java package com.kuang;</p>
+<p>import com.baomidou.mybatisplus.annotation.DbType; import
+com.baomidou.mybatisplus.annotation.IdType; import
+com.baomidou.mybatisplus.generator.AutoGenerator; import
+com.baomidou.mybatisplus.generator.config.DataSourceConfig; import
+com.baomidou.mybatisplus.generator.config.GlobalConfig; import
+com.baomidou.mybatisplus.generator.config.PackageConfig; import
+com.baomidou.mybatisplus.generator.config.StrategyConfig; import
+com.baomidou.mybatisplus.generator.config.rules.DateType; import
+com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;</p>
+<p>/**</p>
+<ul>
+<li><p>TODO</p></li>
+<li></li>
+<li><p><span class="citation" data-cites="ClassName">@ClassName</span>
+KuangCode</p></li>
+<li><p><span class="citation" data-cites="Author">@Author</span>
+Alfa</p></li>
+<li><p><span class="citation" data-cites="Data">@Data</span> 2022/5/26
+14:27</p></li>
+<li><p><span class="citation" data-cites="Version">@Version</span> 1.0
+**/ public class KuangCode { public static void main(String[] args) { //
+构建代码自动生成器对象 AutoGenerator mpg = new AutoGenerator(); //
+配置策略</p>
+<pre><code> // 1.全局配置
+ GlobalConfig gc = new GlobalConfig();
+ String projectPath= System.getProperty(&quot;user.dir&quot;);
+ gc.setOutputDir(projectPath + &quot;/src/main/java&quot;);
+
+ gc.setAuthor(&quot;alfa&quot;);
+ gc.setOpen(false);
+ gc.setFileOverride(false); // 是否覆盖
+ gc.setServiceName(&quot;%sService&quot;); // 去service的i前缀
+ gc.setIdType(IdType.ID_WORKER);
+ gc.setDateType(DateType.ONLY_DATE);
+ gc.setSwagger2(true);
+ mpg.setGlobalConfig(gc);
+
+ //2.设置数据源
+ DataSourceConfig dsc = new DataSourceConfig();
+ dsc.setUrl(&quot;jdbc:mysql://localhost:3306/mybatis_plus?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf8&quot;);
+ dsc.setDriverName(&quot;com.mysql.cj.jdbc.Driver&quot;);
+ dsc.setUsername(&quot;root&quot;);
+ dsc.setPassword(&quot;&quot;);
+ dsc.setDbType(DbType.MYSQL);
+ mpg.setDataSource(dsc);
+
+ // 3。包的配置
+ PackageConfig pc = new PackageConfig();
+ pc.setModuleName(&quot;blog&quot;);
+ pc.setParent(&quot;com.kuang&quot;);
+ pc.setEntity(&quot;pojo&quot;);
+ pc.setMapper(&quot;mapper&quot;);
+ pc.setService(&quot;service&quot;);
+ pc.setController(&quot;controller&quot;);
+ mpg.setPackageInfo(pc);
+
+ //5.策略配置
+ StrategyConfig strategy = new StrategyConfig();
+ strategy.setInclude(&quot;user&quot;);
+ strategy.setNaming(NamingStrategy.underline_to_camel);
+ strategy.setColumnNaming(NamingStrategy.underline_to_camel);
+ strategy.setEntityLombokModel(true); //自动生成lombok注解
+ strategy.setLogicDeleteFieldName(&quot;deleted&quot;);
+ //自动填充配置</code></pre>
+<p>// TableFill gmtCreate = new TableFill("gmt_create",
+FieldFill.INSERT); // TableFill gmtModified = new
+TableFill("gmt_modified", FieldFill.INSERT_UPDATE); //
+ArrayList<TableFill> tableFills = new ArrayList&lt;&gt;(); //
+tableFills.add(gmtCreate); // tableFills.add(gmtModified); //
+strategy.setTableFillList(tableFills); // 乐观锁 //
+strategy.setVersionFieldName("version"); // 驼峰命名
+strategy.setRestControllerStyle(true);
+strategy.setControllerMappingHyphenStyle(true); //
+localhost:8080/hello_iu_2 mpg.setStrategy(strategy);</p>
+<pre><code> mpg.execute();</code></pre>
+<p>} } <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. &lt;img src=&quot;https://s2.loli.net/2022/05/27/6K8OTpCWrlkezSJ.png&quot; style=&quot;zoom: 50%;&quot; /&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># MybatisPlus 代码生成器 出现 实体类的@ApiModel 注解报错 解决方法</span><br><span class="line"></span><br><span class="line">&gt; 问题</span><br><span class="line"></span><br><span class="line">![在这里插入图片描述](https://s2.loli.net/2022/07/08/J7dVgsYaWtnFiBR.png)</span><br><span class="line"></span><br><span class="line">&gt; 解决问题</span><br><span class="line"></span><br><span class="line">在pom.[xml](https://so.csdn.net/so/search?q=xml&amp;spm=1001.2101.3001.7020) 文件中添加 ApiModel 依赖 就不会报错了</span><br><span class="line"></span><br><span class="line">```XML</span><br><span class="line">&lt;!--配置ApiModel在实体类中不生效--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.spring4all&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-swagger&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.5.1.RELEASE&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p></li>
+</ul></li>
+</ol>
+<h1
+id="mybatis-plus最新代码生成器3.5.1的使用">Mybatis-plus最新代码生成器（3.5.1+）的使用</h1>
+<blockquote>
+<p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42682745/article/details/120626012">原文链接</a></p>
+</blockquote>
+<h1
+id="解决mybatis-plus代码生成器在idea中的module生成代码但是生成到外面的project">解决mybatis-plus代码生成器在idea中的module生成代码，但是生成到外面的project</h1>
+<figure>
+<img src="https://s2.loli.net/2022/07/09/uTP7o38ZfdKkMWy.png"
+alt="image-20220709160706232" />
+<figcaption aria-hidden="true">image-20220709160706232</figcaption>
+</figure>
+<blockquote>
+<p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42168438/article/details/103298782">原文链接</a></p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/mybatis-plus/" rel="tag"># mybatis-plus</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/05/26/sql%E7%BB%8F%E5%85%B8%E4%BA%94%E5%8D%81%E9%A2%98%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/" rel="prev" title="sql经典五十题相关问题">
+      <i class="fa fa-chevron-left"></i> sql经典五十题相关问题
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/05/27/springboot%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/" rel="next" title="springboot问题整理">
+      springboot问题整理 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#crud%E6%89%A9%E5%B1%95"><span class="nav-number">1.</span> <span class="nav-text">CRUD扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E5%90%8C%E7%9A%84%E4%B8%BB%E9%94%AE%E7%AD%96%E7%95%A5%E6%B5%8B%E8%AF%95"><span class="nav-number">1.0.1.</span> <span class="nav-text">不同的主键策略测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B9%90%E8%A7%82%E9%94%81%E5%A4%84%E7%90%86%E8%AE%B2%E8%A7%A3"><span class="nav-number">1.0.2.</span> <span class="nav-text">乐观锁处理讲解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2"><span class="nav-number">1.1.</span> <span class="nav-text">多条件查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C"><span class="nav-number">1.2.</span> <span class="nav-text">分页查询操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%93%8D%E4%BD%9C"><span class="nav-number">1.3.</span> <span class="nav-text">删除操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B9%E6%8D%AEid%E5%88%A0%E9%99%A4%E8%AE%B0%E5%BD%95"><span class="nav-number">1.3.1.</span> <span class="nav-text">根据ID删除记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%B9%E9%87%8F%E5%88%A0%E9%99%A4"><span class="nav-number">1.3.2.</span> <span class="nav-text">批量删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B9%E6%8D%AE%E6%9D%A1%E4%BB%B6%E5%88%A0%E9%99%A4"><span class="nav-number">1.3.3.</span> <span class="nav-text">根据条件删除</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E6%9E%84%E9%80%A0%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">条件构造器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%99%A8"><span class="nav-number">3.</span> <span class="nav-text">代码生成器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mybatis-plus%E6%9C%80%E6%96%B0%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%99%A83.5.1%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">Mybatis-plus最新代码生成器（3.5.1+）的使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3mybatis-plus%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%99%A8%E5%9C%A8idea%E4%B8%AD%E7%9A%84module%E7%94%9F%E6%88%90%E4%BB%A3%E7%A0%81%E4%BD%86%E6%98%AF%E7%94%9F%E6%88%90%E5%88%B0%E5%A4%96%E9%9D%A2%E7%9A%84project"><span class="nav-number">5.</span> <span class="nav-text">解决mybatis-plus代码生成器在idea中的module生成代码，但是生成到外面的project</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="alfa"
+      src="/images/avatar-castle.jpg">
+  <p class="site-author-name" itemprop="name">alfa</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">alfa</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
