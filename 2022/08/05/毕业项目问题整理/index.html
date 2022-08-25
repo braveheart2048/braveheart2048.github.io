@@ -32,17 +32,14 @@
 <meta property="og:image" content="https://s2.loli.net/2022/08/10/4hVOC6bTG28fknt.png">
 <meta property="og:image" content="https://s2.loli.net/2022/08/10/Dr9ZsmlohAgOdNc.png">
 <meta property="og:image" content="https://s2.loli.net/2022/08/10/2rofxJvagdtCS8Q.png">
-<meta property="og:image" content="https://s2.loli.net/2022/08/10/KEsOWP28g4afvJ7.png">
-<meta property="og:image" content="https://s2.loli.net/2022/08/10/VckUB1K52NvLA4s.png">
-<meta property="og:image" content="https://s2.loli.net/2022/08/10/Js4Ap9xrMIBdqCK.png">
-<meta property="og:image" content="https://s2.loli.net/2022/08/10/p2HIoGcCa7ZPTOr.png">
 <meta property="og:image" content="https://s2.loli.net/2022/08/10/ZQPlcs4W96gjqKU.png">
 <meta property="og:image" content="https://s2.loli.net/2022/08/10/DB6CR8KnfgMmiqP.png">
 <meta property="og:image" content="https://s2.loli.net/2022/08/10/yogRtfmPIMebpUW.png">
 <meta property="og:image" content="https://s2.loli.net/2022/08/10/zgO3CBjpnr1uPTJ.png">
 <meta property="og:image" content="https://s2.loli.net/2022/08/10/G6FjId7L8NWwiln.png">
+<meta property="og:image" content="c:/Users/cheng/AppData/Roaming/Typora/typora-user-images/image-20220818151415991.png">
 <meta property="article:published_time" content="2022-08-05T03:06:28.000Z">
-<meta property="article:modified_time" content="2022-08-10T07:15:09.077Z">
+<meta property="article:modified_time" content="2022-08-24T06:40:10.087Z">
 <meta property="article:author" content="alfa">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -196,7 +193,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-10 15:15:09" itemprop="dateModified" datetime="2022-08-10T15:15:09+08:00">2022-08-10</time>
+                <time title="修改时间：2022-08-24 14:40:10" itemprop="dateModified" datetime="2022-08-24T14:40:10+08:00">2022-08-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -255,29 +252,29 @@ alt="image-20220810110627507" />
 </ul>
 <h1 id="寻找session中当前登录用户">寻找session中当前登录用户</h1>
 <ul>
-<li><p>前台登录页</p>
+<li><p>拦截器<img
+src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220818151836416.png"
+alt="image-20220818151836416" /></p></li>
+<li><p>登陆跳转Controller</p>
 <figure>
-<img src="https://s2.loli.net/2022/08/10/KEsOWP28g4afvJ7.png"
-alt="image-20220810113323938" />
-<figcaption aria-hidden="true">image-20220810113323938</figcaption>
+<img
+src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220818151920997.png"
+alt="image-20220818151920997" />
+<figcaption aria-hidden="true">image-20220818151920997</figcaption>
+</figure></li>
+<li><p>HTML层</p>
+<figure>
+<img
+src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220818151959077.png"
+alt="image-20220818151959077" />
+<figcaption aria-hidden="true">image-20220818151959077</figcaption>
 </figure></li>
 <li><p>controller层</p>
 <figure>
-<img src="https://s2.loli.net/2022/08/10/VckUB1K52NvLA4s.png"
-alt="image-20220810113443332" />
-<figcaption aria-hidden="true">image-20220810113443332</figcaption>
-</figure></li>
-<li><p>HTML代码</p>
-<figure>
-<img src="https://s2.loli.net/2022/08/10/Js4Ap9xrMIBdqCK.png"
-alt="image-20220810113652738" />
-<figcaption aria-hidden="true">image-20220810113652738</figcaption>
-</figure></li>
-<li><p>找到登录方法</p>
-<figure>
-<img src="https://s2.loli.net/2022/08/10/p2HIoGcCa7ZPTOr.png"
-alt="image-20220810113845147" />
-<figcaption aria-hidden="true">image-20220810113845147</figcaption>
+<img
+src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220818152035709.png"
+alt="image-20220818152035709" />
+<figcaption aria-hidden="true">image-20220818152035709</figcaption>
 </figure></li>
 </ul>
 <h1
@@ -316,6 +313,69 @@ commit:</h1>
 alt="image-20220810151404488" />
 <figcaption aria-hidden="true">image-20220810151404488</figcaption>
 </figure>
+<h1
+id="错误org.apache.ibatis.reflection.reflectionexception-there-is-no-setter-for-property-named-region-in-class-com.backstage.pojo.receivinggoods">【错误】org.apache.ibatis.reflection.ReflectionException:
+There is no setter for property named 'region' in 'class
+com.backstage.pojo.Receivinggoods'</h1>
+<ul>
+<li><p>搜索到实体类</p>
+<figure>
+<img
+src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220818145301268.png"
+alt="image-20220818145301268" />
+<figcaption aria-hidden="true">image-20220818145301268</figcaption>
+</figure></li>
+<li><p>对应mapper文件</p>
+<figure>
+<img
+src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220818145351579.png"
+alt="image-20220818145351579" />
+<figcaption aria-hidden="true">image-20220818145351579</figcaption>
+</figure></li>
+<li><p>删掉数据库中的多余字段</p>
+<figure>
+<img
+src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220818150444947.png"
+alt="image-20220818150444947" />
+<figcaption aria-hidden="true">image-20220818150444947</figcaption>
+</figure></li>
+<li><p>之后报错<code># Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'region' in 'field list'</code></p>
+<p><img src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220818151415991.png" alt="image-20220818151415991"  /></p></li>
+</ul>
+<h1 id="mysql数据表添加字段">MySQL数据表添加字段</h1>
+<p>MySQL 添加字段的语法格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE &lt;表名&gt; ADD &lt;新字段名&gt;&lt;数据类型&gt;[约束条件];</span><br></pre></td></tr></table></figure>
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table sealmall.user add user_email varchar(255);</span><br></pre></td></tr></table></figure>
+<h1 id="mysql数据表删除字段">MySQL数据表删除字段</h1>
+<p>语法规则为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE 表名 DROP 字段名;</span><br></pre></td></tr></table></figure>
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE sealmall.receivinggoods DROP region;</span><br></pre></td></tr></table></figure>
+<h1 id="mapper注入异常">Mapper注入异常</h1>
+<figure>
+<img
+src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220824112638886.png"
+alt="image-20220824112638886" />
+<figcaption aria-hidden="true">image-20220824112638886</figcaption>
+</figure>
+<h1
+id="aop的环绕通知中获取所属类名所属包名">aop的环绕通知中获取所属类名、所属包名</h1>
+<p><strong>获取包名、类名：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Object target = pj.getTarget();</span><br><span class="line">String className = target.getClass().getName();  <span class="comment">//当前执行的方法所属的类、包</span></span><br></pre></td></tr></table></figure>
+<h1
+id="解决idea开发环境中build失败提示包不存在的问题">解决IDEA开发环境中build失败提示包不存在的问题</h1>
+<p>解决方案：<code>开始-&gt;运行-&gt;cmd-&gt;切换到项目目录执行 mvn idea:module</code>
+随后再使用<code>build</code>按钮,项目成功编译。</p>
+<h1 id="aop代码">AOP代码</h1>
+<ol type="1">
+<li><p>AOP</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.backstage.log;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.backstage.pojo.Staff;</span><br><span class="line"><span class="keyword">import</span> org.aspectj.lang.ProceedingJoinPoint;</span><br><span class="line"><span class="keyword">import</span> org.aspectj.lang.annotation.Around;</span><br><span class="line"><span class="keyword">import</span> org.aspectj.lang.annotation.Aspect;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.context.request.RequestContextHolder;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.context.request.ServletRequestAttributes;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpSession;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 操作日志切面类</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span> OperateLogAspect</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> Alfa</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Data</span> 2022/6/9 11:35</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Version</span> 1.0</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OperateLogAspect</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Around(&quot;execution(* com.backstage.service.impl.OrderFromServiceImpl.*(..))&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">around</span><span class="params">(ProceedingJoinPoint pj)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        <span class="comment">//获取当前登录用户</span></span><br><span class="line">        ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();</span><br><span class="line">        HttpSession session=attr.getRequest().getSession(<span class="keyword">true</span>);</span><br><span class="line">        Staff user = (Staff)session.getAttribute(<span class="string">&quot;staff&quot;</span>);</span><br><span class="line">        System.out.println(user);</span><br><span class="line">        <span class="comment">//获取方法所在包</span></span><br><span class="line">        System.out.println(<span class="string">&quot;==========before============&quot;</span>);</span><br><span class="line">        String methodName = pj.getSignature().getName();</span><br><span class="line">        System.out.println(methodName);</span><br><span class="line">        Object o = pj.proceed();</span><br><span class="line">        System.out.println(o);</span><br><span class="line">        System.out.println(<span class="string">&quot;===========after=============&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>mapper</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">&quot;addOperationLog&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;Operation&quot;</span>&gt;</span></span><br><span class="line">        insert into operation(operation_id, operation_staff_id, content, operation_dept_id, ip, operation_type, operationTime) VALUES(#&#123;operationId&#125;,#&#123;staff.staffId&#125;,#&#123;content&#125;,#&#123;department.deptId&#125;,#&#123;ip&#125;,#&#123;operationType&#125;,#&#123;operationtime&#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">insert</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:aop</span>=<span class="string">&quot;http://www.springframework.org/schema/aop&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.springframework.org/schema/beans</span></span></span><br><span class="line"><span class="string"><span class="tag">        https://www.springframework.org/schema/beans/spring-beans.xsd</span></span></span><br><span class="line"><span class="string"><span class="tag">        http://www.springframework.org/schema/aop</span></span></span><br><span class="line"><span class="string"><span class="tag">        https://www.springframework.org/schema/aop/spring-aop.xsd&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--配置注解实现aop--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:aspectj-autoproxy</span>&gt;</span><span class="tag">&lt;/<span class="name">aop:aspectj-autoproxy</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
 
     </div>
 
@@ -405,7 +465,9 @@ com.backstage.pojo.OrderFrom&#39;</span></a></li><li class="nav-item nav-level-1
 Parameter &#39;type&#39; not found. Available parameters are [orderFrom, page,
 param1, param2]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3idea%E7%89%88svn%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98-svn-e155015-commit-failed-details-follow-svn-e155015-aborting-commit"><span class="nav-number">5.</span> <span class="nav-text">解决idea版svn冲突问题
 svn: E155015: Commit failed (details follow): svn: E155015: Aborting
-commit:</span></a></li></ol></div>
+commit:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%94%99%E8%AF%AForg.apache.ibatis.reflection.reflectionexception-there-is-no-setter-for-property-named-region-in-class-com.backstage.pojo.receivinggoods"><span class="nav-number">6.</span> <span class="nav-text">【错误】org.apache.ibatis.reflection.ReflectionException:
+There is no setter for property named &#39;region&#39; in &#39;class
+com.backstage.pojo.Receivinggoods&#39;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%B7%BB%E5%8A%A0%E5%AD%97%E6%AE%B5"><span class="nav-number">7.</span> <span class="nav-text">MySQL数据表添加字段</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql%E6%95%B0%E6%8D%AE%E8%A1%A8%E5%88%A0%E9%99%A4%E5%AD%97%E6%AE%B5"><span class="nav-number">8.</span> <span class="nav-text">MySQL数据表删除字段</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mapper%E6%B3%A8%E5%85%A5%E5%BC%82%E5%B8%B8"><span class="nav-number">9.</span> <span class="nav-text">Mapper注入异常</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#aop%E7%9A%84%E7%8E%AF%E7%BB%95%E9%80%9A%E7%9F%A5%E4%B8%AD%E8%8E%B7%E5%8F%96%E6%89%80%E5%B1%9E%E7%B1%BB%E5%90%8D%E6%89%80%E5%B1%9E%E5%8C%85%E5%90%8D"><span class="nav-number">10.</span> <span class="nav-text">aop的环绕通知中获取所属类名、所属包名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3idea%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E4%B8%ADbuild%E5%A4%B1%E8%B4%A5%E6%8F%90%E7%A4%BA%E5%8C%85%E4%B8%8D%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">11.</span> <span class="nav-text">解决IDEA开发环境中build失败提示包不存在的问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#aop%E4%BB%A3%E7%A0%81"><span class="nav-number">12.</span> <span class="nav-text">AOP代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

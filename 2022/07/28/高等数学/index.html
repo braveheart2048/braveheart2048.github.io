@@ -28,8 +28,9 @@
 <meta property="og:description" content="高等数学">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2022/08/02/ZtGJ6rfjTEOka73.png">
+<meta property="og:image" content="https://s2.loli.net/2022/08/16/Uq89OLFtyJlHXpi.png">
 <meta property="article:published_time" content="2022-07-28T06:45:00.000Z">
-<meta property="article:modified_time" content="2022-08-09T01:21:18.643Z">
+<meta property="article:modified_time" content="2022-08-25T03:32:32.710Z">
 <meta property="article:author" content="alfa">
 <meta property="article:tag" content="专升本">
 <meta property="article:tag" content="高等数学">
@@ -184,7 +185,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-09 09:21:18" itemprop="dateModified" datetime="2022-08-09T09:21:18+08:00">2022-08-09</time>
+                <time title="修改时间：2022-08-25 11:32:32" itemprop="dateModified" datetime="2022-08-25T11:32:32+08:00">2022-08-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -236,7 +237,7 @@ C_1e^{r_1x}+C_2e^{r_2x}
 \]</span></p></li>
 <li><p>特征方程<span class="math inline">\(\alpha \pm i \beta\)</span>
 <span class="math display">\[
-e^{ax}(c_1\cos\beta+c_2\sin\beta)
+e^{ax}(c_1\cos\beta x+c_2\sin\beta x)
 \]</span></p></li>
 </ul></li>
 <li><p>非齐次<span
@@ -293,7 +294,8 @@ class="math inline">\(P_n(x)\)</span></p>
 </tbody>
 </table></li>
 <li><p><span class="math inline">\(q(x)\)</span>形式<span
-class="math inline">\(e^{\alpha x}(a\cos x+b\sin x)\)</span></p>
+class="math inline">\(e^{\alpha x}(a\cos\beta x+b\sin\beta
+x)\)</span></p>
 <table>
 <colgroup>
 <col style="width: 44%" />
@@ -367,6 +369,33 @@ f(-x) = f(x)
 </tr>
 </tbody>
 </table>
+<h1 id="奇偶函数的判别技巧">奇偶函数的判别技巧</h1>
+<table>
+<thead>
+<tr class="header">
+<th>参与计算的函数</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>奇函数的奇数次方</td>
+<td>奇函数</td>
+</tr>
+<tr class="even">
+<td>奇函数的偶数次方</td>
+<td>偶函数</td>
+</tr>
+<tr class="odd">
+<td>偶函数的奇数次方</td>
+<td>偶函数</td>
+</tr>
+<tr class="even">
+<td>偶函数的偶数次方</td>
+<td>偶函数</td>
+</tr>
+</tbody>
+</table>
 <h1 id="曲线积分">曲线积分</h1>
 <ul>
 <li><p>对弧长的曲线积分 <span class="math display">\[
@@ -429,7 +458,20 @@ B\)</span></p>
 \iint_DP(x,y)dxdy=\int_\alpha^\beta d\theta\int
 P(rcos\theta,rsin\theta)rdr
 \]</span></p>
-<h1 id="泰勒公式">泰勒公式</h1>
+<h2 id="圆心不在原点的圆的极径求法">圆心不在原点的圆的极径求法</h2>
+<p>圆的方程： <span class="math display">\[
+(x-1)^2+y^2=1
+\]</span></p>
+<figure>
+<img src="https://s2.loli.net/2022/08/16/Uq89OLFtyJlHXpi.png"
+alt="image-20220816120517930" />
+<figcaption aria-hidden="true">image-20220816120517930</figcaption>
+</figure>
+<p><strong>先转化圆的方程<span
+class="math inline">\(x^2+y^2=2x\)</span>，由<span
+class="math inline">\(2x=r^2=2r\cos r\)</span>，求出<span
+class="math inline">\(r\)</span>，就得到了极径</strong></p>
+<h1 id="函数展开成幂级数">函数展开成幂级数</h1>
 <ul>
 <li><p>泰勒公式 <span class="math display">\[
 f(x)=f(x_0)+\frac{f^{&#39;}(x_0)}{1!}(x-x_0)+\frac{f^{&#39;&#39;}(x_0)}{2!}(x-x_0)+...+\frac{f^{(n)}(x0)}{n!}(x-x_0)+o[(x-x_0)^n]
@@ -437,6 +479,19 @@ f(x)=f(x_0)+\frac{f^{&#39;}(x_0)}{1!}(x-x_0)+\frac{f^{&#39;&#39;}(x_0)}{2!}(x-x_
 <li><p>麦克劳林公式 <span class="math display">\[
 f(x)=f(0)+f^{&#39;}(0)x+\frac{f^{&#39;&#39;}(0)}{2!}x^2+...+\frac{f^{(n)}(0)}{n!}x^n+o(x^n)
 \]</span></p></li>
+<li><p>常用函数展开成<span class="math inline">\(x\)</span>的幂级数</p>
+<ul>
+<li><p><span class="math display">\[
+\sin
+x=\frac{1}{1!}x-\frac{1}{3!}x^3+\frac{1}{5!}x^5-\frac{1}{7}x^7+...(-1)^{n}\frac{1}{2n-1}x^{2n-1}+...
+\]</span></p></li>
+<li><p><span class="math display">\[
+e^x=1+\frac{1}{1!}x+\frac{1}{2!}x^2+\frac{1}{3!}x^3+...+\frac{1}{n!}x^n+...
+\]</span></p></li>
+<li><p><span class="math display">\[
+\frac{1}{1-x}=1+x^1+x^2+x^3+x^4+...+x^n+...
+\]</span></p></li>
+</ul></li>
 </ul>
 <h1 id="平抛运动">平抛运动</h1>
 <ul>
@@ -508,6 +563,62 @@ i &amp;j &amp;k\\
 2 &amp;1
 \end{array}
 \right|k
+\]</span></p></li>
+</ul>
+<h1 id="有理函数的不定积分">有理函数的不定积分</h1>
+<ul>
+<li><p>真有理分式（分子最高次幂小于分母最高次幂） <span
+class="math display">\[
+eg.\frac{x}{x^2+1}
+\]</span></p></li>
+<li><p>假有理分式（分子最高次幂大于等于分母最高次幂） <span
+class="math display">\[
+eg.\frac{x}{x+1}\quad eg.\frac{x^3}{x^2+1}
+\]</span>
+<strong>假有理分式在计算时都需要先转换成真有理分式</strong></p></li>
+</ul>
+<h1 id="点火公式华里士公式">点火公式（华里士公式）</h1>
+<p><span class="math display">\[
+\int^{\frac{\pi}{2}}_0\sin^nxdx=\int^{\frac{\pi}{2}}_0\cos^nxdx=
+\left\{
+\begin{align}
+\frac{n-1}{n}&amp;\times
+\frac{n-3}{n-2}\times...\times\frac{2}{3}\times1 \quad n \space is
+\space odd\\
+\frac{n-1}{n}&amp;\times
+\frac{n-3}{n-2}\times...\times\frac{1}{2}\times\frac{\pi}{2} \quad
+n\space is \space even
+\end{align}
+\right.
+\]</span></p>
+<h1 id="二倍角公式">二倍角公式</h1>
+<ul>
+<li><p><span class="math display">\[
+\sin 2\alpha = 2\sin\alpha\cos\alpha
+\]</span></p></li>
+<li><p><span class="math display">\[
+\cos2\alpha=2\cos^2\alpha-1
+\]</span></p></li>
+</ul>
+<h1 id="十字相乘">十字相乘</h1>
+<p><span class="math display">\[
+(x+ p)(x+ q)=x^2+(p+q)x+pq
+\]</span></p>
+<h1 id="线性代数公式">线性代数公式</h1>
+<ul>
+<li><p><span class="math display">\[
+|A||B|=|AB|
+\]</span></p></li>
+<li><p><span class="math display">\[
+AA^*=|A|E
+\]</span></p></li>
+<li><p><span class="math display">\[
+A^{-1}=\frac{A^*}{|A|}
+\]</span></p></li>
+<li><p><span class="math display">\[
+A\times A^{-1}=E\\
+|A||A^{-1}|=E\\
+|A^{-1}|=\frac{1}{|A|}
 \]</span></p></li>
 </ul>
 
@@ -594,7 +705,7 @@ i &amp;j &amp;k\\
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E9%80%9A%E8%A7%A3%E5%85%AC%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">微分方程通解公式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A5%87%E5%81%B6%E5%87%BD%E6%95%B0%E7%9A%84%E5%88%A4%E5%88%AB%E5%85%AC%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">奇偶函数的判别公式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A5%87%E5%81%B6%E5%87%BD%E6%95%B0%E7%9A%84%E5%8A%A0%E5%87%8F%E4%B9%98%E9%99%A4"><span class="nav-number">3.</span> <span class="nav-text">奇偶函数的加减乘除</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9B%B2%E7%BA%BF%E7%A7%AF%E5%88%86"><span class="nav-number">4.</span> <span class="nav-text">曲线积分</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A0%E7%A9%B7%E7%BA%A7%E6%95%B0"><span class="nav-number">5.</span> <span class="nav-text">无穷级数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9E%81%E5%9D%90%E6%A0%87"><span class="nav-number">6.</span> <span class="nav-text">极坐标</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B3%B0%E5%8B%92%E5%85%AC%E5%BC%8F"><span class="nav-number">7.</span> <span class="nav-text">泰勒公式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B9%B3%E6%8A%9B%E8%BF%90%E5%8A%A8"><span class="nav-number">8.</span> <span class="nav-text">平抛运动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A9%BA%E9%97%B4%E7%9B%B4%E7%BA%BF%E5%92%8C%E5%90%91%E9%87%8F%E8%BF%90%E7%AE%97"><span class="nav-number">9.</span> <span class="nav-text">空间直线和向量运算</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E9%80%9A%E8%A7%A3%E5%85%AC%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">微分方程通解公式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A5%87%E5%81%B6%E5%87%BD%E6%95%B0%E7%9A%84%E5%88%A4%E5%88%AB%E5%85%AC%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">奇偶函数的判别公式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A5%87%E5%81%B6%E5%87%BD%E6%95%B0%E7%9A%84%E5%8A%A0%E5%87%8F%E4%B9%98%E9%99%A4"><span class="nav-number">3.</span> <span class="nav-text">奇偶函数的加减乘除</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A5%87%E5%81%B6%E5%87%BD%E6%95%B0%E7%9A%84%E5%88%A4%E5%88%AB%E6%8A%80%E5%B7%A7"><span class="nav-number">4.</span> <span class="nav-text">奇偶函数的判别技巧</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9B%B2%E7%BA%BF%E7%A7%AF%E5%88%86"><span class="nav-number">5.</span> <span class="nav-text">曲线积分</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A0%E7%A9%B7%E7%BA%A7%E6%95%B0"><span class="nav-number">6.</span> <span class="nav-text">无穷级数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9E%81%E5%9D%90%E6%A0%87"><span class="nav-number">7.</span> <span class="nav-text">极坐标</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%86%E5%BF%83%E4%B8%8D%E5%9C%A8%E5%8E%9F%E7%82%B9%E7%9A%84%E5%9C%86%E7%9A%84%E6%9E%81%E5%BE%84%E6%B1%82%E6%B3%95"><span class="nav-number">7.1.</span> <span class="nav-text">圆心不在原点的圆的极径求法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%B1%95%E5%BC%80%E6%88%90%E5%B9%82%E7%BA%A7%E6%95%B0"><span class="nav-number">8.</span> <span class="nav-text">函数展开成幂级数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B9%B3%E6%8A%9B%E8%BF%90%E5%8A%A8"><span class="nav-number">9.</span> <span class="nav-text">平抛运动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A9%BA%E9%97%B4%E7%9B%B4%E7%BA%BF%E5%92%8C%E5%90%91%E9%87%8F%E8%BF%90%E7%AE%97"><span class="nav-number">10.</span> <span class="nav-text">空间直线和向量运算</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E7%90%86%E5%87%BD%E6%95%B0%E7%9A%84%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86"><span class="nav-number">11.</span> <span class="nav-text">有理函数的不定积分</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%82%B9%E7%81%AB%E5%85%AC%E5%BC%8F%E5%8D%8E%E9%87%8C%E5%A3%AB%E5%85%AC%E5%BC%8F"><span class="nav-number">12.</span> <span class="nav-text">点火公式（华里士公式）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E5%80%8D%E8%A7%92%E5%85%AC%E5%BC%8F"><span class="nav-number">13.</span> <span class="nav-text">二倍角公式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%81%E5%AD%97%E7%9B%B8%E4%B9%98"><span class="nav-number">14.</span> <span class="nav-text">十字相乘</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%85%AC%E5%BC%8F"><span class="nav-number">15.</span> <span class="nav-text">线性代数公式</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
