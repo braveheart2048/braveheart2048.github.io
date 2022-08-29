@@ -37,11 +37,9 @@
 <meta property="og:image" content="https://s2.loli.net/2022/08/10/yogRtfmPIMebpUW.png">
 <meta property="og:image" content="https://s2.loli.net/2022/08/10/zgO3CBjpnr1uPTJ.png">
 <meta property="og:image" content="https://s2.loli.net/2022/08/10/G6FjId7L8NWwiln.png">
-<meta property="og:image" content="c:/Users/cheng/AppData/Roaming/Typora/typora-user-images/image-20220818151415991.png">
-<meta property="og:image" content="http://rh63t3qrk.hb-bkt.clouddn.com/img/202208251902022.png">
-<meta property="og:image" content="http://rh63t3qrk.hb-bkt.clouddn.com/img/202208251902002.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/braveheart2048/blogImages/main/img/202208261244141.png">
 <meta property="article:published_time" content="2022-08-05T03:06:28.000Z">
-<meta property="article:modified_time" content="2022-08-25T11:02:40.402Z">
+<meta property="article:modified_time" content="2022-08-26T04:44:37.218Z">
 <meta property="article:author" content="alfa">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -195,7 +193,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-25 19:02:40" itemprop="dateModified" datetime="2022-08-25T19:02:40+08:00">2022-08-25</time>
+                <time title="修改时间：2022-08-26 12:44:37" itemprop="dateModified" datetime="2022-08-26T12:44:37+08:00">2022-08-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -323,26 +321,26 @@ com.backstage.pojo.Receivinggoods'</h1>
 <li><p>搜索到实体类</p>
 <figure>
 <img
-src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220818145301268.png"
+src="https://raw.githubusercontent.com/braveheart2048/blogImages/main/img/202208261244910.png"
 alt="image-20220818145301268" />
 <figcaption aria-hidden="true">image-20220818145301268</figcaption>
 </figure></li>
 <li><p>对应mapper文件</p>
 <figure>
 <img
-src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220818145351579.png"
+src="https://raw.githubusercontent.com/braveheart2048/blogImages/main/img/202208261244287.png"
 alt="image-20220818145351579" />
 <figcaption aria-hidden="true">image-20220818145351579</figcaption>
 </figure></li>
 <li><p>删掉数据库中的多余字段</p>
 <figure>
 <img
-src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220818150444947.png"
+src="https://raw.githubusercontent.com/braveheart2048/blogImages/main/img/202208261244497.png"
 alt="image-20220818150444947" />
 <figcaption aria-hidden="true">image-20220818150444947</figcaption>
 </figure></li>
 <li><p>之后报错<code># Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'region' in 'field list'</code></p>
-<p><img src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220818151415991.png" alt="image-20220818151415991"  /></p></li>
+<p><img src="https://raw.githubusercontent.com/braveheart2048/blogImages/main/img/202208261244141.png" alt="image-20220818151415991"  /></p></li>
 </ul>
 <h1 id="mysql数据表添加字段">MySQL数据表添加字段</h1>
 <p>MySQL 添加字段的语法格式如下：</p>
@@ -356,7 +354,8 @@ alt="image-20220818150444947" />
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE sealmall.receivinggoods DROP region;</span><br></pre></td></tr></table></figure>
 <h1 id="mapper注入异常">Mapper注入异常</h1>
 <figure>
-<img src="http://rh63t3qrk.hb-bkt.clouddn.com/img/202208251902022.png"
+<img
+src="https://raw.githubusercontent.com/braveheart2048/blogImages/main/img/202208261244423.png"
 alt="image-20220824112638886" />
 <figcaption aria-hidden="true">image-20220824112638886</figcaption>
 </figure>
@@ -370,10 +369,19 @@ id="解决idea开发环境中build失败提示包不存在的问题">解决IDEA�
 随后再使用<code>build</code>按钮,项目成功编译。</p>
 <h1 id="idea同时跑两个项目">idea同时跑两个项目</h1>
 <figure>
-<img src="http://rh63t3qrk.hb-bkt.clouddn.com/img/202208251902002.png"
+<img
+src="https://raw.githubusercontent.com/braveheart2048/blogImages/main/img/202208261243286.png"
 alt="image-20220825162824259" />
 <figcaption aria-hidden="true">image-20220825162824259</figcaption>
 </figure>
+<h1 id="使用aop的around后无返回值">使用AOP的@Around后无返回值</h1>
+<p>经测试，是环绕通知改变了返回值，切面方法需要有返回值，来代替被代理方法返回结果</p>
+<p>改成如下即可：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Around(&quot;point_update()&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">update</span><span class="params">(ProceedingJoinPoint jp)</span> <span class="keyword">throws</span> Throwable</span>&#123;</span><br><span class="line">  ...</span><br><span class="line">  Object result = jp.proceed();</span><br><span class="line">  ...</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果你给这行代码jp.proceed(); 加了 try catch
+当执行结果是异常时，你有可能会丢失你的返回值。</p>
+</blockquote>
 
     </div>
 
@@ -465,7 +473,7 @@ param1, param2]</span></a></li><li class="nav-item nav-level-1"><a class="nav-li
 svn: E155015: Commit failed (details follow): svn: E155015: Aborting
 commit:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%94%99%E8%AF%AForg.apache.ibatis.reflection.reflectionexception-there-is-no-setter-for-property-named-region-in-class-com.backstage.pojo.receivinggoods"><span class="nav-number">6.</span> <span class="nav-text">【错误】org.apache.ibatis.reflection.ReflectionException:
 There is no setter for property named &#39;region&#39; in &#39;class
-com.backstage.pojo.Receivinggoods&#39;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%B7%BB%E5%8A%A0%E5%AD%97%E6%AE%B5"><span class="nav-number">7.</span> <span class="nav-text">MySQL数据表添加字段</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql%E6%95%B0%E6%8D%AE%E8%A1%A8%E5%88%A0%E9%99%A4%E5%AD%97%E6%AE%B5"><span class="nav-number">8.</span> <span class="nav-text">MySQL数据表删除字段</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mapper%E6%B3%A8%E5%85%A5%E5%BC%82%E5%B8%B8"><span class="nav-number">9.</span> <span class="nav-text">Mapper注入异常</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#aop%E7%9A%84%E7%8E%AF%E7%BB%95%E9%80%9A%E7%9F%A5%E4%B8%AD%E8%8E%B7%E5%8F%96%E6%89%80%E5%B1%9E%E7%B1%BB%E5%90%8D%E6%89%80%E5%B1%9E%E5%8C%85%E5%90%8D"><span class="nav-number">10.</span> <span class="nav-text">aop的环绕通知中获取所属类名、所属包名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3idea%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E4%B8%ADbuild%E5%A4%B1%E8%B4%A5%E6%8F%90%E7%A4%BA%E5%8C%85%E4%B8%8D%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">11.</span> <span class="nav-text">解决IDEA开发环境中build失败提示包不存在的问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#idea%E5%90%8C%E6%97%B6%E8%B7%91%E4%B8%A4%E4%B8%AA%E9%A1%B9%E7%9B%AE"><span class="nav-number">12.</span> <span class="nav-text">idea同时跑两个项目</span></a></li></ol></div>
+com.backstage.pojo.Receivinggoods&#39;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%B7%BB%E5%8A%A0%E5%AD%97%E6%AE%B5"><span class="nav-number">7.</span> <span class="nav-text">MySQL数据表添加字段</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql%E6%95%B0%E6%8D%AE%E8%A1%A8%E5%88%A0%E9%99%A4%E5%AD%97%E6%AE%B5"><span class="nav-number">8.</span> <span class="nav-text">MySQL数据表删除字段</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mapper%E6%B3%A8%E5%85%A5%E5%BC%82%E5%B8%B8"><span class="nav-number">9.</span> <span class="nav-text">Mapper注入异常</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#aop%E7%9A%84%E7%8E%AF%E7%BB%95%E9%80%9A%E7%9F%A5%E4%B8%AD%E8%8E%B7%E5%8F%96%E6%89%80%E5%B1%9E%E7%B1%BB%E5%90%8D%E6%89%80%E5%B1%9E%E5%8C%85%E5%90%8D"><span class="nav-number">10.</span> <span class="nav-text">aop的环绕通知中获取所属类名、所属包名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3idea%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E4%B8%ADbuild%E5%A4%B1%E8%B4%A5%E6%8F%90%E7%A4%BA%E5%8C%85%E4%B8%8D%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">11.</span> <span class="nav-text">解决IDEA开发环境中build失败提示包不存在的问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#idea%E5%90%8C%E6%97%B6%E8%B7%91%E4%B8%A4%E4%B8%AA%E9%A1%B9%E7%9B%AE"><span class="nav-number">12.</span> <span class="nav-text">idea同时跑两个项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8aop%E7%9A%84around%E5%90%8E%E6%97%A0%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="nav-number">13.</span> <span class="nav-text">使用AOP的@Around后无返回值</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

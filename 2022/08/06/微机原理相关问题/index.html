@@ -28,7 +28,7 @@
 <meta property="og:description" content="微机原理相关问题">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-06T09:23:35.000Z">
-<meta property="article:modified_time" content="2022-08-24T08:41:03.838Z">
+<meta property="article:modified_time" content="2022-08-28T11:23:43.950Z">
 <meta property="article:author" content="alfa">
 <meta property="article:tag" content="专升本">
 <meta property="article:tag" content="微机原理">
@@ -182,7 +182,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-08-24 16:41:03" itemprop="dateModified" datetime="2022-08-24T16:41:03+08:00">2022-08-24</time>
+                <time title="修改时间：2022-08-28 19:23:43" itemprop="dateModified" datetime="2022-08-28T19:23:43+08:00">2022-08-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -206,63 +206,287 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="第五章习题">第五章习题</h1>
-<ol type="1">
-<li><p>引脚</p></li>
-<li><p>系统总线</p></li>
-<li><p>传输地址信息、数据信息、控制信息的一组导线</p>
-<p>采用标准化总线，使总线传输的数据稳定性更高，统一了行业内的总线标准</p></li>
-<li><p>？</p></li>
-<li><p>高电平有效</p>
-<p>0ffffH：0000</p></li>
-<li><p>高</p>
-<p>低</p></li>
-<li><p>因为8086CPU的地址数据复用引脚在第一个时钟周期输出地址，其余周期输入输出数据，为了保存地址，需要使用地址锁存器</p></li>
-<li><p>数据总线</p>
-<p>地址总线</p>
-<p>控制总线</p></li>
-<li><p>高电平</p>
-<p>低电平</p>
-<p>高阻态</p></li>
-<li><p>T1</p>
-<p>T2</p>
-<p>低</p>
-<p>低</p>
-<p>T1</p>
-<p>T2~T4</p></li>
-<li><figure>
-<img
-src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220824162426119.png"
-alt="image-20220824162426119" />
-<figcaption aria-hidden="true">image-20220824162426119</figcaption>
-</figure></li>
-<li><p>H</p></li>
-<li><p>E</p></li>
-<li><p>低电平</p></li>
-<li><p>高</p>
-<p>0ffffH</p>
-<p>0</p>
-<p>0FFFFH:0000</p></li>
-<li><p>ALE</p>
-<p>地</p>
-<p>DT/R非</p>
-<p>DEN</p></li>
-<li><p>1</p>
-<p>1</p>
-<p>2</p></li>
-<li><p>T3</p>
-<p>高</p>
-<p>Tw</p></li>
-<li><p>8259</p></li>
-<li><p>BC</p></li>
-<li><p>？</p></li>
-<li><p>？</p></li>
-<li><p>T1</p>
-<p>M/IO非</p>
-<p>T1</p>
-<p>低</p>
-<p>T2</p></li>
-</ol>
+        <h1 id="aicw和ocw命令字">8259AICW和OCW命令字</h1>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(A_0\)</span>状态</th>
+<th>特征位</th>
+<th>选中的寄存器</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td><span class="math inline">\(D_4=0、D_3=0\)</span></td>
+<td><span class="math inline">\(OCW_2\)</span></td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td><span class="math inline">\(D_4=0、D_3=1\)</span></td>
+<td><span class="math inline">\(OCW_3\)</span></td>
+</tr>
+<tr class="odd">
+<td>0</td>
+<td><span class="math inline">\(D_4=1、D_0=1\)</span></td>
+<td><span class="math inline">\(ICW_1\)</span></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td></td>
+<td><span class="math inline">\(ICW_2、ICW_3\)</span></td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td><span class="math inline">\(D_7=0、D_6=0、D_5=0\)</span></td>
+<td><span class="math inline">\(OCW_1\)</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="icw_1"><span class="math inline">\(ICW_1\)</span></h2>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 4%" />
+<col style="width: 31%" />
+<col style="width: 7%" />
+<col style="width: 27%" />
+<col style="width: 4%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(D_7\)</span></th>
+<th><span class="math inline">\(D_6\)</span></th>
+<th><span class="math inline">\(D_5\)</span></th>
+<th><span class="math inline">\(D_4\)</span></th>
+<th><span class="math inline">\(D_3\)</span></th>
+<th><span class="math inline">\(D_2\)</span></th>
+<th><span class="math inline">\(D_1\)</span></th>
+<th><span class="math inline">\(D_0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\times\)</span></td>
+<td><span class="math inline">\(\times\)</span></td>
+<td><span class="math inline">\(\times\)</span></td>
+<td>1</td>
+<td>高电平触发（1）；上升沿触发（0）</td>
+<td><span class="math inline">\(\times\)</span></td>
+<td>单片工作（1）；级联方式（0）</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="icw_2"><span class="math inline">\(ICW_2\)</span></h2>
+<p>设置中断类型号基址</p>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(D_7\)</span></th>
+<th><span class="math inline">\(D_6\)</span></th>
+<th><span class="math inline">\(D_5\)</span></th>
+<th><span class="math inline">\(D_4\)</span></th>
+<th><span class="math inline">\(D_3\)</span></th>
+<th><span class="math inline">\(D_2\)</span></th>
+<th><span class="math inline">\(D_1\)</span></th>
+<th><span class="math inline">\(D_0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\times\)</span></td>
+<td><span class="math inline">\(\times\)</span></td>
+<td><span class="math inline">\(\times\)</span></td>
+<td><span class="math inline">\(\times\)</span></td>
+<td><span class="math inline">\(\times\)</span></td>
+<td><span class="math inline">\(\times\)</span></td>
+<td><span class="math inline">\(\times\)</span></td>
+<td><span class="math inline">\(\times\)</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="icw_3"><span class="math inline">\(ICW_3\)</span></h2>
+<p><strong>级联专用</strong></p>
+<p>主片，对应级联从片的位置1，例如<span
+class="math inline">\(IR_6\)</span>级联从片：</p>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(D_7\)</span></th>
+<th><span class="math inline">\(D_6\)</span></th>
+<th><span class="math inline">\(D_5\)</span></th>
+<th><span class="math inline">\(D_4\)</span></th>
+<th><span class="math inline">\(D_3\)</span></th>
+<th><span class="math inline">\(D_2\)</span></th>
+<th><span class="math inline">\(D_1\)</span></th>
+<th><span class="math inline">\(D_0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>从片，<span class="math inline">\(D_2\)</span>~<span
+class="math inline">\(D_0\)</span>的值表示级联主片的位置，例如从片级联到主片<span
+class="math inline">\(IR_6\)</span>上：</p>
+<table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(D_7\)</span></th>
+<th><span class="math inline">\(D_6\)</span></th>
+<th><span class="math inline">\(D_5\)</span></th>
+<th><span class="math inline">\(D_4\)</span></th>
+<th><span class="math inline">\(D_3\)</span></th>
+<th><span class="math inline">\(D_2\)</span></th>
+<th><span class="math inline">\(D_1\)</span></th>
+<th><span class="math inline">\(D_0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\times\)</span></td>
+<td><span class="math inline">\(\times\)</span></td>
+<td><span class="math inline">\(\times\)</span></td>
+<td><span class="math inline">\(\times\)</span></td>
+<td><span class="math inline">\(\times\)</span></td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="icw_4"><span class="math inline">\(ICW_4\)</span></h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 3%" />
+<col style="width: 3%" />
+<col style="width: 3%" />
+<col style="width: 27%" />
+<col style="width: 34%" />
+<col style="width: 25%" />
+<col style="width: 3%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(D_7\)</span></th>
+<th><span class="math inline">\(D_6\)</span></th>
+<th><span class="math inline">\(D_5\)</span></th>
+<th><span class="math inline">\(D_4\)</span></th>
+<th><span class="math inline">\(D_3、D_2\)</span></th>
+<th><span class="math inline">\(D_1\)</span></th>
+<th><span class="math inline">\(D_0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>特殊全嵌套工作方式：1；一般全嵌套工作方式：0</td>
+<td>0、0：非缓冲方式；0、1：缓冲方式从片；1、1：缓冲方式主片</td>
+<td>中断自动结束方式：1；中断非自动结束方式：0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ocw_1"><span class="math inline">\(OCW_1\)</span></h2>
+<p>中断屏蔽字，例如要把<span
+class="math inline">\(IR_6\)</span>屏蔽：</p>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(D_7\)</span></th>
+<th><span class="math inline">\(D_6\)</span></th>
+<th><span class="math inline">\(D_5\)</span></th>
+<th><span class="math inline">\(D_4\)</span></th>
+<th><span class="math inline">\(D_3\)</span></th>
+<th><span class="math inline">\(D_2\)</span></th>
+<th><span class="math inline">\(D_1\)</span></th>
+<th><span class="math inline">\(D_0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ocw_2"><span class="math inline">\(OCW_2\)</span></h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 27%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(D_7\)</span></th>
+<th><span class="math inline">\(D_6\)</span></th>
+<th><span class="math inline">\(D_5\)</span></th>
+<th><span class="math inline">\(D_4\)</span></th>
+<th><span class="math inline">\(D_3\)</span></th>
+<th><span class="math inline">\(D_2\)</span></th>
+<th><span class="math inline">\(D_1\)</span></th>
+<th><span class="math inline">\(D_0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\times\)</span></td>
+<td><span class="math inline">\(\times\)</span></td>
+<td>手动中断停止命令EOI</td>
+<td>0</td>
+<td>0</td>
+<td><span class="math inline">\(\times\)</span></td>
+<td><span class="math inline">\(\times\)</span></td>
+<td><span class="math inline">\(\times\)</span></td>
+</tr>
+</tbody>
+</table>
 
     </div>
 
@@ -347,7 +571,7 @@ alt="image-20220824162426119" />
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0%E4%B9%A0%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">第五章习题</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#aicw%E5%92%8Cocw%E5%91%BD%E4%BB%A4%E5%AD%97"><span class="nav-number">1.</span> <span class="nav-text">8259AICW和OCW命令字</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#icw_1"><span class="nav-number">1.1.</span> <span class="nav-text">\(ICW_1\)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#icw_2"><span class="nav-number">1.2.</span> <span class="nav-text">\(ICW_2\)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#icw_3"><span class="nav-number">1.3.</span> <span class="nav-text">\(ICW_3\)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#icw_4"><span class="nav-number">1.4.</span> <span class="nav-text">\(ICW_4\)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ocw_1"><span class="nav-number">1.5.</span> <span class="nav-text">\(OCW_1\)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ocw_2"><span class="nav-number">1.6.</span> <span class="nav-text">\(OCW_2\)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

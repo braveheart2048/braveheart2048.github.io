@@ -28,69 +28,6 @@ alt="BubbleSort程序流程图" />
       </tags>
   </entry>
   <entry>
-    <title>Java多线程学习总结</title>
-    <url>/2022/07/15/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h1 id="多线程的实现方式">多线程的实现方式</h1>
-<h2 id="通过实现-runnable-接口">通过实现 Runnable 接口</h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ruanyuan;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * TODO</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span> TestThread</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> Alfa</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Data</span> 2022/7/14 15:43</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Version</span> 1.0</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestThread</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        RunnableDemo demo = <span class="keyword">new</span> RunnableDemo();</span><br><span class="line">        <span class="keyword">new</span> Thread(demo).start();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;主线程&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RunnableDemo</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;子线程--&quot;</span>+Thread.currentThread().getName());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>推荐使用Runnable对象,因为Java单继承的局限性</p>
-</blockquote>
-<h2 id="通过继承-thread-类本身">通过继承 Thread 类本身</h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ruanyuan;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * TODO</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span> TestThread</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> Alfa</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Data</span> 2022/7/14 15:43</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Version</span> 1.0</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestThread</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ThreadRDemo demo = <span class="keyword">new</span> ThreadRDemo();</span><br><span class="line">        demo.start();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;主线程&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ThreadRDemo</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;子线程--&quot;</span>+Thread.currentThread().getName());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="线程同步">线程同步</h1>
-<h2 id="线程安全案例一">线程安全案例一</h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ruanyuan;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * TODO</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span> TestThread</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> Alfa</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Data</span> 2022/7/14 15:43</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Version</span> 1.0</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestThread</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//ArrayList线程不安全案例</span></span><br><span class="line">        List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="comment">//开启一万个线程操作list</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">new</span> Thread(() -&gt; &#123;</span><br><span class="line">                list.add(Thread.currentThread().getName());</span><br><span class="line">            &#125;).start();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 主线程睡眠三秒，等待一万个子线程执行完毕</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">3000</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(list.size());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="https://s2.loli.net/2022/07/14/tOSoZzuWDVYLpRF.png"
-alt="image-20220714163801117" />
-<figcaption aria-hidden="true">image-20220714163801117</figcaption>
-</figure>
-<blockquote>
-<p>并发太快，对集合的操作有的重复在了一个位置。</p>
-</blockquote>
-<h3 id="同步代码块">同步代码块</h3>
-<figure>
-<img src="https://s2.loli.net/2022/07/14/RNAzUJGmtpivfFc.png"
-alt="image-20220714171307635" />
-<figcaption aria-hidden="true">image-20220714171307635</figcaption>
-</figure>
-<h2 id="线程安全案例二">线程安全案例二</h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ruanyuan;</span><br><span class="line"></span><br><span class="line"><span class="comment">//不安全买票</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestThread</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        BuyTicket buyTicket = <span class="keyword">new</span> BuyTicket();</span><br><span class="line">        <span class="keyword">new</span> Thread(buyTicket, <span class="string">&quot;张三&quot;</span>).start();</span><br><span class="line">        <span class="keyword">new</span> Thread(buyTicket, <span class="string">&quot;李四&quot;</span>).start();</span><br><span class="line">        <span class="keyword">new</span> Thread(buyTicket, <span class="string">&quot;王五&quot;</span>).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BuyTicket</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="comment">//票</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> ticketNums = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">boolean</span> flag = <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//买票</span></span><br><span class="line">        <span class="keyword">while</span> (flag) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                buy();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//买票</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">buy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//判断是否有票</span></span><br><span class="line">        <span class="keyword">if</span> (ticketNums &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">            flag = <span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//延迟</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">1</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//买票</span></span><br><span class="line">        System.out.println(Thread.currentThread().getName() + <span class="string">&quot;拿到&quot;</span> + ticketNums--);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="https://s2.loli.net/2022/07/14/PONuIji8S3sJUqk.png"
-alt="image-20220714172648484" />
-<figcaption aria-hidden="true">image-20220714172648484</figcaption>
-</figure>
-<h3 id="同步方法">同步方法</h3>
-<figure>
-<img src="https://s2.loli.net/2022/07/14/sHcwK3rkeDSmxGA.png"
-alt="image-20220714173011580" />
-<figcaption aria-hidden="true">image-20220714173011580</figcaption>
-</figure>
-<h1 id="死锁">死锁</h1>
-<h2 id="案例">案例</h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ruanyuan;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 死锁:多个线程互相抱着对方需要的资源,然后形成僵持</span></span><br><span class="line"><span class="comment"> * 解决:一个锁只锁一个对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DeadLock</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        MakeUp g1 = <span class="keyword">new</span> MakeUp(<span class="number">0</span>, <span class="string">&quot;灰姑娘&quot;</span>);</span><br><span class="line">        MakeUp g2 = <span class="keyword">new</span> MakeUp(<span class="number">1</span>,<span class="string">&quot;白雪公主&quot;</span>);</span><br><span class="line"></span><br><span class="line">        g1.start();</span><br><span class="line">        g2.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//口红</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LipStick</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//镜子</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Mirror</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MakeUp</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line">	<span class="comment">//需要的资源只有一份,用static保证只有一份</span></span><br><span class="line">    <span class="keyword">static</span> LipStick lipStick = <span class="keyword">new</span> LipStick();</span><br><span class="line">    <span class="keyword">static</span> Mirror mirror = <span class="keyword">new</span> Mirror();</span><br><span class="line">	</span><br><span class="line">    <span class="comment">//选择</span></span><br><span class="line">    <span class="keyword">int</span> choice;</span><br><span class="line">    <span class="comment">//使用化妆品的人	</span></span><br><span class="line">    String girlName;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MakeUp</span><span class="params">(<span class="keyword">int</span> choice, String girlName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.choice = choice;</span><br><span class="line">        <span class="keyword">this</span>.girlName = girlName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//化妆</span></span><br><span class="line">        makeup();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//化妆，互相持有对方的锁</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">makeup</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (choice == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (lipStick) &#123;</span><br><span class="line">                <span class="comment">// 获得口红的锁</span></span><br><span class="line">                System.out.println(<span class="keyword">this</span>.girlName+<span class="string">&quot;获得口红的锁&quot;</span>);</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">synchronized</span> (mirror) &#123;</span><br><span class="line">                    <span class="comment">//一秒钟后想要获得镜子</span></span><br><span class="line">                    System.out.println(<span class="keyword">this</span>.girlName+<span class="string">&quot;获得镜子的锁&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (mirror) &#123;</span><br><span class="line">                <span class="comment">// 获得镜子的锁</span></span><br><span class="line">                System.out.println(<span class="keyword">this</span>.girlName+<span class="string">&quot;获得镜子的锁&quot;</span>);</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    Thread.sleep(<span class="number">2000</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">synchronized</span> (lipStick) &#123;</span><br><span class="line">                    <span class="comment">//两秒钟后想要获得镜子</span></span><br><span class="line">                    System.out.println(<span class="keyword">this</span>.girlName+<span class="string">&quot;获得口红的锁&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="解决">解决</h2>
-<figure>
-<img src="https://s2.loli.net/2022/07/15/nBF4oYs2OhGwtSr.png"
-alt="image-20220715092321508" />
-<figcaption aria-hidden="true">image-20220715092321508</figcaption>
-</figure>
-<figure>
-<img src="https://s2.loli.net/2022/07/15/2WTCHlyvpXYfZm5.png"
-alt="image-20220715092603663" />
-<figcaption aria-hidden="true">image-20220715092603663</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>岗前实训</category>
-      </categories>
-      <tags>
-        <tag>Java多线程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>HTML相关问题</title>
     <url>/2022/05/28/HTML%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="html-table-标签">HTML table 标签</h1>
@@ -215,6 +152,187 @@ href="https://blog.csdn.net/TTTZZZTTTZZZ/article/details/87015708">原文链接<
       </categories>
       <tags>
         <tag>HTML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java多线程学习总结</title>
+    <url>/2022/07/15/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h1 id="多线程的实现方式">多线程的实现方式</h1>
+<h2 id="通过实现-runnable-接口">通过实现 Runnable 接口</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ruanyuan;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * TODO</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span> TestThread</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> Alfa</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Data</span> 2022/7/14 15:43</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Version</span> 1.0</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestThread</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        RunnableDemo demo = <span class="keyword">new</span> RunnableDemo();</span><br><span class="line">        <span class="keyword">new</span> Thread(demo).start();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;主线程&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RunnableDemo</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;子线程--&quot;</span>+Thread.currentThread().getName());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>推荐使用Runnable对象,因为Java单继承的局限性</p>
+</blockquote>
+<h2 id="通过继承-thread-类本身">通过继承 Thread 类本身</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ruanyuan;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * TODO</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span> TestThread</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> Alfa</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Data</span> 2022/7/14 15:43</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Version</span> 1.0</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestThread</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ThreadRDemo demo = <span class="keyword">new</span> ThreadRDemo();</span><br><span class="line">        demo.start();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;主线程&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ThreadRDemo</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;子线程--&quot;</span>+Thread.currentThread().getName());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="线程同步">线程同步</h1>
+<h2 id="线程安全案例一">线程安全案例一</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ruanyuan;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * TODO</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span> TestThread</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> Alfa</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Data</span> 2022/7/14 15:43</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Version</span> 1.0</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestThread</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//ArrayList线程不安全案例</span></span><br><span class="line">        List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="comment">//开启一万个线程操作list</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">new</span> Thread(() -&gt; &#123;</span><br><span class="line">                list.add(Thread.currentThread().getName());</span><br><span class="line">            &#125;).start();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 主线程睡眠三秒，等待一万个子线程执行完毕</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">3000</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(list.size());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://s2.loli.net/2022/07/14/tOSoZzuWDVYLpRF.png"
+alt="image-20220714163801117" />
+<figcaption aria-hidden="true">image-20220714163801117</figcaption>
+</figure>
+<blockquote>
+<p>并发太快，对集合的操作有的重复在了一个位置。</p>
+</blockquote>
+<h3 id="同步代码块">同步代码块</h3>
+<figure>
+<img src="https://s2.loli.net/2022/07/14/RNAzUJGmtpivfFc.png"
+alt="image-20220714171307635" />
+<figcaption aria-hidden="true">image-20220714171307635</figcaption>
+</figure>
+<h2 id="线程安全案例二">线程安全案例二</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ruanyuan;</span><br><span class="line"></span><br><span class="line"><span class="comment">//不安全买票</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestThread</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        BuyTicket buyTicket = <span class="keyword">new</span> BuyTicket();</span><br><span class="line">        <span class="keyword">new</span> Thread(buyTicket, <span class="string">&quot;张三&quot;</span>).start();</span><br><span class="line">        <span class="keyword">new</span> Thread(buyTicket, <span class="string">&quot;李四&quot;</span>).start();</span><br><span class="line">        <span class="keyword">new</span> Thread(buyTicket, <span class="string">&quot;王五&quot;</span>).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BuyTicket</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="comment">//票</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> ticketNums = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">boolean</span> flag = <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//买票</span></span><br><span class="line">        <span class="keyword">while</span> (flag) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                buy();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//买票</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">buy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//判断是否有票</span></span><br><span class="line">        <span class="keyword">if</span> (ticketNums &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">            flag = <span class="keyword">false</span>;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//延迟</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">1</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//买票</span></span><br><span class="line">        System.out.println(Thread.currentThread().getName() + <span class="string">&quot;拿到&quot;</span> + ticketNums--);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://s2.loli.net/2022/07/14/PONuIji8S3sJUqk.png"
+alt="image-20220714172648484" />
+<figcaption aria-hidden="true">image-20220714172648484</figcaption>
+</figure>
+<h3 id="同步方法">同步方法</h3>
+<figure>
+<img src="https://s2.loli.net/2022/07/14/sHcwK3rkeDSmxGA.png"
+alt="image-20220714173011580" />
+<figcaption aria-hidden="true">image-20220714173011580</figcaption>
+</figure>
+<h1 id="死锁">死锁</h1>
+<h2 id="案例">案例</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ruanyuan;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 死锁:多个线程互相抱着对方需要的资源,然后形成僵持</span></span><br><span class="line"><span class="comment"> * 解决:一个锁只锁一个对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DeadLock</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        MakeUp g1 = <span class="keyword">new</span> MakeUp(<span class="number">0</span>, <span class="string">&quot;灰姑娘&quot;</span>);</span><br><span class="line">        MakeUp g2 = <span class="keyword">new</span> MakeUp(<span class="number">1</span>,<span class="string">&quot;白雪公主&quot;</span>);</span><br><span class="line"></span><br><span class="line">        g1.start();</span><br><span class="line">        g2.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//口红</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LipStick</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//镜子</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Mirror</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MakeUp</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line">	<span class="comment">//需要的资源只有一份,用static保证只有一份</span></span><br><span class="line">    <span class="keyword">static</span> LipStick lipStick = <span class="keyword">new</span> LipStick();</span><br><span class="line">    <span class="keyword">static</span> Mirror mirror = <span class="keyword">new</span> Mirror();</span><br><span class="line">	</span><br><span class="line">    <span class="comment">//选择</span></span><br><span class="line">    <span class="keyword">int</span> choice;</span><br><span class="line">    <span class="comment">//使用化妆品的人	</span></span><br><span class="line">    String girlName;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MakeUp</span><span class="params">(<span class="keyword">int</span> choice, String girlName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.choice = choice;</span><br><span class="line">        <span class="keyword">this</span>.girlName = girlName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//化妆</span></span><br><span class="line">        makeup();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//化妆，互相持有对方的锁</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">makeup</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (choice == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (lipStick) &#123;</span><br><span class="line">                <span class="comment">// 获得口红的锁</span></span><br><span class="line">                System.out.println(<span class="keyword">this</span>.girlName+<span class="string">&quot;获得口红的锁&quot;</span>);</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">synchronized</span> (mirror) &#123;</span><br><span class="line">                    <span class="comment">//一秒钟后想要获得镜子</span></span><br><span class="line">                    System.out.println(<span class="keyword">this</span>.girlName+<span class="string">&quot;获得镜子的锁&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (mirror) &#123;</span><br><span class="line">                <span class="comment">// 获得镜子的锁</span></span><br><span class="line">                System.out.println(<span class="keyword">this</span>.girlName+<span class="string">&quot;获得镜子的锁&quot;</span>);</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    Thread.sleep(<span class="number">2000</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">synchronized</span> (lipStick) &#123;</span><br><span class="line">                    <span class="comment">//两秒钟后想要获得镜子</span></span><br><span class="line">                    System.out.println(<span class="keyword">this</span>.girlName+<span class="string">&quot;获得口红的锁&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="解决">解决</h2>
+<figure>
+<img src="https://s2.loli.net/2022/07/15/nBF4oYs2OhGwtSr.png"
+alt="image-20220715092321508" />
+<figcaption aria-hidden="true">image-20220715092321508</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2022/07/15/2WTCHlyvpXYfZm5.png"
+alt="image-20220715092603663" />
+<figcaption aria-hidden="true">image-20220715092603663</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>岗前实训</category>
+      </categories>
+      <tags>
+        <tag>Java多线程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Maven介绍</title>
+    <url>/2022/05/14/Maven%E4%BB%8B%E7%BB%8D/</url>
+    <content><![CDATA[<h1 id="maven基础">Maven基础</h1>
+<p>Maven是一个Java项目管理和构建工具，它可以定义项目结构、项目依赖，并使用统一的方式进行自动化构建，是Java项目不可缺少的工具。</p>
+<hr />
+<h2 id="maven介绍">Maven介绍</h2>
+<ol type="1">
+<li><p>一个使用Maven管理的普通的Java项目，它的目录结构默认如下：</p>
+<p><img
+src="D:\Blog\source_posts\MavenDescription\image-20220419165550723.png" /></p></li>
+</ol>
+<p>存放Java源码的目录是<code>src/main/java</code>，存放资源文件的目录是<code>src/main/resources</code>，存放测试源码的目录是<code>src/test/java</code>，存放测试资源的目录是<code>src/test/resources</code>，最后，所有编译、打包生成的文件都放在<code>target</code>目录里。</p>
+<h2 id="依赖管理">依赖管理</h2>
+<ol type="1">
+<li><p>Maven解决了依赖管理问题。例如，我们的项目依赖<code>abc</code>这个jar包，而<code>abc</code>又依赖<code>xyz</code>这个jar包：</p>
+<p><img
+src="D:\Blog\source_posts\MavenDescription\image-20220419170045724.png" /></p>
+<p>​
+当我们声明了<code>abc</code>的依赖时，Maven自动把<code>abc</code>和<code>xyz</code>都加入了我们的项目依赖，不需要我们自己去研究<code>abc</code>是否需要依赖<code>xyz</code>。</p></li>
+<li><p>依赖关系</p>
+<p>Maven定义了几种依赖关系，分别是<code>compile</code>、<code>test</code>、<code>runtime</code>和<code>provided</code>：</p>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 66%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">scope</th>
+<th style="text-align: left;">说明</th>
+<th style="text-align: left;">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">compile</td>
+<td style="text-align: left;">编译时需要用到该jar包（默认）</td>
+<td style="text-align: left;">commons-logging</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">test</td>
+<td style="text-align: left;">编译Test时需要用到该jar包</td>
+<td style="text-align: left;">junit</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">runtime</td>
+<td style="text-align: left;">编译时不需要，但运行时需要用到</td>
+<td style="text-align: left;">mysql</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">provided</td>
+<td
+style="text-align: left;">编译时需要用到，但运行时由JDK或某个服务器提供</td>
+<td style="text-align: left;">servlet-api</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>唯一ID</p>
+<p>对于某个依赖，Maven只需要3个变量即可唯一确定某个jar包：</p>
+<ul>
+<li>groupId：属于组织的名称，类似Java的包名；</li>
+<li>artifactId：该jar包自身的名称，类似Java的类名；</li>
+<li>version：该jar包的版本。</li>
+</ul></li>
+<li><p>Maven镜像</p>
+<p>中国区用户可以使用阿里云提供的Maven镜像仓库。使用Maven镜像仓库需要一个配置，在用户主目录下进入<code>.m2</code>目录，创建一个<code>settings.xml</code>配置文件，内容如下：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">settings</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirrors</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">id</span>&gt;</span>aliyun<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 国内推荐阿里云的Maven镜像 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://maven.aliyun.com/repository/central<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mirrors</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">settings</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>搜索第三方组件</p>
+<p>最后一个问题：如果我们要引用一个第三方组件，比如<code>okhttp</code>，如何确切地获得它的<code>groupId</code>、<code>artifactId</code>和<code>version</code>？方法是通过<a
+href="https://search.maven.org/">search.maven.org</a>搜索关键字，找到对应的组件后，直接复制</p></li>
+</ol>
+<p><strong>小结</strong></p>
+<p>Maven通过解析依赖关系确定项目所需的jar包，常用的4种<code>scope</code>有：<code>compile</code>（默认），<code>test</code>，<code>runtime</code>和<code>provided</code>；</p>
+<p>Maven从中央仓库下载所需的jar包并缓存在本地；</p>
+<p>可以通过镜像仓库加速下载。</p>
+]]></content>
+      <categories>
+        <category>大二生涯</category>
+      </categories>
+      <tags>
+        <tag>maven</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySql问题整理</title>
+    <url>/2022/07/09/MySql%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<h1
+id="mysql数据库中查看数据库的字符集">mysql数据库中,查看数据库的字符集</h1>
+<ul>
+<li><p>查看实例中所有数据库的字符集</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> schema_name,default_character_set_name <span class="keyword">from</span> information_schema.schemata;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="mysql修改数据库字符集的方法">MySQL修改数据库字符集的方法</h1>
+<ul>
+<li><p>修改库的字符集</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">alter</span> database 库名 <span class="keyword">default</span> <span class="type">character</span> <span class="keyword">set</span> 字符集;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="控制台进入mysql">控制台进入mysql</h1>
+<p><strong>连接mysql数据库</strong></p>
+<ol type="1">
+<li>首先打开cmd进入dos窗口</li>
+<li>键入命令：<code>mysql -uroot -p</code>
+回车，提示输入密码，输入密码回车就可以了</li>
+</ol>
+<h1
+id="启动springboot项目发生errorcode-1045-state-28000">启动springboot项目发生：errorCode
+1045, state 28000</h1>
+<p>数据库的<code>1045</code>通常是密码或者用户名错误导致</p>
+]]></content>
+      <categories>
+        <category>岗前实训</category>
+      </categories>
+      <tags>
+        <tag>MySql</tag>
       </tags>
   </entry>
   <entry>
@@ -612,124 +730,6 @@ id="try-catch-finally-中如果-catch-中-return-了finally-还会执行吗">try
       </tags>
   </entry>
   <entry>
-    <title>Maven介绍</title>
-    <url>/2022/05/14/Maven%E4%BB%8B%E7%BB%8D/</url>
-    <content><![CDATA[<h1 id="maven基础">Maven基础</h1>
-<p>Maven是一个Java项目管理和构建工具，它可以定义项目结构、项目依赖，并使用统一的方式进行自动化构建，是Java项目不可缺少的工具。</p>
-<hr />
-<h2 id="maven介绍">Maven介绍</h2>
-<ol type="1">
-<li><p>一个使用Maven管理的普通的Java项目，它的目录结构默认如下：</p>
-<p><img
-src="D:\Blog\source_posts\MavenDescription\image-20220419165550723.png" /></p></li>
-</ol>
-<p>存放Java源码的目录是<code>src/main/java</code>，存放资源文件的目录是<code>src/main/resources</code>，存放测试源码的目录是<code>src/test/java</code>，存放测试资源的目录是<code>src/test/resources</code>，最后，所有编译、打包生成的文件都放在<code>target</code>目录里。</p>
-<h2 id="依赖管理">依赖管理</h2>
-<ol type="1">
-<li><p>Maven解决了依赖管理问题。例如，我们的项目依赖<code>abc</code>这个jar包，而<code>abc</code>又依赖<code>xyz</code>这个jar包：</p>
-<p><img
-src="D:\Blog\source_posts\MavenDescription\image-20220419170045724.png" /></p>
-<p>​
-当我们声明了<code>abc</code>的依赖时，Maven自动把<code>abc</code>和<code>xyz</code>都加入了我们的项目依赖，不需要我们自己去研究<code>abc</code>是否需要依赖<code>xyz</code>。</p></li>
-<li><p>依赖关系</p>
-<p>Maven定义了几种依赖关系，分别是<code>compile</code>、<code>test</code>、<code>runtime</code>和<code>provided</code>：</p>
-<table>
-<colgroup>
-<col style="width: 11%" />
-<col style="width: 66%" />
-<col style="width: 22%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">scope</th>
-<th style="text-align: left;">说明</th>
-<th style="text-align: left;">示例</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">compile</td>
-<td style="text-align: left;">编译时需要用到该jar包（默认）</td>
-<td style="text-align: left;">commons-logging</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">test</td>
-<td style="text-align: left;">编译Test时需要用到该jar包</td>
-<td style="text-align: left;">junit</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">runtime</td>
-<td style="text-align: left;">编译时不需要，但运行时需要用到</td>
-<td style="text-align: left;">mysql</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">provided</td>
-<td
-style="text-align: left;">编译时需要用到，但运行时由JDK或某个服务器提供</td>
-<td style="text-align: left;">servlet-api</td>
-</tr>
-</tbody>
-</table></li>
-<li><p>唯一ID</p>
-<p>对于某个依赖，Maven只需要3个变量即可唯一确定某个jar包：</p>
-<ul>
-<li>groupId：属于组织的名称，类似Java的包名；</li>
-<li>artifactId：该jar包自身的名称，类似Java的类名；</li>
-<li>version：该jar包的版本。</li>
-</ul></li>
-<li><p>Maven镜像</p>
-<p>中国区用户可以使用阿里云提供的Maven镜像仓库。使用Maven镜像仓库需要一个配置，在用户主目录下进入<code>.m2</code>目录，创建一个<code>settings.xml</code>配置文件，内容如下：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">settings</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirrors</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">id</span>&gt;</span>aliyun<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 国内推荐阿里云的Maven镜像 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://maven.aliyun.com/repository/central<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mirrors</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">settings</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li><p>搜索第三方组件</p>
-<p>最后一个问题：如果我们要引用一个第三方组件，比如<code>okhttp</code>，如何确切地获得它的<code>groupId</code>、<code>artifactId</code>和<code>version</code>？方法是通过<a
-href="https://search.maven.org/">search.maven.org</a>搜索关键字，找到对应的组件后，直接复制</p></li>
-</ol>
-<p><strong>小结</strong></p>
-<p>Maven通过解析依赖关系确定项目所需的jar包，常用的4种<code>scope</code>有：<code>compile</code>（默认），<code>test</code>，<code>runtime</code>和<code>provided</code>；</p>
-<p>Maven从中央仓库下载所需的jar包并缓存在本地；</p>
-<p>可以通过镜像仓库加速下载。</p>
-]]></content>
-      <categories>
-        <category>大二生涯</category>
-      </categories>
-      <tags>
-        <tag>maven</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MySql问题整理</title>
-    <url>/2022/07/09/MySql%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<h1
-id="mysql数据库中查看数据库的字符集">mysql数据库中,查看数据库的字符集</h1>
-<ul>
-<li><p>查看实例中所有数据库的字符集</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> schema_name,default_character_set_name <span class="keyword">from</span> information_schema.schemata;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="mysql修改数据库字符集的方法">MySQL修改数据库字符集的方法</h1>
-<ul>
-<li><p>修改库的字符集</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">alter</span> database 库名 <span class="keyword">default</span> <span class="type">character</span> <span class="keyword">set</span> 字符集;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="控制台进入mysql">控制台进入mysql</h1>
-<p><strong>连接mysql数据库</strong></p>
-<ol type="1">
-<li>首先打开cmd进入dos窗口</li>
-<li>键入命令：<code>mysql -uroot -p</code>
-回车，提示输入密码，输入密码回车就可以了</li>
-</ol>
-<h1
-id="启动springboot项目发生errorcode-1045-state-28000">启动springboot项目发生：errorCode
-1045, state 28000</h1>
-<p>数据库的<code>1045</code>通常是密码或者用户名错误导致</p>
-]]></content>
-      <categories>
-        <category>岗前实训</category>
-      </categories>
-      <tags>
-        <tag>MySql</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Spring MVC企业面试题</title>
     <url>/2022/05/14/Spring%20MVC%E4%BC%81%E4%B8%9A%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
     <content><![CDATA[<h1 id="spring-mvc企业面试题"><strong>Spring MVC企业面试题</strong></h1>
@@ -893,6 +893,47 @@ data-cites="RequestMapping">@RequestMapping</span>(value = "/index")
       <tags>
         <tag>spring</tag>
         <tag>spring MVC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Redis学习整理</title>
+    <url>/2022/06/09/Redis%20%E5%AD%A6%E4%B9%A0%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<h1 id="打开redis">打开redis</h1>
+<ol type="1">
+<li><figure>
+<img
+src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220620110123304.png"
+alt="image-20220620110123304" />
+<figcaption aria-hidden="true">image-20220620110123304</figcaption>
+</figure>
+<blockquote>
+<p>这时候另启一个 cmd 窗口，原来的不要关闭，不然就无法访问服务端了。</p>
+</blockquote></li>
+<li><figure>
+<img
+src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220620110253220.png"
+alt="image-20220620110253220" />
+<figcaption aria-hidden="true">image-20220620110253220</figcaption>
+</figure></li>
+</ol>
+<h1
+id="我们可以通过以下命令查看是否设置了密码验证">我们可以通过以下命令查看是否设置了密码验证</h1>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">127.0.0.1:6379&gt; CONFIG get requirepass</span><br><span class="line">1) &quot;requirepass&quot;</span><br><span class="line">2) &quot;&quot;</span><br></pre></td></tr></table></figure>
+<p>默认情况下 requirepass
+参数是空的，这就意味着你无需通过密码验证就可以连接到 redis 服务。</p>
+<h1
+id="rdm-redis可视化工具编辑redis连接信息">RDM-Redis可视化工具编辑Redis连接信息</h1>
+<figure>
+<img src="https://s2.loli.net/2022/07/12/iwD3V6vFt5jzKuI.png"
+alt="image-20220712152846004" />
+<figcaption aria-hidden="true">image-20220712152846004</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>大二生涯</category>
+      </categories>
+      <tags>
+        <tag>redis</tag>
       </tags>
   </entry>
   <entry>
@@ -1176,44 +1217,60 @@ alt="image-20220718122953122" />
       </tags>
   </entry>
   <entry>
-    <title>Redis学习整理</title>
-    <url>/2022/06/09/Redis%20%E5%AD%A6%E4%B9%A0%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<h1 id="打开redis">打开redis</h1>
+    <title>快速学习时序图：时序图简介、画法及实例</title>
+    <url>/2022/05/14/UML%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h1
+id="快速学习时序图时序图简介画法及实例"><strong>快速学习时序图：时序图简介、画法及实例</strong></h1>
+<h2 id="组成元素有哪些"><strong>组成元素有哪些？</strong></h2>
 <ol type="1">
-<li><figure>
-<img
-src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220620110123304.png"
-alt="image-20220620110123304" />
-<figcaption aria-hidden="true">image-20220620110123304</figcaption>
-</figure>
-<blockquote>
-<p>这时候另启一个 cmd 窗口，原来的不要关闭，不然就无法访问服务端了。</p>
-</blockquote></li>
-<li><figure>
-<img
-src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220620110253220.png"
-alt="image-20220620110253220" />
-<figcaption aria-hidden="true">image-20220620110253220</figcaption>
-</figure></li>
+<li><p>角色（Actor）</p></li>
+<li><p>对象（Object）</p></li>
+<li><p>生命线（Lifeline）</p></li>
+<li><p>控制焦点（Focus of Control）</p></li>
+<li><p>消息（Message）</p></li>
+<li><p>自关联消息</p></li>
+<li><p>组合片段</p>
+<p>组合片段用来解决交互执行的条件和方式，它允许在序列图中直接表示逻辑组件，用于通过指定条件或子进程的应用区域，为任何生命线的任何部分定义特殊条件和子进程。组合片段共有13种，名称及含义如下：</p>
+<p><img src="http://www.uml.org.cn/oobject/images/2019092021.png" /></p>
+<p>常用组合片段举例：</p>
+<ol type="1">
+<li><p>抉择（Alt）</p>
+<p>抉择在任何场合下只发生一个序列。</p>
+<p><img
+src="http://www.uml.org.cn/oobject/images/2019092022.png" /></p></li>
+<li><p>选项（Opt）</p>
+<p>包含一个可能发生或不发生的序列；</p>
+<p><img
+src="http://www.uml.org.cn/oobject/images/2019092023.png" /></p></li>
+<li><p>循环（Loop）</p>
+<p>片段重复一定次数，可以在临界中指示片段重复的条件。</p>
+<p><img
+src="http://www.uml.org.cn/oobject/images/2019092024.png" /></p></li>
+<li><p>并行（Par）</p>
+<p><img
+src="http://www.uml.org.cn/oobject/images/2019092025.png" /></p></li>
+</ol></li>
 </ol>
-<h1
-id="我们可以通过以下命令查看是否设置了密码验证">我们可以通过以下命令查看是否设置了密码验证</h1>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">127.0.0.1:6379&gt; CONFIG get requirepass</span><br><span class="line">1) &quot;requirepass&quot;</span><br><span class="line">2) &quot;&quot;</span><br></pre></td></tr></table></figure>
-<p>默认情况下 requirepass
-参数是空的，这就意味着你无需通过密码验证就可以连接到 redis 服务。</p>
-<h1
-id="rdm-redis可视化工具编辑redis连接信息">RDM-Redis可视化工具编辑Redis连接信息</h1>
-<figure>
-<img src="https://s2.loli.net/2022/07/12/iwD3V6vFt5jzKuI.png"
-alt="image-20220712152846004" />
-<figcaption aria-hidden="true">image-20220712152846004</figcaption>
-</figure>
+<h2 id="时序图的画法及实例"><strong>时序图的画法及实例</strong></h2>
+<ol type="1">
+<li><p>划清边界，识别交互的语境</p>
+<p>所谓划清边界，就是要界定好自己所要画的时序图的范围，“学生在教务系统中查询其课程的成绩”就是所要绘制的时序图的交互内容，不用往上延伸到用户登录，也不要往下延伸到下载成绩单。</p>
+<p>识别交互的语境，即是读懂所要画的时序图的前提和背景。比如本例中，既然学生可以查询成绩，那么该学生肯定已经注册并认证过其身份，并可选择其所考试的课程查询相应成绩。</p></li>
+<li><p>梳理角色和对象</p>
+<p>在本例中，角色有学生，对象有教务系统、课程、成绩。</p>
+<p>对象的梳理是一个相对主观的过程，比如本例中，课程以及成绩分别作为了对象存在，也可以合并为数据库这一个对象。</p>
+<p>请注意：角色以及对象，都为名词，动词不可作为角色和对象，如“成绩查询”不可作为对象。</p>
+<p><img src="http://www.uml.org.cn/oobject/images/2019092026.png" style="zoom:50%;" /></p></li>
+<li><p>添加消息</p>
+<p>学生的登录验证作为本时序图的前置行为，可直接引用到本时序图中，也可忽略不画；学生进入成绩查询页面后，页面会加载本学生的成绩查询课程列表，并显示出课程对应的成绩；</p>
+<p><img src="http://www.uml.org.cn/oobject/images/2019092027.png" style="zoom:50%;" /></p></li>
+</ol>
 ]]></content>
       <categories>
         <category>大二生涯</category>
       </categories>
       <tags>
-        <tag>redis</tag>
+        <tag>UML</tag>
       </tags>
   </entry>
   <entry>
@@ -1454,60 +1511,423 @@ alt="image-20220717140536975" />
       </tags>
   </entry>
   <entry>
-    <title>快速学习时序图：时序图简介、画法及实例</title>
-    <url>/2022/05/14/UML%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<h1
-id="快速学习时序图时序图简介画法及实例"><strong>快速学习时序图：时序图简介、画法及实例</strong></h1>
-<h2 id="组成元素有哪些"><strong>组成元素有哪些？</strong></h2>
+    <title>idea使用问题</title>
+    <url>/2022/05/20/idea%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="idea快捷键">idea快捷键</h1>
+<p><strong><em><a
+href="https://blog.csdn.net/qq_38963960/article/details/89552704">原文链接</a></em></strong></p>
 <ol type="1">
-<li><p>角色（Actor）</p></li>
-<li><p>对象（Object）</p></li>
-<li><p>生命线（Lifeline）</p></li>
-<li><p>控制焦点（Focus of Control）</p></li>
-<li><p>消息（Message）</p></li>
-<li><p>自关联消息</p></li>
-<li><p>组合片段</p>
-<p>组合片段用来解决交互执行的条件和方式，它允许在序列图中直接表示逻辑组件，用于通过指定条件或子进程的应用区域，为任何生命线的任何部分定义特殊条件和子进程。组合片段共有13种，名称及含义如下：</p>
-<p><img src="http://www.uml.org.cn/oobject/images/2019092021.png" /></p>
-<p>常用组合片段举例：</p>
-<ol type="1">
-<li><p>抉择（Alt）</p>
-<p>抉择在任何场合下只发生一个序列。</p>
-<p><img
-src="http://www.uml.org.cn/oobject/images/2019092022.png" /></p></li>
-<li><p>选项（Opt）</p>
-<p>包含一个可能发生或不发生的序列；</p>
-<p><img
-src="http://www.uml.org.cn/oobject/images/2019092023.png" /></p></li>
-<li><p>循环（Loop）</p>
-<p>片段重复一定次数，可以在临界中指示片段重复的条件。</p>
-<p><img
-src="http://www.uml.org.cn/oobject/images/2019092024.png" /></p></li>
-<li><p>并行（Par）</p>
-<p><img
-src="http://www.uml.org.cn/oobject/images/2019092025.png" /></p></li>
-</ol></li>
+<li><h2 id="ctrl">Ctrl</h2>
+<table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 85%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">快捷键</th>
+<th style="text-align: left;">介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Ctrl + Z</td>
+<td style="text-align: left;">撤销</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ctrl + Tab</td>
+<td
+style="text-align: left;">编辑窗口切换，如果在切换的过程又加按上delete，则是关闭对应选中的窗口</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ctrl + W</td>
+<td
+style="text-align: left;">递进式选择代码块。可选中光标所在的单词或段落，连续按会在原有选中的基础上再扩展选中范围</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ctrl + Q</td>
+<td style="text-align: left;">光标所在的变量 / 类名 /
+方法名等上面（也可以在提示补充的时候按），显示文档内容</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ctrl + B</td>
+<td
+style="text-align: left;">进入光标所在的方法/变量的接口或是定义出，等效于
+<code>Ctrl + 左键单击</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ctrl + [</td>
+<td
+style="text-align: left;">移动光标到当前所在代码的花括号开始位置</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ctrl + ]</td>
+<td
+style="text-align: left;">移动光标到当前所在代码的花括号结束位置</td>
+</tr>
+</tbody>
+</table></li>
+<li><h2 id="alt">Alt</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">快捷键</th>
+<th style="text-align: left;">介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Alt + 1,2,3...9</td>
+<td style="text-align: left;">显示对应数值的选项卡，其中 1 是 Project
+用得最多</td>
+</tr>
+</tbody>
+</table></li>
+<li><h2 id="shift">Shift</h2>
+<table>
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 72%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">快捷键</th>
+<th style="text-align: left;">介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Shift + F6</td>
+<td style="text-align: left;">对文件 / 文件夹 重命名</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Shift + Enter</td>
+<td
+style="text-align: left;">开始新一行。光标所在行下空出一行，光标定位到新行位置</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Shift + 滚轮前后滚动</td>
+<td style="text-align: left;">当前文件的横向滚动轴滚动</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">shift + F11</td>
+<td style="text-align: left;">编辑书签</td>
+</tr>
+</tbody>
+</table></li>
+<li><h2 id="ctrl-alt">Ctrl + Alt</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">快捷键</th>
+<th style="text-align: left;">介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Ctrl + Alt + L</td>
+<td
+style="text-align: left;">格式化代码，可以对当前文件和整个包目录使用</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ctrl + Alt + O</td>
+<td
+style="text-align: left;">优化导入的类，可以对当前文件和整个包目录使用</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ctrl + Alt + Enter</td>
+<td style="text-align: left;">光标所在行上空出一行，光标定位到新行</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ctrl + Alt + 左方向键</td>
+<td style="text-align: left;">退回到上一个操作的地方</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ctrl + Alt + 右方向键</td>
+<td style="text-align: left;">前进到上一个操作的地方</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ctrl + alt + B</td>
+<td style="text-align: left;">查找接口的实现类</td>
+</tr>
+</tbody>
+</table></li>
+<li><h2 id="ctrl-shift">Ctrl + Shift</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 75%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">快捷键</th>
+<th style="text-align: left;">介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Ctrl + Shift + Z</td>
+<td style="text-align: left;">取消撤销</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ctrl + Shift + W</td>
+<td
+style="text-align: left;">递进式取消选择代码块。可选中光标所在的单词或段落，连续按会在原有选中的基础上再扩展取消选中范围</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ctrl + Shift + U</td>
+<td style="text-align: left;">对选中的代码进行大 / 小写轮流转换</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ctrl + Shift + Enter</td>
+<td style="text-align: left;">自动结束代码，行末自动添加分号</td>
+</tr>
+</tbody>
+</table></li>
+<li><h2 id="alt-shift">Alt + Shift</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">快捷键</th>
+<th style="text-align: left;">介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Alt + Shift + 前方向键</td>
+<td style="text-align: left;">移动光标所在行向上移动</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Alt + Shift + 后方向键</td>
+<td style="text-align: left;">移动光标所在行向下移动</td>
+</tr>
+</tbody>
+</table></li>
+<li><h2 id="其他">其他</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">快捷键</th>
+<th style="text-align: left;">介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">F2</td>
+<td style="text-align: left;">跳转到下一个高亮错误 或 警告位置</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">F11</td>
+<td style="text-align: left;">创建书签</td>
+</tr>
+</tbody>
+</table></li>
 </ol>
-<h2 id="时序图的画法及实例"><strong>时序图的画法及实例</strong></h2>
-<ol type="1">
-<li><p>划清边界，识别交互的语境</p>
-<p>所谓划清边界，就是要界定好自己所要画的时序图的范围，“学生在教务系统中查询其课程的成绩”就是所要绘制的时序图的交互内容，不用往上延伸到用户登录，也不要往下延伸到下载成绩单。</p>
-<p>识别交互的语境，即是读懂所要画的时序图的前提和背景。比如本例中，既然学生可以查询成绩，那么该学生肯定已经注册并认证过其身份，并可选择其所考试的课程查询相应成绩。</p></li>
-<li><p>梳理角色和对象</p>
-<p>在本例中，角色有学生，对象有教务系统、课程、成绩。</p>
-<p>对象的梳理是一个相对主观的过程，比如本例中，课程以及成绩分别作为了对象存在，也可以合并为数据库这一个对象。</p>
-<p>请注意：角色以及对象，都为名词，动词不可作为角色和对象，如“成绩查询”不可作为对象。</p>
-<p><img src="http://www.uml.org.cn/oobject/images/2019092026.png" style="zoom:50%;" /></p></li>
-<li><p>添加消息</p>
-<p>学生的登录验证作为本时序图的前置行为，可直接引用到本时序图中，也可忽略不画；学生进入成绩查询页面后，页面会加载本学生的成绩查询课程列表，并显示出课程对应的成绩；</p>
-<p><img src="http://www.uml.org.cn/oobject/images/2019092027.png" style="zoom:50%;" /></p></li>
-</ol>
+<h1
+id="如何使用idea中自带的数据库database">如何使用IDEA中自带的数据库database！</h1>
+<blockquote>
+<p>打开后自己填入信息 点击确定后会下载相应驱动，等待即可！</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2022/05/26/FiRzKcaf1AEWUV6.png" style="zoom:50%;" /></p>
+<h1
+id="idea连接数据库-the-specified-database-userpassword-combination-is-rejected-com.mysql.cj报错">idea连接数据库
+The specified database user/password combination is rejected:
+com.mysql.cj报错</h1>
+<blockquote>
+<p>报错如下图：</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2022/05/26/vyXs1GZLY7REqrh.png" style="zoom:50%;" /></p>
+<blockquote>
+<p>解决方法：更换链接地址</p>
+</blockquote>
+<p><strong><em>jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=UTF8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</em></strong></p>
+<h1 id="idea配置外部tomcat访问路径">idea配置外部tomcat访问路径</h1>
+<blockquote>
+<p>需要配置两个地方，改一处就行</p>
+</blockquote>
+<figure>
+<img src="https://s2.loli.net/2022/07/06/OoTDIkaBSur1zCn.png"
+alt="image-20220704104127339" />
+<figcaption aria-hidden="true">image-20220704104127339</figcaption>
+</figure>
+<figure>
+<img src="https://s2.loli.net/2022/07/06/BUlqtnYXDePopVW.png"
+alt="image-20220704104218184" />
+<figcaption aria-hidden="true">image-20220704104218184</figcaption>
+</figure>
+<h1 id="解决-spring-boot-devtool-热部署后出现访问404问题">解决 spring
+boot devtool 热部署后出现访问404问题</h1>
+<p>DevTools的检测时间和idea的编译所需时间存在差异。在idea还没完成编译工作前，DevTools就开始进行重启和加载，导致@RequestMapping没有被全部正常处理。其他方法没试，就直接用了看起来最简单的方法：牺牲一点时间，去加长devtools的轮询时间，增大等待时间。</p>
+<figure>
+<img src="https://s2.loli.net/2022/07/06/pfZChkat4lKXr2G.png"
+alt="image-20220705170634571" />
+<figcaption aria-hidden="true">image-20220705170634571</figcaption>
+</figure>
+<h1
+id="解决idea中-could-not-autowire.-no-beans-of-xxxx-type-found-的错误提示">解决IDEA中
+Could not autowire. No beans of 'xxxx' type found 的错误提示</h1>
+<p>修改IDEA设置,降低Autowired检测的级别，将Severity的级别由之前的error改成warning或其它可以忽略的级别。</p>
+<figure>
+<img src="https://s2.loli.net/2022/07/06/DtFU3sXykqIdnVC.png"
+alt="image-20220706095122340" />
+<figcaption aria-hidden="true">image-20220706095122340</figcaption>
+</figure>
+<h1
+id="idea报错cannot-download-httpsstart.spring.io-connect-timed-out">idea报错：Cannot
+download ‘https://start.spring.io‘: connect timed out</h1>
+<blockquote>
+<p><strong>报错问题描述</strong></p>
+</blockquote>
+<figure>
+<img src="https://s2.loli.net/2022/07/08/54lTGrXnIviHENg.png"
+alt="在这里插入图片描述" />
+<figcaption aria-hidden="true">在这里插入图片描述</figcaption>
+</figure>
+<blockquote>
+<p><strong>解决方法</strong></p>
+</blockquote>
+<p>添加aliyun地址，将默认的地址更改为aliyun地址</p>
+<p><strong>https://start.aliyun.com/</strong></p>
+<figure>
+<img src="https://s2.loli.net/2022/07/15/TW7G4lwkJ3APQrY.png"
+alt="在这里插入图片描述" />
+<figcaption aria-hidden="true">在这里插入图片描述</figcaption>
+</figure>
+<h1 id="idea注释有空格">IDEA注释有空格</h1>
+<p>问题描述</p>
+<figure>
+<img src="https://s2.loli.net/2022/07/15/c4VQ2NtPThO1RaB.png"
+alt="在这里插入图片描述" />
+<figcaption aria-hidden="true">在这里插入图片描述</figcaption>
+</figure>
+<p>解决方法</p>
+<p><strong>setting-&gt;Editor-&gt;Code Style-&gt;HTML-&gt;Code
+Gerneration</strong> 取消掉 <strong>Comments</strong> 下面 两个选项
+就可以了,要是不放心,把Code Style下面的每个格式的文件的Code
+Generation都取消掉,如下图所示:</p>
+<figure>
+<img src="https://s2.loli.net/2022/07/15/XhY4xn5NU3qwJAy.png"
+alt="在这里插入图片描述" />
+<figcaption aria-hidden="true">在这里插入图片描述</figcaption>
+</figure>
+<blockquote>
+<p><a
+href="https://blog.csdn.net/qq_37844454/article/details/112795620">原文链接</a></p>
+</blockquote>
+<h1
+id="idea编辑器控制台显示中文乱码的解决方案">IDEA编辑器控制台显示中文乱码的解决方案</h1>
+<p>解决办法是：<strong>找到 .idea
+文件夹（</strong>每个idea项目，都会有一个.idea的目录的<strong>），里面有个<code>encodings.xml</code>
+的文件，然后除了<code>UTF-8</code> 的都删了。</strong></p>
 ]]></content>
       <categories>
         <category>大二生涯</category>
       </categories>
       <tags>
-        <tag>UML</tag>
+        <tag>快捷键</tag>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>el和jstl表达式</title>
+    <url>/2022/05/27/el%E5%92%8Cjstl%E8%A1%A8%E8%BE%BE%E5%BC%8F%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<p>el即Expression Language，用来在jsp页面上显示内容，jstl是JSP Standard
+Tag Library的缩写，包含多种标签，el和jstl结合使用，页面渲染更方便。</p>
+<hr />
+<h1 id="el内置对象">EL内置对象</h1>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 78%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">内置对象</th>
+<th style="text-align: left;">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">pageScope</td>
+<td style="text-align: left;">获取 page 范围的变量</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">requestScope</td>
+<td style="text-align: left;">获取 request 范围的变量</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sessionScope</td>
+<td style="text-align: left;">获取 session 范围的变量</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">applicationScope</td>
+<td style="text-align: left;">获取 application 范围的变量</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">param</td>
+<td style="text-align: left;">相当于 request.getParameter(String
+name)，获取单个参数的值</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">paramValues</td>
+<td style="text-align: left;">相当于 request.getParameterValues(String
+name)，获取参数集合中的变量值</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">header</td>
+<td style="text-align: left;">相当于 request.getHeader(String
+name)，获取 HTTP 请求头信息</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">headerValues</td>
+<td style="text-align: left;">相当于 request.getHeaders(String
+name)，获取 HTTP 请求头数组信息</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">initParam</td>
+<td style="text-align: left;">相当于 application.getInitParameter(String
+name)，获取 web.xml 文件中的参数值</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">cookie</td>
+<td style="text-align: left;">相当于 request.getCookies()，获取 cookie
+中的值</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">pageContext</td>
+<td style="text-align: left;">表示当前 JSP 页面的 pageContext 对象</td>
+</tr>
+</tbody>
+</table>
+<p>EL 表达式获取 4 种不同范围的属性，代码如下：</p>
+<figure class="highlight jsp"><table><tr><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">&quot;java&quot;</span> contentType=<span class="string">&quot;text/html; charset=UTF-8&quot;</span></span><br><span class="line">    pageEncoding=<span class="string">&quot;UTF-8&quot;</span>%&gt;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;title&gt;编程帮(www.biancheng.net)&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;%</span><br><span class="line">        pageContext.setAttribute(<span class="string">&quot;info&quot;</span>, <span class="string">&quot;page属性范围&quot;</span>);</span><br><span class="line">        request.setAttribute(<span class="string">&quot;info&quot;</span>, <span class="string">&quot;request属性范围&quot;</span>);</span><br><span class="line">        session.setAttribute(<span class="string">&quot;info&quot;</span>, <span class="string">&quot;session属性范围&quot;</span>);</span><br><span class="line">        application.setAttribute(<span class="string">&quot;info&quot;</span>, <span class="string">&quot;application属性范围&quot;</span>);</span><br><span class="line">    %&gt;</span><br><span class="line">    &lt;h2&gt;不同属性范围的值&lt;/h2&gt;</span><br><span class="line">    &lt;hr /&gt;</span><br><span class="line">    不指定范围：$&#123;info&#125;</span><br><span class="line">    &lt;br&gt; page 属性内容：$&#123;pageScope.info&#125;</span><br><span class="line">    &lt;br&gt; request 属性内容：$&#123;requestScope.info&#125;</span><br><span class="line">    &lt;br&gt;session 属性内容：$&#123;sessionScope.info&#125;</span><br><span class="line">    &lt;br&gt;application 属性内容：$&#123;applicationScope.info&#125;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<hr />
+<h1
+id="jstl标签很多笔记一下我常用到的标签">jstl标签很多，笔记一下我常用到的标签</h1>
+<p><strong>if</strong></p>
+<p>语法：</p>
+<figure class="highlight jsp"><table><tr><td class="code"><pre><span class="line">&lt;c:<span class="keyword">if</span> test=<span class="string">&quot;$&#123;one.name eq &#x27;nick&#x27;&#125;&quot;</span>&gt;</span><br><span class="line">                &lt;tr&gt;</span><br><span class="line">                    &lt;td&gt;nick&lt;/td&gt;</span><br><span class="line">                &lt;/tr&gt;</span><br><span class="line">&lt;/c:<span class="keyword">if</span>&gt;</span><br></pre></td></tr></table></figure>
+<hr />
+<p><strong>c:forEach标签</strong></p>
+<p>语法:</p>
+<figure class="highlight jsp"><table><tr><td class="code"><pre><span class="line">&lt;c:forEach item=<span class="string">&quot;collection&quot;</span> [<span class="keyword">var</span>=<span class="string">&quot;varname&quot;</span> [varStatus=<span class="string">&quot;varstatusName&quot;</span>] [begin=<span class="string">&quot;开始&quot;</span>] [end=<span class="string">&quot;结束&quot;</span>] [step=<span class="string">&quot;step&quot;</span>]]&gt;</span><br><span class="line">    Java程序或HTML代码</span><br><span class="line">&lt;/c:forEach&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong><em>items：要被循环的信息，可以是数组、Java
+集合等；</em></strong></li>
+<li><strong><em>var：可选项，指定迭代之的别名；</em></strong></li>
+</ul>
+<h1
+id="核心标签是最常用的-jstl标签引用核心标签库的语法如下">核心标签是最常用的
+JSTL标签。引用核心标签库的语法如下：</h1>
+<figure class="highlight jsp"><table><tr><td class="code"><pre><span class="line">&lt;%@ taglib prefix=<span class="string">&quot;c&quot;</span> uri=<span class="string">&quot;http://java.sun.com/jsp/jstl/core&quot;</span> %&gt;</span><br></pre></td></tr></table></figure>
+<hr />
+]]></content>
+      <categories>
+        <category>大二生涯</category>
+      </categories>
+      <tags>
+        <tag>el表达式</tag>
+        <tag>jstl表达式</tag>
       </tags>
   </entry>
   <entry>
@@ -1956,108 +2376,6 @@ id="用java来获取访问者真实的ip地址">用Java来获取访问者真实�
       </tags>
   </entry>
   <entry>
-    <title>el和jstl表达式</title>
-    <url>/2022/05/27/el%E5%92%8Cjstl%E8%A1%A8%E8%BE%BE%E5%BC%8F%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<p>el即Expression Language，用来在jsp页面上显示内容，jstl是JSP Standard
-Tag Library的缩写，包含多种标签，el和jstl结合使用，页面渲染更方便。</p>
-<hr />
-<h1 id="el内置对象">EL内置对象</h1>
-<table>
-<colgroup>
-<col style="width: 21%" />
-<col style="width: 78%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">内置对象</th>
-<th style="text-align: left;">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">pageScope</td>
-<td style="text-align: left;">获取 page 范围的变量</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">requestScope</td>
-<td style="text-align: left;">获取 request 范围的变量</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">sessionScope</td>
-<td style="text-align: left;">获取 session 范围的变量</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">applicationScope</td>
-<td style="text-align: left;">获取 application 范围的变量</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">param</td>
-<td style="text-align: left;">相当于 request.getParameter(String
-name)，获取单个参数的值</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">paramValues</td>
-<td style="text-align: left;">相当于 request.getParameterValues(String
-name)，获取参数集合中的变量值</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">header</td>
-<td style="text-align: left;">相当于 request.getHeader(String
-name)，获取 HTTP 请求头信息</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">headerValues</td>
-<td style="text-align: left;">相当于 request.getHeaders(String
-name)，获取 HTTP 请求头数组信息</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">initParam</td>
-<td style="text-align: left;">相当于 application.getInitParameter(String
-name)，获取 web.xml 文件中的参数值</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">cookie</td>
-<td style="text-align: left;">相当于 request.getCookies()，获取 cookie
-中的值</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">pageContext</td>
-<td style="text-align: left;">表示当前 JSP 页面的 pageContext 对象</td>
-</tr>
-</tbody>
-</table>
-<p>EL 表达式获取 4 种不同范围的属性，代码如下：</p>
-<figure class="highlight jsp"><table><tr><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">&quot;java&quot;</span> contentType=<span class="string">&quot;text/html; charset=UTF-8&quot;</span></span><br><span class="line">    pageEncoding=<span class="string">&quot;UTF-8&quot;</span>%&gt;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;title&gt;编程帮(www.biancheng.net)&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;%</span><br><span class="line">        pageContext.setAttribute(<span class="string">&quot;info&quot;</span>, <span class="string">&quot;page属性范围&quot;</span>);</span><br><span class="line">        request.setAttribute(<span class="string">&quot;info&quot;</span>, <span class="string">&quot;request属性范围&quot;</span>);</span><br><span class="line">        session.setAttribute(<span class="string">&quot;info&quot;</span>, <span class="string">&quot;session属性范围&quot;</span>);</span><br><span class="line">        application.setAttribute(<span class="string">&quot;info&quot;</span>, <span class="string">&quot;application属性范围&quot;</span>);</span><br><span class="line">    %&gt;</span><br><span class="line">    &lt;h2&gt;不同属性范围的值&lt;/h2&gt;</span><br><span class="line">    &lt;hr /&gt;</span><br><span class="line">    不指定范围：$&#123;info&#125;</span><br><span class="line">    &lt;br&gt; page 属性内容：$&#123;pageScope.info&#125;</span><br><span class="line">    &lt;br&gt; request 属性内容：$&#123;requestScope.info&#125;</span><br><span class="line">    &lt;br&gt;session 属性内容：$&#123;sessionScope.info&#125;</span><br><span class="line">    &lt;br&gt;application 属性内容：$&#123;applicationScope.info&#125;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<hr />
-<h1
-id="jstl标签很多笔记一下我常用到的标签">jstl标签很多，笔记一下我常用到的标签</h1>
-<p><strong>if</strong></p>
-<p>语法：</p>
-<figure class="highlight jsp"><table><tr><td class="code"><pre><span class="line">&lt;c:<span class="keyword">if</span> test=<span class="string">&quot;$&#123;one.name eq &#x27;nick&#x27;&#125;&quot;</span>&gt;</span><br><span class="line">                &lt;tr&gt;</span><br><span class="line">                    &lt;td&gt;nick&lt;/td&gt;</span><br><span class="line">                &lt;/tr&gt;</span><br><span class="line">&lt;/c:<span class="keyword">if</span>&gt;</span><br></pre></td></tr></table></figure>
-<hr />
-<p><strong>c:forEach标签</strong></p>
-<p>语法:</p>
-<figure class="highlight jsp"><table><tr><td class="code"><pre><span class="line">&lt;c:forEach item=<span class="string">&quot;collection&quot;</span> [<span class="keyword">var</span>=<span class="string">&quot;varname&quot;</span> [varStatus=<span class="string">&quot;varstatusName&quot;</span>] [begin=<span class="string">&quot;开始&quot;</span>] [end=<span class="string">&quot;结束&quot;</span>] [step=<span class="string">&quot;step&quot;</span>]]&gt;</span><br><span class="line">    Java程序或HTML代码</span><br><span class="line">&lt;/c:forEach&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong><em>items：要被循环的信息，可以是数组、Java
-集合等；</em></strong></li>
-<li><strong><em>var：可选项，指定迭代之的别名；</em></strong></li>
-</ul>
-<h1
-id="核心标签是最常用的-jstl标签引用核心标签库的语法如下">核心标签是最常用的
-JSTL标签。引用核心标签库的语法如下：</h1>
-<figure class="highlight jsp"><table><tr><td class="code"><pre><span class="line">&lt;%@ taglib prefix=<span class="string">&quot;c&quot;</span> uri=<span class="string">&quot;http://java.sun.com/jsp/jstl/core&quot;</span> %&gt;</span><br></pre></td></tr></table></figure>
-<hr />
-]]></content>
-      <categories>
-        <category>大二生涯</category>
-      </categories>
-      <tags>
-        <tag>el表达式</tag>
-        <tag>jstl表达式</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>layui问题记录</title>
     <url>/2022/07/29/layui%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h1
@@ -2085,324 +2403,6 @@ href="https://blog.csdn.net/SleepNot_Need/article/details/114688838">原文链�
         <tag>HTML</tag>
         <tag>layui</tag>
         <tag>layer</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>idea使用问题</title>
-    <url>/2022/05/20/idea%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="idea快捷键">idea快捷键</h1>
-<p><strong><em><a
-href="https://blog.csdn.net/qq_38963960/article/details/89552704">原文链接</a></em></strong></p>
-<ol type="1">
-<li><h2 id="ctrl">Ctrl</h2>
-<table>
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 85%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">快捷键</th>
-<th style="text-align: left;">介绍</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Ctrl + Z</td>
-<td style="text-align: left;">撤销</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ctrl + Tab</td>
-<td
-style="text-align: left;">编辑窗口切换，如果在切换的过程又加按上delete，则是关闭对应选中的窗口</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ctrl + W</td>
-<td
-style="text-align: left;">递进式选择代码块。可选中光标所在的单词或段落，连续按会在原有选中的基础上再扩展选中范围</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ctrl + Q</td>
-<td style="text-align: left;">光标所在的变量 / 类名 /
-方法名等上面（也可以在提示补充的时候按），显示文档内容</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ctrl + B</td>
-<td
-style="text-align: left;">进入光标所在的方法/变量的接口或是定义出，等效于
-<code>Ctrl + 左键单击</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ctrl + [</td>
-<td
-style="text-align: left;">移动光标到当前所在代码的花括号开始位置</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ctrl + ]</td>
-<td
-style="text-align: left;">移动光标到当前所在代码的花括号结束位置</td>
-</tr>
-</tbody>
-</table></li>
-<li><h2 id="alt">Alt</h2>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">快捷键</th>
-<th style="text-align: left;">介绍</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Alt + 1,2,3...9</td>
-<td style="text-align: left;">显示对应数值的选项卡，其中 1 是 Project
-用得最多</td>
-</tr>
-</tbody>
-</table></li>
-<li><h2 id="shift">Shift</h2>
-<table>
-<colgroup>
-<col style="width: 27%" />
-<col style="width: 72%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">快捷键</th>
-<th style="text-align: left;">介绍</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Shift + F6</td>
-<td style="text-align: left;">对文件 / 文件夹 重命名</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Shift + Enter</td>
-<td
-style="text-align: left;">开始新一行。光标所在行下空出一行，光标定位到新行位置</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Shift + 滚轮前后滚动</td>
-<td style="text-align: left;">当前文件的横向滚动轴滚动</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">shift + F11</td>
-<td style="text-align: left;">编辑书签</td>
-</tr>
-</tbody>
-</table></li>
-<li><h2 id="ctrl-alt">Ctrl + Alt</h2>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">快捷键</th>
-<th style="text-align: left;">介绍</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Ctrl + Alt + L</td>
-<td
-style="text-align: left;">格式化代码，可以对当前文件和整个包目录使用</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ctrl + Alt + O</td>
-<td
-style="text-align: left;">优化导入的类，可以对当前文件和整个包目录使用</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ctrl + Alt + Enter</td>
-<td style="text-align: left;">光标所在行上空出一行，光标定位到新行</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ctrl + Alt + 左方向键</td>
-<td style="text-align: left;">退回到上一个操作的地方</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ctrl + Alt + 右方向键</td>
-<td style="text-align: left;">前进到上一个操作的地方</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">ctrl + alt + B</td>
-<td style="text-align: left;">查找接口的实现类</td>
-</tr>
-</tbody>
-</table></li>
-<li><h2 id="ctrl-shift">Ctrl + Shift</h2>
-<table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 75%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">快捷键</th>
-<th style="text-align: left;">介绍</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Ctrl + Shift + Z</td>
-<td style="text-align: left;">取消撤销</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ctrl + Shift + W</td>
-<td
-style="text-align: left;">递进式取消选择代码块。可选中光标所在的单词或段落，连续按会在原有选中的基础上再扩展取消选中范围</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ctrl + Shift + U</td>
-<td style="text-align: left;">对选中的代码进行大 / 小写轮流转换</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Ctrl + Shift + Enter</td>
-<td style="text-align: left;">自动结束代码，行末自动添加分号</td>
-</tr>
-</tbody>
-</table></li>
-<li><h2 id="alt-shift">Alt + Shift</h2>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">快捷键</th>
-<th style="text-align: left;">介绍</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Alt + Shift + 前方向键</td>
-<td style="text-align: left;">移动光标所在行向上移动</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Alt + Shift + 后方向键</td>
-<td style="text-align: left;">移动光标所在行向下移动</td>
-</tr>
-</tbody>
-</table></li>
-<li><h2 id="其他">其他</h2>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">快捷键</th>
-<th style="text-align: left;">介绍</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">F2</td>
-<td style="text-align: left;">跳转到下一个高亮错误 或 警告位置</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">F11</td>
-<td style="text-align: left;">创建书签</td>
-</tr>
-</tbody>
-</table></li>
-</ol>
-<h1
-id="如何使用idea中自带的数据库database">如何使用IDEA中自带的数据库database！</h1>
-<blockquote>
-<p>打开后自己填入信息 点击确定后会下载相应驱动，等待即可！</p>
-</blockquote>
-<p><img src="https://s2.loli.net/2022/05/26/FiRzKcaf1AEWUV6.png" style="zoom:50%;" /></p>
-<h1
-id="idea连接数据库-the-specified-database-userpassword-combination-is-rejected-com.mysql.cj报错">idea连接数据库
-The specified database user/password combination is rejected:
-com.mysql.cj报错</h1>
-<blockquote>
-<p>报错如下图：</p>
-</blockquote>
-<p><img src="https://s2.loli.net/2022/05/26/vyXs1GZLY7REqrh.png" style="zoom:50%;" /></p>
-<blockquote>
-<p>解决方法：更换链接地址</p>
-</blockquote>
-<p><strong><em>jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=UTF8&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</em></strong></p>
-<h1 id="idea配置外部tomcat访问路径">idea配置外部tomcat访问路径</h1>
-<blockquote>
-<p>需要配置两个地方，改一处就行</p>
-</blockquote>
-<figure>
-<img src="https://s2.loli.net/2022/07/06/OoTDIkaBSur1zCn.png"
-alt="image-20220704104127339" />
-<figcaption aria-hidden="true">image-20220704104127339</figcaption>
-</figure>
-<figure>
-<img src="https://s2.loli.net/2022/07/06/BUlqtnYXDePopVW.png"
-alt="image-20220704104218184" />
-<figcaption aria-hidden="true">image-20220704104218184</figcaption>
-</figure>
-<h1 id="解决-spring-boot-devtool-热部署后出现访问404问题">解决 spring
-boot devtool 热部署后出现访问404问题</h1>
-<p>DevTools的检测时间和idea的编译所需时间存在差异。在idea还没完成编译工作前，DevTools就开始进行重启和加载，导致@RequestMapping没有被全部正常处理。其他方法没试，就直接用了看起来最简单的方法：牺牲一点时间，去加长devtools的轮询时间，增大等待时间。</p>
-<figure>
-<img src="https://s2.loli.net/2022/07/06/pfZChkat4lKXr2G.png"
-alt="image-20220705170634571" />
-<figcaption aria-hidden="true">image-20220705170634571</figcaption>
-</figure>
-<h1
-id="解决idea中-could-not-autowire.-no-beans-of-xxxx-type-found-的错误提示">解决IDEA中
-Could not autowire. No beans of 'xxxx' type found 的错误提示</h1>
-<p>修改IDEA设置,降低Autowired检测的级别，将Severity的级别由之前的error改成warning或其它可以忽略的级别。</p>
-<figure>
-<img src="https://s2.loli.net/2022/07/06/DtFU3sXykqIdnVC.png"
-alt="image-20220706095122340" />
-<figcaption aria-hidden="true">image-20220706095122340</figcaption>
-</figure>
-<h1
-id="idea报错cannot-download-httpsstart.spring.io-connect-timed-out">idea报错：Cannot
-download ‘https://start.spring.io‘: connect timed out</h1>
-<blockquote>
-<p><strong>报错问题描述</strong></p>
-</blockquote>
-<figure>
-<img src="https://s2.loli.net/2022/07/08/54lTGrXnIviHENg.png"
-alt="在这里插入图片描述" />
-<figcaption aria-hidden="true">在这里插入图片描述</figcaption>
-</figure>
-<blockquote>
-<p><strong>解决方法</strong></p>
-</blockquote>
-<p>添加aliyun地址，将默认的地址更改为aliyun地址</p>
-<p><strong>https://start.aliyun.com/</strong></p>
-<figure>
-<img src="https://s2.loli.net/2022/07/15/TW7G4lwkJ3APQrY.png"
-alt="在这里插入图片描述" />
-<figcaption aria-hidden="true">在这里插入图片描述</figcaption>
-</figure>
-<h1 id="idea注释有空格">IDEA注释有空格</h1>
-<p>问题描述</p>
-<figure>
-<img src="https://s2.loli.net/2022/07/15/c4VQ2NtPThO1RaB.png"
-alt="在这里插入图片描述" />
-<figcaption aria-hidden="true">在这里插入图片描述</figcaption>
-</figure>
-<p>解决方法</p>
-<p><strong>setting-&gt;Editor-&gt;Code Style-&gt;HTML-&gt;Code
-Gerneration</strong> 取消掉 <strong>Comments</strong> 下面 两个选项
-就可以了,要是不放心,把Code Style下面的每个格式的文件的Code
-Generation都取消掉,如下图所示:</p>
-<figure>
-<img src="https://s2.loli.net/2022/07/15/XhY4xn5NU3qwJAy.png"
-alt="在这里插入图片描述" />
-<figcaption aria-hidden="true">在这里插入图片描述</figcaption>
-</figure>
-<blockquote>
-<p><a
-href="https://blog.csdn.net/qq_37844454/article/details/112795620">原文链接</a></p>
-</blockquote>
-<h1
-id="idea编辑器控制台显示中文乱码的解决方案">IDEA编辑器控制台显示中文乱码的解决方案</h1>
-<p>解决办法是：<strong>找到 .idea
-文件夹（</strong>每个idea项目，都会有一个.idea的目录的<strong>），里面有个<code>encodings.xml</code>
-的文件，然后除了<code>UTF-8</code> 的都删了。</strong></p>
-]]></content>
-      <categories>
-        <category>大二生涯</category>
-      </categories>
-      <tags>
-        <tag>快捷键</tag>
-        <tag>idea</tag>
       </tags>
   </entry>
   <entry>
@@ -3204,7 +3204,7 @@ refused</h1>
 </ol>
 <figure>
 <img
-src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220807144235387.png"
+src="https://raw.githubusercontent.com/braveheart2048/blogImages/main/img/202208261244681.png"
 alt="image-20220807144235387" />
 <figcaption aria-hidden="true">image-20220807144235387</figcaption>
 </figure>
@@ -3214,6 +3214,46 @@ alt="image-20220807144235387" />
       </categories>
       <tags>
         <tag>博客建设</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>思政考试模拟题</title>
+    <url>/2022/05/30/%E6%80%9D%E6%94%BF%E8%80%83%E8%AF%95%E6%A8%A1%E6%8B%9F%E9%A2%98/</url>
+    <content><![CDATA[<ol type="1">
+<li>中国特色社会主义进入新时代，我国社会主要矛盾已经转化为人民日益增长的<strong><em>美好生活需要和不平衡不充分的发展</em></strong>之间的矛盾。<span id="more"></span></li>
+<li>新时代推进中国特色社会主义事业的总体布局是“<strong><em>五位一体</em></strong>”</li>
+<li>战略布局是“<strong><em>四个全面</em>”</strong></li>
+<li><strong><em>战略思维</em></strong>是高瞻远瞩、统揽全局、善于把握事物发展总体趋势和方向的思维方法</li>
+<li>我们党原来提出的“三步走”战略的第三步即基本实现现代化，将提前15年，即在<strong><em>2035年</em></strong>实现。</li>
+<li><strong><em>习近平新时代中国特色社会主义经济思想</em></strong>是当代马克思主义政治经济学的集中体现，是中国特色社会主义政治经济学的最新成果。</li>
+<li>习近平总书记指出，“<strong><em>社区</em></strong>是党和政府联系、服务居民群众的‘最后一公里’。</li>
+<li>习近平同志强调，<strong><em>改革开放</em></strong>是当代中国发展进步的活力之源。</li>
+<li>党的十九大报告指出，坚持总体国家安全观，必须坚持<strong><em>国家利益至上</em></strong>。</li>
+<li>习近平：国家安全是安邦定国的重要基石，<strong><em>维护国家安全</em></strong>是全国各族人民根本利益所在。</li>
+<li>保持香港、澳门长期繁荣稳定，必须全面准确贯彻‘一国两制’、‘港人治港’、‘澳人治澳’、<strong><em>高度自治</em></strong>的方针。</li>
+<li>我们坚持<strong><em>爱国者</em></strong>为主体的“港人治港”、“澳人治澳”，让香港、澳门同胞同祖国人民共担民族复兴的历史责任、共享祖国繁荣富强的伟大荣光。</li>
+<li>党的十九大再次强调：“中国将高举和平、发展、合作、共赢的旗帜，恪守<strong><em>维护世界和平、促进共同发展的外交政策宗旨</em></strong>。</li>
+<li>习近平新时代中国特色社会主义思想的一个重要内容，弘扬和平、发展、公平、正义、民主、自由的<strong><em>全人类共同价值</em></strong>。</li>
+<li>党的十八大报告鲜明揭示了中国特色社会主义是三位一体的：即<em><strong>中国特色社会主义道路、中国特色社会主义理论体系、中国特色社会主义制度</strong>；</em></li>
+<li>新时代坚持和发展中国特色社会主义的总任务是<strong><em>实现社会主义现代化和中华民族伟大复兴</em></strong>。</li>
+<li>中国梦的本质是<strong><em>国家富强、民族振兴、人民幸福</em></strong>。</li>
+<li>实现中华民族伟大复兴的中国梦，必须弘扬中国精神，这就是<strong><em>以爱国主义为核心的民族精神和以改革创新为核心的时代精神</em></strong>。</li>
+<li>深化供给侧结构性改革、推动高质量发展，管总的要求是<strong><em>巩固、增强、提升、畅通。</em></strong></li>
+<li>检验我们一切工作的成效，最终都要看<strong><em>人民是否真正得到了实惠，人民生活是否真正得到了改善，人民权益是否真正得到了保障</em></strong>。</li>
+<li>全面深化改革的总目标，是<strong><em>完善和发展中国特色社会主义制度、推进国家治理体系和治理能力现代化</em></strong>。</li>
+<li><strong><em>实现中华民族伟大复兴是近代以来中华民族最伟大的梦想</em></strong></li>
+<li>制约我国经济发展的因素，供给和需求两侧都有，但矛盾的主要方面，在<strong><em>供给侧</em></strong>。</li>
+<li>“德治”与“法治”二者之间既是<strong><em>相互区别,又是相互依存,相互促进</em></strong>的。</li>
+<li>”一带“指的是“ 丝绸之路经济带 ”，”一路“指的是“
+<strong><em>21世纪海上丝绸之路</em></strong>。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>大二生涯</category>
+      </categories>
+      <tags>
+        <tag>思政</tag>
+        <tag>考试题</tag>
       </tags>
   </entry>
   <entry>
@@ -3814,6 +3854,7 @@ href="https://blog.csdn.net/dongfengkuayue/article/details/23829611">原文链�
 <blockquote>
 <p><a href="./8086指令系统.md">点击这里查看</a></p>
 </blockquote>
+<h1 id="section"></h1>
 ]]></content>
       <categories>
         <category>岗前实训</category>
@@ -3826,63 +3867,287 @@ href="https://blog.csdn.net/dongfengkuayue/article/details/23829611">原文链�
   <entry>
     <title>微机原理相关问题</title>
     <url>/2022/08/06/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="第五章习题">第五章习题</h1>
-<ol type="1">
-<li><p>引脚</p></li>
-<li><p>系统总线</p></li>
-<li><p>传输地址信息、数据信息、控制信息的一组导线</p>
-<p>采用标准化总线，使总线传输的数据稳定性更高，统一了行业内的总线标准</p></li>
-<li><p>？</p></li>
-<li><p>高电平有效</p>
-<p>0ffffH：0000</p></li>
-<li><p>高</p>
-<p>低</p></li>
-<li><p>因为8086CPU的地址数据复用引脚在第一个时钟周期输出地址，其余周期输入输出数据，为了保存地址，需要使用地址锁存器</p></li>
-<li><p>数据总线</p>
-<p>地址总线</p>
-<p>控制总线</p></li>
-<li><p>高电平</p>
-<p>低电平</p>
-<p>高阻态</p></li>
-<li><p>T1</p>
-<p>T2</p>
-<p>低</p>
-<p>低</p>
-<p>T1</p>
-<p>T2~T4</p></li>
-<li><figure>
-<img
-src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220824162426119.png"
-alt="image-20220824162426119" />
-<figcaption aria-hidden="true">image-20220824162426119</figcaption>
-</figure></li>
-<li><p>H</p></li>
-<li><p>E</p></li>
-<li><p>低电平</p></li>
-<li><p>高</p>
-<p>0ffffH</p>
-<p>0</p>
-<p>0FFFFH:0000</p></li>
-<li><p>ALE</p>
-<p>地</p>
-<p>DT/R非</p>
-<p>DEN</p></li>
-<li><p>1</p>
-<p>1</p>
-<p>2</p></li>
-<li><p>T3</p>
-<p>高</p>
-<p>Tw</p></li>
-<li><p>8259</p></li>
-<li><p>BC</p></li>
-<li><p>？</p></li>
-<li><p>？</p></li>
-<li><p>T1</p>
-<p>M/IO非</p>
-<p>T1</p>
-<p>低</p>
-<p>T2</p></li>
-</ol>
+    <content><![CDATA[<h1 id="aicw和ocw命令字">8259AICW和OCW命令字</h1>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(A_0\)</span>状态</th>
+<th>特征位</th>
+<th>选中的寄存器</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td><span class="math inline">\(D_4=0、D_3=0\)</span></td>
+<td><span class="math inline">\(OCW_2\)</span></td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td><span class="math inline">\(D_4=0、D_3=1\)</span></td>
+<td><span class="math inline">\(OCW_3\)</span></td>
+</tr>
+<tr class="odd">
+<td>0</td>
+<td><span class="math inline">\(D_4=1、D_0=1\)</span></td>
+<td><span class="math inline">\(ICW_1\)</span></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td></td>
+<td><span class="math inline">\(ICW_2、ICW_3\)</span></td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td><span class="math inline">\(D_7=0、D_6=0、D_5=0\)</span></td>
+<td><span class="math inline">\(OCW_1\)</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="icw_1"><span class="math inline">\(ICW_1\)</span></h2>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 4%" />
+<col style="width: 31%" />
+<col style="width: 7%" />
+<col style="width: 27%" />
+<col style="width: 4%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(D_7\)</span></th>
+<th><span class="math inline">\(D_6\)</span></th>
+<th><span class="math inline">\(D_5\)</span></th>
+<th><span class="math inline">\(D_4\)</span></th>
+<th><span class="math inline">\(D_3\)</span></th>
+<th><span class="math inline">\(D_2\)</span></th>
+<th><span class="math inline">\(D_1\)</span></th>
+<th><span class="math inline">\(D_0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\times\)</span></td>
+<td><span class="math inline">\(\times\)</span></td>
+<td><span class="math inline">\(\times\)</span></td>
+<td>1</td>
+<td>高电平触发（1）；上升沿触发（0）</td>
+<td><span class="math inline">\(\times\)</span></td>
+<td>单片工作（1）；级联方式（0）</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="icw_2"><span class="math inline">\(ICW_2\)</span></h2>
+<p>设置中断类型号基址</p>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(D_7\)</span></th>
+<th><span class="math inline">\(D_6\)</span></th>
+<th><span class="math inline">\(D_5\)</span></th>
+<th><span class="math inline">\(D_4\)</span></th>
+<th><span class="math inline">\(D_3\)</span></th>
+<th><span class="math inline">\(D_2\)</span></th>
+<th><span class="math inline">\(D_1\)</span></th>
+<th><span class="math inline">\(D_0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\times\)</span></td>
+<td><span class="math inline">\(\times\)</span></td>
+<td><span class="math inline">\(\times\)</span></td>
+<td><span class="math inline">\(\times\)</span></td>
+<td><span class="math inline">\(\times\)</span></td>
+<td><span class="math inline">\(\times\)</span></td>
+<td><span class="math inline">\(\times\)</span></td>
+<td><span class="math inline">\(\times\)</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="icw_3"><span class="math inline">\(ICW_3\)</span></h2>
+<p><strong>级联专用</strong></p>
+<p>主片，对应级联从片的位置1，例如<span
+class="math inline">\(IR_6\)</span>级联从片：</p>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(D_7\)</span></th>
+<th><span class="math inline">\(D_6\)</span></th>
+<th><span class="math inline">\(D_5\)</span></th>
+<th><span class="math inline">\(D_4\)</span></th>
+<th><span class="math inline">\(D_3\)</span></th>
+<th><span class="math inline">\(D_2\)</span></th>
+<th><span class="math inline">\(D_1\)</span></th>
+<th><span class="math inline">\(D_0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>从片，<span class="math inline">\(D_2\)</span>~<span
+class="math inline">\(D_0\)</span>的值表示级联主片的位置，例如从片级联到主片<span
+class="math inline">\(IR_6\)</span>上：</p>
+<table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(D_7\)</span></th>
+<th><span class="math inline">\(D_6\)</span></th>
+<th><span class="math inline">\(D_5\)</span></th>
+<th><span class="math inline">\(D_4\)</span></th>
+<th><span class="math inline">\(D_3\)</span></th>
+<th><span class="math inline">\(D_2\)</span></th>
+<th><span class="math inline">\(D_1\)</span></th>
+<th><span class="math inline">\(D_0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\times\)</span></td>
+<td><span class="math inline">\(\times\)</span></td>
+<td><span class="math inline">\(\times\)</span></td>
+<td><span class="math inline">\(\times\)</span></td>
+<td><span class="math inline">\(\times\)</span></td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="icw_4"><span class="math inline">\(ICW_4\)</span></h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 3%" />
+<col style="width: 3%" />
+<col style="width: 3%" />
+<col style="width: 27%" />
+<col style="width: 34%" />
+<col style="width: 25%" />
+<col style="width: 3%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(D_7\)</span></th>
+<th><span class="math inline">\(D_6\)</span></th>
+<th><span class="math inline">\(D_5\)</span></th>
+<th><span class="math inline">\(D_4\)</span></th>
+<th><span class="math inline">\(D_3、D_2\)</span></th>
+<th><span class="math inline">\(D_1\)</span></th>
+<th><span class="math inline">\(D_0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>特殊全嵌套工作方式：1；一般全嵌套工作方式：0</td>
+<td>0、0：非缓冲方式；0、1：缓冲方式从片；1、1：缓冲方式主片</td>
+<td>中断自动结束方式：1；中断非自动结束方式：0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ocw_1"><span class="math inline">\(OCW_1\)</span></h2>
+<p>中断屏蔽字，例如要把<span
+class="math inline">\(IR_6\)</span>屏蔽：</p>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(D_7\)</span></th>
+<th><span class="math inline">\(D_6\)</span></th>
+<th><span class="math inline">\(D_5\)</span></th>
+<th><span class="math inline">\(D_4\)</span></th>
+<th><span class="math inline">\(D_3\)</span></th>
+<th><span class="math inline">\(D_2\)</span></th>
+<th><span class="math inline">\(D_1\)</span></th>
+<th><span class="math inline">\(D_0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ocw_2"><span class="math inline">\(OCW_2\)</span></h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 27%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(D_7\)</span></th>
+<th><span class="math inline">\(D_6\)</span></th>
+<th><span class="math inline">\(D_5\)</span></th>
+<th><span class="math inline">\(D_4\)</span></th>
+<th><span class="math inline">\(D_3\)</span></th>
+<th><span class="math inline">\(D_2\)</span></th>
+<th><span class="math inline">\(D_1\)</span></th>
+<th><span class="math inline">\(D_0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\times\)</span></td>
+<td><span class="math inline">\(\times\)</span></td>
+<td>手动中断停止命令EOI</td>
+<td>0</td>
+<td>0</td>
+<td><span class="math inline">\(\times\)</span></td>
+<td><span class="math inline">\(\times\)</span></td>
+<td><span class="math inline">\(\times\)</span></td>
+</tr>
+</tbody>
+</table>
 ]]></content>
       <categories>
         <category>岗前实训</category>
@@ -3890,134 +4155,6 @@ alt="image-20220824162426119" />
       <tags>
         <tag>专升本</tag>
         <tag>微机原理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>思政考试模拟题</title>
-    <url>/2022/05/30/%E6%80%9D%E6%94%BF%E8%80%83%E8%AF%95%E6%A8%A1%E6%8B%9F%E9%A2%98/</url>
-    <content><![CDATA[<ol type="1">
-<li>中国特色社会主义进入新时代，我国社会主要矛盾已经转化为人民日益增长的<strong><em>美好生活需要和不平衡不充分的发展</em></strong>之间的矛盾。<span id="more"></span></li>
-<li>新时代推进中国特色社会主义事业的总体布局是“<strong><em>五位一体</em></strong>”</li>
-<li>战略布局是“<strong><em>四个全面</em>”</strong></li>
-<li><strong><em>战略思维</em></strong>是高瞻远瞩、统揽全局、善于把握事物发展总体趋势和方向的思维方法</li>
-<li>我们党原来提出的“三步走”战略的第三步即基本实现现代化，将提前15年，即在<strong><em>2035年</em></strong>实现。</li>
-<li><strong><em>习近平新时代中国特色社会主义经济思想</em></strong>是当代马克思主义政治经济学的集中体现，是中国特色社会主义政治经济学的最新成果。</li>
-<li>习近平总书记指出，“<strong><em>社区</em></strong>是党和政府联系、服务居民群众的‘最后一公里’。</li>
-<li>习近平同志强调，<strong><em>改革开放</em></strong>是当代中国发展进步的活力之源。</li>
-<li>党的十九大报告指出，坚持总体国家安全观，必须坚持<strong><em>国家利益至上</em></strong>。</li>
-<li>习近平：国家安全是安邦定国的重要基石，<strong><em>维护国家安全</em></strong>是全国各族人民根本利益所在。</li>
-<li>保持香港、澳门长期繁荣稳定，必须全面准确贯彻‘一国两制’、‘港人治港’、‘澳人治澳’、<strong><em>高度自治</em></strong>的方针。</li>
-<li>我们坚持<strong><em>爱国者</em></strong>为主体的“港人治港”、“澳人治澳”，让香港、澳门同胞同祖国人民共担民族复兴的历史责任、共享祖国繁荣富强的伟大荣光。</li>
-<li>党的十九大再次强调：“中国将高举和平、发展、合作、共赢的旗帜，恪守<strong><em>维护世界和平、促进共同发展的外交政策宗旨</em></strong>。</li>
-<li>习近平新时代中国特色社会主义思想的一个重要内容，弘扬和平、发展、公平、正义、民主、自由的<strong><em>全人类共同价值</em></strong>。</li>
-<li>党的十八大报告鲜明揭示了中国特色社会主义是三位一体的：即<em><strong>中国特色社会主义道路、中国特色社会主义理论体系、中国特色社会主义制度</strong>；</em></li>
-<li>新时代坚持和发展中国特色社会主义的总任务是<strong><em>实现社会主义现代化和中华民族伟大复兴</em></strong>。</li>
-<li>中国梦的本质是<strong><em>国家富强、民族振兴、人民幸福</em></strong>。</li>
-<li>实现中华民族伟大复兴的中国梦，必须弘扬中国精神，这就是<strong><em>以爱国主义为核心的民族精神和以改革创新为核心的时代精神</em></strong>。</li>
-<li>深化供给侧结构性改革、推动高质量发展，管总的要求是<strong><em>巩固、增强、提升、畅通。</em></strong></li>
-<li>检验我们一切工作的成效，最终都要看<strong><em>人民是否真正得到了实惠，人民生活是否真正得到了改善，人民权益是否真正得到了保障</em></strong>。</li>
-<li>全面深化改革的总目标，是<strong><em>完善和发展中国特色社会主义制度、推进国家治理体系和治理能力现代化</em></strong>。</li>
-<li><strong><em>实现中华民族伟大复兴是近代以来中华民族最伟大的梦想</em></strong></li>
-<li>制约我国经济发展的因素，供给和需求两侧都有，但矛盾的主要方面，在<strong><em>供给侧</em></strong>。</li>
-<li>“德治”与“法治”二者之间既是<strong><em>相互区别,又是相互依存,相互促进</em></strong>的。</li>
-<li>”一带“指的是“ 丝绸之路经济带 ”，”一路“指的是“
-<strong><em>21世纪海上丝绸之路</em></strong>。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>大二生涯</category>
-      </categories>
-      <tags>
-        <tag>思政</tag>
-        <tag>考试题</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>汇编语言学习问题</title>
-    <url>/2022/08/04/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="如何运行汇编程序">如何运行汇编程序</h1>
-<ol type="1">
-<li><p>编译 mul.asm 文件：</p>
-<p><code>masm mul.asm</code></p></li>
-<li><p>链接 mul.obj 文件：</p>
-<p><code>link mul</code> 或者 <code>link mul.obj</code></p></li>
-<li><p>运行 mul.exe 文件：</p>
-<p><code>mul</code> 或者 <code>mul.exe</code></p></li>
-</ol>
-<h1 id="设置vscode中调试汇编程序">设置vscode中调试汇编程序</h1>
-<p><img src="https://s2.loli.net/2022/08/09/9LWKpTZxiFyu4hb.png" alt="image-20220806180441031"  /></p>
-<h1 id="dosbox中debug常用指令的使用">DOSBOX中debug常用指令的使用</h1>
-<table>
-<thead>
-<tr class="header">
-<th>操作符</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>r</td>
-<td>查看寄存器中的内容</td>
-</tr>
-<tr class="even">
-<td>d</td>
-<td>查看内存中的内容</td>
-</tr>
-<tr class="odd">
-<td>t</td>
-<td>执行CS:IP处的指令</td>
-</tr>
-<tr class="even">
-<td>q</td>
-<td>退出debug</td>
-</tr>
-</tbody>
-</table>
-<h2 id="用d命令查看内存中的内容">用D命令查看内存中的内容</h2>
-<p>以内存<strong>10000H</strong>处的内容为例，用“<strong>d
-段地址：偏移地址</strong>”的格式来查看</p>
-<figure>
-<img src="https://s2.loli.net/2022/08/10/il9zwfmvHNs23Dr.png"
-alt="D命令" />
-<figcaption aria-hidden="true">D命令</figcaption>
-</figure>
-<p>图中 左边，是每行的起始地址。
-中间，是指定地址开始的128个单元的内容，用16进制的格式输出，每行输出从16的整数倍的地址开始，最多输出16个单元的内容。
-右边，是每个单元中的数据对应的ASCII码字符，当数据没有对应的ASCII字符时，Debug就会用
-“ . ” 代替。</p>
-<p>若查看指定内存处的内容，可以用“d 段地址：起始偏移地址
-结尾偏移地址”的格式来查看。</p>
-<p>按Enter键，D命令操作结束。</p>
-<h1 id="汇编中的assume的使用">汇编中的ASSUME的使用</h1>
-<p>assume 最典型的用法：是指明变量与段寄存器的联系,比如 assume
-ds:data,它是告诉编译器以后所有在data段中定义的变量寻址时，使用ds作为段地址，但是它不对程序作任何事，你必须自己对ds赋值</p>
-<h1 id="为什么stack-segment-stack-后面要多加一个stack">为什么stack
-segment stack 后面要多加一个stack</h1>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">stack segment</span><br><span class="line">    dw 80h dup(0)</span><br><span class="line">stack ends</span><br><span class="line">code segment</span><br><span class="line">    mov ax,stack</span><br><span class="line">    mov ss,ax</span><br><span class="line">    mov sp,100h</span><br><span class="line">. . . . . .</span><br></pre></td></tr></table></figure>
-<p>如果有了这个 stack，代码中就不再需要专门为堆栈段和堆栈指针赋值的那 3
-条语句了，汇编程序会自动识别并把这两个寄存器初始化为正确的值。</p>
-<h1 id="关于masm5.0-显示-unable-to-open-input-file">关于masm5.0 显示
-Unable to open input file</h1>
-<figure>
-<img
-src="https://img-blog.csdn.net/2018072014071510?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNzA5Mzcw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
-</figure>
-<p>8.3格式的文件名：</p>
-<figure>
-<img
-src="https://img-blog.csdn.net/20180720140755403?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNzA5Mzcw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
-</figure>
-]]></content>
-      <categories>
-        <category>岗前实训</category>
-      </categories>
-      <tags>
-        <tag>专升本</tag>
-        <tag>汇编语言</tag>
       </tags>
   </entry>
   <entry>
@@ -4127,26 +4264,26 @@ com.backstage.pojo.Receivinggoods'</h1>
 <li><p>搜索到实体类</p>
 <figure>
 <img
-src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220818145301268.png"
+src="https://raw.githubusercontent.com/braveheart2048/blogImages/main/img/202208261244910.png"
 alt="image-20220818145301268" />
 <figcaption aria-hidden="true">image-20220818145301268</figcaption>
 </figure></li>
 <li><p>对应mapper文件</p>
 <figure>
 <img
-src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220818145351579.png"
+src="https://raw.githubusercontent.com/braveheart2048/blogImages/main/img/202208261244287.png"
 alt="image-20220818145351579" />
 <figcaption aria-hidden="true">image-20220818145351579</figcaption>
 </figure></li>
 <li><p>删掉数据库中的多余字段</p>
 <figure>
 <img
-src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220818150444947.png"
+src="https://raw.githubusercontent.com/braveheart2048/blogImages/main/img/202208261244497.png"
 alt="image-20220818150444947" />
 <figcaption aria-hidden="true">image-20220818150444947</figcaption>
 </figure></li>
 <li><p>之后报错<code># Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'region' in 'field list'</code></p>
-<p><img src="C:\Users\cheng\AppData\Roaming\Typora\typora-user-images\image-20220818151415991.png" alt="image-20220818151415991"  /></p></li>
+<p><img src="https://raw.githubusercontent.com/braveheart2048/blogImages/main/img/202208261244141.png" alt="image-20220818151415991"  /></p></li>
 </ul>
 <h1 id="mysql数据表添加字段">MySQL数据表添加字段</h1>
 <p>MySQL 添加字段的语法格式如下：</p>
@@ -4160,7 +4297,8 @@ alt="image-20220818150444947" />
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ALTER TABLE sealmall.receivinggoods DROP region;</span><br></pre></td></tr></table></figure>
 <h1 id="mapper注入异常">Mapper注入异常</h1>
 <figure>
-<img src="http://rh63t3qrk.hb-bkt.clouddn.com/img/202208251902022.png"
+<img
+src="https://raw.githubusercontent.com/braveheart2048/blogImages/main/img/202208261244423.png"
 alt="image-20220824112638886" />
 <figcaption aria-hidden="true">image-20220824112638886</figcaption>
 </figure>
@@ -4174,16 +4312,113 @@ id="解决idea开发环境中build失败提示包不存在的问题">解决IDEA�
 随后再使用<code>build</code>按钮,项目成功编译。</p>
 <h1 id="idea同时跑两个项目">idea同时跑两个项目</h1>
 <figure>
-<img src="http://rh63t3qrk.hb-bkt.clouddn.com/img/202208251902002.png"
+<img
+src="https://raw.githubusercontent.com/braveheart2048/blogImages/main/img/202208261243286.png"
 alt="image-20220825162824259" />
 <figcaption aria-hidden="true">image-20220825162824259</figcaption>
 </figure>
+<h1 id="使用aop的around后无返回值">使用AOP的@Around后无返回值</h1>
+<p>经测试，是环绕通知改变了返回值，切面方法需要有返回值，来代替被代理方法返回结果</p>
+<p>改成如下即可：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Around(&quot;point_update()&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">update</span><span class="params">(ProceedingJoinPoint jp)</span> <span class="keyword">throws</span> Throwable</span>&#123;</span><br><span class="line">  ...</span><br><span class="line">  Object result = jp.proceed();</span><br><span class="line">  ...</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果你给这行代码jp.proceed(); 加了 try catch
+当执行结果是异常时，你有可能会丢失你的返回值。</p>
+</blockquote>
 ]]></content>
       <categories>
         <category>岗前实训</category>
       </categories>
       <tags>
         <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>汇编语言学习问题</title>
+    <url>/2022/08/04/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="如何运行汇编程序">如何运行汇编程序</h1>
+<ol type="1">
+<li><p>编译 mul.asm 文件：</p>
+<p><code>masm mul.asm</code></p></li>
+<li><p>链接 mul.obj 文件：</p>
+<p><code>link mul</code> 或者 <code>link mul.obj</code></p></li>
+<li><p>运行 mul.exe 文件：</p>
+<p><code>mul</code> 或者 <code>mul.exe</code></p></li>
+</ol>
+<h1 id="设置vscode中调试汇编程序">设置vscode中调试汇编程序</h1>
+<p><img src="https://s2.loli.net/2022/08/09/9LWKpTZxiFyu4hb.png" alt="image-20220806180441031"  /></p>
+<h1 id="dosbox中debug常用指令的使用">DOSBOX中debug常用指令的使用</h1>
+<table>
+<thead>
+<tr class="header">
+<th>操作符</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>r</td>
+<td>查看寄存器中的内容</td>
+</tr>
+<tr class="even">
+<td>d</td>
+<td>查看内存中的内容</td>
+</tr>
+<tr class="odd">
+<td>t</td>
+<td>执行CS:IP处的指令</td>
+</tr>
+<tr class="even">
+<td>q</td>
+<td>退出debug</td>
+</tr>
+</tbody>
+</table>
+<h2 id="用d命令查看内存中的内容">用D命令查看内存中的内容</h2>
+<p>以内存<strong>10000H</strong>处的内容为例，用“<strong>d
+段地址：偏移地址</strong>”的格式来查看</p>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/il9zwfmvHNs23Dr.png"
+alt="D命令" />
+<figcaption aria-hidden="true">D命令</figcaption>
+</figure>
+<p>图中 左边，是每行的起始地址。
+中间，是指定地址开始的128个单元的内容，用16进制的格式输出，每行输出从16的整数倍的地址开始，最多输出16个单元的内容。
+右边，是每个单元中的数据对应的ASCII码字符，当数据没有对应的ASCII字符时，Debug就会用
+“ . ” 代替。</p>
+<p>若查看指定内存处的内容，可以用“d 段地址：起始偏移地址
+结尾偏移地址”的格式来查看。</p>
+<p>按Enter键，D命令操作结束。</p>
+<h1 id="汇编中的assume的使用">汇编中的ASSUME的使用</h1>
+<p>assume 最典型的用法：是指明变量与段寄存器的联系,比如 assume
+ds:data,它是告诉编译器以后所有在data段中定义的变量寻址时，使用ds作为段地址，但是它不对程序作任何事，你必须自己对ds赋值</p>
+<h1 id="为什么stack-segment-stack-后面要多加一个stack">为什么stack
+segment stack 后面要多加一个stack</h1>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">stack segment</span><br><span class="line">    dw 80h dup(0)</span><br><span class="line">stack ends</span><br><span class="line">code segment</span><br><span class="line">    mov ax,stack</span><br><span class="line">    mov ss,ax</span><br><span class="line">    mov sp,100h</span><br><span class="line">. . . . . .</span><br></pre></td></tr></table></figure>
+<p>如果有了这个 stack，代码中就不再需要专门为堆栈段和堆栈指针赋值的那 3
+条语句了，汇编程序会自动识别并把这两个寄存器初始化为正确的值。</p>
+<h1 id="关于masm5.0-显示-unable-to-open-input-file">关于masm5.0 显示
+Unable to open input file</h1>
+<figure>
+<img
+src="https://img-blog.csdn.net/2018072014071510?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNzA5Mzcw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>8.3格式的文件名：</p>
+<figure>
+<img
+src="https://img-blog.csdn.net/20180720140755403?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNzA5Mzcw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>岗前实训</category>
+      </categories>
+      <tags>
+        <tag>专升本</tag>
+        <tag>汇编语言</tag>
       </tags>
   </entry>
   <entry>
@@ -4525,6 +4760,437 @@ SAVEPOINT -- 删除保存点</p>
         <tag>Java</tag>
         <tag>MySQL</tag>
         <tag>MySQL事务</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>高等数学</title>
+    <url>/2022/07/28/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/</url>
+    <content><![CDATA[<h1 id="微分方程通解公式">微分方程通解公式</h1>
+<p><strong>微分方程中的<span
+class="math inline">\(lnx\)</span>可以去掉绝对值</strong></p>
+<ol type="1">
+<li><p>一阶微分方程</p>
+<ul>
+<li><p>齐次<span class="math inline">\(y^{&#39;}+p(x)y=0\)</span> <span
+class="math display">\[
+Ce^{-\int p(x)dx}
+\]</span></p></li>
+<li><p>非齐次<span class="math inline">\(y^{&#39;}+p(x)y=q(x)\)</span>
+<span class="math display">\[
+e^{-\int p(x)dx}[\int q(x)e^{\int p(x)dx}dx + C]
+\]</span></p></li>
+</ul></li>
+<li><p>二阶微分方程</p>
+<ul>
+<li><p>齐次<span
+class="math inline">\(y^{&#39;&#39;}+p(x)y^{&#39;}+q(x)y=0\)</span></p>
+<ul>
+<li><p>特征方程r1!=r2 <span class="math display">\[
+C_1e^{r_1x}+C_2e^{r_2x}
+\]</span></p></li>
+<li><p>特征方程r1=r2=r <span class="math display">\[
+(C_1+C_2x)e^{rx}
+\]</span></p></li>
+<li><p>特征方程<span class="math inline">\(\alpha \pm i \beta\)</span>
+<span class="math display">\[
+e^{ax}(c_1\cos\beta x+c_2\sin\beta x)
+\]</span></p></li>
+</ul></li>
+<li><p>非齐次<span
+class="math inline">\(y^{&#39;&#39;}+p(x)y^{&#39;}+q(x)y=f(x)\)</span></p>
+<p>求解非齐次方程，需要求出其对应齐次方程的通解<span
+class="math inline">\(Y\)</span>，再加上特解<span
+class="math inline">\(y^*\)</span></p>
+<ul>
+<li><p><span class="math inline">\(q(x)\)</span>形式<span
+class="math inline">\(P_n(x)\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th>特征方程解的形式</th>
+<th>设特解形式</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0不是特征方程的根</td>
+<td><span class="math inline">\(R_nx\)</span></td>
+</tr>
+<tr class="even">
+<td>0是特征方程的单根</td>
+<td><span class="math inline">\(xR_nx\)</span></td>
+</tr>
+<tr class="odd">
+<td>0是特征方程的重根</td>
+<td><span class="math inline">\(x^2R_nx\)</span></td>
+</tr>
+</tbody>
+</table></li>
+<li><p>q(x)形式<span class="math inline">\(P_n(x)e^{ax}\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th>特征方程解的形式</th>
+<th>设特解形式</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\alpha\)</span>不是特征方程的根</td>
+<td><span class="math inline">\(e^{\alpha x}R_nx\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\alpha\)</span>是特征方程的单根</td>
+<td><span class="math inline">\(xe^{\alpha x}R_nx\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\alpha\)</span>是特征方程的重根</td>
+<td><span class="math inline">\(x^2e^{\alpha x}R_nx\)</span></td>
+</tr>
+</tbody>
+</table></li>
+<li><p><span class="math inline">\(q(x)\)</span>形式<span
+class="math inline">\(e^{\alpha x}(a\cos\beta x+b\sin\beta
+x)\)</span></p>
+<table>
+<colgroup>
+<col style="width: 44%" />
+<col style="width: 55%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>特征方程解的形式</th>
+<th>设特解形式</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\alpha\pm
+i\beta\)</span>不是特征方程的根</td>
+<td><span class="math inline">\(e^{\alpha x}(A\cos\beta x+B\sin\beta
+x)\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\alpha\pm
+i\beta\)</span>是特征方程的根</td>
+<td><span class="math inline">\(xe^{\alpha x}(A\cos\beta x+B\sin\beta
+x)\)</span></td>
+</tr>
+</tbody>
+</table></li>
+</ul></li>
+</ul></li>
+</ol>
+<h1 id="奇偶函数的判别公式">奇偶函数的判别公式</h1>
+<ul>
+<li><p>奇函数 <span class="math display">\[
+f(-x) = -f(x)
+\]</span></p></li>
+<li><p>偶函数 <span class="math display">\[
+f(-x) = f(x)
+\]</span></p></li>
+</ul>
+<h1 id="奇偶函数的加减乘除">奇偶函数的加减乘除</h1>
+<table>
+<thead>
+<tr class="header">
+<th>参与计算的函数</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>奇函数<span class="math inline">\(\pm\)</span>偶函数</td>
+<td>非奇非偶函数</td>
+</tr>
+<tr class="even">
+<td>奇函数<span class="math inline">\(\pm\)</span>奇函数</td>
+<td>奇函数</td>
+</tr>
+<tr class="odd">
+<td>偶函数<span class="math inline">\(\pm\)</span>偶函数</td>
+<td>偶函数</td>
+</tr>
+<tr class="even">
+<td>奇函数<span class="math inline">\(\times/\)</span>偶函数</td>
+<td>奇函数</td>
+</tr>
+<tr class="odd">
+<td>奇函数<span class="math inline">\(\times/\)</span>奇函数</td>
+<td>偶函数</td>
+</tr>
+<tr class="even">
+<td>偶函数<span class="math inline">\(\times/\)</span>偶函数</td>
+<td>偶函数</td>
+</tr>
+</tbody>
+</table>
+<h1 id="奇偶函数的判别技巧">奇偶函数的判别技巧</h1>
+<table>
+<thead>
+<tr class="header">
+<th>参与计算的函数</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>奇函数的奇数次方</td>
+<td>奇函数</td>
+</tr>
+<tr class="even">
+<td>奇函数的偶数次方</td>
+<td>偶函数</td>
+</tr>
+<tr class="odd">
+<td>偶函数的奇数次方</td>
+<td>偶函数</td>
+</tr>
+<tr class="even">
+<td>偶函数的偶数次方</td>
+<td>偶函数</td>
+</tr>
+</tbody>
+</table>
+<h1 id="曲线积分">曲线积分</h1>
+<ul>
+<li><p>对弧长的曲线积分 <span class="math display">\[
+\int p(x,y)ds=\int p(\varphi(t),\psi
+(t))\sqrt[2]{\varphi^{&#39;2}(t)+\psi^{&#39;2}(t)}dt
+\]</span></p></li>
+<li><p>对坐标的曲线积分 <span class="math display">\[
+\int P(x,y)dx+Q(x,y)dy=\int
+[p(\varphi(t),\psi(t))\varphi^{&#39;}(t)+q(\varphi(t),\psi(t))\psi^{&#39;}(t)]dt
+\]</span></p></li>
+<li><p>格林公式 <span class="math display">\[
+\iint_D(\frac{\partial Q}{\partial y} - \frac{\partial P}{\partial
+x})dxdy = \int_LP(x,y)dx+Q(x,y)dy
+\]</span></p></li>
+</ul>
+<h1 id="无穷级数">无穷级数</h1>
+<ul>
+<li><p>等比级数 <span class="math display">\[
+\sum_{n=0}^{\infin} aq^n = a+aq+aq^2+aq^3+...+aq^n+...(a\neq0)
+\]</span> |q|&lt;1时，级数收敛；|q|$$1时，级数发散。</p></li>
+<li><p>P级数 <span class="math display">\[
+\sum_{n=1}^{\infin} \frac{1}{n^p}
+\]</span> p&gt;1，级数收敛；p$$1级数发散</p></li>
+<li><p>正项级数的审敛法</p>
+<ul>
+<li><p>比较判别法 <span class="math display">\[
+\lim_{n\rightarrow \infin}\frac{U_n}{V_n}=l
+\]</span> <span class="math inline">\(l\)</span>为一常数，则<span
+class="math inline">\(U_n，V_n\)</span>敛散性相同。</p></li>
+<li><p>比值判别法 <span class="math display">\[
+\lim_{n \rightarrow \infin}\frac{U_{n+1}}{U_{n}}=l
+\]</span> <span class="math inline">\(l&gt;1\)</span>发散，<span
+class="math inline">\(l&lt;1\)</span>收敛，<span
+class="math inline">\(l=1\)</span>无法判定。</p></li>
+</ul></li>
+<li><p>任意项级数的审敛法</p>
+<ul>
+<li><p>交错级数</p>
+<p>据莱布尼茨定理，若 <span class="math display">\[
+\lim_{n\rightarrow \infin}U_n = 0
+\]</span> 且<span class="math inline">\(U_{n+1}\leqslant
+U_{n}\)</span>则交错级数收敛。</p></li>
+</ul></li>
+<li><p>幂级数的收敛域 <span class="math display">\[
+\lim_{n\rightarrow \infin}\frac{|U_{n+1}|}{|U_n|}=l
+\]</span> 则函数的收敛半径为<span
+class="math inline">\(r=\frac{1}{l}\)</span>，收敛域为<span
+class="math inline">\((-r,r)\)</span>，端点代入验证。</p></li>
+</ul>
+<h1 id="极坐标">极坐标</h1>
+<figure>
+<img src="https://s2.loli.net/2022/08/02/ZtGJ6rfjTEOka73.png"
+alt="image-20220802100849877" />
+<figcaption aria-hidden="true">image-20220802100849877</figcaption>
+</figure>
+<p>假设夹角：<span class="math inline">\(\alpha \leq \theta \leq
+\beta\)</span>；极径：<span class="math inline">\(A \leq r \leq
+B\)</span></p>
+<p>存在公式： <span class="math display">\[
+\iint_DP(x,y)dxdy=\int_\alpha^\beta d\theta\int
+P(rcos\theta,rsin\theta)rdr
+\]</span></p>
+<h2 id="圆心不在原点的圆的极径求法">圆心不在原点的圆的极径求法</h2>
+<p>圆的方程： <span class="math display">\[
+(x-1)^2+y^2=1
+\]</span></p>
+<figure>
+<img src="https://s2.loli.net/2022/08/16/Uq89OLFtyJlHXpi.png"
+alt="image-20220816120517930" />
+<figcaption aria-hidden="true">image-20220816120517930</figcaption>
+</figure>
+<p><strong>先转化圆的方程<span
+class="math inline">\(x^2+y^2=2x\)</span>，由<span
+class="math inline">\(2x=r^2=2r\cos r\)</span>，求出<span
+class="math inline">\(r\)</span>，就得到了极径</strong></p>
+<h1 id="函数展开成幂级数">函数展开成幂级数</h1>
+<ul>
+<li><p>泰勒公式 <span class="math display">\[
+f(x)=f(x_0)+\frac{f^{&#39;}(x_0)}{1!}(x-x_0)+\frac{f^{&#39;&#39;}(x_0)}{2!}(x-x_0)+...+\frac{f^{(n)}(x0)}{n!}(x-x_0)+o[(x-x_0)^n]
+\]</span></p></li>
+<li><p>麦克劳林公式 <span class="math display">\[
+f(x)=f(0)+f^{&#39;}(0)x+\frac{f^{&#39;&#39;}(0)}{2!}x^2+...+\frac{f^{(n)}(0)}{n!}x^n+o(x^n)
+\]</span></p></li>
+<li><p>常用函数展开成<span class="math inline">\(x\)</span>的幂级数</p>
+<ul>
+<li><p><span class="math display">\[
+\sin
+x=\frac{1}{1!}x-\frac{1}{3!}x^3+\frac{1}{5!}x^5-\frac{1}{7!}x^7+...(-1)^{n}\frac{1}{(2n-1)!}x^{2n-1}+...
+\]</span></p></li>
+<li><p><span class="math display">\[
+e^x=1+\frac{1}{1!}x+\frac{1}{2!}x^2+\frac{1}{3!}x^3+...+\frac{1}{n!}x^n+...
+\]</span></p></li>
+<li><p><span class="math display">\[
+\frac{1}{1-x}=1+x^1+x^2+x^3+x^4+...+x^n+...
+\]</span></p></li>
+</ul></li>
+</ul>
+<h1 id="平抛运动">平抛运动</h1>
+<ul>
+<li><p>平抛运动水平方向位移量 <span class="math display">\[
+x=v_0t
+\]</span></p></li>
+<li><p>平抛运动垂直方向位移量 <span class="math display">\[
+y=\frac{1}{2}gt^2
+\]</span></p></li>
+<li></li>
+</ul>
+<h1 id="空间直线和向量运算">空间直线和向量运算</h1>
+<ul>
+<li><p>给出直线的一般式方程 <span class="math display">\[
+\left\{
+\begin{aligned}
+x-5y+2z=1\\
+5y-z=-2
+\end{aligned}
+\right.
+\]</span> 则直线的方向向量为 <span class="math display">\[
+\left |\begin{array}\\
+i &amp;j   &amp;k \\
+1 &amp;-5 &amp;2  \\
+0 &amp;5 &amp;1 \\
+\end{array}\right|
+= \left|\begin{array}\\
+-5 &amp;2\\
+5 &amp;1
+\end{array}
+\right|i
+\space-\left|\begin{array}\\
+1&amp;2\\
+0&amp;1
+\end{array}\right|j
+\space+\left|\begin{array}\\
+1 &amp;-5\\
+0 &amp;5
+\end{array}\right|k
+\]</span></p></li>
+<li><p>给出两个向量，求垂直于两向量的方向向量 <span
+class="math display">\[
+\left\{
+\begin{align}
+\overrightarrow{a}=(1,0,1)\\
+\overrightarrow{b}=(2,1,3)
+\end{align}
+\right.
+\]</span> 则作向量积 <span class="math display">\[
+\left|
+\begin{array}\\
+i &amp;j &amp;k\\
+1 &amp;0 &amp;1\\
+2 &amp;1 &amp;3
+\end{array}
+\right|
+=\left|\begin{array}\\
+0 &amp;1\\
+1 &amp;3
+\end{array}
+\right|i
+-\left|\begin{array}\\
+1 &amp;1\\
+2 &amp;3
+\end{array}
+\right|j
++\left|\begin{array}\\
+1 &amp;0\\
+2 &amp;1
+\end{array}
+\right|k
+\]</span></p></li>
+</ul>
+<h1 id="有理函数的不定积分">有理函数的不定积分</h1>
+<ul>
+<li><p>真有理分式（分子最高次幂小于分母最高次幂） <span
+class="math display">\[
+eg.\frac{x}{x^2+1}
+\]</span></p></li>
+<li><p>假有理分式（分子最高次幂大于等于分母最高次幂） <span
+class="math display">\[
+eg.\frac{x}{x+1}\quad eg.\frac{x^3}{x^2+1}
+\]</span>
+<strong>假有理分式在计算时都需要先转换成真有理分式</strong></p></li>
+</ul>
+<h1 id="点火公式华里士公式">点火公式（华里士公式）</h1>
+<p><span class="math display">\[
+\int^{\frac{\pi}{2}}_0\sin^nxdx=\int^{\frac{\pi}{2}}_0\cos^nxdx=
+\left\{
+\begin{align}
+\frac{n-1}{n}&amp;\times
+\frac{n-3}{n-2}\times...\times\frac{2}{3}\times1 \quad n \space is
+\space odd\\
+\frac{n-1}{n}&amp;\times
+\frac{n-3}{n-2}\times...\times\frac{1}{2}\times\frac{\pi}{2} \quad
+n\space is \space even
+\end{align}
+\right.
+\]</span></p>
+<h1 id="二倍角公式">二倍角公式</h1>
+<ul>
+<li><p><span class="math display">\[
+\sin 2\alpha = 2\sin\alpha\cos\alpha
+\]</span></p></li>
+<li><p><span class="math display">\[
+\cos2\alpha=2\cos^2\alpha-1
+\]</span></p></li>
+</ul>
+<h1 id="十字相乘">十字相乘</h1>
+<p><span class="math display">\[
+(x+ p)(x+ q)=x^2+(p+q)x+pq
+\]</span></p>
+<h1 id="线性代数公式">线性代数公式</h1>
+<ul>
+<li><p><span class="math display">\[
+|A||B|=|AB|
+\]</span></p></li>
+<li><p><span class="math display">\[
+AA^*=|A|E
+\]</span></p></li>
+<li><p><span class="math display">\[
+A^{-1}=\frac{A^*}{|A|}
+\]</span></p></li>
+<li><p><span class="math display">\[
+A\times A^{-1}=E\\
+|A||A^{-1}|=E\\
+|A^{-1}|=\frac{1}{|A|}
+\]</span></p></li>
+<li><p><span class="math display">\[
+(AB)^T=B^TA^T
+\]</span></p></li>
+<li><p><span class="math display">\[
+(AB)^{-1}=B^{-1}A^{-1}
+\]</span></p></li>
+<li></li>
+</ul>
+]]></content>
+      <categories>
+        <category>岗前实训</category>
+      </categories>
+      <tags>
+        <tag>专升本</tag>
+        <tag>高等数学</tag>
       </tags>
   </entry>
   <entry>
@@ -5001,430 +5667,6 @@ alt="image-20220610125436970" />
         <tag>Java</tag>
         <tag>Java框架</tag>
         <tag>Spring</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>高等数学</title>
-    <url>/2022/07/28/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/</url>
-    <content><![CDATA[<h1 id="微分方程通解公式">微分方程通解公式</h1>
-<p><strong>微分方程中的<span
-class="math inline">\(lnx\)</span>可以去掉绝对值</strong></p>
-<ol type="1">
-<li><p>一阶微分方程</p>
-<ul>
-<li><p>齐次<span class="math inline">\(y^{&#39;}+p(x)y=0\)</span> <span
-class="math display">\[
-Ce^{-\int p(x)dx}
-\]</span></p></li>
-<li><p>非齐次<span class="math inline">\(y^{&#39;}+p(x)y=q(x)\)</span>
-<span class="math display">\[
-e^{-\int p(x)dx}[\int q(x)e^{\int p(x)dx}dx + C]
-\]</span></p></li>
-</ul></li>
-<li><p>二阶微分方程</p>
-<ul>
-<li><p>齐次<span
-class="math inline">\(y^{&#39;&#39;}+p(x)y^{&#39;}+q(x)y=0\)</span></p>
-<ul>
-<li><p>特征方程r1!=r2 <span class="math display">\[
-C_1e^{r_1x}+C_2e^{r_2x}
-\]</span></p></li>
-<li><p>特征方程r1=r2=r <span class="math display">\[
-(C_1+C_2x)e^{rx}
-\]</span></p></li>
-<li><p>特征方程<span class="math inline">\(\alpha \pm i \beta\)</span>
-<span class="math display">\[
-e^{ax}(c_1\cos\beta x+c_2\sin\beta x)
-\]</span></p></li>
-</ul></li>
-<li><p>非齐次<span
-class="math inline">\(y^{&#39;&#39;}+p(x)y^{&#39;}+q(x)y=f(x)\)</span></p>
-<p>求解非齐次方程，需要求出其对应齐次方程的通解<span
-class="math inline">\(Y\)</span>，再加上特解<span
-class="math inline">\(y^*\)</span></p>
-<ul>
-<li><p><span class="math inline">\(q(x)\)</span>形式<span
-class="math inline">\(P_n(x)\)</span></p>
-<table>
-<thead>
-<tr class="header">
-<th>特征方程解的形式</th>
-<th>设特解形式</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0不是特征方程的根</td>
-<td><span class="math inline">\(R_nx\)</span></td>
-</tr>
-<tr class="even">
-<td>0是特征方程的单根</td>
-<td><span class="math inline">\(xR_nx\)</span></td>
-</tr>
-<tr class="odd">
-<td>0是特征方程的重根</td>
-<td><span class="math inline">\(x^2R_nx\)</span></td>
-</tr>
-</tbody>
-</table></li>
-<li><p>q(x)形式<span class="math inline">\(P_n(x)e^{ax}\)</span></p>
-<table>
-<thead>
-<tr class="header">
-<th>特征方程解的形式</th>
-<th>设特解形式</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(\alpha\)</span>不是特征方程的根</td>
-<td><span class="math inline">\(e^{\alpha x}R_nx\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(\alpha\)</span>是特征方程的单根</td>
-<td><span class="math inline">\(xe^{\alpha x}R_nx\)</span></td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(\alpha\)</span>是特征方程的重根</td>
-<td><span class="math inline">\(x^2e^{\alpha x}R_nx\)</span></td>
-</tr>
-</tbody>
-</table></li>
-<li><p><span class="math inline">\(q(x)\)</span>形式<span
-class="math inline">\(e^{\alpha x}(a\cos\beta x+b\sin\beta
-x)\)</span></p>
-<table>
-<colgroup>
-<col style="width: 44%" />
-<col style="width: 55%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>特征方程解的形式</th>
-<th>设特解形式</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(\alpha\pm
-i\beta\)</span>不是特征方程的根</td>
-<td><span class="math inline">\(e^{\alpha x}(A\cos\beta x+B\sin\beta
-x)\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(\alpha\pm
-i\beta\)</span>是特征方程的根</td>
-<td><span class="math inline">\(xe^{\alpha x}(A\cos\beta x+B\sin\beta
-x)\)</span></td>
-</tr>
-</tbody>
-</table></li>
-</ul></li>
-</ul></li>
-</ol>
-<h1 id="奇偶函数的判别公式">奇偶函数的判别公式</h1>
-<ul>
-<li><p>奇函数 <span class="math display">\[
-f(-x) = -f(x)
-\]</span></p></li>
-<li><p>偶函数 <span class="math display">\[
-f(-x) = f(x)
-\]</span></p></li>
-</ul>
-<h1 id="奇偶函数的加减乘除">奇偶函数的加减乘除</h1>
-<table>
-<thead>
-<tr class="header">
-<th>参与计算的函数</th>
-<th>结果</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>奇函数<span class="math inline">\(\pm\)</span>偶函数</td>
-<td>非奇非偶函数</td>
-</tr>
-<tr class="even">
-<td>奇函数<span class="math inline">\(\pm\)</span>奇函数</td>
-<td>奇函数</td>
-</tr>
-<tr class="odd">
-<td>偶函数<span class="math inline">\(\pm\)</span>偶函数</td>
-<td>偶函数</td>
-</tr>
-<tr class="even">
-<td>奇函数<span class="math inline">\(\times/\)</span>偶函数</td>
-<td>奇函数</td>
-</tr>
-<tr class="odd">
-<td>奇函数<span class="math inline">\(\times/\)</span>奇函数</td>
-<td>偶函数</td>
-</tr>
-<tr class="even">
-<td>偶函数<span class="math inline">\(\times/\)</span>偶函数</td>
-<td>偶函数</td>
-</tr>
-</tbody>
-</table>
-<h1 id="奇偶函数的判别技巧">奇偶函数的判别技巧</h1>
-<table>
-<thead>
-<tr class="header">
-<th>参与计算的函数</th>
-<th>结果</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>奇函数的奇数次方</td>
-<td>奇函数</td>
-</tr>
-<tr class="even">
-<td>奇函数的偶数次方</td>
-<td>偶函数</td>
-</tr>
-<tr class="odd">
-<td>偶函数的奇数次方</td>
-<td>偶函数</td>
-</tr>
-<tr class="even">
-<td>偶函数的偶数次方</td>
-<td>偶函数</td>
-</tr>
-</tbody>
-</table>
-<h1 id="曲线积分">曲线积分</h1>
-<ul>
-<li><p>对弧长的曲线积分 <span class="math display">\[
-\int p(x,y)ds=\int p(\varphi(t),\psi
-(t))\sqrt[2]{\varphi^{&#39;2}(t)+\psi^{&#39;2}(t)}dt
-\]</span></p></li>
-<li><p>对坐标的曲线积分 <span class="math display">\[
-\int P(x,y)dx+Q(x,y)dy=\int
-[p(\varphi(t),\psi(t))\varphi^{&#39;}(t)+q(\varphi(t),\psi(t))\psi^{&#39;}(t)]dt
-\]</span></p></li>
-<li><p>格林公式 <span class="math display">\[
-\iint_D(\frac{\partial Q}{\partial y} - \frac{\partial P}{\partial
-x})dxdy = \int_LP(x,y)dx+Q(x,y)dy
-\]</span></p></li>
-</ul>
-<h1 id="无穷级数">无穷级数</h1>
-<ul>
-<li><p>等比级数 <span class="math display">\[
-\sum_{n=0}^{\infin} aq^n = a+aq+aq^2+aq^3+...+aq^n+...(a\neq0)
-\]</span> |q|&lt;1时，级数收敛；|q|$$1时，级数发散。</p></li>
-<li><p>P级数 <span class="math display">\[
-\sum_{n=1}^{\infin} \frac{1}{n^p}
-\]</span> p&gt;1，级数收敛；p$$1级数发散</p></li>
-<li><p>正项级数的审敛法</p>
-<ul>
-<li><p>比较判别法 <span class="math display">\[
-\lim_{n\rightarrow \infin}\frac{U_n}{V_n}=l
-\]</span> <span class="math inline">\(l\)</span>为一常数，则<span
-class="math inline">\(U_n，V_n\)</span>敛散性相同。</p></li>
-<li><p>比值判别法 <span class="math display">\[
-\lim_{n \rightarrow \infin}\frac{U_{n+1}}{U_{n}}=l
-\]</span> <span class="math inline">\(l&gt;1\)</span>发散，<span
-class="math inline">\(l&lt;1\)</span>收敛，<span
-class="math inline">\(l=1\)</span>无法判定。</p></li>
-</ul></li>
-<li><p>任意项级数的审敛法</p>
-<ul>
-<li><p>交错级数</p>
-<p>据莱布尼茨定理，若 <span class="math display">\[
-\lim_{n\rightarrow \infin}U_n = 0
-\]</span> 且<span class="math inline">\(U_{n+1}\leqslant
-U_{n}\)</span>则交错级数收敛。</p></li>
-</ul></li>
-<li><p>幂级数的收敛域 <span class="math display">\[
-\lim_{n\rightarrow \infin}\frac{|U_{n+1}|}{|U_n|}=l
-\]</span> 则函数的收敛半径为<span
-class="math inline">\(r=\frac{1}{l}\)</span>，收敛域为<span
-class="math inline">\((-r,r)\)</span>，端点代入验证。</p></li>
-</ul>
-<h1 id="极坐标">极坐标</h1>
-<figure>
-<img src="https://s2.loli.net/2022/08/02/ZtGJ6rfjTEOka73.png"
-alt="image-20220802100849877" />
-<figcaption aria-hidden="true">image-20220802100849877</figcaption>
-</figure>
-<p>假设夹角：<span class="math inline">\(\alpha \leq \theta \leq
-\beta\)</span>；极径：<span class="math inline">\(A \leq r \leq
-B\)</span></p>
-<p>存在公式： <span class="math display">\[
-\iint_DP(x,y)dxdy=\int_\alpha^\beta d\theta\int
-P(rcos\theta,rsin\theta)rdr
-\]</span></p>
-<h2 id="圆心不在原点的圆的极径求法">圆心不在原点的圆的极径求法</h2>
-<p>圆的方程： <span class="math display">\[
-(x-1)^2+y^2=1
-\]</span></p>
-<figure>
-<img src="https://s2.loli.net/2022/08/16/Uq89OLFtyJlHXpi.png"
-alt="image-20220816120517930" />
-<figcaption aria-hidden="true">image-20220816120517930</figcaption>
-</figure>
-<p><strong>先转化圆的方程<span
-class="math inline">\(x^2+y^2=2x\)</span>，由<span
-class="math inline">\(2x=r^2=2r\cos r\)</span>，求出<span
-class="math inline">\(r\)</span>，就得到了极径</strong></p>
-<h1 id="函数展开成幂级数">函数展开成幂级数</h1>
-<ul>
-<li><p>泰勒公式 <span class="math display">\[
-f(x)=f(x_0)+\frac{f^{&#39;}(x_0)}{1!}(x-x_0)+\frac{f^{&#39;&#39;}(x_0)}{2!}(x-x_0)+...+\frac{f^{(n)}(x0)}{n!}(x-x_0)+o[(x-x_0)^n]
-\]</span></p></li>
-<li><p>麦克劳林公式 <span class="math display">\[
-f(x)=f(0)+f^{&#39;}(0)x+\frac{f^{&#39;&#39;}(0)}{2!}x^2+...+\frac{f^{(n)}(0)}{n!}x^n+o(x^n)
-\]</span></p></li>
-<li><p>常用函数展开成<span class="math inline">\(x\)</span>的幂级数</p>
-<ul>
-<li><p><span class="math display">\[
-\sin
-x=\frac{1}{1!}x-\frac{1}{3!}x^3+\frac{1}{5!}x^5-\frac{1}{7!}x^7+...(-1)^{n}\frac{1}{(2n-1)!}x^{2n-1}+...
-\]</span></p></li>
-<li><p><span class="math display">\[
-e^x=1+\frac{1}{1!}x+\frac{1}{2!}x^2+\frac{1}{3!}x^3+...+\frac{1}{n!}x^n+...
-\]</span></p></li>
-<li><p><span class="math display">\[
-\frac{1}{1-x}=1+x^1+x^2+x^3+x^4+...+x^n+...
-\]</span></p></li>
-</ul></li>
-</ul>
-<h1 id="平抛运动">平抛运动</h1>
-<ul>
-<li><p>平抛运动水平方向位移量 <span class="math display">\[
-x=v_0t
-\]</span></p></li>
-<li><p>平抛运动垂直方向位移量 <span class="math display">\[
-y=\frac{1}{2}gt^2
-\]</span></p></li>
-<li></li>
-</ul>
-<h1 id="空间直线和向量运算">空间直线和向量运算</h1>
-<ul>
-<li><p>给出直线的一般式方程 <span class="math display">\[
-\left\{
-\begin{aligned}
-x-5y+2z=1\\
-5y-z=-2
-\end{aligned}
-\right.
-\]</span> 则直线的方向向量为 <span class="math display">\[
-\left |\begin{array}\\
-i &amp;j   &amp;k \\
-1 &amp;-5 &amp;2  \\
-0 &amp;5 &amp;1 \\
-\end{array}\right|
-= \left|\begin{array}\\
--5 &amp;2\\
-5 &amp;1
-\end{array}
-\right|i
-\space-\left|\begin{array}\\
-1&amp;2\\
-0&amp;1
-\end{array}\right|j
-\space+\left|\begin{array}\\
-1 &amp;-5\\
-0 &amp;5
-\end{array}\right|k
-\]</span></p></li>
-<li><p>给出两个向量，求垂直于两向量的方向向量 <span
-class="math display">\[
-\left\{
-\begin{align}
-\overrightarrow{a}=(1,0,1)\\
-\overrightarrow{b}=(2,1,3)
-\end{align}
-\right.
-\]</span> 则作向量积 <span class="math display">\[
-\left|
-\begin{array}\\
-i &amp;j &amp;k\\
-1 &amp;0 &amp;1\\
-2 &amp;1 &amp;3
-\end{array}
-\right|
-=\left|\begin{array}\\
-0 &amp;1\\
-1 &amp;3
-\end{array}
-\right|i
--\left|\begin{array}\\
-1 &amp;1\\
-2 &amp;3
-\end{array}
-\right|j
-+\left|\begin{array}\\
-1 &amp;0\\
-2 &amp;1
-\end{array}
-\right|k
-\]</span></p></li>
-</ul>
-<h1 id="有理函数的不定积分">有理函数的不定积分</h1>
-<ul>
-<li><p>真有理分式（分子最高次幂小于分母最高次幂） <span
-class="math display">\[
-eg.\frac{x}{x^2+1}
-\]</span></p></li>
-<li><p>假有理分式（分子最高次幂大于等于分母最高次幂） <span
-class="math display">\[
-eg.\frac{x}{x+1}\quad eg.\frac{x^3}{x^2+1}
-\]</span>
-<strong>假有理分式在计算时都需要先转换成真有理分式</strong></p></li>
-</ul>
-<h1 id="点火公式华里士公式">点火公式（华里士公式）</h1>
-<p><span class="math display">\[
-\int^{\frac{\pi}{2}}_0\sin^nxdx=\int^{\frac{\pi}{2}}_0\cos^nxdx=
-\left\{
-\begin{align}
-\frac{n-1}{n}&amp;\times
-\frac{n-3}{n-2}\times...\times\frac{2}{3}\times1 \quad n \space is
-\space odd\\
-\frac{n-1}{n}&amp;\times
-\frac{n-3}{n-2}\times...\times\frac{1}{2}\times\frac{\pi}{2} \quad
-n\space is \space even
-\end{align}
-\right.
-\]</span></p>
-<h1 id="二倍角公式">二倍角公式</h1>
-<ul>
-<li><p><span class="math display">\[
-\sin 2\alpha = 2\sin\alpha\cos\alpha
-\]</span></p></li>
-<li><p><span class="math display">\[
-\cos2\alpha=2\cos^2\alpha-1
-\]</span></p></li>
-</ul>
-<h1 id="十字相乘">十字相乘</h1>
-<p><span class="math display">\[
-(x+ p)(x+ q)=x^2+(p+q)x+pq
-\]</span></p>
-<h1 id="线性代数公式">线性代数公式</h1>
-<ul>
-<li><p><span class="math display">\[
-|A||B|=|AB|
-\]</span></p></li>
-<li><p><span class="math display">\[
-AA^*=|A|E
-\]</span></p></li>
-<li><p><span class="math display">\[
-A^{-1}=\frac{A^*}{|A|}
-\]</span></p></li>
-<li><p><span class="math display">\[
-A\times A^{-1}=E\\
-|A||A^{-1}|=E\\
-|A^{-1}|=\frac{1}{|A|}
-\]</span></p></li>
-</ul>
-]]></content>
-      <categories>
-        <category>岗前实训</category>
-      </categories>
-      <tags>
-        <tag>专升本</tag>
-        <tag>高等数学</tag>
       </tags>
   </entry>
 </search>
