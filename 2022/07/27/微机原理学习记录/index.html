@@ -1,0 +1,586 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>微机原理学习记录 | 小蜗</title><meta name="keywords" content="专升本,微机原理"><meta name="author" content="alfa"><meta name="copyright" content="alfa"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微机原理学习记录">
+<meta property="og:url" content="http://20010726.xyz/2022/07/27/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:site_name" content="小蜗">
+<meta property="og:description" content="...">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2022-07-27T05:55:11.000Z">
+<meta property="article:modified_time" content="2022-09-14T13:37:11.576Z">
+<meta property="article:author" content="alfa">
+<meta property="article:tag" content="专升本">
+<meta property="article:tag" content="微机原理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/images/myfavicon.png"><link rel="canonical" href="http://20010726.xyz/2022/07/27/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '微机原理学习记录',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-09-14 21:37:11'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/paidaxing.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">36</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">45</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">小蜗</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">微机原理学习记录</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-07-27T05:55:11.000Z" title="发表于 2022-07-27 13:55:11">2022-07-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-14T13:37:11.576Z" title="更新于 2022-09-14 21:37:11">2022-09-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%B2%97%E5%89%8D%E5%AE%9E%E8%AE%AD/">岗前实训</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>8分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="微机原理学习记录"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1>绪论（一）</h1>
+<p><img src="https://s2.loli.net/2022/07/27/x7oDLf1HP2tZIEG.png" alt="image-20220727140717045"></p>
+<h1>绪论（二）</h1>
+<p><img src="https://s2.loli.net/2022/07/27/WbcIVX2eqtz6OwN.png" alt="image-20220727145027072"></p>
+<p><img src="https://s2.loli.net/2022/07/27/ersVFv4GPxtDBbZ.png" alt="image-20220727145302088"></p>
+<p><img src="https://s2.loli.net/2022/07/27/JMdr4FqxBDk8gu2.png" alt="image-20220727145723680"></p>
+<h1>绪论（三）</h1>
+<ul>
+<li>芯片引脚OE，英文全称为Output Enable,中文意思为输出使能端、输出允许信号。</li>
+</ul>
+<p><img src="https://s2.loli.net/2022/07/28/ArowYjNHplU1fuh.png" alt="image-20220727180422448"></p>
+<h1>绪论（四）</h1>
+<p><img src="https://s2.loli.net/2022/07/28/VBksfvCEeLotyXK.png" alt="image-20220728163052792"></p>
+<p><img src="https://s2.loli.net/2022/07/28/aclKtryEXjBbh3D.png" alt="image-20220728163311292"></p>
+<p><img src="https://s2.loli.net/2022/07/28/v63CxpGih2tckAS.png" alt="image-20220728163541839"></p>
+<h1>数制与码制（一）</h1>
+<h2 id="进制转换">进制转换</h2>
+<p><em>二进制、八进制、十进制、十六进制之间相互转换</em></p>
+<ul>
+<li>
+<p>其他进制转换为十进制</p>
+<p>某位上的数字乘上它的权，求其总和。</p>
+<ul>
+<li>二进制<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>10010011</mn></mrow><annotation encoding="application/x-tex">10010011</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mord">1</span><span class="mord">1</span></span></span></span>转换为十进制\begin{align}
+1\times2^0+1\times2^1+0\times2^2+0\times2^3+1\times2^4+0\times2^5+0\times2^6+1\times2^7\\=1+2+16+128 \\= 147
+\end{align}
+
+</li>
+</ul>
+</li>
+<li>
+<p>十进制转换成其他进制</p>
+<ul>
+<li>
+<p>整数部分转换</p>
+<ul>
+<li>
+<p>111转换成二进制数</p>
+<img src="https://s2.loli.net/2022/07/29/AkEBeFOac7huziv.png" alt="无标题" style="zoom:50%;" />
+</li>
+</ul>
+</li>
+<li>
+<p>小数部分转换</p>
+<ul>
+<li>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0.125</mn></mrow><annotation encoding="application/x-tex">0.125</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">1</span><span class="mord">2</span><span class="mord">5</span></span></span></span>转换成二进制数</p>
+<p><img src="https://s2.loli.net/2022/07/29/6b2qiym5SRg8o9h.png" alt="无标题"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="位置加权法">位置加权法</h2>
+<p><img src="https://s2.loli.net/2022/07/29/HuMXUWpclRDIv1n.png" alt="image-20220729165214184"></p>
+<h2 id="除十取余法">除十取余法</h2>
+<p><em>在程序设计中把二进制转化为十进制的一种算法，在手工运算时行不通</em></p>
+<p><img src="https://s2.loli.net/2022/07/30/KNFdRJrvw2hOMgm.png" alt="image-20220729165318908"></p>
+<h1>数制与码制（二）</h1>
+<h2 id="比较法">比较法</h2>
+<p>在程序设计中把二进制转化为十进制的一种算法</p>
+<p><img src="https://s2.loli.net/2022/07/30/YX72gbLu5W4Z6Kn.png" alt="image-20220730143532008"></p>
+<h2 id="数据寄存器（AX，BX，CX，DX）"><strong>数据寄存器（AX，BX，CX，DX）</strong></h2>
+<p>数据寄存器有 AX，BX，CX，DX 四个组成，由于在 8086 之前的 CPU 为 8 位 CPU，所以为了兼容以前的 8 位程序，在 8086 CPU 中，每一个数据寄存器都可以当做两个单独的寄存器来使用，由此，每一个 16 位寄存器就可以当做 2 个独立的 8 位寄存器来使用了。</p>
+<p>AX 寄存器可以分为两个独立的 8 位的 AH 和 AL 寄存器；</p>
+<p>BX 寄存器可以分为两个独立的 8 位的 BH 和 BL 寄存器；</p>
+<p>CX 寄存器可以分为两个独立的 8 位的 CH 和 CL 寄存器；</p>
+<p>DX 寄存器可以分为两个独立的 8 位的 DH 和 DL 寄存器；</p>
+<p><strong>除了上面 4 个数据寄存器以外，其他寄存器均不可以分为两个独立的 8 位寄存器 ；</strong></p>
+<p><img src="https://s2.loli.net/2022/07/30/RptGZXgzMqJrkLW.png" alt="image-20220730143819359"></p>
+<p><img src="https://s2.loli.net/2022/07/30/SHUvxjXPiMZkVwz.png" alt="image-20220730143927858"></p>
+<h1>数制与码制（三）</h1>
+<h2 id="PSW寄存器">PSW寄存器</h2>
+<p><strong>进位标志CF（Carry Flag）、奇偶标志PF（Parity Flag）、辅助进位标志AF（Auxiliary Carry Flag）、零标志ZF（Zero Flag）、符号标志SF（Sign Flag）、溢出标志（Overflow Flag）。</strong></p>
+<p><img src="https://s2.loli.net/2022/07/30/Or8mySnQI47b9RD.png" alt="image-20220730151946480"></p>
+<p><img src="https://s2.loli.net/2022/07/30/JdFYTCio6KscxV4.png" alt="image-20220730151600205"></p>
+<h1>数制与码制（四）</h1>
+<p><img src="https://s2.loli.net/2022/07/30/rzlohYdXp2Z9SVM.png" alt="image-20220730154621911"></p>
+<h2 id="汇编语言——十六进制数据前加0规则">汇编语言——十六进制数据前加0规则</h2>
+<p>十六进制以A~F打头的数字出现在指令中时，前面一定要加一个数字0,以免与其它符号相混淆。</p>
+<p><img src="https://s2.loli.net/2022/07/30/IFt6KMWeVY8nzCi.png" alt="image-20220730155113470"></p>
+<h1>数制与码制（五）</h1>
+<h2 id="原码">原码</h2>
+<p><img src="https://s2.loli.net/2022/07/30/Tq1Z2RjJWeIbMxt.png" alt="image-20220730163329049"></p>
+<h2 id="补码">补码</h2>
+<p><em>原码除符号位之外各位取反，最后加一就得到补码</em></p>
+<p><img src="https://s2.loli.net/2022/07/30/sAlDHWFJZPckj1I.png" alt="image-20220730163433370"></p>
+<p><img src="https://s2.loli.net/2022/07/30/BFAZkqDugSztrXl.png" alt="image-20220730163922775"></p>
+<h1>数制与码制（六）</h1>
+<p><a href="#PSW%E5%AF%84%E5%AD%98%E5%99%A8">查看PSW寄存器详细内容</a></p>
+<p>PF：奇偶标志位 （用于数据发送时接收方校验所收数据真实性 ， 发送方通过填充奇偶标志位使得发送数据的<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E4%BA%8C%E8%BF%9B%E5%88%B6&amp;spm=1001.2101.3001.7020">二进制</a>数的1的个数为奇或为偶）（8086为奇校验）</p>
+<p><img src="https://s2.loli.net/2022/07/30/pXtdMFSWx28P6nV.png" alt="image-20220730211256619"></p>
+<h2 id="补码运算规则">补码运算规则</h2>
+<p>在计算机中，通常总是用<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E8%A1%A5%E7%A0%81&amp;spm=1001.2101.3001.7020">补码</a>完成算术的加减法运算。其规则是：<br>
+　　[X+Y]补= [X]补 + [Y]补 ，[X-Y]补= [X]补 - [Y]补 = [X]补 + [-Y]补</p>
+<p><img src="https://s2.loli.net/2022/07/30/pU85cSzXCdQxveG.png" alt="image-20220730213239797"></p>
+<p><img src="https://s2.loli.net/2022/07/30/WoZjiRytYhb7KPc.png" alt="image-20220730212513669"></p>
+<p><img src="https://s2.loli.net/2022/07/30/FC2eqQpvLJ1XiZk.png" alt="image-20220730213314250"></p>
+<h1>数制与码制（七）</h1>
+<h2 id="补码运算规则（补充）">补码运算规则（补充）</h2>
+<p>补码的补码就是原码</p>
+<p><img src="https://s2.loli.net/2022/07/31/8FWhOltQcaDA2sY.png" alt="image-20220731154523496"></p>
+<h2 id="变补（求负）">变补（求负）</h2>
+<p>[X]变补 = [-X]补，变补类似补码，变补是全部取反再加1，无符号位一说</p>
+<p><img src="https://s2.loli.net/2022/07/31/EnuBC85w7sJaND1.png" alt="image-20220731154630963"></p>
+<h2 id="BCD码">BCD码</h2>
+<p>BCD码：用四个二进制位表示一个十进制数字；最常用的是8421  BCD码；</p>
+<ul>
+<li>压缩型BCD码</li>
+</ul>
+<p>一个字节可存放一个两位十进制数，其中高四位存放十位数字，低四位存放个位数字。如：56的压缩型8421   BCD码是0101   0110；</p>
+<ul>
+<li>非压缩型BCD码</li>
+</ul>
+<p>一个字节可存放一个一位十进制数，其中高字节为0，低字节的低四位存放个位。如：5的非压缩型BCD码是0000   0101，必须存放在一个字节中，56的非压缩型BCD码是00000101   00000110，必须存放在一个字中。</p>
+<img src="https://s2.loli.net/2022/08/01/SfPU6zJKryQ8jqW.png" />
+<h3 id="BCD码的修正">BCD码的修正</h3>
+<ul>
+<li>对低四位的修正
+<ul>
+<li>查看低四位的数值是否大于9，如果大于，就+6强制让其进位，低四位的就得到了正确值。</li>
+<li>查看低四位是否向高四位有进位，查看标志寄存器AF，如果有，就+6补上其进位多进走的6，低四位就得到了正确的值</li>
+</ul>
+</li>
+<li>对高四位的修正
+<ul>
+<li>查看高四位的数值是否大于9，如果大于，就+6强制让其进位，高四位的就得到了正确值。</li>
+<li>查看高四位是否向不存在的第五位有进位，查看进位标志位CF，如果有，就+6补上其进位多进走的6，高四位就得到了正确的值</li>
+</ul>
+</li>
+</ul>
+<h1>数制与码制（八）</h1>
+<h2 id="ASCII码">ASCII码</h2>
+<p><img src="https://s2.loli.net/2022/07/31/6wpJDCKMGNoBPk2.png" alt="image-20220731164019416"></p>
+<ul>
+<li>
+<p>数字字符转数字</p>
+<p><code>-30H</code></p>
+</li>
+<li>
+<p>大写字符转小写</p>
+<p><code>OR 20H</code></p>
+</li>
+<li>
+<p>小写字符转大写</p>
+<p><code>AND 0DFH</code></p>
+</li>
+</ul>
+<h1>CPU结构与功能（一）</h1>
+<p><img src="https://s2.loli.net/2022/08/01/HK8qzF7eguptYky.png" alt="image-20220801144410815"></p>
+<h1>CPU结构与功能（二）</h1>
+<p><img src="https://s2.loli.net/2022/08/01/hlY9vsuJbRSpdqZ.png" alt="image-20220801150839355"></p>
+<h1>CPU结构与功能（三）</h1>
+<h2 id="独立编址与统一编址">独立编址与统一编址</h2>
+<p>在不同的系统中，I/O端口的地址编排有两种形式：<br>
+存储器统一编址和I/O独立编址。</p>
+<ul>
+<li>存储器统一编址(存储器映像编址)：
+<ul>
+<li>优点
+<ul>
+<li>驱动程序设计简单</li>
+<li>CPU中对存储器可用的寻址方式对I/O同样可用</li>
+</ul>
+</li>
+<li>缺点
+<ul>
+<li>占用了存储器的地址空间</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>I/O独立编址：
+<ul>
+<li>优点
+<ul>
+<li>不占用内存空间</li>
+</ul>
+</li>
+<li>缺点
+<ul>
+<li>相对而言，指令变得复杂了</li>
+<li>寻址方式少了</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2022/08/01/3zEceAYfhgF9iQN.png" alt="image-20220801153206577"></p>
+<h1>CPU结构与功能（四）</h1>
+<h2 id="典型的CPU的内部结构">典型的CPU的内部结构</h2>
+<p><img src="https://s2.loli.net/2022/08/01/p1EZIA9hVjcyPfn.png" alt="image-20220801165804274"></p>
+<p><img src="https://s2.loli.net/2022/08/01/rCsdw87PpojhFBT.png" alt="image-20220801161403833"></p>
+<h1>CPU结构与功能（五）</h1>
+<h2 id="堆栈">堆栈</h2>
+<p><img src="https://s2.loli.net/2022/08/02/8b5Djt6o1kVzWSi.png" alt="这里写图片描述"></p>
+<p><img src="https://s2.loli.net/2022/08/01/yxRgnr9isXF34ba.png" alt="image-20220801165252055"></p>
+<h2 id="8086-8088CPU的内部结构">8086/8088CPU的内部结构</h2>
+<p><img src="https://s2.loli.net/2022/08/01/cOH21losPAnCGM3.png" alt="image-20220801170713182"></p>
+<h1>CPU结构与功能（六）</h1>
+<h2 id="BIU和EU">BIU和EU</h2>
+<p><img src="https://s2.loli.net/2022/08/01/GFbgCUtDXAQwa2j.png" alt="image-20220801175703338"></p>
+<p><img src="https://s2.loli.net/2022/08/01/jnpoCeUfda3LcxF.png" alt="image-20220801175052002"></p>
+<h2 id="通用寄存器中数据寄存器">通用寄存器中数据寄存器</h2>
+<p><img src="https://s2.loli.net/2022/08/01/pm2lBSPyuoDzeqh.png" alt="image-20220801175729124"></p>
+<p><img src="https://s2.loli.net/2022/08/01/esXwhtVfdPINTv8.png" alt="image-20220801175449062"></p>
+<h1>CPU结构与功能（七）</h1>
+<h2 id="BX和BP指示偏移地址时区别">BX和BP指示偏移地址时区别</h2>
+<p>用户编程中指示偏移地址的寄存器有BX、BP、SI、DI.</p>
+<p>在存储器单元寻址方式中，使用BX、SI、DI指示偏移地址时，隐含引用的是数据段DS。</p>
+<p>若使用BP指示偏移地址，隐含引用的是堆栈段SS。</p>
+<p><img src="https://s2.loli.net/2022/08/02/JSOTpEyz3k1NvqU.png" alt="image-20220802143307072"></p>
+<h2 id="通用寄存中变址寄存器">通用寄存中变址寄存器</h2>
+<p><img src="https://s2.loli.net/2022/08/02/z2wWrmoibjC9B46.png" alt="image-20220802143951590"></p>
+<h2 id="SI、DI和字符串操作指令">SI、DI和字符串操作指令</h2>
+<p>SI是源变址寄存器，DI是目的变址寄存器。可以用来存放数据、地址，功能类似、用法类似、一般使用哪个都可以。</p>
+<p>但需要注意的是：在串处理指令中，SI用作隐含的源串地址，默认在DS中；DI用做隐含的目的串地址，默认在ES中；此时不能混用。</p>
+<p><img src="https://s2.loli.net/2022/08/02/xFwlbCftdWp3Jha.png" alt="image-20220802144316625"></p>
+<h2 id="段寄存器">段寄存器</h2>
+<p><img src="https://s2.loli.net/2022/08/02/Uv2ftzSGgMJOKIE.png" alt="image-20220802144637282"></p>
+<h1>CPU结构与功能（八）</h1>
+<h2 id="CS-寄存器-和-IP-寄存器">CS 寄存器 和 IP 寄存器</h2>
+<p>CS和IP是<strong>8086CPU中两个关键的寄存器，它们指示了CPU当前要读取指令的地址</strong>。 CS : 代码段寄存器；IP : 指令指针寄存器。 在8086机中，任意时刻，CPU将CS:IP指向的内容当作指令来执行。</p>
+<h2 id="控制寄存器">控制寄存器</h2>
+<img src="https://s2.loli.net/2022/08/02/vCmElRZog3Auiq7.png" alt="image-20220802151420651"  />
+<h2 id="PSW中的控制标志">PSW中的控制标志</h2>
+<p><img src="https://s2.loli.net/2022/08/02/hUTZjswzoW5D1Oa.png" alt="image-20220802151753022"></p>
+<p><img src="https://s2.loli.net/2022/08/02/Uv4S8Ok7H9RVF5p.png" alt="image-20220802152654156"></p>
+<h1>CPU结构与功能（九）</h1>
+<p><img src="https://s2.loli.net/2022/08/02/YGqvwmSyRpEFxUe.png" alt="image-20220802155825577"></p>
+<p><img src="https://s2.loli.net/2022/08/02/3176Tp4FnDARuwm.png" alt="image-20220802160111087"></p>
+<h1>CPU结构与功能（十）</h1>
+<h2 id="8086系统中字的“对准存放”">8086系统中字的“对准存放”</h2>
+<p>读取一个字时，如果该字从偶地址开始存放，那么cpu只需要访问一次存储器即可。然而，如果该字从奇地址开始存放，cpu需要先访问奇地址存储体，把字的低字节取出，再访问偶地址存储体，把字的高字节取出，即访问了两次，降低了访问速度。</p>
+<p><img src="https://s2.loli.net/2022/08/02/YRMvaVuU4iofOCs.png" alt="image-20220802163318499"></p>
+<hr>
+<ul>
+<li>
+<p>问题：</p>
+<p>8086CPU中有20位地址线，寄存器却只有16位，为了寻址<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>20</mn></msup></mrow><annotation encoding="application/x-tex">2^{20}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mtight">0</span></span></span></span></span></span></span></span></span></span></span></span>位的地址，就需要提出解决办法。</p>
+</li>
+<li>
+<p>解决方法：</p>
+<p>把存储器分成16份，每份64kb，即<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>16</mn></msup></mrow><annotation encoding="application/x-tex">2^{16}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">6</span></span></span></span></span></span></span></span></span></span></span></span>位，每一份就是一个逻辑段，每一段的起始地址必须可以被16整除。</p>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2022/08/02/JVkgepYbnmSrW2I.png" alt="image-20220802163930383"></p>
+<h1>CPU结构与功能（十一）</h1>
+<h2 id="物理地址（PA）的形成">物理地址（PA）的形成</h2>
+<p><img src="https://s2.loli.net/2022/08/02/vcKTJXYiPtEa4Ld.png" alt="image-20220802172507765"></p>
+<h2 id="各类指令的地址信息">各类指令的地址信息</h2>
+<p><img src="https://s2.loli.net/2022/08/02/GAWNkcjBup1nOYC.png" alt="image-20220802172907912"></p>
+<h1>CPU指令系统（一）</h1>
+<p><img src="https://s2.loli.net/2022/08/02/6PkdHmpBf1TFSvD.png" alt="image-20220802195159853"></p>
+<h1>使用DOSBox编写汇编程序</h1>
+<p>debug命令：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210103113947764.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlYm9ydHQ=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>标志寄存器：</p>
+<p><img src="https://img-blog.csdnimg.cn/20210103115022460.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3JlYm9ydHQ=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Evan_AF/article/details/88984170">原文链接1</a>，<a target="_blank" rel="noopener" href="https://blog.csdn.net/rebortt/article/details/112132461">原文链接2</a></p>
+</blockquote>
+<h1>CPU指令系统（二）</h1>
+<p><img src="https://s2.loli.net/2022/08/03/iTV7Y9F1kMJjvUf.png" alt="image-20220803152506592"></p>
+<h2 id="汇编语言中语句的组成">汇编语言中语句的组成</h2>
+<p><img src="https://s2.loli.net/2022/08/03/EtTpoAkFfVveqGH.png" alt="image-20220803152558343"></p>
+<hr>
+<p><img src="https://s2.loli.net/2022/08/03/xsmDLvpJQgRyNHq.png" alt="image-20220803152752477"></p>
+<h2 id="汇编语言中的常数与表达式">汇编语言中的常数与表达式</h2>
+<ul>
+<li>
+<p>常数</p>
+<p><img src="https://s2.loli.net/2022/08/03/k4sIUMG21qrcgVZ.png" alt="image-20220803152837407"></p>
+</li>
+<li>
+<p>表达式</p>
+<p>关系运算的真值是全1，假是全0。</p>
+<p><img src="https://s2.loli.net/2022/08/03/RYcow3jCOaL6TDZ.png" alt="image-20220803152932091"></p>
+</li>
+</ul>
+<h1>CPU指令系统（三）</h1>
+<h2 id="标号">标号</h2>
+<p><img src="https://s2.loli.net/2022/08/03/suxvwj4Beo1zVM6.png" alt="image-20220803155926696"></p>
+<p><img src="https://s2.loli.net/2022/08/03/VZLR2kq5iJltBFj.png" alt="image-20220803155703356"></p>
+<hr>
+<h2 id="变量及变量定义伪指令">变量及变量定义伪指令</h2>
+<p><img src="https://s2.loli.net/2022/08/03/eLRAkHl24WpNgxb.png" alt="image-20220803155754384"></p>
+<h3 id="变量的属性">变量的属性</h3>
+<p><img src="https://s2.loli.net/2022/08/03/EWLTsmRO2jxq7uY.png" alt="image-20220803160139239"></p>
+<p><img src="https://s2.loli.net/2022/08/03/rAqtmFu7OLpIRV2.png" alt="image-20220803165657928"></p>
+<h2 id="汇编语言中“-”的作用">汇编语言中“$”的作用</h2>
+<p>“$” 是汇编语言中的一个预定义符号，等价于当前正汇编到的段的当前偏移值。</p>
+<h1>CPU指令系统（四）</h1>
+<p><img src="https://s2.loli.net/2022/08/03/YZRPmFSvEjAKBbz.png" alt="image-20220803163925248"></p>
+<h2 id="汇编语言DB定义字符串和DW定义字符串">汇编语言DB定义字符串和DW定义字符串</h2>
+<ul>
+<li>
+<p>使用DB作为数据类型的时候，<strong>字符串长度不受限制</strong>，默认字符串的每一个字符占一个字节，并且存储过程中，是按照<strong>一个字符占一个字节的方式，顺序依次存储的</strong>。</p>
+<p>源程序如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">assume ds:data</span><br><span class="line">data segment</span><br><span class="line">	data1 db &#x27;abcchsadhkjhsfaksaskhasf&#x27;</span><br><span class="line">data ends</span><br></pre></td></tr></table></figure>
+<p>对应的内存单元，原来是这样的:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">0710:0000	00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00		................</span><br><span class="line">0710:0010	00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00		................</span><br><span class="line">0710:0020	00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00		................</span><br></pre></td></tr></table></figure>
+<p>放入代码段数据之后是:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">0710:0000	61 62 63 63 68 73 61 64-68 6B 6A 68 73 66 61 6B		abcchsadhkjhsfak</span><br><span class="line">0710:0010	73 61 73 6B 68 61 73 66-00 00 00 00 00 00 00 00		saskhasf........</span><br><span class="line">0710:0020	00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00		................</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>使用<code>dw</code>数据类型，则最多存储<strong>2个字节</strong>。</p>
+</li>
+</ul>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42929607/article/details/106113316">原文链接</a></p>
+</blockquote>
+<hr>
+<p><img src="https://s2.loli.net/2022/08/03/BYgac7ub6Hk4wL8.png" alt="image-20220803165124873"></p>
+<h2 id="操作符dup">操作符dup</h2>
+<p>dup是一个操作符，在汇编语言中同dw、db、dd等一样，也是由编译器识别处理的符号。它是和db、dd、dw等数据定义伪指令配合使用的，<strong>用来进行数据的重复</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db 3 dup (0)  ;定义了三个字节，相当于db 0,0,0   这个0有多大是通过前面的db确定</span><br><span class="line">db 3 dup (0,1,2) ;定义了九个字节，相当于db 0,1,2,0,1,2,0,1,2</span><br><span class="line">db 100 dup (&#x27;12&#x27;) ;重复了100个‘12’</span><br><span class="line">db 3 dup （‘123’，‘abc’）</span><br></pre></td></tr></table></figure>
+<p>dup操作符支持嵌套。</p>
+<hr>
+<p><img src="https://s2.loli.net/2022/08/03/tviur5kfen7LQUG.png" alt="image-20220803165509106"></p>
+<h2 id="汇编中的PTR含义-用法">汇编中的PTR含义/用法</h2>
+<p>ptr – pointer （既指针）得缩写。<br>
+汇编里面 ptr 是规定 的 字 (既保留字)，是用来临时指定类型的。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/dongfengkuayue/article/details/23829611">原文链接</a></p>
+</blockquote>
+<h1>CPU指令系统（指令总结）</h1>
+<blockquote>
+<p><a href="./8086%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F.md">点击这里查看</a></p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://20010726.xyz">alfa</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://20010726.xyz/2022/07/27/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">http://20010726.xyz/2022/07/27/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://20010726.xyz" target="_blank">小蜗</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E4%B8%93%E5%8D%87%E6%9C%AC/">专升本</a><a class="post-meta__tags" href="/tags/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86/">微机原理</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/images/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/images/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/images/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/images/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/07/28/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">高等数学</div></div></a></div><div class="next-post pull-right"><a href="/2022/07/18/Markdown%E5%92%8CLatex%E5%85%AC%E5%BC%8F/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Typora使用问题</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/08/06/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/" title="微机原理相关问题"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-06</div><div class="title">微机原理相关问题</div></div></a></div><div><a href="/2022/08/11/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%A4%A7%E4%BD%9C%E4%B8%9A/" title="汇编语言大作业"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-11</div><div class="title">汇编语言大作业</div></div></a></div><div><a href="/2022/08/04/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E9%97%AE%E9%A2%98/" title="汇编语言学习问题"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-04</div><div class="title">汇编语言学习问题</div></div></a></div><div><a href="/2022/07/28/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/" title="高等数学"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-28</div><div class="title">高等数学</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/paidaxing.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">alfa</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">36</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">45</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">绪论（一）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">绪论（二）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">绪论（三）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">绪论（四）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">数制与码制（一）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2"><span class="toc-number">5.1.</span> <span class="toc-text">进制转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%8D%E7%BD%AE%E5%8A%A0%E6%9D%83%E6%B3%95"><span class="toc-number">5.2.</span> <span class="toc-text">位置加权法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%A4%E5%8D%81%E5%8F%96%E4%BD%99%E6%B3%95"><span class="toc-number">5.3.</span> <span class="toc-text">除十取余法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">数制与码制（二）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E6%B3%95"><span class="toc-number">6.1.</span> <span class="toc-text">比较法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%AF%84%E5%AD%98%E5%99%A8%EF%BC%88AX%EF%BC%8CBX%EF%BC%8CCX%EF%BC%8CDX%EF%BC%89"><span class="toc-number">6.2.</span> <span class="toc-text">数据寄存器（AX，BX，CX，DX）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">数制与码制（三）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#PSW%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number">7.1.</span> <span class="toc-text">PSW寄存器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">8.</span> <span class="toc-text">数制与码制（四）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E2%80%94%E2%80%94%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E6%95%B0%E6%8D%AE%E5%89%8D%E5%8A%A00%E8%A7%84%E5%88%99"><span class="toc-number">8.1.</span> <span class="toc-text">汇编语言——十六进制数据前加0规则</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">9.</span> <span class="toc-text">数制与码制（五）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E7%A0%81"><span class="toc-number">9.1.</span> <span class="toc-text">原码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E7%A0%81"><span class="toc-number">9.2.</span> <span class="toc-text">补码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">10.</span> <span class="toc-text">数制与码制（六）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E7%A0%81%E8%BF%90%E7%AE%97%E8%A7%84%E5%88%99"><span class="toc-number">10.1.</span> <span class="toc-text">补码运算规则</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">11.</span> <span class="toc-text">数制与码制（七）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E7%A0%81%E8%BF%90%E7%AE%97%E8%A7%84%E5%88%99%EF%BC%88%E8%A1%A5%E5%85%85%EF%BC%89"><span class="toc-number">11.1.</span> <span class="toc-text">补码运算规则（补充）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E8%A1%A5%EF%BC%88%E6%B1%82%E8%B4%9F%EF%BC%89"><span class="toc-number">11.2.</span> <span class="toc-text">变补（求负）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BCD%E7%A0%81"><span class="toc-number">11.3.</span> <span class="toc-text">BCD码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BCD%E7%A0%81%E7%9A%84%E4%BF%AE%E6%AD%A3"><span class="toc-number">11.3.1.</span> <span class="toc-text">BCD码的修正</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">12.</span> <span class="toc-text">数制与码制（八）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ASCII%E7%A0%81"><span class="toc-number">12.1.</span> <span class="toc-text">ASCII码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">13.</span> <span class="toc-text">CPU结构与功能（一）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">14.</span> <span class="toc-text">CPU结构与功能（二）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">15.</span> <span class="toc-text">CPU结构与功能（三）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8B%AC%E7%AB%8B%E7%BC%96%E5%9D%80%E4%B8%8E%E7%BB%9F%E4%B8%80%E7%BC%96%E5%9D%80"><span class="toc-number">15.1.</span> <span class="toc-text">独立编址与统一编址</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">16.</span> <span class="toc-text">CPU结构与功能（四）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B8%E5%9E%8B%E7%9A%84CPU%E7%9A%84%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84"><span class="toc-number">16.1.</span> <span class="toc-text">典型的CPU的内部结构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">17.</span> <span class="toc-text">CPU结构与功能（五）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A0%86%E6%A0%88"><span class="toc-number">17.1.</span> <span class="toc-text">堆栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8086-8088CPU%E7%9A%84%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84"><span class="toc-number">17.2.</span> <span class="toc-text">8086&#x2F;8088CPU的内部结构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">18.</span> <span class="toc-text">CPU结构与功能（六）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#BIU%E5%92%8CEU"><span class="toc-number">18.1.</span> <span class="toc-text">BIU和EU</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E5%99%A8%E4%B8%AD%E6%95%B0%E6%8D%AE%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number">18.2.</span> <span class="toc-text">通用寄存器中数据寄存器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">19.</span> <span class="toc-text">CPU结构与功能（七）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#BX%E5%92%8CBP%E6%8C%87%E7%A4%BA%E5%81%8F%E7%A7%BB%E5%9C%B0%E5%9D%80%E6%97%B6%E5%8C%BA%E5%88%AB"><span class="toc-number">19.1.</span> <span class="toc-text">BX和BP指示偏移地址时区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E7%94%A8%E5%AF%84%E5%AD%98%E4%B8%AD%E5%8F%98%E5%9D%80%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number">19.2.</span> <span class="toc-text">通用寄存中变址寄存器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SI%E3%80%81DI%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C%E6%8C%87%E4%BB%A4"><span class="toc-number">19.3.</span> <span class="toc-text">SI、DI和字符串操作指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number">19.4.</span> <span class="toc-text">段寄存器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">20.</span> <span class="toc-text">CPU结构与功能（八）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CS-%E5%AF%84%E5%AD%98%E5%99%A8-%E5%92%8C-IP-%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number">20.1.</span> <span class="toc-text">CS 寄存器 和 IP 寄存器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number">20.2.</span> <span class="toc-text">控制寄存器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PSW%E4%B8%AD%E7%9A%84%E6%8E%A7%E5%88%B6%E6%A0%87%E5%BF%97"><span class="toc-number">20.3.</span> <span class="toc-text">PSW中的控制标志</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">21.</span> <span class="toc-text">CPU结构与功能（九）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">22.</span> <span class="toc-text">CPU结构与功能（十）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#8086%E7%B3%BB%E7%BB%9F%E4%B8%AD%E5%AD%97%E7%9A%84%E2%80%9C%E5%AF%B9%E5%87%86%E5%AD%98%E6%94%BE%E2%80%9D"><span class="toc-number">22.1.</span> <span class="toc-text">8086系统中字的“对准存放”</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">23.</span> <span class="toc-text">CPU结构与功能（十一）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E5%9C%B0%E5%9D%80%EF%BC%88PA%EF%BC%89%E7%9A%84%E5%BD%A2%E6%88%90"><span class="toc-number">23.1.</span> <span class="toc-text">物理地址（PA）的形成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%84%E7%B1%BB%E6%8C%87%E4%BB%A4%E7%9A%84%E5%9C%B0%E5%9D%80%E4%BF%A1%E6%81%AF"><span class="toc-number">23.2.</span> <span class="toc-text">各类指令的地址信息</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">24.</span> <span class="toc-text">CPU指令系统（一）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">25.</span> <span class="toc-text">使用DOSBox编写汇编程序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">26.</span> <span class="toc-text">CPU指令系统（二）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E4%B8%AD%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BB%84%E6%88%90"><span class="toc-number">26.1.</span> <span class="toc-text">汇编语言中语句的组成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E5%B8%B8%E6%95%B0%E4%B8%8E%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">26.2.</span> <span class="toc-text">汇编语言中的常数与表达式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">27.</span> <span class="toc-text">CPU指令系统（三）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E5%8F%B7"><span class="toc-number">27.1.</span> <span class="toc-text">标号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E5%8F%8A%E5%8F%98%E9%87%8F%E5%AE%9A%E4%B9%89%E4%BC%AA%E6%8C%87%E4%BB%A4"><span class="toc-number">27.2.</span> <span class="toc-text">变量及变量定义伪指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-number">27.2.1.</span> <span class="toc-text">变量的属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E4%B8%AD%E2%80%9C-%E2%80%9D%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">27.3.</span> <span class="toc-text">汇编语言中“$”的作用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">28.</span> <span class="toc-text">CPU指令系统（四）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80DB%E5%AE%9A%E4%B9%89%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8CDW%E5%AE%9A%E4%B9%89%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">28.1.</span> <span class="toc-text">汇编语言DB定义字符串和DW定义字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%AC%A6dup"><span class="toc-number">28.2.</span> <span class="toc-text">操作符dup</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%87%E7%BC%96%E4%B8%AD%E7%9A%84PTR%E5%90%AB%E4%B9%89-%E7%94%A8%E6%B3%95"><span class="toc-number">28.3.</span> <span class="toc-text">汇编中的PTR含义&#x2F;用法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">29.</span> <span class="toc-text">CPU指令系统（指令总结）</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/09/09/%E7%8B%82%E7%A5%9E%E8%AF%B4springboot/" title="狂神说springboot"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="狂神说springboot"/></a><div class="content"><a class="title" href="/2022/09/09/%E7%8B%82%E7%A5%9E%E8%AF%B4springboot/" title="狂神说springboot">狂神说springboot</a><time datetime="2022-09-09T06:13:05.000Z" title="发表于 2022-09-09 14:13:05">2022-09-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/07/%E7%8B%82%E7%A5%9E%E8%AF%B4-%E5%BC%82%E6%AD%A5%E3%80%81%E5%AE%9A%E6%97%B6%E3%80%81%E9%82%AE%E4%BB%B6%E4%BB%BB%E5%8A%A1/" title="狂神说:异步、定时、邮件任务"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="狂神说:异步、定时、邮件任务"/></a><div class="content"><a class="title" href="/2022/09/07/%E7%8B%82%E7%A5%9E%E8%AF%B4-%E5%BC%82%E6%AD%A5%E3%80%81%E5%AE%9A%E6%97%B6%E3%80%81%E9%82%AE%E4%BB%B6%E4%BB%BB%E5%8A%A1/" title="狂神说:异步、定时、邮件任务">狂神说:异步、定时、邮件任务</a><time datetime="2022-09-07T11:04:00.000Z" title="发表于 2022-09-07 19:04:00">2022-09-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/13/BubbleSort/" title="BubbleSort"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="BubbleSort"/></a><div class="content"><a class="title" href="/2022/08/13/BubbleSort/" title="BubbleSort">BubbleSort</a><time datetime="2022-08-13T08:39:34.000Z" title="发表于 2022-08-13 16:39:34">2022-08-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/11/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%A4%A7%E4%BD%9C%E4%B8%9A/" title="汇编语言大作业"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="汇编语言大作业"/></a><div class="content"><a class="title" href="/2022/08/11/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%A4%A7%E4%BD%9C%E4%B8%9A/" title="汇编语言大作业">汇编语言大作业</a><time datetime="2022-08-11T03:16:58.000Z" title="发表于 2022-08-11 11:16:58">2022-08-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/06/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/" title="微机原理相关问题"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="微机原理相关问题"/></a><div class="content"><a class="title" href="/2022/08/06/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/" title="微机原理相关问题">微机原理相关问题</a><time datetime="2022-08-06T09:23:35.000Z" title="发表于 2022-08-06 17:23:35">2022-08-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 By alfa</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="聊天"><i class="fas fa-sms"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="7639603539" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="true"> </div><script>(function(d, w, c) {
+    w.ChatraID = 'ELch5etCmFGzp9QRn';
+    var s = d.createElement('script');
+    w[c] = w[c] || function() {
+        (w[c].q = w[c].q || []).push(arguments);
+    };
+    s.async = true;
+    s.src = 'https://call.chatra.io/chatra.js';
+    if (d.head) d.head.appendChild(s);
+})(document, window, 'Chatra');
+
+if (true) {
+  var chatBtnFn = () => {
+    var chatBtn = document.getElementById("chat_btn")
+    chatBtn.addEventListener("click", function(){
+      Chatra('openChat')
+    });
+  }
+  chatBtnFn()
+} else {
+  if (true) {
+    function chatBtnHide () {
+      Chatra('hide')
+    }
+    function chatBtnShow () {
+      Chatra('show')
+    }
+  }
+}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
