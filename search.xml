@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>BubbleSort</title>
+    <url>/2022/08/13/BubbleSort/</url>
+    <content><![CDATA[<h1 id="冒泡排序图解">冒泡排序图解</h1>
+<figure>
+<img src="https://s2.loli.net/2022/08/13/bkZjOSBNtMGw26D.png"
+alt="未命名白板" />
+<figcaption aria-hidden="true">未命名白板</figcaption>
+</figure>
+<h1 id="冒泡排序程序流程图">冒泡排序程序流程图</h1>
+<figure>
+<img src="https://s2.loli.net/2022/08/14/5YxicQypTUIJNom.png"
+alt="BubbleSort程序流程图" />
+<figcaption aria-hidden="true">BubbleSort程序流程图</figcaption>
+</figure>
+<h1 id="汇编语言代码实现">汇编语言代码实现</h1>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">data segment</span><br><span class="line">    count db    5</span><br><span class="line">          array label byte</span><br><span class="line">          db    1,2,3,4,5</span><br><span class="line">data ends</span><br><span class="line">code segment</span><br><span class="line">               assume ds:data,cs:code</span><br><span class="line">    start:     </span><br><span class="line">               mov    dx,data</span><br><span class="line">               mov    ds,dx</span><br><span class="line">               mov    ch,[count]         ;设置数组长度</span><br><span class="line">               mov    ah,0ffh            ;设置退出标志位不要直接退出</span><br><span class="line">    next2:     </span><br><span class="line">               cmp    ah,00h</span><br><span class="line">               jz     exit</span><br><span class="line">               dec    ch                 ;循环次数n-1次</span><br><span class="line">               jz     exit</span><br><span class="line">               mov    cl,ch              ;内层循环次数等于外层循环剩余次数</span><br><span class="line">               lea    bx,array           ;bx指针归位</span><br><span class="line">               mov    ah,00h             ;提前退出标志归位</span><br><span class="line">    next3:     </span><br><span class="line">               mov    al,[bx]</span><br><span class="line">               cmp    al,1[bx]</span><br><span class="line">               jae    next1</span><br><span class="line">               xchg   al,1[bx]</span><br><span class="line">               mov    [bx],al</span><br><span class="line">               mov    ah,0ffh</span><br><span class="line">    next1:     </span><br><span class="line">               inc    bx</span><br><span class="line">               dec    cl</span><br><span class="line">               jz     next2</span><br><span class="line">               jmp    next3</span><br><span class="line">    exit:      </span><br><span class="line">               call   breakPoint</span><br><span class="line">               mov    ah,4ch</span><br><span class="line">               int    21h</span><br><span class="line"></span><br><span class="line">    breakPoint:</span><br><span class="line">               push   bx                 ;bx压栈，保护起来</span><br><span class="line">               pushf                     ;psw压栈</span><br><span class="line">               pop    bx                 ;上一条保存的psw内容弹出到bx</span><br><span class="line">               or     bh,3               ;TF、IF置1，开中断，单步调试</span><br><span class="line">               push   bx                 ;bx压栈</span><br><span class="line">               popf                      ;上一条压栈的bx内容弹出到psw</span><br><span class="line">               pop    bx                 ;最开始压栈的bx弹出，恢复数据</span><br><span class="line">               ret</span><br><span class="line">code ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>岗前实训</category>
+      </categories>
+      <tags>
+        <tag>专升本</tag>
+        <tag>汇编语言</tag>
+        <tag>排序算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>HTML相关问题</title>
     <url>/2022/05/28/HTML%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="html-table-标签">HTML table 标签</h1>
@@ -125,33 +152,6 @@ href="https://blog.csdn.net/TTTZZZTTTZZZ/article/details/87015708">原文链接<
       </categories>
       <tags>
         <tag>HTML</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>BubbleSort</title>
-    <url>/2022/08/13/BubbleSort/</url>
-    <content><![CDATA[<h1 id="冒泡排序图解">冒泡排序图解</h1>
-<figure>
-<img src="https://s2.loli.net/2022/08/13/bkZjOSBNtMGw26D.png"
-alt="未命名白板" />
-<figcaption aria-hidden="true">未命名白板</figcaption>
-</figure>
-<h1 id="冒泡排序程序流程图">冒泡排序程序流程图</h1>
-<figure>
-<img src="https://s2.loli.net/2022/08/14/5YxicQypTUIJNom.png"
-alt="BubbleSort程序流程图" />
-<figcaption aria-hidden="true">BubbleSort程序流程图</figcaption>
-</figure>
-<h1 id="汇编语言代码实现">汇编语言代码实现</h1>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">data segment</span><br><span class="line">    count db    5</span><br><span class="line">          array label byte</span><br><span class="line">          db    1,2,3,4,5</span><br><span class="line">data ends</span><br><span class="line">code segment</span><br><span class="line">               assume ds:data,cs:code</span><br><span class="line">    start:     </span><br><span class="line">               mov    dx,data</span><br><span class="line">               mov    ds,dx</span><br><span class="line">               mov    ch,[count]         ;设置数组长度</span><br><span class="line">               mov    ah,0ffh            ;设置退出标志位不要直接退出</span><br><span class="line">    next2:     </span><br><span class="line">               cmp    ah,00h</span><br><span class="line">               jz     exit</span><br><span class="line">               dec    ch                 ;循环次数n-1次</span><br><span class="line">               jz     exit</span><br><span class="line">               mov    cl,ch              ;内层循环次数等于外层循环剩余次数</span><br><span class="line">               lea    bx,array           ;bx指针归位</span><br><span class="line">               mov    ah,00h             ;提前退出标志归位</span><br><span class="line">    next3:     </span><br><span class="line">               mov    al,[bx]</span><br><span class="line">               cmp    al,1[bx]</span><br><span class="line">               jae    next1</span><br><span class="line">               xchg   al,1[bx]</span><br><span class="line">               mov    [bx],al</span><br><span class="line">               mov    ah,0ffh</span><br><span class="line">    next1:     </span><br><span class="line">               inc    bx</span><br><span class="line">               dec    cl</span><br><span class="line">               jz     next2</span><br><span class="line">               jmp    next3</span><br><span class="line">    exit:      </span><br><span class="line">               call   breakPoint</span><br><span class="line">               mov    ah,4ch</span><br><span class="line">               int    21h</span><br><span class="line"></span><br><span class="line">    breakPoint:</span><br><span class="line">               push   bx                 ;bx压栈，保护起来</span><br><span class="line">               pushf                     ;psw压栈</span><br><span class="line">               pop    bx                 ;上一条保存的psw内容弹出到bx</span><br><span class="line">               or     bh,3               ;TF、IF置1，开中断，单步调试</span><br><span class="line">               push   bx                 ;bx压栈</span><br><span class="line">               popf                      ;上一条压栈的bx内容弹出到psw</span><br><span class="line">               pop    bx                 ;最开始压栈的bx弹出，恢复数据</span><br><span class="line">               ret</span><br><span class="line">code ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>岗前实训</category>
-      </categories>
-      <tags>
-        <tag>专升本</tag>
-        <tag>汇编语言</tag>
-        <tag>排序算法</tag>
       </tags>
   </entry>
   <entry>
@@ -697,6 +697,39 @@ href="https://search.maven.org/">search.maven.org</a>搜索关键字，找到对
       </tags>
   </entry>
   <entry>
+    <title>MySql问题整理</title>
+    <url>/2022/07/09/MySql%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<h1
+id="mysql数据库中查看数据库的字符集">mysql数据库中,查看数据库的字符集</h1>
+<ul>
+<li><p>查看实例中所有数据库的字符集</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> schema_name,default_character_set_name <span class="keyword">from</span> information_schema.schemata;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="mysql修改数据库字符集的方法">MySQL修改数据库字符集的方法</h1>
+<ul>
+<li><p>修改库的字符集</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">alter</span> database 库名 <span class="keyword">default</span> <span class="type">character</span> <span class="keyword">set</span> 字符集;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="控制台进入mysql">控制台进入mysql</h1>
+<p><strong>连接mysql数据库</strong></p>
+<ol type="1">
+<li>首先打开cmd进入dos窗口</li>
+<li>键入命令：<code>mysql -uroot -p</code>
+回车，提示输入密码，输入密码回车就可以了</li>
+</ol>
+<h1
+id="启动springboot项目发生errorcode-1045-state-28000">启动springboot项目发生：errorCode
+1045, state 28000</h1>
+<p>数据库的<code>1045</code>通常是密码或者用户名错误导致</p>
+]]></content>
+      <categories>
+        <category>岗前实训</category>
+      </categories>
+      <tags>
+        <tag>MySql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Typora使用问题</title>
     <url>/2022/07/18/Markdown%E5%92%8CLatex%E5%85%AC%E5%BC%8F/</url>
     <content><![CDATA[<h1 id="markdown文件生成目录的方式">markdown文件生成目录的方式</h1>
@@ -848,101 +881,6 @@ z &amp; =  \frac xy
       </categories>
       <tags>
         <tag>Typora</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MySql问题整理</title>
-    <url>/2022/07/09/MySql%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<h1
-id="mysql数据库中查看数据库的字符集">mysql数据库中,查看数据库的字符集</h1>
-<ul>
-<li><p>查看实例中所有数据库的字符集</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> schema_name,default_character_set_name <span class="keyword">from</span> information_schema.schemata;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="mysql修改数据库字符集的方法">MySQL修改数据库字符集的方法</h1>
-<ul>
-<li><p>修改库的字符集</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">alter</span> database 库名 <span class="keyword">default</span> <span class="type">character</span> <span class="keyword">set</span> 字符集;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="控制台进入mysql">控制台进入mysql</h1>
-<p><strong>连接mysql数据库</strong></p>
-<ol type="1">
-<li>首先打开cmd进入dos窗口</li>
-<li>键入命令：<code>mysql -uroot -p</code>
-回车，提示输入密码，输入密码回车就可以了</li>
-</ol>
-<h1
-id="启动springboot项目发生errorcode-1045-state-28000">启动springboot项目发生：errorCode
-1045, state 28000</h1>
-<p>数据库的<code>1045</code>通常是密码或者用户名错误导致</p>
-]]></content>
-      <categories>
-        <category>岗前实训</category>
-      </categories>
-      <tags>
-        <tag>MySql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SpringMVC:文件上传和下载功能</title>
-    <url>/2022/05/14/SpringMVC%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%92%8C%E4%B8%8B%E8%BD%BD%E5%8A%9F%E8%83%BD%20-%20%E5%89%AF%E6%9C%AC/</url>
-    <content><![CDATA[<h1 id="springmvc文件上传和下载功能">SpringMVC:文件上传和下载功能</h1>
-<p>前言 文件上传是项目开发中最常见的功能之一 ,springMVC
-可以很好的支持文件上传，但是SpringMVC上下文中默认没有装配MultipartResolver，因此默认情况下其不能处理文件上传工作。如果想使用Spring的文件上传功能，则需要在上下文中配置MultipartResolver。
-前端表单要求：为了能上传文件，必须将表单的method设置为POST，并将enctype设置为multipart/form-data。只有在这样的情况下，浏览器才会把用户选择的文件以二进制数据发送给服务器；</p>
-<hr />
-<ol type="1">
-<li><h2 id="对表单中的-enctype-属性做个详细的说明">对表单中的 enctype
-属性做个详细的说明：</h2>
-<ul>
-<li><p>application/x-www=form-urlencoded：默认方式，只处理表单域中的
-value 属性值，采用这种编码方式的表单会将表单域中的值处理成 URL
-编码方式。</p></li>
-<li><p>multipart/form-data：这种编码方式会以二进制流的方式来处理表单数据，这种编码方式会把文件域指定文件的内容也封装到请求参数中，不会对字符编码。</p></li>
-<li><p>text/plain：除了把空格转换为 “+”
-号外，其他字符都不做编码处理，这种方式适用直接通过表单发送邮件。</p></li>
-</ul>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;&quot;</span> <span class="attr">enctype</span>=<span class="string">&quot;multipart/form-data&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&quot;file&quot;</span>/&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li><h2 id="使用步骤">使用步骤</h2>
-<ul>
-<li><p>1.导入文件上传的jar包，commons-fileupload ， <a
-href="https://so.csdn.net/so/search?q=Maven&amp;spm=1001.2101.3001.7020">Maven</a>会自动帮我们导入他的依赖包
-commons-io包；</p>
-<p>代码如下：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&lt;!--文件上传--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">   &lt;groupId&gt;commons-fileupload&lt;/groupId&gt;</span><br><span class="line">   &lt;artifactId&gt;commons-fileupload&lt;/artifactId&gt;</span><br><span class="line">   &lt;version&gt;<span class="number">1.3</span><span class="number">.3</span>&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;!--servlet-api导入高版本的--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">   &lt;groupId&gt;javax.servlet&lt;/groupId&gt;</span><br><span class="line">   &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;</span><br><span class="line">   &lt;version&gt;<span class="number">4.0</span><span class="number">.1</span>&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></li>
-<li><p>2.配置bean：multipartResolver 代码如下（示例）：
-【注意！！！这个bena的id必须为：multipartResolver ，
-否则上传文件会报400的错误！在这里栽过坑,教训！】</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--文件上传配置--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;multipartResolver&quot;</span>  <span class="attr">class</span>=<span class="string">&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;</span>&gt;</span></span><br><span class="line">   <span class="comment">&lt;!-- 请求的编码格式，必须和jSP的pageEncoding属性一致，以便正确读取表单的内容，默认为ISO-8859-1 --&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;defaultEncoding&quot;</span> <span class="attr">value</span>=<span class="string">&quot;utf-8&quot;</span>/&gt;</span></span><br><span class="line">   <span class="comment">&lt;!-- 上传文件大小上限，单位为字节（10485760=10M） --&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxUploadSize&quot;</span> <span class="attr">value</span>=<span class="string">&quot;10485760&quot;</span>/&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxInMemorySize&quot;</span> <span class="attr">value</span>=<span class="string">&quot;40960&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>CommonsMultipartFile 的 常用方法：</p>
-<p>String getOriginalFilename()：获取上传文件的原名</p>
-<p>InputStream getInputStream()：获取文件流</p>
-<p>void transferTo(File dest)：将上传文件保存到一个目录文件中</p></li>
-<li><p>3.编写前端页面</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/upload&quot;</span> <span class="attr">enctype</span>=<span class="string">&quot;multipart/form-data&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&quot;file&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;upload&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li><p>4.Controller</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.kuang.controller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestParam;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.multipart.commons.CommonsMultipartFile;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileController</span> </span>&#123;</span><br><span class="line">   <span class="comment">//@RequestParam(&quot;file&quot;) 将name=file控件得到的文件封装成CommonsMultipartFile 对象</span></span><br><span class="line">   <span class="comment">//批量上传CommonsMultipartFile则为数组即可</span></span><br><span class="line">   <span class="meta">@RequestMapping(&quot;/upload&quot;)</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">fileUpload</span><span class="params">(<span class="meta">@RequestParam(&quot;file&quot;)</span> CommonsMultipartFile file , HttpServletRequest request)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line"></span><br><span class="line">​	 <span class="comment">//获取文件名 : file.getOriginalFilename();</span></span><br><span class="line">   String uploadFileName = file.getOriginalFilename();</span><br><span class="line"></span><br><span class="line">   <span class="comment">//如果文件名为空，直接回到首页！</span></span><br><span class="line">   <span class="keyword">if</span> (<span class="string">&quot;&quot;</span>.equals(uploadFileName))&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="string">&quot;redirect:/index.jsp&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">   System.out.println(<span class="string">&quot;上传文件名 : &quot;</span>+uploadFileName);</span><br><span class="line"></span><br><span class="line">   <span class="comment">//上传路径保存设置</span></span><br><span class="line">   String path = request.getServletContext().getRealPath(<span class="string">&quot;/upload&quot;</span>);</span><br><span class="line">   <span class="comment">//如果路径不存在，创建一个</span></span><br><span class="line">   File realPath = <span class="keyword">new</span> File(path);</span><br><span class="line">   <span class="keyword">if</span> (!realPath.exists())&#123;</span><br><span class="line">       realPath.mkdir();</span><br><span class="line">  &#125;</span><br><span class="line">   System.out.println(<span class="string">&quot;上传文件保存地址：&quot;</span>+realPath);</span><br><span class="line"></span><br><span class="line">   InputStream is = file.getInputStream(); <span class="comment">//文件输入流</span></span><br><span class="line">   OutputStream os = <span class="keyword">new</span> FileOutputStream(<span class="keyword">new</span> File(realPath,uploadFileName)); <span class="comment">//文件输出流</span></span><br><span class="line"></span><br><span class="line">   <span class="comment">//读取写出</span></span><br><span class="line">   <span class="keyword">int</span> len=<span class="number">0</span>;</span><br><span class="line">   <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">   <span class="keyword">while</span> ((len=is.read(buffer))!=-<span class="number">1</span>)&#123;</span><br><span class="line">       os.write(buffer,<span class="number">0</span>,len);</span><br><span class="line">       os.flush();</span><br><span class="line">  &#125;</span><br><span class="line">   os.close();</span><br><span class="line">   is.close();</span><br><span class="line">   <span class="keyword">return</span> <span class="string">&quot;redirect:/index.jsp&quot;</span>;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul></li>
-<li><h2 id="采用file.transto-来保存上传的文件">采用file.Transto
-来保存上传的文件</h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">* 采用file.Transto 来保存上传的文件</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  <span class="meta">@RequestMapping(&quot;/upload2&quot;)</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> String  <span class="title">fileUpload2</span><span class="params">(<span class="meta">@RequestParam(&quot;file&quot;)</span> CommonsMultipartFile file, HttpServletRequest request)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="comment">//上传路径保存设置</span></span><br><span class="line">   String path = request.getServletContext().getRealPath(<span class="string">&quot;/upload&quot;</span>);</span><br><span class="line">   File realPath = <span class="keyword">new</span> File(path);</span><br><span class="line">   <span class="keyword">if</span> (!realPath.exists())&#123;</span><br><span class="line">       realPath.mkdir();</span><br><span class="line">  &#125;</span><br><span class="line">   <span class="comment">//上传文件地址</span></span><br><span class="line">   System.out.println(<span class="string">&quot;上传文件保存地址：&quot;</span>+realPath);</span><br><span class="line"></span><br><span class="line">   <span class="comment">//通过CommonsMultipartFile的方法直接写文件（注意这个时候）</span></span><br><span class="line">   file.transferTo(<span class="keyword">new</span> File(realPath +<span class="string">&quot;/&quot;</span>+ file.getOriginalFilename()));</span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> <span class="string">&quot;redirect:/index.jsp&quot;</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></li>
-<li><h2 id="文件下载">文件下载</h2>
-<p>文件下载步骤：</p>
-<p>1、设置 response 响应头</p>
-<p>2、读取文件 – InputStream</p>
-<p>3、写出文件 – OutputStream</p>
-<p>4、执行操作</p>
-<p>5、关闭流 （先开后关）</p>
-<p>代码实现：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(value=&quot;/download&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">downloads</span><span class="params">(HttpServletResponse response ,HttpServletRequest request)</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">   <span class="comment">//要下载的图片地址</span></span><br><span class="line">   String  path = request.getServletContext().getRealPath(<span class="string">&quot;/upload&quot;</span>);</span><br><span class="line">   String  fileName = <span class="string">&quot;基础语法.jpg&quot;</span>;</span><br><span class="line"></span><br><span class="line">   <span class="comment">//1、设置response 响应头</span></span><br><span class="line">   response.reset(); <span class="comment">//设置页面不缓存,清空buffer</span></span><br><span class="line">   response.setCharacterEncoding(<span class="string">&quot;UTF-8&quot;</span>); <span class="comment">//字符编码</span></span><br><span class="line">   response.setContentType(<span class="string">&quot;multipart/form-data&quot;</span>); <span class="comment">//二进制传输数据</span></span><br><span class="line">   <span class="comment">//设置响应头</span></span><br><span class="line">   response.setHeader(<span class="string">&quot;Content-Disposition&quot;</span>,</span><br><span class="line">           <span class="string">&quot;attachment;fileName=&quot;</span>+URLEncoder.encode(fileName, <span class="string">&quot;UTF-8&quot;</span>));</span><br><span class="line"></span><br><span class="line">   File file = <span class="keyword">new</span> File(path,fileName);</span><br><span class="line">   <span class="comment">//2、 读取文件--输入流</span></span><br><span class="line">   InputStream input=<span class="keyword">new</span> FileInputStream(file);</span><br><span class="line">   <span class="comment">//3、 写出文件--输出流</span></span><br><span class="line">   OutputStream out = response.getOutputStream();</span><br><span class="line"></span><br><span class="line">   <span class="keyword">byte</span>[] buff =<span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">   <span class="keyword">int</span> index=<span class="number">0</span>;</span><br><span class="line">   <span class="comment">//4、执行 写出操作</span></span><br><span class="line">   <span class="keyword">while</span>((index= input.read(buff))!= -<span class="number">1</span>)&#123;</span><br><span class="line">       out.write(buff, <span class="number">0</span>, index);</span><br><span class="line">       out.flush();</span><br><span class="line">  &#125;</span><br><span class="line">   out.close();</span><br><span class="line">   input.close();</span><br><span class="line">   <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br><span class="line">————————————————</span><br><span class="line">版权声明：本文为CSDN博主「南风<span class="number">1789</span>」的原创文章，遵循CC <span class="number">4.0</span> BY-SA版权协议，转载请附上原文出处链接及本声明。</span><br><span class="line">原文链接：https:<span class="comment">//blog.csdn.net/southwindpass/article/details/113980739</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>大二生涯</category>
-      </categories>
-      <tags>
-        <tag>spring</tag>
-        <tag>spring MVC</tag>
       </tags>
   </entry>
   <entry>
@@ -1153,6 +1091,68 @@ data-cites="RequestMapping">@RequestMapping</span>(value = "/index")
       </tags>
   </entry>
   <entry>
+    <title>SpringMVC:文件上传和下载功能</title>
+    <url>/2022/05/14/SpringMVC%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%92%8C%E4%B8%8B%E8%BD%BD%E5%8A%9F%E8%83%BD%20-%20%E5%89%AF%E6%9C%AC/</url>
+    <content><![CDATA[<h1 id="springmvc文件上传和下载功能">SpringMVC:文件上传和下载功能</h1>
+<p>前言 文件上传是项目开发中最常见的功能之一 ,springMVC
+可以很好的支持文件上传，但是SpringMVC上下文中默认没有装配MultipartResolver，因此默认情况下其不能处理文件上传工作。如果想使用Spring的文件上传功能，则需要在上下文中配置MultipartResolver。
+前端表单要求：为了能上传文件，必须将表单的method设置为POST，并将enctype设置为multipart/form-data。只有在这样的情况下，浏览器才会把用户选择的文件以二进制数据发送给服务器；</p>
+<hr />
+<ol type="1">
+<li><h2 id="对表单中的-enctype-属性做个详细的说明">对表单中的 enctype
+属性做个详细的说明：</h2>
+<ul>
+<li><p>application/x-www=form-urlencoded：默认方式，只处理表单域中的
+value 属性值，采用这种编码方式的表单会将表单域中的值处理成 URL
+编码方式。</p></li>
+<li><p>multipart/form-data：这种编码方式会以二进制流的方式来处理表单数据，这种编码方式会把文件域指定文件的内容也封装到请求参数中，不会对字符编码。</p></li>
+<li><p>text/plain：除了把空格转换为 “+”
+号外，其他字符都不做编码处理，这种方式适用直接通过表单发送邮件。</p></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;&quot;</span> <span class="attr">enctype</span>=<span class="string">&quot;multipart/form-data&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&quot;file&quot;</span>/&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><h2 id="使用步骤">使用步骤</h2>
+<ul>
+<li><p>1.导入文件上传的jar包，commons-fileupload ， <a
+href="https://so.csdn.net/so/search?q=Maven&amp;spm=1001.2101.3001.7020">Maven</a>会自动帮我们导入他的依赖包
+commons-io包；</p>
+<p>代码如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&lt;!--文件上传--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">   &lt;groupId&gt;commons-fileupload&lt;/groupId&gt;</span><br><span class="line">   &lt;artifactId&gt;commons-fileupload&lt;/artifactId&gt;</span><br><span class="line">   &lt;version&gt;<span class="number">1.3</span><span class="number">.3</span>&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;!--servlet-api导入高版本的--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">   &lt;groupId&gt;javax.servlet&lt;/groupId&gt;</span><br><span class="line">   &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;</span><br><span class="line">   &lt;version&gt;<span class="number">4.0</span><span class="number">.1</span>&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>2.配置bean：multipartResolver 代码如下（示例）：
+【注意！！！这个bena的id必须为：multipartResolver ，
+否则上传文件会报400的错误！在这里栽过坑,教训！】</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--文件上传配置--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;multipartResolver&quot;</span>  <span class="attr">class</span>=<span class="string">&quot;org.springframework.web.multipart.commons.CommonsMultipartResolver&quot;</span>&gt;</span></span><br><span class="line">   <span class="comment">&lt;!-- 请求的编码格式，必须和jSP的pageEncoding属性一致，以便正确读取表单的内容，默认为ISO-8859-1 --&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;defaultEncoding&quot;</span> <span class="attr">value</span>=<span class="string">&quot;utf-8&quot;</span>/&gt;</span></span><br><span class="line">   <span class="comment">&lt;!-- 上传文件大小上限，单位为字节（10485760=10M） --&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxUploadSize&quot;</span> <span class="attr">value</span>=<span class="string">&quot;10485760&quot;</span>/&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;maxInMemorySize&quot;</span> <span class="attr">value</span>=<span class="string">&quot;40960&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>CommonsMultipartFile 的 常用方法：</p>
+<p>String getOriginalFilename()：获取上传文件的原名</p>
+<p>InputStream getInputStream()：获取文件流</p>
+<p>void transferTo(File dest)：将上传文件保存到一个目录文件中</p></li>
+<li><p>3.编写前端页面</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/upload&quot;</span> <span class="attr">enctype</span>=<span class="string">&quot;multipart/form-data&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&quot;file&quot;</span>/&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;upload&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>4.Controller</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.kuang.controller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestParam;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.multipart.commons.CommonsMultipartFile;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileController</span> </span>&#123;</span><br><span class="line">   <span class="comment">//@RequestParam(&quot;file&quot;) 将name=file控件得到的文件封装成CommonsMultipartFile 对象</span></span><br><span class="line">   <span class="comment">//批量上传CommonsMultipartFile则为数组即可</span></span><br><span class="line">   <span class="meta">@RequestMapping(&quot;/upload&quot;)</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">fileUpload</span><span class="params">(<span class="meta">@RequestParam(&quot;file&quot;)</span> CommonsMultipartFile file , HttpServletRequest request)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line"></span><br><span class="line">​	 <span class="comment">//获取文件名 : file.getOriginalFilename();</span></span><br><span class="line">   String uploadFileName = file.getOriginalFilename();</span><br><span class="line"></span><br><span class="line">   <span class="comment">//如果文件名为空，直接回到首页！</span></span><br><span class="line">   <span class="keyword">if</span> (<span class="string">&quot;&quot;</span>.equals(uploadFileName))&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="string">&quot;redirect:/index.jsp&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">   System.out.println(<span class="string">&quot;上传文件名 : &quot;</span>+uploadFileName);</span><br><span class="line"></span><br><span class="line">   <span class="comment">//上传路径保存设置</span></span><br><span class="line">   String path = request.getServletContext().getRealPath(<span class="string">&quot;/upload&quot;</span>);</span><br><span class="line">   <span class="comment">//如果路径不存在，创建一个</span></span><br><span class="line">   File realPath = <span class="keyword">new</span> File(path);</span><br><span class="line">   <span class="keyword">if</span> (!realPath.exists())&#123;</span><br><span class="line">       realPath.mkdir();</span><br><span class="line">  &#125;</span><br><span class="line">   System.out.println(<span class="string">&quot;上传文件保存地址：&quot;</span>+realPath);</span><br><span class="line"></span><br><span class="line">   InputStream is = file.getInputStream(); <span class="comment">//文件输入流</span></span><br><span class="line">   OutputStream os = <span class="keyword">new</span> FileOutputStream(<span class="keyword">new</span> File(realPath,uploadFileName)); <span class="comment">//文件输出流</span></span><br><span class="line"></span><br><span class="line">   <span class="comment">//读取写出</span></span><br><span class="line">   <span class="keyword">int</span> len=<span class="number">0</span>;</span><br><span class="line">   <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">   <span class="keyword">while</span> ((len=is.read(buffer))!=-<span class="number">1</span>)&#123;</span><br><span class="line">       os.write(buffer,<span class="number">0</span>,len);</span><br><span class="line">       os.flush();</span><br><span class="line">  &#125;</span><br><span class="line">   os.close();</span><br><span class="line">   is.close();</span><br><span class="line">   <span class="keyword">return</span> <span class="string">&quot;redirect:/index.jsp&quot;</span>;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul></li>
+<li><h2 id="采用file.transto-来保存上传的文件">采用file.Transto
+来保存上传的文件</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">* 采用file.Transto 来保存上传的文件</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  <span class="meta">@RequestMapping(&quot;/upload2&quot;)</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> String  <span class="title">fileUpload2</span><span class="params">(<span class="meta">@RequestParam(&quot;file&quot;)</span> CommonsMultipartFile file, HttpServletRequest request)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="comment">//上传路径保存设置</span></span><br><span class="line">   String path = request.getServletContext().getRealPath(<span class="string">&quot;/upload&quot;</span>);</span><br><span class="line">   File realPath = <span class="keyword">new</span> File(path);</span><br><span class="line">   <span class="keyword">if</span> (!realPath.exists())&#123;</span><br><span class="line">       realPath.mkdir();</span><br><span class="line">  &#125;</span><br><span class="line">   <span class="comment">//上传文件地址</span></span><br><span class="line">   System.out.println(<span class="string">&quot;上传文件保存地址：&quot;</span>+realPath);</span><br><span class="line"></span><br><span class="line">   <span class="comment">//通过CommonsMultipartFile的方法直接写文件（注意这个时候）</span></span><br><span class="line">   file.transferTo(<span class="keyword">new</span> File(realPath +<span class="string">&quot;/&quot;</span>+ file.getOriginalFilename()));</span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> <span class="string">&quot;redirect:/index.jsp&quot;</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></li>
+<li><h2 id="文件下载">文件下载</h2>
+<p>文件下载步骤：</p>
+<p>1、设置 response 响应头</p>
+<p>2、读取文件 – InputStream</p>
+<p>3、写出文件 – OutputStream</p>
+<p>4、执行操作</p>
+<p>5、关闭流 （先开后关）</p>
+<p>代码实现：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(value=&quot;/download&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">downloads</span><span class="params">(HttpServletResponse response ,HttpServletRequest request)</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">   <span class="comment">//要下载的图片地址</span></span><br><span class="line">   String  path = request.getServletContext().getRealPath(<span class="string">&quot;/upload&quot;</span>);</span><br><span class="line">   String  fileName = <span class="string">&quot;基础语法.jpg&quot;</span>;</span><br><span class="line"></span><br><span class="line">   <span class="comment">//1、设置response 响应头</span></span><br><span class="line">   response.reset(); <span class="comment">//设置页面不缓存,清空buffer</span></span><br><span class="line">   response.setCharacterEncoding(<span class="string">&quot;UTF-8&quot;</span>); <span class="comment">//字符编码</span></span><br><span class="line">   response.setContentType(<span class="string">&quot;multipart/form-data&quot;</span>); <span class="comment">//二进制传输数据</span></span><br><span class="line">   <span class="comment">//设置响应头</span></span><br><span class="line">   response.setHeader(<span class="string">&quot;Content-Disposition&quot;</span>,</span><br><span class="line">           <span class="string">&quot;attachment;fileName=&quot;</span>+URLEncoder.encode(fileName, <span class="string">&quot;UTF-8&quot;</span>));</span><br><span class="line"></span><br><span class="line">   File file = <span class="keyword">new</span> File(path,fileName);</span><br><span class="line">   <span class="comment">//2、 读取文件--输入流</span></span><br><span class="line">   InputStream input=<span class="keyword">new</span> FileInputStream(file);</span><br><span class="line">   <span class="comment">//3、 写出文件--输出流</span></span><br><span class="line">   OutputStream out = response.getOutputStream();</span><br><span class="line"></span><br><span class="line">   <span class="keyword">byte</span>[] buff =<span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">   <span class="keyword">int</span> index=<span class="number">0</span>;</span><br><span class="line">   <span class="comment">//4、执行 写出操作</span></span><br><span class="line">   <span class="keyword">while</span>((index= input.read(buff))!= -<span class="number">1</span>)&#123;</span><br><span class="line">       out.write(buff, <span class="number">0</span>, index);</span><br><span class="line">       out.flush();</span><br><span class="line">  &#125;</span><br><span class="line">   out.close();</span><br><span class="line">   input.close();</span><br><span class="line">   <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br><span class="line">————————————————</span><br><span class="line">版权声明：本文为CSDN博主「南风<span class="number">1789</span>」的原创文章，遵循CC <span class="number">4.0</span> BY-SA版权协议，转载请附上原文出处链接及本声明。</span><br><span class="line">原文链接：https:<span class="comment">//blog.csdn.net/southwindpass/article/details/113980739</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>大二生涯</category>
+      </categories>
+      <tags>
+        <tag>spring</tag>
+        <tag>spring MVC</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SpringSecurity和Shiro学习整理</title>
     <url>/2022/07/11/SpringSecurity%E5%92%8CShiro%E5%AD%A6%E4%B9%A0%E6%95%B4%E7%90%86/</url>
     <content><![CDATA[<h1 id="认识springsecurity">认识SpringSecurity</h1>
@@ -1259,77 +1259,6 @@ alt="image-20220715112017123" /></p></li>
         <tag>java</tag>
         <tag>SpringSecurity</tag>
         <tag>Shiro</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Swagger学习记录</title>
-    <url>/2022/07/18/Swagger%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h1 id="springboot集成swagger">SpringBoot集成Swagger</h1>
-<ol type="1">
-<li><p>新建SpringBoot-web项目</p></li>
-<li><p>导入maven依赖</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Swagger2 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Swagger的ui界面 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li><p>编写一个hello工程</p></li>
-<li><p>配置Swagger</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableSwagger2</span> <span class="comment">//开启Swagger2</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwaggerConfig</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>浏览器访问：<code>http://localhost:8080/swagger-ui.html</code></p>
-<figure>
-<img src="https://s2.loli.net/2022/07/18/w89M7nXejslu6dZ.png"
-alt="image-20220718113600228" />
-<figcaption aria-hidden="true">image-20220718113600228</figcaption>
-</figure></li>
-</ol>
-<h1 id="访问swagger-ui.html-404报错一秒解决">访问swagger-ui.html
-404报错一秒解决</h1>
-<p><em>主要是swagger的版本不能用3.0.0</em></p>
-<h1 id="swagger的基本配置信息">Swagger的基本配置信息</h1>
-<p><strong>添加配置信息</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * TODO</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span> SwaggerConfig</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> Alfa</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Data</span> 2022/7/18 11:25</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Version</span> 1.0</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableSwagger2</span> <span class="comment">//开启Swagger2</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwaggerConfig</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 配置了Swagger的Docket bean实例</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Docket <span class="title">docket</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Docket(DocumentationType.SWAGGER_2)</span><br><span class="line">                .apiInfo(apiInfo());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//配置Swagger信息</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> ApiInfo <span class="title">apiInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 作者信息</span></span><br><span class="line">        Contact contact = <span class="keyword">new</span> Contact(<span class="string">&quot;秦将&quot;</span>, <span class="string">&quot;http://idealstars.space&quot;</span>, <span class="string">&quot;123@qq.com&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ApiInfo(</span><br><span class="line">                <span class="string">&quot;狂神的swagger日记&quot;</span>,</span><br><span class="line">                <span class="string">&quot;即使再小的帆也能远航&quot;</span>,</span><br><span class="line">                <span class="string">&quot;1.0&quot;</span>,</span><br><span class="line">                <span class="string">&quot;http://idealstars.space&quot;</span>,</span><br><span class="line">                contact,</span><br><span class="line">                <span class="string">&quot;Apache 2.0&quot;</span>,</span><br><span class="line">                <span class="string">&quot;http://www.apache.org/licenses/LICENSE-2.0&quot;</span>,</span><br><span class="line">                <span class="keyword">new</span> ArrayList());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>界面展示</strong></p>
-<figure>
-<img src="https://s2.loli.net/2022/07/18/gyl2mqISk4as8Yx.png"
-alt="image-20220718115019912" />
-<figcaption aria-hidden="true">image-20220718115019912</figcaption>
-</figure>
-<h1
-id="配置扫描接口和是否启用swagger">配置扫描接口和是否启用swagger</h1>
-<blockquote>
-<p>配置位置</p>
-</blockquote>
-<figure>
-<img src="https://s2.loli.net/2022/07/18/NWU4Pmwr2ujEZVd.png"
-alt="image-20220718122953122" />
-<figcaption aria-hidden="true">image-20220718122953122</figcaption>
-</figure>
-<blockquote>
-<p>代码</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 配置了Swagger的Docket bean实例</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Docket <span class="title">docket</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Docket(DocumentationType.SWAGGER_2)</span><br><span class="line">        .apiInfo(apiInfo())</span><br><span class="line">        <span class="comment">//是否启用swagger，如果为false，则swagger不能再浏览器中访问</span></span><br><span class="line">        .enable(<span class="keyword">false</span>)</span><br><span class="line">        .select()</span><br><span class="line">        <span class="comment">// RequestHandlerSelectors 配置要扫描接口的方式</span></span><br><span class="line">        <span class="comment">// basePackage指定要扫描的包</span></span><br><span class="line">        <span class="comment">// any():扫描全部</span></span><br><span class="line">        <span class="comment">// none():不扫描</span></span><br><span class="line">        <span class="comment">//.withClassAnnotation():扫描类上的注解，参数是一个注解的反射对象</span></span><br><span class="line">        <span class="comment">//.withMethodAnnotation():扫描方法上的注解</span></span><br><span class="line">        .apis(RequestHandlerSelectors.basePackage(<span class="string">&quot;com.kuang.swagger.controller&quot;</span>))</span><br><span class="line">        <span class="comment">//过滤路径</span></span><br><span class="line">        <span class="comment">//.paths(PathSelectors.ant(&quot;/kuang/**&quot;))</span></span><br><span class="line">        .build();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="不同生产环境启用swagger">不同生产环境启用swagger</h1>
-<figure>
-<img
-src="https://gitee.com/alfa_cl/pic-typora/raw/master/202209071331905.png"
-alt="image-20220907133141772" />
-<figcaption aria-hidden="true">image-20220907133141772</figcaption>
-</figure>
-<blockquote>
-<p>要注意不同生产环境下，port可能不同</p>
-</blockquote>
-<h1 id="配置api文档的分组">配置API文档的分组</h1>
-<p>配置多个返回Docket的Bean<img
-src="https://gitee.com/alfa_cl/pic-typora/raw/master/202209071347644.png"
-alt="image-20220907134703515" /></p>
-<h2
-id="swagger中没有新加的实体类属性新加的属性在swagger中不显示问题">swagger中没有新加的实体类属性(新加的属性在swagger中不显示)问题</h2>
-<p>试了一下只留get方法或者set方法，发现swagger竟然都能加载到属性，那么确定了属性是根据对应的get、set方法是否存在获取的。</p>
-]]></content>
-      <categories>
-        <category>岗前实训</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>springboot</tag>
-        <tag>swagger</tag>
       </tags>
   </entry>
   <entry>
@@ -1465,6 +1394,77 @@ alt="图片" />
       </categories>
       <tags>
         <tag>windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Swagger学习记录</title>
+    <url>/2022/07/18/Swagger%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h1 id="springboot集成swagger">SpringBoot集成Swagger</h1>
+<ol type="1">
+<li><p>新建SpringBoot-web项目</p></li>
+<li><p>导入maven依赖</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Swagger2 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Swagger的ui界面 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>编写一个hello工程</p></li>
+<li><p>配置Swagger</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableSwagger2</span> <span class="comment">//开启Swagger2</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwaggerConfig</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>浏览器访问：<code>http://localhost:8080/swagger-ui.html</code></p>
+<figure>
+<img src="https://s2.loli.net/2022/07/18/w89M7nXejslu6dZ.png"
+alt="image-20220718113600228" />
+<figcaption aria-hidden="true">image-20220718113600228</figcaption>
+</figure></li>
+</ol>
+<h1 id="访问swagger-ui.html-404报错一秒解决">访问swagger-ui.html
+404报错一秒解决</h1>
+<p><em>主要是swagger的版本不能用3.0.0</em></p>
+<h1 id="swagger的基本配置信息">Swagger的基本配置信息</h1>
+<p><strong>添加配置信息</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * TODO</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span> SwaggerConfig</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> Alfa</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Data</span> 2022/7/18 11:25</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Version</span> 1.0</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableSwagger2</span> <span class="comment">//开启Swagger2</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwaggerConfig</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 配置了Swagger的Docket bean实例</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Docket <span class="title">docket</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Docket(DocumentationType.SWAGGER_2)</span><br><span class="line">                .apiInfo(apiInfo());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//配置Swagger信息</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> ApiInfo <span class="title">apiInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 作者信息</span></span><br><span class="line">        Contact contact = <span class="keyword">new</span> Contact(<span class="string">&quot;秦将&quot;</span>, <span class="string">&quot;http://idealstars.space&quot;</span>, <span class="string">&quot;123@qq.com&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ApiInfo(</span><br><span class="line">                <span class="string">&quot;狂神的swagger日记&quot;</span>,</span><br><span class="line">                <span class="string">&quot;即使再小的帆也能远航&quot;</span>,</span><br><span class="line">                <span class="string">&quot;1.0&quot;</span>,</span><br><span class="line">                <span class="string">&quot;http://idealstars.space&quot;</span>,</span><br><span class="line">                contact,</span><br><span class="line">                <span class="string">&quot;Apache 2.0&quot;</span>,</span><br><span class="line">                <span class="string">&quot;http://www.apache.org/licenses/LICENSE-2.0&quot;</span>,</span><br><span class="line">                <span class="keyword">new</span> ArrayList());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>界面展示</strong></p>
+<figure>
+<img src="https://s2.loli.net/2022/07/18/gyl2mqISk4as8Yx.png"
+alt="image-20220718115019912" />
+<figcaption aria-hidden="true">image-20220718115019912</figcaption>
+</figure>
+<h1
+id="配置扫描接口和是否启用swagger">配置扫描接口和是否启用swagger</h1>
+<blockquote>
+<p>配置位置</p>
+</blockquote>
+<figure>
+<img src="https://s2.loli.net/2022/07/18/NWU4Pmwr2ujEZVd.png"
+alt="image-20220718122953122" />
+<figcaption aria-hidden="true">image-20220718122953122</figcaption>
+</figure>
+<blockquote>
+<p>代码</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 配置了Swagger的Docket bean实例</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Docket <span class="title">docket</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Docket(DocumentationType.SWAGGER_2)</span><br><span class="line">        .apiInfo(apiInfo())</span><br><span class="line">        <span class="comment">//是否启用swagger，如果为false，则swagger不能再浏览器中访问</span></span><br><span class="line">        .enable(<span class="keyword">false</span>)</span><br><span class="line">        .select()</span><br><span class="line">        <span class="comment">// RequestHandlerSelectors 配置要扫描接口的方式</span></span><br><span class="line">        <span class="comment">// basePackage指定要扫描的包</span></span><br><span class="line">        <span class="comment">// any():扫描全部</span></span><br><span class="line">        <span class="comment">// none():不扫描</span></span><br><span class="line">        <span class="comment">//.withClassAnnotation():扫描类上的注解，参数是一个注解的反射对象</span></span><br><span class="line">        <span class="comment">//.withMethodAnnotation():扫描方法上的注解</span></span><br><span class="line">        .apis(RequestHandlerSelectors.basePackage(<span class="string">&quot;com.kuang.swagger.controller&quot;</span>))</span><br><span class="line">        <span class="comment">//过滤路径</span></span><br><span class="line">        <span class="comment">//.paths(PathSelectors.ant(&quot;/kuang/**&quot;))</span></span><br><span class="line">        .build();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="不同生产环境启用swagger">不同生产环境启用swagger</h1>
+<figure>
+<img
+src="https://gitee.com/alfa_cl/pic-typora/raw/master/202209071331905.png"
+alt="image-20220907133141772" />
+<figcaption aria-hidden="true">image-20220907133141772</figcaption>
+</figure>
+<blockquote>
+<p>要注意不同生产环境下，port可能不同</p>
+</blockquote>
+<h1 id="配置api文档的分组">配置API文档的分组</h1>
+<p>配置多个返回Docket的Bean<img
+src="https://gitee.com/alfa_cl/pic-typora/raw/master/202209071347644.png"
+alt="image-20220907134703515" /></p>
+<h2
+id="swagger中没有新加的实体类属性新加的属性在swagger中不显示问题">swagger中没有新加的实体类属性(新加的属性在swagger中不显示)问题</h2>
+<p>试了一下只留get方法或者set方法，发现swagger竟然都能加载到属性，那么确定了属性是根据对应的get、set方法是否存在获取的。</p>
+]]></content>
+      <categories>
+        <category>岗前实训</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>springboot</tag>
+        <tag>swagger</tag>
       </tags>
   </entry>
   <entry>
@@ -2051,6 +2051,36 @@ JSTL标签。引用核心标签库的语法如下：</h1>
       </tags>
   </entry>
   <entry>
+    <title>layui问题记录</title>
+    <url>/2022/07/29/layui%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h1
+id="layui中layer弹出层点击事件无效解决">layui中layer弹出层点击事件无效解决</h1>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).on(‘click’, ‘#test’, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	layer.msg(‘响应点击事件’);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><a
+href="https://blog.csdn.net/sinat_27535209/article/details/79963736">原文链接</a></p>
+</blockquote>
+<h1
+id="thymeleaf报错org.thymeleaf.exceptions.templateprocessingexception-could-not-parse-as-expression">Thymeleaf报错org.thymeleaf.exceptions.TemplateProcessingException
+Could not parse as expression</h1>
+<p>在使用layui初始化table的时候，报错</p>
+<p>把<code>[[</code>和<code>]]</code>之间加个空格，如<code>[ [</code>。这个问题就莫名其妙的解决了！</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">cols: [ [</span><br><span class="line">    &#123;field: &#x27;name&#x27;, title: &#x27;角色名称&#x27;, align: &#x27;center&#x27;&#125;,</span><br><span class="line">    &#123;field: &#x27;remark&#x27;, title: &#x27;角色备注&#x27;, align: &#x27;center&#x27;&#125;,</span><br><span class="line">    &#123;field: &#x27;createTime&#x27;, title: &#x27;创建时间&#x27;, align: &#x27;center&#x27;&#125;,</span><br><span class="line">    &#123;fixed: &#x27;right&#x27;, title: &#x27;操作&#x27;, toolbar: &#x27;#roleRowBar&#x27;, align: &#x27;center&#x27;, width: 280&#125;</span><br><span class="line">] ]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><a
+href="https://blog.csdn.net/SleepNot_Need/article/details/114688838">原文链接</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>岗前实训</category>
+      </categories>
+      <tags>
+        <tag>HTML</tag>
+        <tag>layui</tag>
+        <tag>layer</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>idea使用问题</title>
     <url>/2022/05/20/idea%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="idea快捷键">idea快捷键</h1>
@@ -2369,36 +2399,6 @@ id="idea编辑器控制台显示中文乱码的解决方案">IDEA编辑器控制
       </tags>
   </entry>
   <entry>
-    <title>layui问题记录</title>
-    <url>/2022/07/29/layui%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h1
-id="layui中layer弹出层点击事件无效解决">layui中layer弹出层点击事件无效解决</h1>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).on(‘click’, ‘#test’, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	layer.msg(‘响应点击事件’);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><a
-href="https://blog.csdn.net/sinat_27535209/article/details/79963736">原文链接</a></p>
-</blockquote>
-<h1
-id="thymeleaf报错org.thymeleaf.exceptions.templateprocessingexception-could-not-parse-as-expression">Thymeleaf报错org.thymeleaf.exceptions.TemplateProcessingException
-Could not parse as expression</h1>
-<p>在使用layui初始化table的时候，报错</p>
-<p>把<code>[[</code>和<code>]]</code>之间加个空格，如<code>[ [</code>。这个问题就莫名其妙的解决了！</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">cols: [ [</span><br><span class="line">    &#123;field: &#x27;name&#x27;, title: &#x27;角色名称&#x27;, align: &#x27;center&#x27;&#125;,</span><br><span class="line">    &#123;field: &#x27;remark&#x27;, title: &#x27;角色备注&#x27;, align: &#x27;center&#x27;&#125;,</span><br><span class="line">    &#123;field: &#x27;createTime&#x27;, title: &#x27;创建时间&#x27;, align: &#x27;center&#x27;&#125;,</span><br><span class="line">    &#123;fixed: &#x27;right&#x27;, title: &#x27;操作&#x27;, toolbar: &#x27;#roleRowBar&#x27;, align: &#x27;center&#x27;, width: 280&#125;</span><br><span class="line">] ]</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><a
-href="https://blog.csdn.net/SleepNot_Need/article/details/114688838">原文链接</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>岗前实训</category>
-      </categories>
-      <tags>
-        <tag>HTML</tag>
-        <tag>layui</tag>
-        <tag>layer</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>mabatis-plus</title>
     <url>/2022/05/26/mabatis-plus/</url>
     <content><![CDATA[<h1 id="crud扩展">CRUD扩展</h1>
@@ -2579,6 +2579,199 @@ href="https://blog.csdn.net/qq_42168438/article/details/103298782">原文链接<
       </categories>
       <tags>
         <tag>mybatis-plus</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>springboot问题整理</title>
+    <url>/2022/05/27/springboot%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<h1 id="springboot项目搭建">SpringBoot项目搭建</h1>
+<ol type="1">
+<li><p>新建Empty Project</p></li>
+<li><p><img src="https://s2.loli.net/2022/05/30/Cyv4Y3HZrsSbFQe.png" alt="image-20220530115230389" style="zoom:50%;" /></p></li>
+<li><p>新建module，Spring initializer创建springboot项目，</p>
+<p><img src="https://s2.loli.net/2022/05/27/3VM5HAjuWw4zXvg.png" alt="image-20220527161537443" style="zoom:50%;" /></p>
+<p><img src="https://s2.loli.net/2022/05/27/gYOQfCuxW25Sjri.png" alt="image-20220527161624866" style="zoom:50%;" /></p></li>
+<li><p>导入jar包</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-jdbc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis.spring.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--导入lombok--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--引入外部tomcat的支持--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.tomcat.embed<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>tomcat-embed-jasper<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--引入标签库的支持--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>jstl<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jstl<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 不引入这个访问jsp页面会报404错误--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>taglibs<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>standard<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--热部署依赖--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--pagehelper分页的依赖--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.pagehelper<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>pagehelper<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>生成webApp文件夹和Web.xml文件</p></li>
+<li><p>配置application.properties</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">spring.datasource.username=root</span><br><span class="line">spring.datasource.password=</span><br><span class="line">spring.datasource.url=jdbc:mysql://localhost:3306/userManager?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC</span><br><span class="line">spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver</span><br><span class="line"></span><br><span class="line">spring.mvc.view.prefix=/WEB-INF/jsp/</span><br><span class="line">spring.mvc.view.suffix=.jsp</span><br></pre></td></tr></table></figure>
+<p>或者选择application.yml</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment">#配置数据源</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> </span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/movie?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line">  <span class="comment">#配置视图解析器</span></span><br><span class="line">  <span class="attr">mvc:</span></span><br><span class="line">    <span class="attr">view:</span></span><br><span class="line">      <span class="attr">suffix:</span> <span class="string">.jsp</span></span><br><span class="line">      <span class="attr">prefix:</span> <span class="string">/jsp/</span></span><br><span class="line"><span class="comment">#配置mapper的存放路径以及实体类别名</span></span><br><span class="line"><span class="attr">mybatis:</span></span><br><span class="line">  <span class="attr">mapper-locations:</span> <span class="string">classpath:mapper/*.xml</span></span><br><span class="line">  <span class="attr">type-aliases-package:</span> <span class="string">com.ruanyuan.pojo</span></span><br><span class="line">  <span class="attr">config-location:</span> <span class="string">classpath:mybatis-config.xml</span></span><br></pre></td></tr></table></figure></li>
+<li><p>环境配置基本完毕。</p></li>
+</ol>
+<h1 id="怎么将html转换为jsp">怎么将html转换为jsp</h1>
+<ol type="1">
+<li><p>直接在原testPage.html页面最顶端添加如下代码：</p>
+<figure class="highlight jsp"><table><tr><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">&quot;java&quot;</span> contentType=<span class="string">&quot;text/html; charset=UTF-8&quot;</span> pageEncoding=<span class="string">&quot;UTF-8&quot;</span>%&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>修改文件后缀名： 修改后缀名为<code>.jsp</code>，Ok即可。</p></li>
+</ol>
+<h1
+id="springbootthymeleaf配置与使用">Springboot+Thymeleaf配置与使用</h1>
+<ol type="1">
+<li><p>在application.properties文件中增加Thymeleaf模板的配置。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">spring.thymeleaf.cache=false</span><br></pre></td></tr></table></figure>
+<p>在开发时建议将spring.thymeleaf.cache设置为false，否则会有缓存，导致页面没法及时看到更新后的效果。
+比如你修改了一个文件，已经update到tomcat，但刷新页面还是之前的页面，就是因为缓存引起的。</p></li>
+<li><p>在pom.xml中添加thymeleaf的依赖</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-thymeleaf<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>```html</p>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># driver-class-name: com.mysql.cj.jdbc.Driver 报错的几种解决办法</span><br><span class="line"></span><br><span class="line">`pom.xml`文件中</span><br><span class="line"></span><br><span class="line">```xml</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;mysql&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="pathvariable注解使用"><span class="citation"
+data-cites="PathVariable注解使用">@PathVariable注解使用</span></h1>
+<p><strong><span class="citation"
+data-cites="PathVariable是spring3.0的一个新功能">@PathVariable是spring3.0的一个新功能</span>：接收请求路径中占位符的值</strong></p>
+<p><strong>语法：</strong></p>
+<blockquote>
+<p><span class="citation"
+data-cites="PathVariable">@PathVariable</span>("xxx") 通过 <span
+class="citation" data-cites="PathVariable">@PathVariable</span>
+可以将URL中占位符参数{xxx}绑定到处理器类的方法形参中@PathVariable(“xxx“)</p>
+<p><span class="citation"
+data-cites="RequestMapping">@RequestMapping</span>(value=”user/{id}/{name}”)
+请求路径：http://localhost:8080/hello/show5/1/james</p>
+</blockquote>
+<h1 id="requestparam注解的详细介绍"><span class="citation"
+data-cites="RequestParam注解的详细介绍">@RequestParam注解的详细介绍</span></h1>
+<p><span class="citation" data-cites="RequestParam">@RequestParam</span>
+（org.springframework.web.bind.annotation.RequestParam）用于将指定的请求参数赋值给方法中的形参。</p>
+<p>有三个属性：</p>
+<ol type="1">
+<li>value：请求参数名（必须配置）</li>
+<li>required：是否必需，默认为 true，即
+请求中必须包含该参数，如果没有包含，将会抛出异常（可选配置）</li>
+<li>defaultValue：默认值，如果设置了该值，required 将自动设为
+false，无论你是否配置了required，配置了什么值，都是
+false（可选配置）</li>
+</ol>
+<h1
+id="mybatismapper文件详解mapper文件样例">mybatis——mapper文件详解，mapper文件样例</h1>
+<blockquote>
+<p>mapper文件样例</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">mapper</span> <span class="meta-keyword">PUBLIC</span> <span class="meta-string">&quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span> <span class="meta-string">&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">  namespace绑定了与之对应的接口,值是该接口的全限定名;这个参数有且只有一个</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">&quot;com.ruanyuan.dao.AuthorDao&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="mybatis一对一关联查询">MyBatis一对一关联查询</h2>
+<h3 id="单步查询">单步查询</h3>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">id</span>=<span class="string">&quot;BookWithAuthorAndCategoryAndPublisher&quot;</span> <span class="attr">type</span>=<span class="string">&quot;com.ruanyuan.pojo.Book&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span> <span class="attr">property</span>=<span class="string">&quot;bookCode&quot;</span> <span class="attr">column</span>=<span class="string">&quot;bookCode&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;bookName&quot;</span> <span class="attr">column</span>=<span class="string">&quot;bookName&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;unitPrice&quot;</span> <span class="attr">column</span>=<span class="string">&quot;unitPrice&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;picture&quot;</span> <span class="attr">column</span>=<span class="string">&quot;picture&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;description&quot;</span> <span class="attr">column</span>=<span class="string">&quot;bookdesc&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;quantity&quot;</span> <span class="attr">column</span>=<span class="string">&quot;quantity&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 一对一级联查询 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">&quot;author&quot;</span> <span class="attr">javaType</span>=<span class="string">&quot;com.ruanyuan.pojo.Author&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">property</span>=<span class="string">&quot;authorId&quot;</span> <span class="attr">column</span>=<span class="string">&quot;authorId&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;authorName&quot;</span> <span class="attr">column</span>=<span class="string">&quot;authorName&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">column</span>=<span class="string">&quot;sex&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;birthday&quot;</span> <span class="attr">column</span>=<span class="string">&quot;birthday&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;email&quot;</span> <span class="attr">column</span>=<span class="string">&quot;email&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;telPhone&quot;</span> <span class="attr">column</span>=<span class="string">&quot;authortel&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;city&quot;</span> <span class="attr">column</span>=<span class="string">&quot;city&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;description&quot;</span> <span class="attr">column</span>=<span class="string">&quot;authordesc&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">association</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 一对一级联查询 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">&quot;category&quot;</span> <span class="attr">javaType</span>=<span class="string">&quot;com.ruanyuan.pojo.Category&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">property</span>=<span class="string">&quot;categoryId&quot;</span> <span class="attr">column</span>=<span class="string">&quot;categoryId&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;categoryName&quot;</span> <span class="attr">column</span>=<span class="string">&quot;categoryName&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;description&quot;</span> <span class="attr">column</span>=<span class="string">&quot;categorydesc&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">association</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 一对一级联查询 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">&quot;publisher&quot;</span> <span class="attr">javaType</span>=<span class="string">&quot;com.ruanyuan.pojo.Publisher&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">property</span>=<span class="string">&quot;publisherId&quot;</span> <span class="attr">column</span>=<span class="string">&quot;publisherId&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;publisherName&quot;</span> <span class="attr">column</span>=<span class="string">&quot;publisherName&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;address&quot;</span> <span class="attr">column</span>=<span class="string">&quot;address&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;telPhone&quot;</span> <span class="attr">column</span>=<span class="string">&quot;publishertel&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;fax&quot;</span> <span class="attr">column</span>=<span class="string">&quot;fax&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">association</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;getAllBook&quot;</span> <span class="attr">resultMap</span>=<span class="string">&quot;BookWithAuthorAndCategoryAndPublisher&quot;</span>&gt;</span></span><br><span class="line">    select bookcode, bookname, unitprice, picture, books.description as bookdesc, quantity, a.authorid, authorname, sex, birthday, email, a.telphone as authortel, city, a.description as authordesc, c.categoryid, categoryname, c.descripition as categorydesc, p.publisherid, publishername, address, p.telphone as publishertel, fax from books</span><br><span class="line">    join authors a on books.AuthorID = a.AuthorID</span><br><span class="line">    join categorys c on books.CategoryID = c.CategoryID</span><br><span class="line">    join publisher p on books.PublisherID = p.PublisherID</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="mybatis-select标签">MyBatis select标签</h2>
+<p>select 示例语句如下。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;selectAllWebsite&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;net.biancheng.po.Website&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;string&quot;</span>&gt;</span></span><br><span class="line">    SELECT id,NAME,url FROM website WHERE NAME LIKE CONCAT (&#x27;%&#x27;,#&#123;name&#125;,&#x27;%&#x27;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>下面介绍 select 标签中常用的属性。</p>
+</blockquote>
+<table>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 81%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>属性名称</th>
+<th>描 述</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>resultType</td>
+<td>SQL
+语句执行后返回的类型（全限定名或者别名）。如果是集合类型，返回的是集合元素的类型，返回时可以使用
+resultType 或 resultMap 之一</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="sql-delete-语句">SQL DELETE 语句</h2>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> 表名称 <span class="keyword">WHERE</span> 列名称 <span class="operator">=</span> 值</span><br></pre></td></tr></table></figure>
+<h1
+id="thymeleaf模板中html如何获取前台的session中的值干货">thymeleaf模板中，html如何获取前台的session中的值（干货）</h1>
+<blockquote>
+<p>前端代码</p>
+</blockquote>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/lnVgTW7xsI1oiq3.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<h1 id="拦截器配置不生效">拦截器配置不生效</h1>
+<blockquote>
+<p>检查是否添加了@Configuration注解</p>
+</blockquote>
+<figure>
+<img src="https://s2.loli.net/2022/07/06/FYXe2cZbu1IlRWU.png"
+alt="image-20220706120007266" />
+<figcaption aria-hidden="true">image-20220706120007266</figcaption>
+</figure>
+<h1
+id="springboot连接数据库报错access-denied-for-user-rootlocalhost-using-password-yes">SpringBoot连接数据库报错：Access
+denied for user ‘root‘@‘localhost‘ (using password: YES)</h1>
+<p>SpringBoot连接数据库报错：Access denied for user ‘***’@‘localhost’
+(using password: YES)
+它报三个***，这个就很恶心了！找了很久，大多数都说是权限问题，刚开始我也以为是权限，后面弄得数据库都连接不上了！！！后面才发现和那些没有一点关系！
+原因是因为我们在创建springboot的时候它自动给我们在properties中创建了连接对象！</p>
+<figure>
+<img src="https://s2.loli.net/2022/07/09/e6Aq2w5dnMGDJaX.png"
+alt="在这里插入图片描述" />
+<figcaption aria-hidden="true">在这里插入图片描述</figcaption>
+</figure>
+<p>这个时候只需要选择一个配置就OK了！！！</p>
+<h1
+id="druid控制台无法监控sql问题druid登录配置完了还是不需要账号密码">druid控制台无法监控sql问题，druid登录配置完了还是不需要账号密码</h1>
+<ol type="1">
+<li><p>在Spring的数据库配置参数里开启监控并配置druid(yml形式)</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="comment"># 假如时区报错了，就增加一个时区的配置就ok了 serverTimezone=UTC</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/mybatis_plus?useUnicode=true&amp;characterEncoding=utf8&amp;characterSetResults=utf8&amp;useSSL=false</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">asd123</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">com.alibaba.druid.pool.DruidDataSource</span></span><br><span class="line">	<span class="comment">#没有这条druid控制台无法监控sql</span></span><br><span class="line">    <span class="comment">#用于SQL状态监控,stat代表状态,wall代表防火墙</span></span><br><span class="line">    <span class="attr">filters:</span> <span class="string">stat,wall</span></span><br><span class="line">    <span class="comment">#Spring Boot 默认是不注入这些属性值的，需要自己绑定</span></span><br><span class="line">    <span class="comment">#druid 数据源专有配置</span></span><br><span class="line">    <span class="attr">initialSize:</span> <span class="number">5</span></span><br><span class="line">    <span class="attr">minIdle:</span> <span class="number">5</span></span><br><span class="line">    <span class="attr">maxActive:</span> <span class="number">20</span></span><br><span class="line">    <span class="attr">maxWait:</span> <span class="number">60000</span></span><br><span class="line">    <span class="attr">timeBetweenEvictionRunsMillis:</span> <span class="number">60000</span></span><br><span class="line">    <span class="attr">minEvictableIdleTimeMillis:</span> <span class="number">300000</span></span><br><span class="line">    <span class="attr">validationQuery:</span> <span class="string">SELECT</span> <span class="number">1</span> <span class="string">FROM</span> <span class="string">DUAL</span></span><br><span class="line">    <span class="attr">testWhileIdle:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">testOnBorrow:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">testOnReturn:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">poolPreparedStatements:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment">#配置监控统计拦截的filters，stat:监控统计、log4j：日志记录、wall：防御sql注入</span></span><br><span class="line">    <span class="comment">#如果允许时报错 java.lang.ClassNotFoundException: org.apache.log4j.Priority</span></span><br><span class="line">    <span class="comment">#则导入 log4j 依赖即可，Maven 地址：https://mvnrepository.com/artifact/log4j/</span></span><br><span class="line">    <span class="attr">log4j filters:</span> <span class="string">stat,wall,log4j</span></span><br><span class="line">    <span class="attr">maxPoolPreparedStatementPerConnectionSize:</span> <span class="number">20</span></span><br><span class="line">    <span class="attr">useGlobalDataSourceStat:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">connectionProperties:</span> <span class="string">druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500</span></span><br><span class="line">    <span class="comment">#配置监控统计拦截的filters,去掉后监控界面sql将无法统计</span></span><br><span class="line">    <span class="attr">spring.datasource.filters:</span> <span class="string">stat</span></span><br></pre></td></tr></table></figure></li>
+<li><p>加入druid配置类</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.kuang.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.alibaba.druid.pool.DruidDataSource;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.druid.support.http.ResourceServlet;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.druid.support.http.StatViewServlet;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.druid.support.http.WebStatFilter;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.context.properties.ConfigurationProperties;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.web.servlet.FilterRegistrationBean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.web.servlet.ServletRegistrationBean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.Filter;</span><br><span class="line"><span class="keyword">import</span> javax.sql.DataSource;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * TODO</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span> DruidConfig</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> Alfa</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Data</span> 2022/7/11 9:24</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Version</span> 1.0</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DruidConfig</span> </span>&#123;</span><br><span class="line">    <span class="meta">@ConfigurationProperties(prefix = &quot;spring.datasource&quot;)</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> DataSource <span class="title">druid</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> DruidDataSource();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 配置一个druid的监控</span></span><br><span class="line"><span class="comment">     * 1、配置一个druid的后台  管理servlet</span></span><br><span class="line"><span class="comment">     * 2、配置一个druid的filter</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="comment">//1、配置一个druid的后台  管理servlet</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ServletRegistrationBean <span class="title">servletRegistrationBean</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//注意，请求时 /druid/*</span></span><br><span class="line">        ServletRegistrationBean&lt;StatViewServlet&gt; bean = <span class="keyword">new</span> ServletRegistrationBean(<span class="keyword">new</span> StatViewServlet(),<span class="string">&quot;/druid/*&quot;</span>);</span><br><span class="line">        Map&lt;String,String&gt; initParm= <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="comment">//登陆页面账户与密码</span></span><br><span class="line">        initParm.put(ResourceServlet.PARAM_NAME_USERNAME,<span class="string">&quot;root&quot;</span>);</span><br><span class="line">        initParm.put(ResourceServlet.PARAM_NAME_PASSWORD,<span class="string">&quot;aabbcc&quot;</span>);</span><br><span class="line">        <span class="comment">//监控后台 允许ip</span></span><br><span class="line">        initParm.put(ResourceServlet.PARAM_NAME_ALLOW,<span class="string">&quot;&quot;</span>);</span><br><span class="line">        <span class="comment">//黑名单</span></span><br><span class="line">        initParm.put(ResourceServlet.PARAM_NAME_DENY,<span class="string">&quot;192.168.0.1&quot;</span>);</span><br><span class="line"></span><br><span class="line">        bean.setInitParameters(initParm);</span><br><span class="line">        <span class="keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//    2、配置一个druid的filter</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> FilterRegistrationBean <span class="title">webStatFilter</span><span class="params">()</span></span>&#123;</span><br><span class="line">        FilterRegistrationBean&lt;Filter&gt; bean = <span class="keyword">new</span> FilterRegistrationBean&lt;&gt;();</span><br><span class="line">        bean.setFilter(<span class="keyword">new</span> WebStatFilter());</span><br><span class="line"></span><br><span class="line"><span class="comment">//        可以过滤那些请求？</span></span><br><span class="line">        Map&lt;String, String&gt; initPrams = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"><span class="comment">//        这些东西不进行统计</span></span><br><span class="line">        initPrams.put(WebStatFilter.PARAM_NAME_EXCLUSIONS,<span class="string">&quot;*.js,*.css,/druid/*&quot;</span>);</span><br><span class="line">        bean.setInitParameters(initPrams);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//设置拦截器请求</span></span><br><span class="line">        bean.setUrlPatterns(Arrays.asList(<span class="string">&quot;/&quot;</span>));</span><br><span class="line">        <span class="keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<blockquote>
+<p><a
+href="https://blog.csdn.net/danhua8381/article/details/107318641">原文链接</a></p>
+</blockquote>
+<h1
+id="springboot有关type-aliases-package设置xml别名爆红错误">springboot有关type-aliases-package设置，xml别名爆红错误</h1>
+<p><img src="https://s2.loli.net/2022/08/10/k4jVhXetAbUYCuE.png"
+alt="img" /><img
+src="https://s2.loli.net/2022/08/10/HDOtApYhyxVoUIs.png"
+alt="img" /></p>
+<figure>
+<img src="https://s2.loli.net/2022/08/10/KGuowNLxITyvtCr.png"
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>把IDEA设置的检查级别调低，默认是inspections，这个词的意思是检查的意思，就是会对你的代码进行静态检查，就像findbugs那样，如果你能把代码改进到消除inspections级别的所有警告，那么你的代码质量已经相当好了。</p>
+<p>但是很难把这个级别的警告消除干净，例如最常见的代码重复就很难消除，Intellij
+甚至把不同modules的代码都会检查重复，而不同modules的重复代码难以合并。</p>
+<p>当你嫌警告太多，可以设置为syntax也就是语法级别。这个级别只会检查语法是否正确，这个级别和eclipse或myeclipse是一样的，提前发现你代码的编译错误。</p>
+<p>平时可以使用这个级别保持界面清爽，而审查代码的时候开开inspections级别进行更严格的代码质量检查。</p>
+<blockquote>
+<p><a
+href="https://blog.csdn.net/qq_53079156/article/details/118544027">原文链接</a></p>
+</blockquote>
+<h1 id="mapperscan和componentscan的区别"><span class="citation"
+data-cites="MapperScan和">@MapperScan和</span><span class="citation"
+data-cites="ComponentScan的区别">@ComponentScan的区别</span></h1>
+<p>首先，<span class="citation"
+data-cites="ComponentScan是组件扫描注解">@ComponentScan是组件扫描注解</span>，用来扫描@Controller
+<span class="citation" data-cites="Service">@Service</span> <span
+class="citation"
+data-cites="Repository这类">@Repository这类</span>,主要就是定义扫描的路径从中找出标志了需要装配的类到Spring容器中</p>
+<p>其次，<span class="citation"
+data-cites="MapperScan">@MapperScan</span>
+是扫描mapper类的注解,就不用在每个mapper类上加@MapperScan了</p>
+<p>这两个注解是可以同时使用的。 ————————————————
+版权声明：本文为CSDN博主「海角cape」的原创文章，遵循CC 4.0
+BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/m0_37597572/article/details/82625631</p>
+]]></content>
+      <categories>
+        <category>大二生涯</category>
+      </categories>
+      <tags>
+        <tag>springboot</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -3637,199 +3830,6 @@ href="https://blog.csdn.net/dongfengkuayue/article/details/23829611">原文链�
       </tags>
   </entry>
   <entry>
-    <title>springboot问题整理</title>
-    <url>/2022/05/27/springboot%E9%97%AE%E9%A2%98%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<h1 id="springboot项目搭建">SpringBoot项目搭建</h1>
-<ol type="1">
-<li><p>新建Empty Project</p></li>
-<li><p><img src="https://s2.loli.net/2022/05/30/Cyv4Y3HZrsSbFQe.png" alt="image-20220530115230389" style="zoom:50%;" /></p></li>
-<li><p>新建module，Spring initializer创建springboot项目，</p>
-<p><img src="https://s2.loli.net/2022/05/27/3VM5HAjuWw4zXvg.png" alt="image-20220527161537443" style="zoom:50%;" /></p>
-<p><img src="https://s2.loli.net/2022/05/27/gYOQfCuxW25Sjri.png" alt="image-20220527161624866" style="zoom:50%;" /></p></li>
-<li><p>导入jar包</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-jdbc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis.spring.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--导入lombok--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--引入外部tomcat的支持--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.tomcat.embed<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>tomcat-embed-jasper<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--引入标签库的支持--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>jstl<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jstl<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 不引入这个访问jsp页面会报404错误--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>taglibs<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>standard<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--热部署依赖--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--pagehelper分页的依赖--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.pagehelper<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>pagehelper<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li><p>生成webApp文件夹和Web.xml文件</p></li>
-<li><p>配置application.properties</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">spring.datasource.username=root</span><br><span class="line">spring.datasource.password=</span><br><span class="line">spring.datasource.url=jdbc:mysql://localhost:3306/userManager?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC</span><br><span class="line">spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver</span><br><span class="line"></span><br><span class="line">spring.mvc.view.prefix=/WEB-INF/jsp/</span><br><span class="line">spring.mvc.view.suffix=.jsp</span><br></pre></td></tr></table></figure>
-<p>或者选择application.yml</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment">#配置数据源</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> </span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/movie?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line">  <span class="comment">#配置视图解析器</span></span><br><span class="line">  <span class="attr">mvc:</span></span><br><span class="line">    <span class="attr">view:</span></span><br><span class="line">      <span class="attr">suffix:</span> <span class="string">.jsp</span></span><br><span class="line">      <span class="attr">prefix:</span> <span class="string">/jsp/</span></span><br><span class="line"><span class="comment">#配置mapper的存放路径以及实体类别名</span></span><br><span class="line"><span class="attr">mybatis:</span></span><br><span class="line">  <span class="attr">mapper-locations:</span> <span class="string">classpath:mapper/*.xml</span></span><br><span class="line">  <span class="attr">type-aliases-package:</span> <span class="string">com.ruanyuan.pojo</span></span><br><span class="line">  <span class="attr">config-location:</span> <span class="string">classpath:mybatis-config.xml</span></span><br></pre></td></tr></table></figure></li>
-<li><p>环境配置基本完毕。</p></li>
-</ol>
-<h1 id="怎么将html转换为jsp">怎么将html转换为jsp</h1>
-<ol type="1">
-<li><p>直接在原testPage.html页面最顶端添加如下代码：</p>
-<figure class="highlight jsp"><table><tr><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">&quot;java&quot;</span> contentType=<span class="string">&quot;text/html; charset=UTF-8&quot;</span> pageEncoding=<span class="string">&quot;UTF-8&quot;</span>%&gt;</span><br></pre></td></tr></table></figure></li>
-<li><p>修改文件后缀名： 修改后缀名为<code>.jsp</code>，Ok即可。</p></li>
-</ol>
-<h1
-id="springbootthymeleaf配置与使用">Springboot+Thymeleaf配置与使用</h1>
-<ol type="1">
-<li><p>在application.properties文件中增加Thymeleaf模板的配置。</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">spring.thymeleaf.cache=false</span><br></pre></td></tr></table></figure>
-<p>在开发时建议将spring.thymeleaf.cache设置为false，否则会有缓存，导致页面没法及时看到更新后的效果。
-比如你修改了一个文件，已经update到tomcat，但刷新页面还是之前的页面，就是因为缓存引起的。</p></li>
-<li><p>在pom.xml中添加thymeleaf的依赖</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-thymeleaf<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li><p>```html</p>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"># driver-class-name: com.mysql.cj.jdbc.Driver 报错的几种解决办法</span><br><span class="line"></span><br><span class="line">`pom.xml`文件中</span><br><span class="line"></span><br><span class="line">```xml</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;mysql&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="pathvariable注解使用"><span class="citation"
-data-cites="PathVariable注解使用">@PathVariable注解使用</span></h1>
-<p><strong><span class="citation"
-data-cites="PathVariable是spring3.0的一个新功能">@PathVariable是spring3.0的一个新功能</span>：接收请求路径中占位符的值</strong></p>
-<p><strong>语法：</strong></p>
-<blockquote>
-<p><span class="citation"
-data-cites="PathVariable">@PathVariable</span>("xxx") 通过 <span
-class="citation" data-cites="PathVariable">@PathVariable</span>
-可以将URL中占位符参数{xxx}绑定到处理器类的方法形参中@PathVariable(“xxx“)</p>
-<p><span class="citation"
-data-cites="RequestMapping">@RequestMapping</span>(value=”user/{id}/{name}”)
-请求路径：http://localhost:8080/hello/show5/1/james</p>
-</blockquote>
-<h1 id="requestparam注解的详细介绍"><span class="citation"
-data-cites="RequestParam注解的详细介绍">@RequestParam注解的详细介绍</span></h1>
-<p><span class="citation" data-cites="RequestParam">@RequestParam</span>
-（org.springframework.web.bind.annotation.RequestParam）用于将指定的请求参数赋值给方法中的形参。</p>
-<p>有三个属性：</p>
-<ol type="1">
-<li>value：请求参数名（必须配置）</li>
-<li>required：是否必需，默认为 true，即
-请求中必须包含该参数，如果没有包含，将会抛出异常（可选配置）</li>
-<li>defaultValue：默认值，如果设置了该值，required 将自动设为
-false，无论你是否配置了required，配置了什么值，都是
-false（可选配置）</li>
-</ol>
-<h1
-id="mybatismapper文件详解mapper文件样例">mybatis——mapper文件详解，mapper文件样例</h1>
-<blockquote>
-<p>mapper文件样例</p>
-</blockquote>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">mapper</span> <span class="meta-keyword">PUBLIC</span> <span class="meta-string">&quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span> <span class="meta-string">&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">  namespace绑定了与之对应的接口,值是该接口的全限定名;这个参数有且只有一个</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">&quot;com.ruanyuan.dao.AuthorDao&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="mybatis一对一关联查询">MyBatis一对一关联查询</h2>
-<h3 id="单步查询">单步查询</h3>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">id</span>=<span class="string">&quot;BookWithAuthorAndCategoryAndPublisher&quot;</span> <span class="attr">type</span>=<span class="string">&quot;com.ruanyuan.pojo.Book&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span> <span class="attr">property</span>=<span class="string">&quot;bookCode&quot;</span> <span class="attr">column</span>=<span class="string">&quot;bookCode&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;bookName&quot;</span> <span class="attr">column</span>=<span class="string">&quot;bookName&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;unitPrice&quot;</span> <span class="attr">column</span>=<span class="string">&quot;unitPrice&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;picture&quot;</span> <span class="attr">column</span>=<span class="string">&quot;picture&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;description&quot;</span> <span class="attr">column</span>=<span class="string">&quot;bookdesc&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;quantity&quot;</span> <span class="attr">column</span>=<span class="string">&quot;quantity&quot;</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 一对一级联查询 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">&quot;author&quot;</span> <span class="attr">javaType</span>=<span class="string">&quot;com.ruanyuan.pojo.Author&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">property</span>=<span class="string">&quot;authorId&quot;</span> <span class="attr">column</span>=<span class="string">&quot;authorId&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;authorName&quot;</span> <span class="attr">column</span>=<span class="string">&quot;authorName&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">column</span>=<span class="string">&quot;sex&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;birthday&quot;</span> <span class="attr">column</span>=<span class="string">&quot;birthday&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;email&quot;</span> <span class="attr">column</span>=<span class="string">&quot;email&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;telPhone&quot;</span> <span class="attr">column</span>=<span class="string">&quot;authortel&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;city&quot;</span> <span class="attr">column</span>=<span class="string">&quot;city&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;description&quot;</span> <span class="attr">column</span>=<span class="string">&quot;authordesc&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">association</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 一对一级联查询 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">&quot;category&quot;</span> <span class="attr">javaType</span>=<span class="string">&quot;com.ruanyuan.pojo.Category&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">property</span>=<span class="string">&quot;categoryId&quot;</span> <span class="attr">column</span>=<span class="string">&quot;categoryId&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;categoryName&quot;</span> <span class="attr">column</span>=<span class="string">&quot;categoryName&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;description&quot;</span> <span class="attr">column</span>=<span class="string">&quot;categorydesc&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">association</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 一对一级联查询 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">association</span> <span class="attr">property</span>=<span class="string">&quot;publisher&quot;</span> <span class="attr">javaType</span>=<span class="string">&quot;com.ruanyuan.pojo.Publisher&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">property</span>=<span class="string">&quot;publisherId&quot;</span> <span class="attr">column</span>=<span class="string">&quot;publisherId&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;publisherName&quot;</span> <span class="attr">column</span>=<span class="string">&quot;publisherName&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;address&quot;</span> <span class="attr">column</span>=<span class="string">&quot;address&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;telPhone&quot;</span> <span class="attr">column</span>=<span class="string">&quot;publishertel&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">property</span>=<span class="string">&quot;fax&quot;</span> <span class="attr">column</span>=<span class="string">&quot;fax&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">association</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;getAllBook&quot;</span> <span class="attr">resultMap</span>=<span class="string">&quot;BookWithAuthorAndCategoryAndPublisher&quot;</span>&gt;</span></span><br><span class="line">    select bookcode, bookname, unitprice, picture, books.description as bookdesc, quantity, a.authorid, authorname, sex, birthday, email, a.telphone as authortel, city, a.description as authordesc, c.categoryid, categoryname, c.descripition as categorydesc, p.publisherid, publishername, address, p.telphone as publishertel, fax from books</span><br><span class="line">    join authors a on books.AuthorID = a.AuthorID</span><br><span class="line">    join categorys c on books.CategoryID = c.CategoryID</span><br><span class="line">    join publisher p on books.PublisherID = p.PublisherID</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="mybatis-select标签">MyBatis select标签</h2>
-<p>select 示例语句如下。</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;selectAllWebsite&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;net.biancheng.po.Website&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;string&quot;</span>&gt;</span></span><br><span class="line">    SELECT id,NAME,url FROM website WHERE NAME LIKE CONCAT (&#x27;%&#x27;,#&#123;name&#125;,&#x27;%&#x27;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>下面介绍 select 标签中常用的属性。</p>
-</blockquote>
-<table>
-<colgroup>
-<col style="width: 13%" />
-<col style="width: 81%" />
-<col style="width: 5%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>属性名称</th>
-<th>描 述</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>resultType</td>
-<td>SQL
-语句执行后返回的类型（全限定名或者别名）。如果是集合类型，返回的是集合元素的类型，返回时可以使用
-resultType 或 resultMap 之一</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h2 id="sql-delete-语句">SQL DELETE 语句</h2>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> 表名称 <span class="keyword">WHERE</span> 列名称 <span class="operator">=</span> 值</span><br></pre></td></tr></table></figure>
-<h1
-id="thymeleaf模板中html如何获取前台的session中的值干货">thymeleaf模板中，html如何获取前台的session中的值（干货）</h1>
-<blockquote>
-<p>前端代码</p>
-</blockquote>
-<figure>
-<img src="https://s2.loli.net/2022/08/10/lnVgTW7xsI1oiq3.png"
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
-</figure>
-<h1 id="拦截器配置不生效">拦截器配置不生效</h1>
-<blockquote>
-<p>检查是否添加了@Configuration注解</p>
-</blockquote>
-<figure>
-<img src="https://s2.loli.net/2022/07/06/FYXe2cZbu1IlRWU.png"
-alt="image-20220706120007266" />
-<figcaption aria-hidden="true">image-20220706120007266</figcaption>
-</figure>
-<h1
-id="springboot连接数据库报错access-denied-for-user-rootlocalhost-using-password-yes">SpringBoot连接数据库报错：Access
-denied for user ‘root‘@‘localhost‘ (using password: YES)</h1>
-<p>SpringBoot连接数据库报错：Access denied for user ‘***’@‘localhost’
-(using password: YES)
-它报三个***，这个就很恶心了！找了很久，大多数都说是权限问题，刚开始我也以为是权限，后面弄得数据库都连接不上了！！！后面才发现和那些没有一点关系！
-原因是因为我们在创建springboot的时候它自动给我们在properties中创建了连接对象！</p>
-<figure>
-<img src="https://s2.loli.net/2022/07/09/e6Aq2w5dnMGDJaX.png"
-alt="在这里插入图片描述" />
-<figcaption aria-hidden="true">在这里插入图片描述</figcaption>
-</figure>
-<p>这个时候只需要选择一个配置就OK了！！！</p>
-<h1
-id="druid控制台无法监控sql问题druid登录配置完了还是不需要账号密码">druid控制台无法监控sql问题，druid登录配置完了还是不需要账号密码</h1>
-<ol type="1">
-<li><p>在Spring的数据库配置参数里开启监控并配置druid(yml形式)</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="comment"># 假如时区报错了，就增加一个时区的配置就ok了 serverTimezone=UTC</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/mybatis_plus?useUnicode=true&amp;characterEncoding=utf8&amp;characterSetResults=utf8&amp;useSSL=false</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">asd123</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">com.alibaba.druid.pool.DruidDataSource</span></span><br><span class="line">	<span class="comment">#没有这条druid控制台无法监控sql</span></span><br><span class="line">    <span class="comment">#用于SQL状态监控,stat代表状态,wall代表防火墙</span></span><br><span class="line">    <span class="attr">filters:</span> <span class="string">stat,wall</span></span><br><span class="line">    <span class="comment">#Spring Boot 默认是不注入这些属性值的，需要自己绑定</span></span><br><span class="line">    <span class="comment">#druid 数据源专有配置</span></span><br><span class="line">    <span class="attr">initialSize:</span> <span class="number">5</span></span><br><span class="line">    <span class="attr">minIdle:</span> <span class="number">5</span></span><br><span class="line">    <span class="attr">maxActive:</span> <span class="number">20</span></span><br><span class="line">    <span class="attr">maxWait:</span> <span class="number">60000</span></span><br><span class="line">    <span class="attr">timeBetweenEvictionRunsMillis:</span> <span class="number">60000</span></span><br><span class="line">    <span class="attr">minEvictableIdleTimeMillis:</span> <span class="number">300000</span></span><br><span class="line">    <span class="attr">validationQuery:</span> <span class="string">SELECT</span> <span class="number">1</span> <span class="string">FROM</span> <span class="string">DUAL</span></span><br><span class="line">    <span class="attr">testWhileIdle:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">testOnBorrow:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">testOnReturn:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">poolPreparedStatements:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment">#配置监控统计拦截的filters，stat:监控统计、log4j：日志记录、wall：防御sql注入</span></span><br><span class="line">    <span class="comment">#如果允许时报错 java.lang.ClassNotFoundException: org.apache.log4j.Priority</span></span><br><span class="line">    <span class="comment">#则导入 log4j 依赖即可，Maven 地址：https://mvnrepository.com/artifact/log4j/</span></span><br><span class="line">    <span class="attr">log4j filters:</span> <span class="string">stat,wall,log4j</span></span><br><span class="line">    <span class="attr">maxPoolPreparedStatementPerConnectionSize:</span> <span class="number">20</span></span><br><span class="line">    <span class="attr">useGlobalDataSourceStat:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">connectionProperties:</span> <span class="string">druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500</span></span><br><span class="line">    <span class="comment">#配置监控统计拦截的filters,去掉后监控界面sql将无法统计</span></span><br><span class="line">    <span class="attr">spring.datasource.filters:</span> <span class="string">stat</span></span><br></pre></td></tr></table></figure></li>
-<li><p>加入druid配置类</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.kuang.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.alibaba.druid.pool.DruidDataSource;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.druid.support.http.ResourceServlet;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.druid.support.http.StatViewServlet;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.druid.support.http.WebStatFilter;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.context.properties.ConfigurationProperties;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.web.servlet.FilterRegistrationBean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.web.servlet.ServletRegistrationBean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.Filter;</span><br><span class="line"><span class="keyword">import</span> javax.sql.DataSource;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * TODO</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span> DruidConfig</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> Alfa</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Data</span> 2022/7/11 9:24</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Version</span> 1.0</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DruidConfig</span> </span>&#123;</span><br><span class="line">    <span class="meta">@ConfigurationProperties(prefix = &quot;spring.datasource&quot;)</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> DataSource <span class="title">druid</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> DruidDataSource();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 配置一个druid的监控</span></span><br><span class="line"><span class="comment">     * 1、配置一个druid的后台  管理servlet</span></span><br><span class="line"><span class="comment">     * 2、配置一个druid的filter</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="comment">//1、配置一个druid的后台  管理servlet</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ServletRegistrationBean <span class="title">servletRegistrationBean</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//注意，请求时 /druid/*</span></span><br><span class="line">        ServletRegistrationBean&lt;StatViewServlet&gt; bean = <span class="keyword">new</span> ServletRegistrationBean(<span class="keyword">new</span> StatViewServlet(),<span class="string">&quot;/druid/*&quot;</span>);</span><br><span class="line">        Map&lt;String,String&gt; initParm= <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="comment">//登陆页面账户与密码</span></span><br><span class="line">        initParm.put(ResourceServlet.PARAM_NAME_USERNAME,<span class="string">&quot;root&quot;</span>);</span><br><span class="line">        initParm.put(ResourceServlet.PARAM_NAME_PASSWORD,<span class="string">&quot;aabbcc&quot;</span>);</span><br><span class="line">        <span class="comment">//监控后台 允许ip</span></span><br><span class="line">        initParm.put(ResourceServlet.PARAM_NAME_ALLOW,<span class="string">&quot;&quot;</span>);</span><br><span class="line">        <span class="comment">//黑名单</span></span><br><span class="line">        initParm.put(ResourceServlet.PARAM_NAME_DENY,<span class="string">&quot;192.168.0.1&quot;</span>);</span><br><span class="line"></span><br><span class="line">        bean.setInitParameters(initParm);</span><br><span class="line">        <span class="keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//    2、配置一个druid的filter</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> FilterRegistrationBean <span class="title">webStatFilter</span><span class="params">()</span></span>&#123;</span><br><span class="line">        FilterRegistrationBean&lt;Filter&gt; bean = <span class="keyword">new</span> FilterRegistrationBean&lt;&gt;();</span><br><span class="line">        bean.setFilter(<span class="keyword">new</span> WebStatFilter());</span><br><span class="line"></span><br><span class="line"><span class="comment">//        可以过滤那些请求？</span></span><br><span class="line">        Map&lt;String, String&gt; initPrams = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"><span class="comment">//        这些东西不进行统计</span></span><br><span class="line">        initPrams.put(WebStatFilter.PARAM_NAME_EXCLUSIONS,<span class="string">&quot;*.js,*.css,/druid/*&quot;</span>);</span><br><span class="line">        bean.setInitParameters(initPrams);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//设置拦截器请求</span></span><br><span class="line">        bean.setUrlPatterns(Arrays.asList(<span class="string">&quot;/&quot;</span>));</span><br><span class="line">        <span class="keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<blockquote>
-<p><a
-href="https://blog.csdn.net/danhua8381/article/details/107318641">原文链接</a></p>
-</blockquote>
-<h1
-id="springboot有关type-aliases-package设置xml别名爆红错误">springboot有关type-aliases-package设置，xml别名爆红错误</h1>
-<p><img src="https://s2.loli.net/2022/08/10/k4jVhXetAbUYCuE.png"
-alt="img" /><img
-src="https://s2.loli.net/2022/08/10/HDOtApYhyxVoUIs.png"
-alt="img" /></p>
-<figure>
-<img src="https://s2.loli.net/2022/08/10/KGuowNLxITyvtCr.png"
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
-</figure>
-<p>把IDEA设置的检查级别调低，默认是inspections，这个词的意思是检查的意思，就是会对你的代码进行静态检查，就像findbugs那样，如果你能把代码改进到消除inspections级别的所有警告，那么你的代码质量已经相当好了。</p>
-<p>但是很难把这个级别的警告消除干净，例如最常见的代码重复就很难消除，Intellij
-甚至把不同modules的代码都会检查重复，而不同modules的重复代码难以合并。</p>
-<p>当你嫌警告太多，可以设置为syntax也就是语法级别。这个级别只会检查语法是否正确，这个级别和eclipse或myeclipse是一样的，提前发现你代码的编译错误。</p>
-<p>平时可以使用这个级别保持界面清爽，而审查代码的时候开开inspections级别进行更严格的代码质量检查。</p>
-<blockquote>
-<p><a
-href="https://blog.csdn.net/qq_53079156/article/details/118544027">原文链接</a></p>
-</blockquote>
-<h1 id="mapperscan和componentscan的区别"><span class="citation"
-data-cites="MapperScan和">@MapperScan和</span><span class="citation"
-data-cites="ComponentScan的区别">@ComponentScan的区别</span></h1>
-<p>首先，<span class="citation"
-data-cites="ComponentScan是组件扫描注解">@ComponentScan是组件扫描注解</span>，用来扫描@Controller
-<span class="citation" data-cites="Service">@Service</span> <span
-class="citation"
-data-cites="Repository这类">@Repository这类</span>,主要就是定义扫描的路径从中找出标志了需要装配的类到Spring容器中</p>
-<p>其次，<span class="citation"
-data-cites="MapperScan">@MapperScan</span>
-是扫描mapper类的注解,就不用在每个mapper类上加@MapperScan了</p>
-<p>这两个注解是可以同时使用的。 ————————————————
-版权声明：本文为CSDN博主「海角cape」的原创文章，遵循CC 4.0
-BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/m0_37597572/article/details/82625631</p>
-]]></content>
-      <categories>
-        <category>大二生涯</category>
-      </categories>
-      <tags>
-        <tag>springboot</tag>
-        <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>微机原理相关问题</title>
     <url>/2022/08/06/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="aicw和ocw命令字">8259AICW和OCW命令字</h1>
@@ -4809,6 +4809,33 @@ alt="image-20220529150028007" />
       </tags>
   </entry>
   <entry>
+    <title>狂神说mysql事务</title>
+    <url>/2022/06/04/%E7%8B%82%E7%A5%9E%E8%AF%B4mysql%E4%BA%8B%E5%8A%A1/</url>
+    <content><![CDATA[<h1 id="事务acid原则">事务ACID原则</h1>
+<blockquote>
+<p>原子性（<strong>A</strong>tomicity）、一致性（<strong>C</strong>onsistency）、隔离性（<strong>I</strong>solation）、持久性（<strong>D</strong>urability）。</p>
+</blockquote>
+<p>脏读：指一个事务读取了另一个事务未提交的数据</p>
+<p>不可重复读：在一个事务内读取表中的某一行数据，多次读取结果不同。（这个不一定是错误，只是某些场合不对）</p>
+<p>虚读(幻读):
+是指在一个事务内读取到了别的事务插入的数据，导致前后读取数量总量不一致。</p>
+<h2 id="模拟场景">模拟场景</h2>
+<blockquote>
+<p>SAVEPOINT -- 设置保存点 ROLLBACK TO SAVEPOINT -- 回滚到保存点 RELEASE
+SAVEPOINT -- 删除保存点</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> -- 转账</span><br><span class="line"> CREATE DATABASE shop CHARACTER SET utf8 COLLATE utf8_general_ci</span><br><span class="line">USE shop </span><br><span class="line"></span><br><span class="line">CREATE TABLE `account` (</span><br><span class="line">`id` INT(3) NOT NULL AUTO_INCREMENT,</span><br><span class="line">`name` VARCHAR(30) NOT NULL,</span><br><span class="line">`money` DECIMAL(9,2) NOT NULL,</span><br><span class="line">PRIMARY KEY (`id`)</span><br><span class="line">) ENGINE = INNODB DEFAULT CHARSET = utf8</span><br><span class="line"> </span><br><span class="line"> INSERT INTO account(`name`, `money`)</span><br><span class="line"> VALUES (&#x27;A&#x27;,2000.00),(&#x27;B&#x27;,10000.00)</span><br><span class="line"> </span><br><span class="line">-- 模拟转账， 事务</span><br><span class="line">SET autocommit = 0; -- 关闭自动提交</span><br><span class="line">START TRANSACTION -- 开启一个事务 （一组事务）</span><br><span class="line">UPDATE account SET money = money - 500 WHERE `name` = &#x27;A&#x27; -- a减500</span><br><span class="line">UPDATE account SET money = money + 500 WHERE `name` = &#x27;B&#x27; -- a加500 </span><br><span class="line"></span><br><span class="line">COMMIT; -- 提交事务</span><br><span class="line">ROLLBACK; -- 回滚</span><br><span class="line"></span><br><span class="line">SET autocommit = 1; -- 回复默认值 </span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>大二生涯</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>MySQL</tag>
+        <tag>MySQL事务</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>狂神说Spring</title>
     <url>/2022/06/06/%E7%8B%82%E7%A5%9E%E8%AF%B4Spring/</url>
     <content><![CDATA[<h1 id="spring简介">Spring简介</h1>
@@ -5250,68 +5277,6 @@ alt="image-20220610125436970" />
       </tags>
   </entry>
   <entry>
-    <title>狂神说mysql事务</title>
-    <url>/2022/06/04/%E7%8B%82%E7%A5%9E%E8%AF%B4mysql%E4%BA%8B%E5%8A%A1/</url>
-    <content><![CDATA[<h1 id="事务acid原则">事务ACID原则</h1>
-<blockquote>
-<p>原子性（<strong>A</strong>tomicity）、一致性（<strong>C</strong>onsistency）、隔离性（<strong>I</strong>solation）、持久性（<strong>D</strong>urability）。</p>
-</blockquote>
-<p>脏读：指一个事务读取了另一个事务未提交的数据</p>
-<p>不可重复读：在一个事务内读取表中的某一行数据，多次读取结果不同。（这个不一定是错误，只是某些场合不对）</p>
-<p>虚读(幻读):
-是指在一个事务内读取到了别的事务插入的数据，导致前后读取数量总量不一致。</p>
-<h2 id="模拟场景">模拟场景</h2>
-<blockquote>
-<p>SAVEPOINT -- 设置保存点 ROLLBACK TO SAVEPOINT -- 回滚到保存点 RELEASE
-SAVEPOINT -- 删除保存点</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> -- 转账</span><br><span class="line"> CREATE DATABASE shop CHARACTER SET utf8 COLLATE utf8_general_ci</span><br><span class="line">USE shop </span><br><span class="line"></span><br><span class="line">CREATE TABLE `account` (</span><br><span class="line">`id` INT(3) NOT NULL AUTO_INCREMENT,</span><br><span class="line">`name` VARCHAR(30) NOT NULL,</span><br><span class="line">`money` DECIMAL(9,2) NOT NULL,</span><br><span class="line">PRIMARY KEY (`id`)</span><br><span class="line">) ENGINE = INNODB DEFAULT CHARSET = utf8</span><br><span class="line"> </span><br><span class="line"> INSERT INTO account(`name`, `money`)</span><br><span class="line"> VALUES (&#x27;A&#x27;,2000.00),(&#x27;B&#x27;,10000.00)</span><br><span class="line"> </span><br><span class="line">-- 模拟转账， 事务</span><br><span class="line">SET autocommit = 0; -- 关闭自动提交</span><br><span class="line">START TRANSACTION -- 开启一个事务 （一组事务）</span><br><span class="line">UPDATE account SET money = money - 500 WHERE `name` = &#x27;A&#x27; -- a减500</span><br><span class="line">UPDATE account SET money = money + 500 WHERE `name` = &#x27;B&#x27; -- a加500 </span><br><span class="line"></span><br><span class="line">COMMIT; -- 提交事务</span><br><span class="line">ROLLBACK; -- 回滚</span><br><span class="line"></span><br><span class="line">SET autocommit = 1; -- 回复默认值 </span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>大二生涯</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>MySQL</tag>
-        <tag>MySQL事务</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>用例图怎么画？附4大关系详解</title>
-    <url>/2022/05/14/%E7%94%A8%E4%BE%8B%E5%9B%BE%E6%80%8E%E4%B9%88%E7%94%BB%EF%BC%9F%E9%99%844%E5%A4%A7%E5%85%B3%E7%B3%BB%E8%AF%A6%E8%A7%A3/</url>
-    <content><![CDATA[<h1 id="用例图的定义及组成要素">用例图的定义及组成要素</h1>
-<p>它主要由三部分组成：<strong>参与者</strong>、<strong>用例</strong>、<strong>参与者与用例之间的关系。</strong></p>
-<p><strong>参与者：</strong>不是特指人，是指系统以外的，在使用系统或与系统交互中所扮演的角色。</p>
-<p><strong>用例：</strong>是对包括变量在内的一组动作序列的描述，系统执行这些动作，并产生传递特定参与者的价值的可观察结果。</p>
-<p><strong>关系：</strong>参与者与用例之间的关系主要包括关联、归纳（泛化）、包含、拓展和依赖。</p>
-<h1 id="参与者与用例的4种关系">参与者与用例的4种关系</h1>
-<ol type="1">
-<li><h2 id="关联关系"><strong>关联关系</strong></h2>
-<p><strong>举例说明：</strong>用户登录系统</p>
-<p><img
-src="https://pic3.zhimg.com/80/v2-830ec9e117f74c4d1a9dc1776bead9b2_720w.jpg" /></p></li>
-<li><h2 id="归纳泛化关系"><strong>归纳（泛化）关系</strong></h2>
-<p><strong>举例说明：</strong>VIP会员和普通用户，归纳为用户；账号登录与微信登录，也可归纳为登录系统。</p>
-<p><img
-src="https://pic4.zhimg.com/80/v2-27fcca6ef7b16bdcf2cdf676d9adf7a3_720w.jpg" /></p></li>
-<li><h2 id="包含关系"><strong>包含关系</strong></h2>
-<p><strong>举例说明：</strong>用户在账号登录过程中，包括输入账号、输入密码、确认登录等操作</p>
-<p><img
-src="https://pic3.zhimg.com/80/v2-d5d0914418cbeb28d987f7f2673febd2_720w.jpg" /></p></li>
-<li><h2 id="拓展关系"><strong>拓展关系</strong></h2>
-<p>举例说明：用户在登录过程中忘记了密码</p>
-<p><img
-src="https://pic4.zhimg.com/80/v2-e05e2ae3afe5ffea1836352c547f3c13_720w.jpg" /></p></li>
-</ol>
-]]></content>
-      <categories>
-        <category>大二生涯</category>
-      </categories>
-      <tags>
-        <tag>UML</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>狂神说springboot</title>
     <url>/2022/09/09/%E7%8B%82%E7%A5%9E%E8%AF%B4springboot/</url>
     <content><![CDATA[<h1 id="springboot集成redis">SpringBoot集成Redis</h1>
@@ -5358,6 +5323,41 @@ alt="image-20220912144457722" />
       </categories>
       <tags>
         <tag>Springboot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>用例图怎么画？附4大关系详解</title>
+    <url>/2022/05/14/%E7%94%A8%E4%BE%8B%E5%9B%BE%E6%80%8E%E4%B9%88%E7%94%BB%EF%BC%9F%E9%99%844%E5%A4%A7%E5%85%B3%E7%B3%BB%E8%AF%A6%E8%A7%A3/</url>
+    <content><![CDATA[<h1 id="用例图的定义及组成要素">用例图的定义及组成要素</h1>
+<p>它主要由三部分组成：<strong>参与者</strong>、<strong>用例</strong>、<strong>参与者与用例之间的关系。</strong></p>
+<p><strong>参与者：</strong>不是特指人，是指系统以外的，在使用系统或与系统交互中所扮演的角色。</p>
+<p><strong>用例：</strong>是对包括变量在内的一组动作序列的描述，系统执行这些动作，并产生传递特定参与者的价值的可观察结果。</p>
+<p><strong>关系：</strong>参与者与用例之间的关系主要包括关联、归纳（泛化）、包含、拓展和依赖。</p>
+<h1 id="参与者与用例的4种关系">参与者与用例的4种关系</h1>
+<ol type="1">
+<li><h2 id="关联关系"><strong>关联关系</strong></h2>
+<p><strong>举例说明：</strong>用户登录系统</p>
+<p><img
+src="https://pic3.zhimg.com/80/v2-830ec9e117f74c4d1a9dc1776bead9b2_720w.jpg" /></p></li>
+<li><h2 id="归纳泛化关系"><strong>归纳（泛化）关系</strong></h2>
+<p><strong>举例说明：</strong>VIP会员和普通用户，归纳为用户；账号登录与微信登录，也可归纳为登录系统。</p>
+<p><img
+src="https://pic4.zhimg.com/80/v2-27fcca6ef7b16bdcf2cdf676d9adf7a3_720w.jpg" /></p></li>
+<li><h2 id="包含关系"><strong>包含关系</strong></h2>
+<p><strong>举例说明：</strong>用户在账号登录过程中，包括输入账号、输入密码、确认登录等操作</p>
+<p><img
+src="https://pic3.zhimg.com/80/v2-d5d0914418cbeb28d987f7f2673febd2_720w.jpg" /></p></li>
+<li><h2 id="拓展关系"><strong>拓展关系</strong></h2>
+<p>举例说明：用户在登录过程中忘记了密码</p>
+<p><img
+src="https://pic4.zhimg.com/80/v2-e05e2ae3afe5ffea1836352c547f3c13_720w.jpg" /></p></li>
+</ol>
+]]></content>
+      <categories>
+        <category>大二生涯</category>
+      </categories>
+      <tags>
+        <tag>UML</tag>
       </tags>
   </entry>
   <entry>
