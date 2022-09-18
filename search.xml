@@ -8,7 +8,7 @@
       <link href="/2022/09/17/Git%E7%AC%94%E8%AE%B0/"/>
       <url>/2022/09/17/Git%E7%AC%94%E8%AE%B0/</url>
       
-        <content type="html"><![CDATA[<blockquote><p><ahref="https://blog.csdn.net/qq_33369905/article/details/106647320">狂神说Git笔记</a></p></blockquote><p><strong>Git是目前世界上最先进的分布式版本控制系统。</strong></p><h1 id="配置git">配置Git</h1><p>查看配置 <code>git config -l</code></p><h2id="设置用户名与邮箱用户标识必要">设置用户名与邮箱（用户标识，必要）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;alfa&quot;</span>  <span class="comment">#名称</span></span><br><span class="line">git config --global user.email 3343392239@qq.com   <span class="comment">#邮箱</span></span><br></pre></td></tr></table></figure><h1 id="搭建本地仓库">搭建本地仓库</h1><p>创建全新的仓库，需要用GIT管理的项目的根目录执行：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在当前目录新建一个Git代码库</span></span><br><span class="line">$ git init</span><br></pre></td></tr></table></figure><h1 id="git常用指令">Git常用指令</h1><figure><imgsrc="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy91SkRBVUtyR0M3S3N1OFVsSVR3TWxiWDNrTUd0WjlwMEFJSTZZVm9vVXppYnBpYnpKbm9PSEhYVXNMM2Y5RHFBNGhvclVpYmZjcEVaODhPeWYyZ1FRTlI2dy82NDA?x-oss-process=image/format,png"alt="img" /><figcaption aria-hidden="true">img</figcaption></figure><h1 id="查看文件状态">查看文件状态</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查看指定文件状态</span></span><br><span class="line">git status [filename]</span><br><span class="line"> </span><br><span class="line"><span class="comment">#查看所有文件状态</span></span><br><span class="line">git status</span><br><span class="line"><span class="comment"># git add .                  添加所有文件到暂存区</span></span><br><span class="line"><span class="comment"># git commit -m &quot;消息内容&quot;    提交暂存区中的内容到本地仓库 -m 提交信息</span></span><br></pre></td></tr></table></figure><h1 id="添加ssh公钥">添加SSH公钥</h1><ul><li><p>执行命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen</span><br></pre></td></tr></table></figure></li><li><p>进入 C:.ssh 目录</p><figure><imgsrc="https://pic-typora-1307603173.cos.ap-beijing.myqcloud.com/img/202209180847430.png"alt="image-20220918084752334" /><figcaption aria-hidden="true">image-20220918084752334</figcaption></figure></li><li><p>将公钥信息public key 添加到码云账户中即可！</p></li></ul>]]></content>
+        <content type="html"><![CDATA[<blockquote><p><ahref="https://blog.csdn.net/qq_33369905/article/details/106647320">狂神说Git笔记</a></p></blockquote><p><strong>Git是目前世界上最先进的分布式版本控制系统。</strong></p><h1 id="配置git">配置Git</h1><p>查看配置 <code>git config -l</code></p><h2id="设置用户名与邮箱用户标识必要">设置用户名与邮箱（用户标识，必要）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;alfa&quot;</span>  <span class="comment">#名称</span></span><br><span class="line">git config --global user.email 3343392239@qq.com   <span class="comment">#邮箱</span></span><br></pre></td></tr></table></figure><h1 id="搭建本地仓库">搭建本地仓库</h1><p>创建全新的仓库，需要用GIT管理的项目的根目录执行：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在当前目录新建一个Git代码库</span></span><br><span class="line">$ git init</span><br></pre></td></tr></table></figure><h1 id="git常用指令">Git常用指令</h1><figure><imgsrc="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy91SkRBVUtyR0M3S3N1OFVsSVR3TWxiWDNrTUd0WjlwMEFJSTZZVm9vVXppYnBpYnpKbm9PSEhYVXNMM2Y5RHFBNGhvclVpYmZjcEVaODhPeWYyZ1FRTlI2dy82NDA?x-oss-process=image/format,png"alt="img" /><figcaption aria-hidden="true">img</figcaption></figure><h1 id="查看文件状态">查看文件状态</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查看指定文件状态</span></span><br><span class="line">git status [filename]</span><br><span class="line"> </span><br><span class="line"><span class="comment">#查看所有文件状态</span></span><br><span class="line">git status</span><br><span class="line"><span class="comment"># git add .                  添加所有文件到暂存区</span></span><br><span class="line"><span class="comment"># git commit -m &quot;消息内容&quot;    提交暂存区中的内容到本地仓库 -m 提交信息</span></span><br></pre></td></tr></table></figure><h1 id="添加ssh公钥">添加SSH公钥</h1><ul><li><p>进入 C:.ssh 目录</p><figure><imgsrc="https://pic-typora-1307603173.cos.ap-beijing.myqcloud.com/img/202209180847430.png"alt="image-20220918084752334" /><figcaption aria-hidden="true">image-20220918084752334</figcaption></figure></li><li><p>执行命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen</span><br></pre></td></tr></table></figure></li><li><p>将公钥信息public key 添加到码云账户中即可！</p></li></ul>]]></content>
       
       
       <categories>
@@ -848,31 +848,6 @@
     
     
     <entry>
-      <title>Windows相关问题</title>
-      <link href="/2022/05/14/Windows%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/"/>
-      <url>/2022/05/14/Windows%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
-      
-        <content type="html"><![CDATA[<h1 id="windows系统下使用cd命令">windows系统下使用cd命令</h1><ol type="1"><li><p>输入D: 回车</p><p><img src="https://s2.loli.net/2022/05/26/vocCuYsR7WiVwQt.png" style="zoom:50%;" /></p></li><li><p>输入cd Program Files 回车</p><p><img src="https://s2.loli.net/2022/05/26/T2UDK9ou3MfJrs7.png" style="zoom:50%;" /></p></li></ol><hr /><h1 id="windows10---在当前文件夹下打开cmd命令行的方法">Windows10 -在当前文件夹下打开cmd（命令行）的方法</h1><p>清除文件路径输入cmd</p><figure><img src="https://s2.loli.net/2022/06/28/MGTy3sqFHmfELN2.gif"alt="img" /><figcaption aria-hidden="true">img</figcaption></figure><h1 id="windows-10任务管理器在哪怎么打开">Windows10任务管理器在哪?怎么打开?</h1><ol type="1"><li>先打开Windows 10运行命令框，可以直接使用 Win + R组合快捷键打开;</li><li>在运行命令操作中，在打开后面键入命名：taskmgr然后点击底部的“确定”就可以打开任务管理器了。</li></ol><h1id="使用管理员权限打开cmd命令提示符的方法-windows10">使用管理员权限打开cmd（命令提示符）的方法（Windows10）</h1><p>Step1 在任务栏搜索框里输入“cmd”</p><figure><img src="https://s2.loli.net/2022/06/28/Pua2RmC7J6zgGro.png"alt="在这里插入图片描述" /><figcaption aria-hidden="true">在这里插入图片描述</figcaption></figure><p>Step2 鼠标左键点击“以管理员身份运行”</p><figure><img src="https://s2.loli.net/2022/06/28/PYaxTcECewG1K6k.png"alt="在这里插入图片描述" /><figcaption aria-hidden="true">在这里插入图片描述</figcaption></figure><h1id="如何在windows的dos窗口中正常显示中文utf-8字符">如何在windows的DOS窗口中正常显示中文(UTF-8字符)</h1><p>打开CMD.exe命令行窗口,通过 chcp命令改变代码页</p><blockquote><p>UTF-8的代码页为65001,ANSI/OEM - 简体中文 GBK为936,window default OEM- 美国为437</p></blockquote><h1id="win10设置防火墙端口开放及检测开放端口">win10设置防火墙端口开放及检测开放端口</h1><blockquote><p><ahref="https://blog.csdn.net/qq_43567345/article/details/105323795">原文链接</a></p></blockquote><h1 id="在-cmd-里根据进程名杀掉进程">在 CMD 里根据进程名杀掉进程</h1><p>taskkill 命令</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">taskkill /pid 要杀死的processId，taskList命令查看</span><br></pre></td></tr></table></figure><blockquote><p><ahref="https://blog.csdn.net/WPwalter/article/details/107034597">原文链接</a></p></blockquote><h1id="微软拼音输入法更新后中文模式下输入变成顿号">微软拼音输入法更新后中文模式下输入“/”变成顿号</h1><figure><imgsrc="https://filestore.community.support.microsoft.com/api/images/222ba221-a169-4069-b8f5-cc5a4815f506?upload=true"alt="图片" /><figcaption aria-hidden="true">图片</figcaption></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> 大二生涯 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> windows </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>快速学习时序图：时序图简介、画法及实例</title>
       <link href="/2022/05/14/UML%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B/"/>
       <url>/2022/05/14/UML%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B/</url>
@@ -890,6 +865,31 @@
         <tags>
             
             <tag> UML </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Windows相关问题</title>
+      <link href="/2022/05/14/Windows%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/"/>
+      <url>/2022/05/14/Windows%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h1 id="windows系统下使用cd命令">windows系统下使用cd命令</h1><ol type="1"><li><p>输入D: 回车</p><p><img src="https://s2.loli.net/2022/05/26/vocCuYsR7WiVwQt.png" style="zoom:50%;" /></p></li><li><p>输入cd Program Files 回车</p><p><img src="https://s2.loli.net/2022/05/26/T2UDK9ou3MfJrs7.png" style="zoom:50%;" /></p></li></ol><hr /><h1 id="windows10---在当前文件夹下打开cmd命令行的方法">Windows10 -在当前文件夹下打开cmd（命令行）的方法</h1><p>清除文件路径输入cmd</p><figure><img src="https://s2.loli.net/2022/06/28/MGTy3sqFHmfELN2.gif"alt="img" /><figcaption aria-hidden="true">img</figcaption></figure><h1 id="windows-10任务管理器在哪怎么打开">Windows10任务管理器在哪?怎么打开?</h1><ol type="1"><li>先打开Windows 10运行命令框，可以直接使用 Win + R组合快捷键打开;</li><li>在运行命令操作中，在打开后面键入命名：taskmgr然后点击底部的“确定”就可以打开任务管理器了。</li></ol><h1id="使用管理员权限打开cmd命令提示符的方法-windows10">使用管理员权限打开cmd（命令提示符）的方法（Windows10）</h1><p>Step1 在任务栏搜索框里输入“cmd”</p><figure><img src="https://s2.loli.net/2022/06/28/Pua2RmC7J6zgGro.png"alt="在这里插入图片描述" /><figcaption aria-hidden="true">在这里插入图片描述</figcaption></figure><p>Step2 鼠标左键点击“以管理员身份运行”</p><figure><img src="https://s2.loli.net/2022/06/28/PYaxTcECewG1K6k.png"alt="在这里插入图片描述" /><figcaption aria-hidden="true">在这里插入图片描述</figcaption></figure><h1id="如何在windows的dos窗口中正常显示中文utf-8字符">如何在windows的DOS窗口中正常显示中文(UTF-8字符)</h1><p>打开CMD.exe命令行窗口,通过 chcp命令改变代码页</p><blockquote><p>UTF-8的代码页为65001,ANSI/OEM - 简体中文 GBK为936,window default OEM- 美国为437</p></blockquote><h1id="win10设置防火墙端口开放及检测开放端口">win10设置防火墙端口开放及检测开放端口</h1><blockquote><p><ahref="https://blog.csdn.net/qq_43567345/article/details/105323795">原文链接</a></p></blockquote><h1 id="在-cmd-里根据进程名杀掉进程">在 CMD 里根据进程名杀掉进程</h1><p>taskkill 命令</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">taskkill /pid 要杀死的processId，taskList命令查看</span><br></pre></td></tr></table></figure><blockquote><p><ahref="https://blog.csdn.net/WPwalter/article/details/107034597">原文链接</a></p></blockquote><h1id="微软拼音输入法更新后中文模式下输入变成顿号">微软拼音输入法更新后中文模式下输入“/”变成顿号</h1><figure><imgsrc="https://filestore.community.support.microsoft.com/api/images/222ba221-a169-4069-b8f5-cc5a4815f506?upload=true"alt="图片" /><figcaption aria-hidden="true">图片</figcaption></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大二生涯 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> windows </tag>
             
         </tags>
       
