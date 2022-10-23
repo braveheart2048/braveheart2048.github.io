@@ -1506,6 +1506,20 @@ z &amp; =  \frac xy
 <li><p><span class="math inline">\(C_{n}^{r}\)</span></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">C_&#123;n&#125;^&#123;r&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
+<h1 id="latex-打出波浪号">Latex 打出波浪号（~）</h1>
+<p><span class="math inline">\(\sim\)</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\sim</span><br></pre></td></tr></table></figure>
+<h1 id="latex公式多行对齐">Latex公式多行对齐</h1>
+<p><span class="math display">\[
+\begin{eqnarray}    \label{eq}
+E&amp;=&amp;(a+b)(a-b)+b^2  \nonumber    \\
+~&amp;=&amp;a^2-b^2+b^2 \nonumber    \\
+~&amp;=&amp;a^2
+\end{eqnarray}
+\]</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\begin&#123;eqnarray&#125;    \label&#123;eq&#125;</span><br><span class="line">E&amp;=&amp;(a+b)(a-b)+b^2  \nonumber    \\</span><br><span class="line">~&amp;=&amp;a^2-b^2+b^2 \nonumber    \\</span><br><span class="line">~&amp;=&amp;a^2</span><br><span class="line">\end&#123;eqnarray&#125;</span><br></pre></td></tr></table></figure>
+<p>以上公式中， “&amp;=&amp;”代表在“=”处对齐，
+“”代表此行不参与自动编号，“”表示换行。“～”输入或不输入对结果没有影响。</p>
 ]]></content>
       <categories>
         <category>岗前实训</category>
@@ -7441,6 +7455,72 @@ alt="image-20220912144457722" />
       </categories>
       <tags>
         <tag>Springboot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>推导一个等价无穷小</title>
+    <url>/2022/10/23/%E6%8E%A8%E5%AF%BC%E4%B8%80%E4%B8%AA%E7%AD%89%E4%BB%B7%E6%97%A0%E7%A9%B7%E5%B0%8F/</url>
+    <content><![CDATA[<h1 id="推导ex-1x">推导e^x-1~x</h1>
+<p>我们都知道的一个很重要的等价无穷小就是： <span
+class="math display">\[
+e^x-1\sim x
+\]</span></p>
+<hr />
+<p>在正式开始推导之前，我们首先要先明白几个定理，关于这几个定理我先给出，而省略其推导过程：</p>
+<ul>
+<li><p>设有复合函数<span class="math inline">\(f[g(x)]\)</span>满足</p>
+<ol type="1">
+<li><p><span class="math display">\[
+\lim_{x\rightarrow x_0}g(x) = u_0
+\]</span></p></li>
+<li><p><span class="math display">\[
+y = f(u)\text{在点}u_0处连续
+\]</span></p></li>
+</ol>
+<p><span class="math display">\[
+\text{则}\lim_{x\rightarrow x_0}f[g(x)]=f(u_0)=f[\lim_{x\rightarrow
+x_0}g(x)]
+\]</span></p></li>
+<li><p>基本初等函数归为六类：幂函数、指数函数、对数函数、三角函数、反三角函数、常数函数，<strong>基本初等函数在其定义域内都连续。</strong></p></li>
+<li><p><strong>所有初等函数在其定义域内连续</strong>（由六种基本初等函数，经过有限次的四则运算或复合运算得到的函数称为初等函数。）</p></li>
+</ul>
+<p>下面我来尝试着推导一下这个等价无穷小：</p>
+<ol type="1">
+<li><p><span class="math display">\[
+\text{存在式子：}\lim_{x\rightarrow x_0}  \frac{\log_a(1+x)}{x}\\
+\text{解：原极限}=\lim_{x\rightarrow x_0}[\log_a(1+x)^\frac{1}{x}]\\
+~~~~~~~~~~~~~~~~=\log_a[\lim_{x\rightarrow x_0}(1+x)^{\frac{1}{x}}]\\
+=\log_ae\\
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~=\frac{1}{lna}\text{（这一步转换用到了对数换底公式，我在后面会给出这个公式及其证明）}
+\]</span></p></li>
+<li><p>如果把上一个式子做一些变形，用e替换底数a，则根据上一个式子得出的结果，就能得到我们要证明的等价无穷小
+<span class="math display">\[
+\lim_{x\rightarrow x_0}  \frac{\ln(1+x)}{x}=\frac{1}{lne}=1\\
+\text{即}ln(1+x)\sim x
+\]</span></p></li>
+</ol>
+<h2 id="对数换底公式">对数换底公式</h2>
+<p><span class="math display">\[
+\log_ab=\frac{\log_cb}{\log_ca}\\
+\text{特别的，当c为e时：}\log_ab=\frac{\ln b}{\ln a}
+\]</span></p>
+<p>对数换底公式的证明：</p>
+<ol type="1">
+<li>设<span class="math inline">\(log_ab=x\)</span>，则有<span
+class="math inline">\(a^x=b\)</span></li>
+<li>两边同时取对数为：<span class="math inline">\(x\ln a=\ln
+b\)</span>，即<span class="math inline">\(x=\frac{\ln b}{\ln
+a}\)</span></li>
+<li>换回x，就得到<span class="math inline">\(\log_ab=\frac{\ln b}{\ln
+a}\)</span></li>
+</ol>
+]]></content>
+      <categories>
+        <category>实训生涯</category>
+      </categories>
+      <tags>
+        <tag>专升本</tag>
+        <tag>高等数学</tag>
       </tags>
   </entry>
 </search>
